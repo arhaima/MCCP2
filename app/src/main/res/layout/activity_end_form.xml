@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="horizontal">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        tools:context="com.example.hassannaqvi.mccp2.MainActivity">
+
+
+        <TextView
+            android:id="@+id/crf1_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/MCCP2_label"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#0000ff"
+            android:labelFor="@+id/MC_109"
+            android:text="@string/MC_109"
+            android:textColor="#ffffff"
+            android:textSize="24sp" />
+
+        <RadioGroup
+            android:id="@+id/MC_109"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/MC_109_complete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="@string/MC_109_complete" />
+
+            <RadioButton
+                android:id="@+id/MC_109_incomplete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="@string/MC_109_incomplete" />
+
+            <RadioButton
+                android:id="@+id/MC_109_noQ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="@string/MC_109_noQ" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#0000ff"
+            android:labelFor="@+id/MC_110"
+            android:id="@+id/MC_110_txt"
+            android:text="@string/MC_110"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:visibility="invisible"/>
+
+        <RadioGroup
+            android:id="@+id/MC_110"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <RadioButton
+                android:id="@+id/MC_110_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="@string/MC_110_1" />
+
+            <RadioButton
+                android:id="@+id/MC_110_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="@string/MC_110_2" />
+
+            <RadioButton
+                android:id="@+id/MC_110_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="@string/MC_110_3" />
+
+            <RadioButton
+                android:id="@+id/MC_110_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="@string/MC_110_4" />
+
+            <RadioButton
+                android:id="@+id/MC_110_88"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:drawableRight="@android:drawable/btn_radio"
+                android:text="@string/MC_110_88" />
+        </RadioGroup>
+        <!-- Specify other  -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="#0000ff"
+            android:labelFor="@+id/MC_110x"
+            android:id="@+id/MC_110x_txt"
+            android:text="@string/MC_110X"
+            android:textColor="#ffffff"
+            android:textSize="24sp"
+            android:visibility="invisible"/>
+        <EditText
+            android:id="@+id/MC_110x"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:hint="@string/MC_110X"
+            android:inputType="text"
+            android:maxLength="3"
+            android:singleLine="true"
+            android:textSize="24sp"
+            android:visibility="invisible"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_End"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/end_interview"
+                android:textColor="#ff1e1e"
+                android:textSize="24dp"
+                android:onClick="noInterview"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

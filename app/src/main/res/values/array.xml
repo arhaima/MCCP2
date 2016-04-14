@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="MC_103_list">
+        <item> بلدیہ </item>
+        <item> اورنگی </item>
+        <item> سائٹ  </item>
+        <item> گڈاپ </item>
+        <item> لانڈھی </item>
+    </string-array>
+    <string-array name="MC_103_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+
+    <string-array name="MC_106_list">
+        <item> J </item>
+        <item> X </item>
+    </string-array>
+
+    <string-array name="MC_109_list">
+        <item> مکمل </item>
+        <item> نامکمل </item>
+        <item> سوالنامہ نہیں بھراگیا  </item>
+
+    </string-array>
+    <string-array name="MC_109_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="MC_110_list">
+        <item> انٹرویو کے دوران منع کر دیا  </item>
+        <item> گهر بند تھا </item>
+        <item> بالغ جوابدہندہ موجود نہیں تھا  </item>
+        <item> اجازت دینے والا موجود نہیں ہے </item>
+        <item> دیگر </item>
+    </string-array>
+    <string-array name="MC_110_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>88</item>
+    </string-array>
+</resources>
