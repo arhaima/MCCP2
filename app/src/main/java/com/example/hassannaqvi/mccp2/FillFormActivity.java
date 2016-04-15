@@ -21,6 +21,7 @@ import java.text.DateFormat;
 public class FillFormActivity extends AppCompatActivity {
 
     private static final String TAG = "Fill Form";
+    private String mcFrmNo;
     private DatePicker mc101date;
     private TimePicker mc101time;
     private Spinner mc103town;
@@ -29,7 +30,7 @@ public class FillFormActivity extends AppCompatActivity {
     private EditText mc105cluster;
     private TextView mc105clusterNm;
     private EditText mc106hhno;
-    private Spinner mc106j;
+    private Spinner mcExt;
     private RadioGroup mc107epimark;
     private RadioButton mc107epimark_yes;
     private RadioButton mc107epimark_no;
@@ -42,6 +43,8 @@ public class FillFormActivity extends AppCompatActivity {
     private int mc108Selected;
     private TextView formErrorTxt;
     private Boolean formError;
+    public static String FORM_ID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,7 @@ public class FillFormActivity extends AppCompatActivity {
 
         formError = false;
 
+        mcFrmNo = "";
         mc101date = (DatePicker) findViewById(R.id.MC_101DATE);
         mc101time = (TimePicker) findViewById(R.id.MC_101TIME);
         mc103town = (Spinner) findViewById(R.id.MC_103);
@@ -60,7 +64,7 @@ public class FillFormActivity extends AppCompatActivity {
         mc105cluster = (EditText) findViewById(R.id.MC_105);
         mc105clusterNm = (TextView) findViewById(R.id.MC_105Name);
         mc106hhno = (EditText) findViewById(R.id.MC_106);
-        mc106j = (Spinner) findViewById(R.id.MC_106j);
+        mcExt = (Spinner) findViewById(R.id.MC_Ext);
 
         mc107epimark = (RadioGroup) findViewById(R.id.MC_107);
             mc107epimark_no = (RadioButton) findViewById(R.id.MC_107_No);
@@ -139,11 +143,13 @@ public class FillFormActivity extends AppCompatActivity {
 
     // Start Interview Form 1 - Section 1
     public void startInterview(View view) {
+        FORM_ID = mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString();
 
-            // Form Validation - Section 1
+        // Form Validation - Section 1
         formValidation();
 
         if(formError == false){
+            GenerateFormId();
             StoreTempValues();
             Log.i(TAG, "Form Values Stored! Starting Interview... (S2)");
             Intent fill_form_S2_intent = new Intent(getApplicationContext(), FillFormS2Activity.class);
@@ -166,7 +172,7 @@ public class FillFormActivity extends AppCompatActivity {
 
 
         if (mc104uc.getText().toString().isEmpty() || mc104uc.getText().toString() == null) {
-            mc104uc.setError("Union Counsil Number not given!");
+            mc104uc.setError("Union Council Number not given!");
             formError = true;
             Log.d(TAG, "Error Type: 104");
 
@@ -194,64 +200,72 @@ public class FillFormActivity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 108 "+ mc108Selected );
         }
     }
+    private void GenerateFormId(){
+
+        char ch = mcExt.getSelectedItem().toString().trim().charAt(0);
+        int pos = ch - 'a' + 1;
+        int len = mc106hhno.getText().toString().length();
+
+        String hhCode = "";
+
+        if (len < 3){
+            String stCode = mc106hhno.getText().toString();
+            hhCode = String.format("%03d", stCode);
+
+        }
+
+        mcFrmNo = mc105cluster.getText().toString()+ hhCode + pos;
+    }
+
     private void StoreTempValues(){
 
-        SharedPreferences sharedPref = getSharedPreferences("tempForm", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(FORM_ID, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         String spDateT = DateFormat.getDateInstance().format(mc101date.getCalendarView().getDate());
         String spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
 
         editor.putBoolean("formOpen", true);
-
-        editor.putString("sp101Date", String.valueOf(spDateT));
+        editor.putString("spFrmNo", mcFrmNo);
+        editor.putString("sp101", String.valueOf(spDateT));
         editor.putString("sp101Time", String.valueOf(spTimeT));
 
-        String mc103ucSelected = getResources().getStringArray(R.array.MC_103_value)[mc103town.getSelectedItemPosition()];
+        String mc103Selected = getResources().getStringArray(R.array.MC_103_value)[mc103town.getSelectedItemPosition()];
 
-        editor.putString("sp103UC", String.valueOf(mc103ucSelected));
+        editor.putString("sp103", String.valueOf(mc103Selected));
+        editor.putString("sp104", mc104uc.getText().toString());
         editor.putString("sp105", mc105cluster.getText().toString());
-        editor.putString("sp106", mc106hhno.getText().toString() + "-" + mc106j.getSelectedItem().toString());
+        editor.putString("sp106", mc106hhno.getText().toString());
+        editor.putString("spExt", mcExt.getSelectedItem().toString());
 
         switch (mc107Selected) {
             case R.id.MC_107_No:
-                editor.putBoolean("EPI_No", true);
-                editor.putBoolean("EPI_Unclear", false);
-                editor.putBoolean("EPI_Yes", false);
+                editor.putString("sp107", "2");
                 break;
             case R.id.MC_107_Unclear:
-                editor.putBoolean("EPI_No", false);
-                editor.putBoolean("EPI_Unclear", true);
-                editor.putBoolean("EPI_Yes", false);
+                editor.putString("sp107", "3");
                 break;
             case R.id.MC_107_Yes:
-                editor.putBoolean("EPI_No", false);
-                editor.putBoolean("EPI_Unclear", false);
-                editor.putBoolean("EPI_Yes", true);
+                editor.putString("sp107", "1");
+                break;
+            default:
+                editor.putString("sp107", "0");
                 break;
         }
 
         switch (mc108Selected) {
             case R.id.MC_108_No:
-                editor.putBoolean("Permit_No", true);
-                editor.putBoolean("Permit_Close", false);
-                editor.putBoolean("Permit_Yes", false);
+                editor.putString("sp108", "2");
                 break;
             case R.id.MC_108_Close:
-                editor.putBoolean("Permit_No", false);
-                editor.putBoolean("Permit_Close", true);
-                editor.putBoolean("Permit_Yes", false);
+                editor.putString("sp108", "3");
                 break;
             case R.id.MC_108_Yes:
-                editor.putBoolean("Permit_No", false);
-                editor.putBoolean("Permit_Close", false);
-                editor.putBoolean("Permit_Yes", true);
+                editor.putString("sp108", "1");
 
                 break;
             default:
-                editor.putBoolean("Permit_No", false);
-                editor.putBoolean("Permit_Close", false);
-                editor.putBoolean("Permit_Yes", true);
+                editor.putString("sp108", "0");
                 break;
 
         }
@@ -259,10 +273,27 @@ public class FillFormActivity extends AppCompatActivity {
         editor.commit();
 
 
+
     }
-    private void noInterview(View view){
-        Intent end_form_intent = new Intent(getApplicationContext(), EndFormActivity.class);
-        startActivity(end_form_intent);
+    public void noInterview(View view){
+        FORM_ID = mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString();
+
+        // Form Validation - Section 1
+        formValidation();
+        StoreTempValues();
+        if(formError == false){
+            StoreTempValues();
+            Log.i(TAG, "Form Values Stored! Starting Interview... (S2)");
+            Intent end_form_intent = new Intent(getApplicationContext(), EndFormActivity.class);
+            startActivity(end_form_intent);
+
+        } else {
+            formError = false;
+            formErrorTxt.setText("Please remove all errors to continue!");
+            formErrorTxt.setVisibility(View.VISIBLE);
+
+        }
+
     }
 
 

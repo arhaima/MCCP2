@@ -1,8 +1,10 @@
 package com.example.hassannaqvi.mccp2;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,12 +14,11 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
     }
 
     public void fillSurveyForm(View view) {
@@ -28,15 +29,59 @@ public class MainActivity extends AppCompatActivity {
 
     public void editStoredForm(View view) {
 
-        SharedPreferences sharedPref = getSharedPreferences("tempForm", Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         Boolean openForm = sharedPref.getBoolean("formOpen", false);
         Log.i("MainActivity", openForm.toString());
 
-        Map<String, ?> allEntries = sharedPref.getAll();
+        /*Map<String, ?> allEntries = sharedPref.getAll();
         for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
             Log.d("map values", entry.getKey() + ": " + entry.getValue().toString());
+        }*/
+
+        insertForm(FillFormActivity.FORM_ID);
+        Log.d("Main Activity", "Form Record Inserted" + FillFormActivity.FORM_ID + "-"+sharedPref.getString("spFrmNo", "false") );
+    }
+    public void insertForm(String formId){
+
+        String formValue = formId;
+
+        SharedPreferences sharedPref = getSharedPreferences(formValue, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        Boolean openForm = sharedPref.getBoolean("formOpen", false);
+
+        if (!openForm) {
+
+            FormsDbHelper mDbHelper = new FormsDbHelper(getApplicationContext());
+
+            SQLiteDatabase db = mDbHelper.getWritableDatabase();
+
+            ContentValues values = new ContentValues();
+
+            values.put(FormsContract.singleForm.ROW_ID, sharedPref.getString("spFrmNo", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_101, sharedPref.getString("sp101", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_101TIME, sharedPref.getString("sp101Time", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_102, sharedPref.getString("sp102", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_103, sharedPref.getString("sp103", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_104, sharedPref.getString("sp104", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_105, sharedPref.getString("sp105", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_106, sharedPref.getString("sp106", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_EXT, sharedPref.getString("spExt", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_107, sharedPref.getString("sp107", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_108, sharedPref.getString("sp108", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_109, sharedPref.getString("sp109", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_110, sharedPref.getString("sp110", "false"));
+            values.put(FormsContract.singleForm.ROW_MC_110X, sharedPref.getString("sp110x", "false"));
+
+            long newRowId;
+
+            newRowId = db.insert(FormsContract.singleForm.TABLE_NAME, FormsContract.singleForm.COLUMN_NAME_NULLABLE, values);
+            Log.d("Main Activity", "Form Record Inserted" + FillFormActivity.FORM_ID + "-"+sharedPref.getString("spFrmNo", "false") );
         }
+
+
+
     }
 }

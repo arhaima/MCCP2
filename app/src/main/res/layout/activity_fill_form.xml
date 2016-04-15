@@ -31,14 +31,9 @@
         android:background="?android:attr/listDivider" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#0000ff"
-        android:labelFor="@+id/MC_101DATE"
+        style="@style/labels"
         android:text="@string/MC_101"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+         />
 
 
     <DatePicker
@@ -50,14 +45,9 @@
         android:datePickerMode="spinner"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#0000ff"
-        android:labelFor="@+id/MC_101TIME"
+        style="@style/labels"
         android:text="@string/MC_101TIME"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+         />
 
     <TimePicker
         android:id="@+id/MC_101TIME"
@@ -68,14 +58,11 @@
         android:timePickerMode="spinner"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#0000ff"
-        android:labelFor="@+id/MC_103"
-        android:text="@string/MC_103"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+        style="@style/labels"
+        android:text="@string/MC_103">
+
+    </TextView>
+
 
     <Spinner
         android:id="@+id/MC_103"
@@ -83,7 +70,9 @@
         android:layout_height="wrap_content"
         android:entries="@array/MC_103_list"
         android:prompt="@string/MC_103"
-        android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        android:textSize="24sp"
+        android:spinnerDropDownItemStyle="@style/spinner"
+        > <!-- Todo: Increase textSize  -->
 
     </Spinner>
     <!-- UC No. -->
@@ -97,29 +86,19 @@
         android:textColor="#ffffff"
         android:textSize="24sp" />
     <EditText
+        style="@style/textInput"
         android:id="@+id/MC_104"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         android:hint="@string/MC_104"
         android:inputType="number"
         android:maxLength="3"
         android:singleLine="true"
-        android:textSize="24sp" />
+        />
 
     <TextView
+        style="@style/errors"
         android:id="@+id/MC_104UCName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#ffd6d6"
-        android:gravity="center"
-        android:labelFor="@+id/MC_104"
-        android:padding="5dp"
         android:text="@string/MC_104"
-        android:textColor="#ff1e1e"
-        android:textSize="24sp"
-        android:visibility="invisible" />
+         />
 
     <!-- Cluster No. -->
     <TextView
@@ -132,15 +111,13 @@
         android:textColor="#ffffff"
         android:textSize="24sp" />
     <EditText
+        style="@style/textInput"
         android:id="@+id/MC_105"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
         android:hint="@string/MC_105"
         android:inputType="number"
         android:maxLength="6"
         android:singleLine="true"
-        android:textSize="24sp" />
+         />
 
     <TextView
         android:id="@+id/MC_105Name"
@@ -174,19 +151,18 @@
         android:orientation="horizontal">
 
         <EditText
+            style="@style/textInput"
             android:id="@+id/MC_106"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="5dp"
             android:layout_weight="1"
+            android:layout_width="0dp"
             android:hint="@string/MC_106"
             android:inputType="number"
             android:maxLength="3"
             android:singleLine="true"
-            android:textSize="24sp" />
+             />
 
         <Spinner
-            android:id="@+id/MC_106j"
+            android:id="@+id/MC_Ext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/MC_106_list"
@@ -218,7 +194,8 @@
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_Yes" />
+            android:text="@string/MC_Yes"
+            android:textSize="24dp"/>
 
         <RadioButton
             android:id="@+id/MC_107_No"
@@ -226,7 +203,8 @@
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_No" />
+            android:text="@string/MC_No"
+            android:textSize="24dp"/>
 
         <RadioButton
             android:id="@+id/MC_107_Unclear"
@@ -234,21 +212,16 @@
             android:layout_height="wrap_content"
             android:button="@null"
             android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_Unclear" />
+            android:text="@string/MC_Unclear"
+            android:textSize="24dp"/>
     </RadioGroup>
 
     <!-- Instructions before MC_108 - Permission -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#ffd6d6"
-        android:gravity="center"
-        android:labelFor="@+id/MC_108inst"
-        android:padding="5dp"
+        style="@style/errors"
         android:text="@string/MC_108inst"
-        android:textColor="#ff1e1e"
-        android:textSize="24sp" />
+        android:visibility="visible"
+         />
 
     <!-- MC_108 - Permissions -->
     <TextView
@@ -263,48 +236,31 @@
 
     <RadioGroup
         android:id="@+id/MC_108"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:orientation="vertical">
+        style="@style/radiogroup">
 
         <RadioButton
             android:id="@+id/MC_108_Yes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_Yes" />
+            style="@style/radiobutton"
+            android:text="@string/MC_Yes"
+           />
 
         <RadioButton
+            style="@style/radiobutton"
             android:id="@+id/MC_108_No"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_No" />
+            android:text="@string/MC_No"
+            />
 
         <RadioButton
+            style="@style/radiobutton"
             android:id="@+id/MC_108_Close"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_108_Close" />
+            android:text="@string/MC_108_Close"
+            />
 
 
     </RadioGroup>
     <TextView
         android:id="@+id/fromError"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#ffd6d6"
-        android:gravity="center"
-        android:padding="5dp"
-        android:textColor="#ff1e1e"
-        android:textSize="24sp"
-        android:visibility="invisible" />
+        style="@style/errors" />
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -321,8 +277,6 @@
             android:textColor="#ff1e1e"
             android:textSize="24dp"
             android:onClick="noInterview"
-
-
             />
 
         <Button

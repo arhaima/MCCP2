@@ -152,7 +152,6 @@
             android:layout_marginBottom="5dp"
             android:hint="@string/MC_110X"
             android:inputType="text"
-            android:maxLength="3"
             android:singleLine="true"
             android:textSize="24sp"
             android:visibility="invisible"/>
