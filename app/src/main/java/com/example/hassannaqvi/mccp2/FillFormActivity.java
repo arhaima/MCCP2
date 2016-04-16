@@ -20,7 +20,8 @@ import java.text.DateFormat;
 
 public class FillFormActivity extends AppCompatActivity {
 
-    private static final String TAG = "Fill Form";
+    private static final String TAG = "FILL_FORM_ACTIVITY";
+    public static String FORM_ID;
     private String mcFrmNo;
     private DatePicker mc101date;
     private TimePicker mc101time;
@@ -43,8 +44,6 @@ public class FillFormActivity extends AppCompatActivity {
     private int mc108Selected;
     private TextView formErrorTxt;
     private Boolean formError;
-    public static String FORM_ID;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +67,7 @@ public class FillFormActivity extends AppCompatActivity {
 
         mc107epimark = (RadioGroup) findViewById(R.id.MC_107);
             mc107epimark_no = (RadioButton) findViewById(R.id.MC_107_No);
-            mc107epimark_yes = (RadioButton) findViewById(R.id.MC_107_No);
+        mc107epimark_yes = (RadioButton) findViewById(R.id.MC_107_Yes);
             mc107epimark_unclear = (RadioButton) findViewById(R.id.MC_107_Unclear);
             mc107Selected = mc107epimark.getCheckedRadioButtonId();
 
