@@ -6,13 +6,15 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 
-import java.util.Map;
-
 public class MainActivity extends AppCompatActivity {
+
+    public String formValue = "";
+    public SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
 
 
     @Override
@@ -29,8 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void editStoredForm(View view) {
 
-        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
 
         Boolean openForm = sharedPref.getBoolean("formOpen", false);
         Log.i("MainActivity", openForm.toString());
@@ -41,14 +42,12 @@ public class MainActivity extends AppCompatActivity {
         }*/
 
         insertForm(FillFormActivity.FORM_ID);
-        Log.d("Main Activity", "Form Record Inserted" + FillFormActivity.FORM_ID + "-"+sharedPref.getString("spFrmNo", "false") );
     }
     public void insertForm(String formId){
 
-        String formValue = formId;
+        formValue = formId;
 
-        SharedPreferences sharedPref = getSharedPreferences(formValue, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
+        sharedPref = getSharedPreferences(formValue, Context.MODE_PRIVATE);
 
         Boolean openForm = sharedPref.getBoolean("formOpen", false);
 
@@ -78,7 +77,8 @@ public class MainActivity extends AppCompatActivity {
             long newRowId;
 
             newRowId = db.insert(FormsContract.singleForm.TABLE_NAME, FormsContract.singleForm.COLUMN_NAME_NULLABLE, values);
-            Log.d("Main Activity", "Form Record Inserted" + FillFormActivity.FORM_ID + "-"+sharedPref.getString("spFrmNo", "false") );
+            Log.d("Main Activity", "Form Record Inserted" + String.valueOf(newRowId));
+
         }
 
 
