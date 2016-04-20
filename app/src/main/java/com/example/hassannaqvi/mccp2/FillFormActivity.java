@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -15,6 +16,10 @@ import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.DateFormat;
 
@@ -24,6 +29,8 @@ public class FillFormActivity extends AppCompatActivity {
     public static String FORM_ID;
     private String mcFrmNo;
     private DatePicker mc101date;
+    private String spDateT;
+    private String spTimeT;
     private TimePicker mc101time;
     private Spinner mc103town;
     private EditText mc104uc;
@@ -132,29 +139,33 @@ public class FillFormActivity extends AppCompatActivity {
                     }else{
                     btnContinue.setEnabled(true);
                 }
-
              }
         });
-
     }
-
-
 
     // Start Interview Form 1 - Section 1
     public void startInterview(View view) {
+
+
+        Toast.makeText(getApplicationContext(), "Starting Interview...", Toast.LENGTH_SHORT).show();
         FORM_ID = mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString();
 
+        spDateT = DateFormat.getDateInstance().format(mc101date.getCalendarView().getDate());
+        spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
         // Form Validation - Section 1
-        formValidation();
 
-        if(formError == false){
-            GenerateFormId();
+
+        if (formValidation()) {
+            Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
+
             StoreTempValues();
-            Log.i(TAG, "Form Values Stored! Starting Interview... (S2)");
+
             Intent fill_form_S2_intent = new Intent(getApplicationContext(), FillFormS2Activity.class);
             startActivity(fill_form_S2_intent);
 
         } else {
+            Toast.makeText(getApplicationContext(), "Form Validation... Failed!", Toast.LENGTH_SHORT).show();
+
             formError = false;
             formErrorTxt.setText("Please remove all errors to continue!");
             formErrorTxt.setVisibility(View.VISIBLE);
@@ -162,10 +173,41 @@ public class FillFormActivity extends AppCompatActivity {
         }
     }
 
+    // End Interview Form 1 - Section 1
+    public void endInterview(View view) {
+        Log.d(TAG, "endInterview");
+        Toast.makeText(getApplicationContext(), "Starting End of Form Section... ", Toast.LENGTH_SHORT).show();
 
+        FORM_ID = mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString();
+        spDateT = DateFormat.getDateInstance().format(mc101date.getCalendarView().getDate());
+        spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
 
-    private void formValidation(){
+        // Form Validation - Section 1
+
+        if (formValidation()) {
+            Toast.makeText(getApplicationContext(), "Form Validation...Successful!", Toast.LENGTH_SHORT).show();
+            StoreTempValues();
+            Intent end_form_intent = new Intent(getApplicationContext(), EndFormActivity.class);
+            end_form_intent.putExtra("frmNoId", GenerateFormId());
+            startActivity(end_form_intent);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Form Validation...Failed!", Toast.LENGTH_SHORT).show();
+
+            formError = false;
+            formErrorTxt.setText("Please remove all errors to continue!");
+            formErrorTxt.setVisibility(View.VISIBLE);
+
+        }
+
+    }
+
+    // Raw formValidation
+    private boolean formValidation() {
+        Toast.makeText(getApplicationContext(), "Validating Form Values...", Toast.LENGTH_SHORT).show();
+
         //Todo: Issue with fromError status and field level validation (104 & 105)
+
         mc107Selected = mc107epimark.getCheckedRadioButtonId();
         mc108Selected = mc108permission.getCheckedRadioButtonId();
 
@@ -182,7 +224,7 @@ public class FillFormActivity extends AppCompatActivity {
             formError = true;
             Log.d(TAG, "Error Type: 105");
         }
-        if (mc106hhno.getText().toString().isEmpty() || mc105cluster.getText().toString() == null) {
+        if (mc106hhno.getText().toString().isEmpty() || mc106hhno.getText().toString() == null) {
             mc106hhno.setError("Household Number not given!");
             formError = true;
             Log.d(TAG, "Error Type: 106");
@@ -198,34 +240,52 @@ public class FillFormActivity extends AppCompatActivity {
             formError = true;
             Log.d(TAG, "Error Type: 108 "+ mc108Selected );
         }
+        // Return from fromValidation()
+        return !formError;
     }
-    private void GenerateFormId(){
 
-        char ch = mcExt.getSelectedItem().toString().trim().charAt(0);
-        int pos = ch - 'a' + 1;
+    // Generating 11 digit ID ( ClusterNo + 3digit(106hhno) + convertLetterToNumber(106Ext) )
+    private String GenerateFormId() {
+        Toast.makeText(getApplicationContext(), "Generating Form ID...", Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "mcFrmNo starting");
+
+        String strExt = mcExt.getSelectedItem().toString();
+        strExt = strExt.trim();
+        Log.d(TAG, "mcFrmNo Jlen: " + String.valueOf(strExt.length()));
+        char ch = strExt.charAt(0);
+        int pos = ch - 'A' + 1;
         int len = mc106hhno.getText().toString().length();
+
 
         String hhCode = "";
 
         if (len < 3){
             String stCode = mc106hhno.getText().toString();
             hhCode = String.format("%03d", stCode);
-
+        } else {
+            hhCode = mc106hhno.getText().toString();
         }
-
+        Log.d(TAG, "mcFrmNo hhCode: " + hhCode);
+        Log.d(TAG, "mcFrmNo pos: " + pos);
         mcFrmNo = mc105cluster.getText().toString()+ hhCode + pos;
-    }
+        Toast.makeText(getApplicationContext(), "Form ID... " + mcFrmNo, Toast.LENGTH_SHORT).show();
+        Log.d(TAG, "mcFrmNo: " + mcFrmNo);
 
+        return mcFrmNo;
+
+    }
     private void StoreTempValues(){
+
+        Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
         SharedPreferences sharedPref = getSharedPreferences(FORM_ID, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
-        String spDateT = DateFormat.getDateInstance().format(mc101date.getCalendarView().getDate());
-        String spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
+
 
         editor.putBoolean("formOpen", true);
-        editor.putString("spFrmNo", mcFrmNo);
+        Log.d("spFrmNo1: ", GenerateFormId());
+        editor.putString("spFrmNo", GenerateFormId());
         editor.putString("sp101", String.valueOf(spDateT));
         editor.putString("sp101Time", String.valueOf(spTimeT));
 
@@ -270,28 +330,37 @@ public class FillFormActivity extends AppCompatActivity {
         }
 
         editor.commit();
+        Log.d(TAG, "Stored sharedValues.");
 
+        JSONObject s1 = new JSONObject();
 
+        try {
+            s1.put("mc101", sharedPref.getString("sp101", "00"));
+            s1.put("mc101Time", sharedPref.getString("sp101Time", "00"));
+            s1.put("mc102", sharedPref.getString("sp102", "00"));
+            s1.put("mc103", sharedPref.getString("sp103", "00"));
+            s1.put("mc104", sharedPref.getString("sp104", "00"));
+            s1.put("mc105", sharedPref.getString("sp105", "00"));
+            s1.put("mc106", sharedPref.getString("sp106", "00"));
+            s1.put("mcExt", sharedPref.getString("spExt", "00"));
+            s1.put("mc107", sharedPref.getString("sp107", "00"));
+            s1.put("mc108", sharedPref.getString("sp108", "00"));
 
-    }
-    public void noInterview(View view){
-        FORM_ID = mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString();
+            FormsContract formContract = new FormsContract(sharedPref.getString("spFrmNo", "00"), s1);
+            FormsDbHelper db = new FormsDbHelper(this);
+            try {
+                Log.d(TAG, "Adding Form to DB...");
+                db.addForm(formContract);
+            } catch (SQLiteException e) {
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
-        // Form Validation - Section 1
-        formValidation();
-        StoreTempValues();
-        if(formError == false){
-            StoreTempValues();
-            Log.i(TAG, "Form Values Stored! Starting Interview... (S2)");
-            Intent end_form_intent = new Intent(getApplicationContext(), EndFormActivity.class);
-            startActivity(end_form_intent);
+                e.printStackTrace();
+            }
 
-        } else {
-            formError = false;
-            formErrorTxt.setText("Please remove all errors to continue!");
-            formErrorTxt.setVisibility(View.VISIBLE);
-
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
+
 
     }
 

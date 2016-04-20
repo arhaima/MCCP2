@@ -23,15 +23,15 @@
     <string name="start_interview">انٹرویو شروع کریں</string>
 
     <string name="MC_109">انٹرویو کا نتیجہ </string>
-        <string name="MC_109_complete"> مکمل </string>
-        <string name="MC_109_incomplete"> نامکمل </string>
-        <string name="MC_109_noQ"> سوالنامہ نہیں بھراگیا </string>
+    <string name="MC_109_complete"> مکمل </string>
+    <string name="MC_109_incomplete"> نامکمل </string>
+    <string name="MC_109_noQ"> سوالنامہ نہیں بھراگیا </string>
     <string name="MC_110">اگر انٹرویو نامکمل ہو تو وجہ بیان کریں</string>
-        <string name="MC_110_1"> انٹرویو کے دوران منع کر دیا  </string>
-        <string name="MC_110_2"> گهر بند تھا </string>
-        <string name="MC_110_3"> بالغ جوابدہندہ موجود نہیں تھا  </string>
-        <string name="MC_110_4"> اجازت دینے والا موجود نہیں ہے </string>
-        <string name="MC_110_88"> دیگر </string>
+    <string name="MC_110_1"> انٹرویو کے دوران منع کر دیا  </string>
+    <string name="MC_110_2"> گهر بند تھا </string>
+    <string name="MC_110_3"> بالغ جوابدہندہ موجود نہیں تھا  </string>
+    <string name="MC_110_4"> اجازت دینے والا موجود نہیں ہے </string>
+    <string name="MC_110_88"> دیگر </string>
     <string name="MC_110X">انٹرویو نامکمل ہونے کی دیگر وضاحت کریں</string>
     <string name="MC_201NM">جوابدہندہ کا  نام </string>
     <string name="MC_201GNDR">جوابدہندہ کی جنس</string>
@@ -47,12 +47,12 @@
     <string name="MC_203TOT">اس گھر میں آپ کے ساتھ اور کتنے افراد رہتے ہیں؟</string>
     <string name="MC_203M">اس گھر میں ٹوٹل مرد</string>
     <string name="MC_203F">اس گھر میں ٹوٹل عورتیں</string>
-    <string name="MC_204M">اس گھر میں پانچ سال سے کم عمر کے کتنے بچے ہیں؟</string>
-    <string name="MC_204F">اس گھر میں پانچ سال سے کم عمر کے لڑکے</string>
-    <string name="MC_204T">اس گھر میں پانچ سال سے کم عمر کی بچییاں</string>
-    <string name="MC_205YY">یہاں کتنے عرصے سے رہائش پزیر ہیں؟)(سال)</string>
-    <string name="MC_205MM">(ایک سال سے کم ہوتو مہینوں میں لکھیں)(مہینے )</string>
-    <string name="MC_206">کیا اس گھر میں کوئی حاملہ خاتون ہے؟اگر جواب "ہاں" ہو تو سوال نمبر2.07 پوچھیں ورنہ اگلے سیکشن پر جایئں</string>
+    <string name="MC_204T">اس گھر میں پانچ سال سے کم عمر کے کتنے بچے ہیں؟</string>
+    <string name="MC_204M">اس گھر میں پانچ سال سے کم عمر کے لڑکے</string>
+    <string name="MC_204F">اس گھر میں پانچ سال سے کم عمر کی بچییاں</string>
+    <string name="MC_205YY"> یہاں کتنے عرصے سے رہائش پزیر ہیں؟ (سال) </string>
+    <string name="MC_205MM">ایک سال سے کم ہوتو مہینوں میں لکھیں(مہینے )</string>
+    <string name="MC_206">کیا اس گھر میں کوئی حاملہ خاتون ہے؟</string>
     <string name="MC_207_1W">گر ہاں تو حمل کی مدت ہفتوں میں</string>
     <string name="MC_207_1M">گر ہاں تو حمل کی مدت مہینوں میں </string>
     <string name="MC_207_2W">گر ہاں تو حمل کی مدت ہفتوں میں</string>
@@ -74,7 +74,7 @@
     <string name="IM_G">کیا پچھلی مہم کے دوران بچے کو پولیو کے قطرے پلا ئےگئے؟</string>
     <string name="IM_H">کیا انگلی پر  EPI کا نشان موجود ہے؟   </string>
     <string name="IM_I">کیا بچے نے کبھی بھی پولیو کے قطرے پیئے ہیں</string>
-    <string name="IM_JA">کیاپچھلے 6 مہینے کے دوران آپ کے بچے کو پولیو    کاٹیکہ لگا ہے؟ </string>
+    <string name="IM_J">کیاپچھلے 6 مہینے کے دوران آپ کے بچے کو پولیو    کاٹیکہ لگا ہے؟ </string>
     <string name="IM_JB">پولیو  کے ٹیکے کی sourceلکھیں</string>
     <string name="IM_K">بچے کو پولیو  کا ٹیکہ کہاں سے لگوایا ہے</string>
     <string name="BCG">BCG</string>
@@ -366,6 +366,23 @@
     <string name="MC_TLDT">ٹیم لیڈر دستخظ کی تاریخ</string>
     <string name="MC_SP">مانیٹرنگ سپروازئزر</string>
     <string name="MC_SPDT">مانیٹرنگ سپروازئزر  دستخظ کی تاریخ</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
+        completions."
+    </string>
+    <string name="start_next_section">اگلا سیکشن</string>
+    <string name="IM_COMPID">Child_Id</string>
+    <string name="MC_202inst">باقاعدہ تعلیم کتنے سال حاصل کی ؟  (کسی بھی تعلیمی ادارے ،اسکول،کالج ، یونیورسٹی وغیرہ)  انپڑھ کے لیے 77 کا کوڈ استعمال کریں</string>
 
 
 </resources>

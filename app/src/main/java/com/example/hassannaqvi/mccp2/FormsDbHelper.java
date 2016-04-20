@@ -1,17 +1,24 @@
 package com.example.hassannaqvi.mccp2;
 
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.example.hassannaqvi.mccp2.FormsContract.singleForm;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FormsDbHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "mccp2.db";
+    public static final int DATABASE_VERSION = 2;
+    public static final String DATABASE_NAME = "mccp2";
     public static final String SQL_CREATE_FORMS = "CREATE TABLE Forms" + "("
-            + singleForm.ROW_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + singleForm._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + singleForm.ROW_ID + " TEXT,"
             + singleForm.ROW_MC_101 + " TEXT,"
             + singleForm.ROW_MC_101TIME + " TEXT,"
             + singleForm.ROW_MC_102 + " TEXT,"
@@ -22,9 +29,12 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             + singleForm.ROW_MC_EXT + " TEXT,"
             + singleForm.ROW_MC_107 + " TEXT,"
             + singleForm.ROW_MC_108 + " TEXT,"
-            + singleForm.ROW_MC_109 + " TEXT,"
-            + singleForm.ROW_MC_110 + " TEXT,"
-            + singleForm.ROW_MC_110X + " TEXT" + " );";
+            + singleForm.ROW_S_2 + " TEXT,"
+            + singleForm.ROW_S_3 + " TEXT,"
+            + singleForm.ROW_S_4 + " TEXT,"
+            + singleForm.ROW_S_5 + " TEXT,"
+            + singleForm.ROW_S_6 + " TEXT,"
+            + singleForm.ROW_Ending + " TEXT" + " );";
     private static final String TAG = "FORM_DB_HELPER_CLASS";
     private static final String SQL_DELETE_FORMS =
             "DROP TABLE IF EXISTS Forms";
@@ -46,4 +56,59 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void addForm(FormsContract formscontract) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        Log.d(TAG, "Get Form ROW_ID: " + formscontract.getId());
+        values.put(singleForm.ROW_ID, formscontract.getId());
+        values.put(singleForm.ROW_MC_101, formscontract.get101());
+        values.put(singleForm.ROW_MC_101TIME, formscontract.get101Time());
+        values.put(singleForm.ROW_MC_102, formscontract.get102());
+        values.put(singleForm.ROW_MC_103, formscontract.get103());
+        values.put(singleForm.ROW_MC_104, formscontract.get104());
+        values.put(singleForm.ROW_MC_105, formscontract.get105());
+        values.put(singleForm.ROW_MC_106, formscontract.get106());
+        values.put(singleForm.ROW_MC_EXT, formscontract.getExt());
+        values.put(singleForm.ROW_MC_107, formscontract.get107());
+        values.put(singleForm.ROW_MC_108, formscontract.get108());
+
+
+        // Inserting Row
+        db.insert(singleForm.TABLE_NAME, null, values);
+        db.close(); // Closing database connection
+    }
+
+    public List<FormsContract> getAllForms() {
+        List<FormsContract> formList = new ArrayList<FormsContract>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + singleForm.TABLE_NAME;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                FormsContract form = new FormsContract();
+                form.setId(cursor.getString(cursor.getColumnIndex(singleForm.ROW_ID)));
+                form.set101(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101)));
+                form.set101Time(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101TIME)));
+                form.set102(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_102)));
+                form.set103(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_103)));
+                form.set104(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_104)));
+                form.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
+                form.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
+                form.setExt(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_EXT)));
+                form.set107(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_107)));
+                form.set108(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_108)));
+
+                // Adding contact to list
+                formList.add(form);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return formList;
+    }
 }

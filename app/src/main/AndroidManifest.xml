@@ -2,6 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hassannaqvi.mccp2">
 
+    <uses-sdk
+        android:maxSdkVersion="23"
+        android:minSdkVersion="17"
+        android:targetSdkVersion="19" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <android:uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <android:uses-permission android:name="android.permission.READ_CALL_LOG" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +33,12 @@
         <activity android:name=".FillFormActivity" />
         <activity android:name=".EditFormActivity" />
         <activity android:name=".FillFormS2Activity" />
-        <activity android:name=".EndFormActivity"></activity>
+        <activity android:name=".EndFormActivity" />
+        <activity
+            android:name=".LoginActivity"
+            android:label="@string/title_activity_login" />
+        <activity android:name=".FillFormS5Activity" />
+        <activity android:name=".FillFormS3Activity"></activity>
     </application>
 
 </manifest>

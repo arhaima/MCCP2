@@ -16,6 +16,8 @@
         <item name="android:background">#0000ff</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">24sp</item>
+        <item name="android:padding">12dp</item>
+
     </style>
 
     <style name="errors">
@@ -51,8 +53,6 @@
             @style/spinnerDropDownItemStyle
         </item>
 
-
-
     </style>
 
     <style name="spinnerItemStyle">
@@ -71,6 +71,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right</item>
         <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginBottom">5dp</item>
+
     </style>
     <style name="radiobutton">
         <item name="android:layout_width">wrap_content</item>
@@ -78,6 +80,24 @@
         <item name="android:button">@null</item>
         <item name="android:drawableRight">@android:drawable/btn_radio</item>
         <item name="android:textSize">24dp</item>
+    </style>
+
+    <style name="buttons">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">24dp</item>
+        <item name="android:layout_width">wrap_content</item>
+
+    </style>
+
+    <style name="checkbox">
+        <item name="android:layout_gravity">right</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableRight">?android:attr/listChoiceIndicatorMultiple</item>
+        <item name="android:layout_marginBottom">5dp</item>
+
+
     </style>
 
 

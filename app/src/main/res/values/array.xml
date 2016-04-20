@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
     <string-array name="MC_103_list">
         <item> بلدیہ </item>
         <item> اورنگی </item>
@@ -17,8 +18,8 @@
     </string-array>
 
     <string-array name="MC_106_list">
-        <item> J </item>
-        <item> X </item>
+        <item>J</item>
+        <item>X</item>
     </string-array>
 
     <string-array name="MC_109_list">
@@ -47,4 +48,879 @@
         <item>4</item>
         <item>88</item>
     </string-array>
+
+    <string-array name="MC_201OCU_list">
+        <item> گھریلو خاتون </item>
+        <item> ریٹائرڈ </item>
+        <item> بے روزگار </item>
+        <item> غیر ہنرمند مزدور </item>
+        <item> ہنر مند مزدور </item>
+        <item> کاروبار </item>
+        <item>پروفیشنل</item>
+    </string-array>
+    <string-array name="MC_201OCU_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="MC_GNDR_list">
+        <item>Male</item>
+        <item>Female</item>
+    </string-array>
+
+    <string-array name="MC_201TYPE_list">
+        <item>Mother</item>
+        <item>CareTaker</item>
+    </string-array>
+
+    <string-array name="MC_202OCU_list">
+        <item> گھریلو خاتون </item>
+        <item> ریٹائرڈ </item>
+        <item> بے روزگار </item>
+        <item> غیر ہنرمند مزدور </item>
+        <item> ہنر مند مزدور </item>
+        <item> کاروبار </item>
+        <item>پروفیشنل</item>
+    </string-array>
+    <string-array name="MC_202OCU_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+    </string-array>
+
+    <string-array name="IM_B_list">
+        <item> .لڑکا   </item>
+        <item> .لڑکی </item>
+    </string-array>
+    <string-array name="IM_B_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="IM_H_list">
+        <item> ہا ں  </item>
+        <item> نہیں </item>
+        <item> .بچہ موجود نہیں</item>
+    </string-array>
+    <string-array name="IM_H_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="MC_YN_list">
+        <item> ہا ں  </item>
+        <item> نہیں </item>
+
+    </string-array>
+    <string-array name="MC_YN_value">
+        <item>1</item>
+        <item>2</item>
+
+    </string-array>
+
+    <string-array name="IM_JB_list">
+        <item> حفاظتی ٹیکوں کا  کارڈ </item>
+        <item> جواب دہندہ  </item>
+    </string-array>
+    <string-array name="IM_JB_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="IM_K_list">
+        <item> کیمپ.1 TVI ہیلتھ کیمپ </item>
+        <item> ای پی آئی ہیلتھ سنیٹر  </item>
+        <item> کوئی اور این </item>
+    </string-array>
+    <string-array name="IM_K_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="IM_I_Source_list">
+        <item> حفاظتی ٹیکوںکا کارڈ </item>
+        <item>  جواب دہندہ </item>
+    </string-array>
+    <string-array name="IM_I_Source_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+    <string-array name="IM_I_Scar_list">
+        <item> .ہاں </item>
+        <item>  نہیں </item>
+        <item>  بچہ موجودہ نہیں  </item>
+    </string-array>
+    <string-array name="IM_I_Scar_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+
+    <!--  START: Hussain Kalimuddin -->
+
+    <string-array name="MC_401_list">
+        <item> ہاں </item>
+        <item> نہیں </item>
+        <item> معلوم نہیں </item>
+
+    </string-array>
+    <string-array name="MC_401_value">
+        <item>1</item>
+        <item>2</item>
+        <item>99</item>
+    </string-array>
+
+
+    <string-array name="MC_402_list">
+        <item> ٹی-وی </item>
+        <item> ریڈیو </item>
+        <item> اخبارات </item>
+        <item> پوسٹر/بینر </item>
+        <item> محکمہ صحت کے افراد </item>
+        <item> امام مسجد </item>
+        <item> مقامی لیڈر </item>
+        <item> گھر والوں سے </item>
+        <item> دوست/ہمسائے/رشتہ دار  </item>
+        <item> NGO ورکر </item>
+        <item>(دیگر(وضاحت کریں </item>
+
+    </string-array>
+    <string-array name="MC_402_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>88</item>
+    </string-array>
+
+
+    <string-array name="MC_404_list">
+        <item> پو لیو </item>
+        <item> ٹی-بی </item>
+        <item> خناق </item>
+        <item> کالی کھانسی </item>
+        <item> خسرہ </item>
+        <item> یرقان </item>
+        <item> تشنج </item>
+        <item> حمل کے دوران تشنج  </item>
+        <item> چیچک  </item>
+        <item> معلوم نہیں  </item>
+        <item> (دیگر(وضاحت کریں</item>
+
+    </string-array>
+    <string-array name="MC_404_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>99</item>
+        <item>88</item>
+    </string-array>
+
+
+    <string-array name="MC_405_list">
+        <item> تعلیم کی کمی  </item>
+        <item> پیسوں کی کمی  </item>
+        <item> آگاہی کی کمی </item>
+        <item> سہولیات کی کمی  </item>
+        <item> ٹیکوں  کے منفی اثرات کا خوف   </item>
+        <item> معلوم نہیں  </item>
+        <item> (دیگر(وضاحت کریں</item>
+
+    </string-array>
+    <string-array name="MC_405_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>99</item>
+        <item>88</item>
+
+    </string-array>
+
+    <string-array name="MC_405A_list">
+        <item> گورنمنٹ ہسپتال  </item>
+        <item> نجی ہسپتال </item>
+        <item> ہیلتھ سینٹر </item>
+        <item> ہیلتھ کیمپ  </item>
+        <item> معلوم نہیں  </item>
+        <item> (دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_405A_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>99</item>
+        <item>88</item>
+
+    </string-array>
+
+
+    <string-array name="MC_407_list">
+        <item> یہ ضروری  نہیں  </item>
+        <item> مذہبی عقیدے کے خلاف ہے </item>
+        <item> خاندان والے منع کرتے ہیں </item>
+        <item> صحت کے لیے مضر  ہے  </item>
+        <item> حلال نہیں ہیں  </item>
+        <item> تولیدی نظام کو متاثر کرتے ہیں </item>
+        <item> (دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_407_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>88</item>
+
+    </string-array>
+
+
+    <string-array name="MC_409_list">
+        <item> مکمل طور پر محفوظ  </item>
+        <item> مناسب حدتک محفوظ </item>
+        <item> غیر محفوظ  </item>
+        <item> معلوم نہیں  </item>
+        <item> (دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_409_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>99</item>
+        <item>88</item>
+    </string-array>
+
+
+    <string-array name="MC_410_list">
+        <item> گورنمنٹ ہسپتال </item>
+        <item> نجی ہسپتال  </item>
+        <item> ہیلتھ سنٹر  </item>
+        <item> ہیلتھ ورکر   </item>
+        <item> ہیلتھ کیمپ  </item>
+        <item> گھر پر  </item>
+        <item> معلوم نہیں  </item>
+        <item> (دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_410_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>99</item>
+        <item>88</item>
+    </string-array>
+
+
+    <string-array name="MC_410A_list">
+        <item> ہرپولیو مہم کے دوران </item>
+        <item> زیادہ تر پولیو مہم کے دوران </item>
+        <item> صرف چند بار  </item>
+        <item> صرف ایک بار  </item>
+        <item> میں قطرے پلوانا نہیں چاہتی  </item>
+        <item> معلوم نہیں  </item>
+
+
+    </string-array>
+    <string-array name="MC_410A_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>99</item>
+
+    </string-array>
+
+    <string-array name="MC_410B_list">
+        <item> ہر پولیو مہم میں قطرے پلانے کی ضرورت نہیں ہے </item>
+        <item> باربار پولیو کے قطرے پلانے سے ہونے والے منفی اثرات سے فکرمند ہوں </item>
+        <item> ہر پولیو مہم کے دوران میں گھر پر موجود نہیں ہوسکتی/ہوسکتا  </item>
+        <item> پولیوکے قطرے فائدہ مند نہیں ہیں  </item>
+        <item> مجھے پولیو ورکر کابار بار گھر آنا پسند نہیں ہیں   </item>
+        <item> معلوم نہیں  </item>
+        <item> (دیگر(وضاحت کریں</item>
+
+    </string-array>
+    <string-array name="MC_410B_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>99</item>
+        <item>88</item>
+    </string-array>
+
+
+    <string-array name="MC_413_list">
+        <item> بچے کو پولیو کے قطرے  بہت دفعہ پلا چکے ہیں </item>
+        <item> گھر والے اجازت نہیں دیتے ہیں </item>
+        <item> حفاظتی ٹیکے حلال نہیں ہیں </item>
+        <item> حفاظتی ٹیکے تولیدی نظام کو متاثر کرتے ہیں</item>
+        <item> حفاظتی ٹیکے محفوظ نہیں ہیں    </item>
+        <item> مقامی لیڈر منع کرتے ہیں  </item>
+        <item> مذہبی عقائد کے خلاف ہے </item>
+        <item> (دیگر(وضاحت کریں</item>
+
+    </string-array>
+    <string-array name="MC_413_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>88</item>
+    </string-array>
+
+
+    <string-array name="MC_414_list">
+        <item> ہاں </item>
+        <item> نہیں </item>
+        <item>  معلوم نہیں   </item>
+
+    </string-array>
+    <string-array name="MC_414_value">
+        <item>1</item>
+        <item>2</item>
+        <item>99</item>
+
+    </string-array>
+
+
+    <string-array name="MC_415_list">
+        <item> پولیو کا ٹیکہ کافی ہےاور پولیو کے قطروں کی مزید ضرورت نہیں</item>
+        <item> پولیو کے قطروں کا پلانا اضافی خوراک ہے اور یہ منفی اثرات پیدا کرےگا</item>
+        <item>  (دیگر(وضاحت کریں  </item>
+
+    </string-array>
+    <string-array name="MC_415_value">
+        <item>1</item>
+        <item>2</item>
+        <item>88</item>
+
+    </string-array>
+
+    <!-- END: Hussian Kalimuddin -->
+
+
+    <!-- START: Khurram Zubair-->
+
+    <string-array name="MC_501_list">
+        <item> اردو </item>
+        <item> سندھی </item>
+        <item> پنجابی  </item>
+        <item> پشتو </item>
+        <item> بلوچی </item>
+        <item> سرائیکی </item>
+        <item>(دیگر (وضاحت</item>
+    </string-array>
+    <string-array name="MC_501_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_503_list">
+        <item> بچے اور ماں کی صحت کے متعلق معلومات دینے  </item>
+        <item> مرکز صحت جانے کا مشورہ  دینے </item>
+        <item> حفاظتی ٹیکے </item>
+        <item> پولیو کے قطرے پلانے  </item>
+        <item> ماں کا علاج </item>
+        <item> بچے کا علا ج </item>
+        <item>(visit) معمول کا دورہ  </item>
+        <item>(دیگر (وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_503_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_504W_list">
+        <item> کوئی دیوار نہیں  </item>
+        <item> لکڑی کے تختے </item>
+        <item> ٹینٹ </item>
+        <item> کچی اینٹیں/مٹی  </item>
+        <item> پتھر/پکی اینٹیں اور مٹی </item>
+        <item> (سیمنٹ بلاک/ پکی اینٹیں (بغیر پلا سٹر </item>
+        <item>(سیمنٹ(پلاسٹر  </item>
+        <item>(دیگر (وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_504W_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_504R_list">
+        <item> کوئی چھت نہیں  </item>
+        <item> ٹین کی چادر/ازبیسٹوز </item>
+        <item> ٹیرگاڈر(اینٹوں کے )ساتھ </item>
+        <item> (آر -سی –سی(پکی چھت  </item>
+        <item> گھاس پھوس/کھجو ر کے پتے </item>
+        <item> کھجور /بانس اور مٹی </item>
+        <item>تنکے کی  چٹائی </item>
+        <item>لکڑی کے تختے </item>
+        <item>(دیگر (وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_504R_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_504F_list">
+        <item> زمین/ریت/مٹی  </item>
+        <item> لکٹری کے تختے </item>
+        <item> اینٹیں </item>
+        <item> سیمنٹ  </item>
+        <item> چپس/موزیک </item>
+        <item> سرامک ٹائلیں </item>
+        <item>سنگ مر مر </item>
+        <item>قالین </item>
+        <item>دری </item>
+        <item>(دیگر (وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_504F_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_505_list">
+        <item> اپنا ہے  </item>
+        <item> کرائے کا ہے </item>
+        <item> بغیر کرائے کے رہتے ہیں </item>
+        <item> معلوم نہیں  </item>
+    </string-array>
+    <string-array name="MC_505_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>99</item>
+    </string-array>
+    <string-array name="MC_508_list">
+        <item> بجلی  </item>
+        <item> ایل –پی-جی   سیلنڈر </item>
+        <item> (سوئی گیس کنکشن(قدرتی گیس </item>
+        <item> مٹی کا تیل  </item>
+        <item> کوئلہ </item>
+        <item> لکڑی </item>
+        <item>تنکے/جھاڑیاں/گھاس پھونس </item>
+        <item>(جانوروں کا گوبر(اوپلے </item>
+        <item>(دیگر (وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_508_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_509_list">
+        <item> (سرکاری پانی کا نلکا(گھر میں   </item>
+        <item>  عوامی  جگہوں میں لگا ہوا نلکا </item>
+        <item> ٹیوب ویل /بورنگ کا پانی  </item>
+        <item> ہینڈ پمپ   </item>
+        <item> محفوظ کنواں </item>
+        <item> غیر محفوظ کنواں </item>
+        <item>محفوظ چشمہ </item>
+        <item>غیر محفوظ چشمہ </item>
+        <item>بارش کا پانی</item>
+        <item>ٹینکر کا پانی</item>
+        <item>فلٹر پلانٹ کا پانی</item>
+        <item>سوزکی یا گدھا گاڑی</item>
+        <item>(سطح والا پانی(دریا،جھیل ،ڈیم،تالاب/ ندی/نہر/ابپاشی کا پانی</item>
+        <item>(پانی  کی بوتل (منرل واٹر</item>
+        <item>(دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_509_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+        <item>13</item>
+        <item>14</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_510_list">
+        <item> (سرکاری پانی کا نلکا(گھر میں   </item>
+        <item>  عوامی  جگہوں میں لگا ہوا نلکا </item>
+        <item> ٹیوب ویل /بورنگ کا پانی  </item>
+        <item> ہینڈ پمپ   </item>
+        <item> محفوظ کنواں </item>
+        <item> غیر محفوظ کنواں </item>
+        <item>محفوظ چشمہ </item>
+        <item>غیر محفوظ چشمہ </item>
+        <item>بارش کا پانی</item>
+        <item>ٹینکر کا پانی/سوزکی یا گدھا گاڑی کے ذریعہ فراہم کیا جانے ولا پانی</item>
+        <item>فلٹر پلانٹ کا پانی</item>
+        <item>(سطح والا پانی(دریا،جھیل ،ڈیم،تالاب/ ندی/نہر/ابپاشی کا پانی</item>
+        <item>(پانی  کی بوتل (منرل واٹر</item>
+        <item>(دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_510_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>13</item>
+        <item>14</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_512_list">
+        <item> ابالتے ہیں   </item>
+        <item> لیچ/کلوریں ملاتے ہیں </item>
+        <item> کپڑے کے ذرئعے چھانتے ہیں  </item>
+        <item> پھٹکری استعمال کرتے ہیں   </item>
+        <item> فلٹر استعمال کرتے ہیں </item>
+        <item> سورج کی شعاعوں سے محفوظ کیا ہوا پانی </item>
+        <item>برتن میں پانی ڈال کر ٹہرنے کا انتظار کرتے ہیں </item>
+        <item>معلوم نہیں</item>
+        <item>(دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_512_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>99</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_513_list">
+        <item> فلش   سیوریح کے نظام سے ملا ہوا   </item>
+        <item>  فلش سپٹک ٹینک سے جڑا ہوا </item>
+        <item> فلش   گڑھےواے لیٹرین سے جڑاہوا </item>
+        <item> فلش معلوم نہیں کہاں  </item>
+        <item> گڑھے والا لیٹرین ڈھکا ہوا </item>
+        <item>گڑھے والا کھلا  لیٹرین</item>
+        <item>کوئی سہولت نہیں /جھاڑیوں میں جاتے ہیں</item>
+        <item>(دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_513_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_516_list">
+        <item> ہاں  </item>
+        <item> نہیں </item>
+        <item> معلوم نہیں </item>
+    </string-array>
+    <string-array name="MC_516_value">
+        <item>1</item>
+        <item>2</item>
+        <item>99</item>
+    </string-array>
+    <string-array name="MC_517_list">
+        <item> مشاہدہ کیا  </item>
+        <item> احاطے میں نہیں ہے </item>
+        <item> دیکھنے کی اجازت نہیں ملی </item>
+    </string-array>
+    <string-array name="MC_517_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+    <string-array name="MC_518_list">
+        <item> پانی موجود ہے  </item>
+        <item> پانی موجود نہیں  </item>
+    </string-array>
+    <string-array name="MC_518_value">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="MC_519_list">
+        <item> کچھ موجودنہیں </item>
+        <item> مائع صابن  </item>
+        <item> صابن  </item>
+        <item> ڈٹرجنٹ  </item>
+        <item> راکھ/مٹی/ریت  </item>
+    </string-array>
+    <string-array name="MC_519_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="MC_521_list">
+        <item> صابن </item>
+        <item> ڈٹرجنٹ /لکویڈ/پیسٹ  </item>
+        <item> مائع صابن  </item>
+        <item> راکھ/مٹی/ریت  </item>
+        <item> کچھ نہیں  </item>
+    </string-array>
+    <string-array name="MC_521_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
+    <string-array name="MC_522_list">
+        <item> کھاناپکانے سے پہلے   </item>
+        <item> کھانا کھانے سے پہلے </item>
+        <item> بچے کوکھانا کھلانے سے پہلے  </item>
+        <item> دودھ پلانے سے پہلے   </item>
+        <item> بچے کا پاخانہ صاف کرنے کے بعد </item>
+        <item> بچے کا ڈائپر بدلنے کے بعد </item>
+        <item>بچے کا پاخانہ ٹھکانے لگانے کے بعد</item>
+        <item>بیت الخلاء سے آنے کے بعد</item>
+        <item>بیت الخلاء کو کسی بھی مقصد کے لیے استعمال کرنے کے بعد</item>
+        <item>(دیگر(وضاحت کریں</item>
+    </string-array>
+    <string-array name="MC_522_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>88</item>
+    </string-array>
+    <string-array name="MC_524_list">
+        <item> ایکڑ  </item>
+        <item> کنال  </item>
+        <item> معلوم نہیں  </item>
+    </string-array>
+    <string-array name="MC_524_value">
+        <item>1</item>
+        <item>2</item>
+        <item>99</item>
+    </string-array>
+
+    <!-- END: Khurram Zubair-->
+
+
+    <string-array name="MC_603_list">
+        <item> ماں اور بچہ بیمار نہیں تھے  </item>
+        <item> کیمپ دور تھا </item>
+        <item> گھروالوں کی طرف سے اجازت نہیں تھی </item>
+        <item> ہمارے پاس صحت کے حصول کے لیے موزوں انتظام موجود ہے </item>
+        <item>(دیگر(وضاحت کریں </item>
+
+    </string-array>
+    <string-array name="MC_603_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>88</item>
+
+    </string-array>
+
+
+    <string-array name="MC_604_list">
+        <item> TVI ورکر   </item>
+        <item> پولیو ورکر </item>
+        <item> لیڈی ہیلتھ ورکرز(LHW) </item>
+        <item> لیڈی  ہیلتھ وزیٹرز(LHV) </item>
+        <item> ڈاکٹر </item>
+        <item> نرس </item>
+        <item> مسجد /علاقے میں اعلان سے  </item>
+        <item> پڑوس سے  </item>
+        <item> دوست اور رشتے داروں سے </item>
+        <item>(دیگر(وضاحت کریں  </item>
+
+
+    </string-array>
+    <string-array name="MC_604_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>88</item>
+
+    </string-array>
+
+
+    <string-array name="MC_605_list">
+        <item> بچے کےمعائنہ کے لیے   </item>
+        <item> ماں کےمعائنہ کے لئے </item>
+        <item> بچے کے حفاظتی ٹیکوں کے لیے </item>
+        <item> علاقے میں مرکز صحت نہ ہونے کی وجہ سے  </item>
+        <item>(دیگر(وضاحت کریں  </item>
+
+
+    </string-array>
+    <string-array name="MC_605_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>88</item>
+
+    </string-array>
+
+
+    <string-array name="MC_606_list">
+        <item> ہاں  </item>
+        <item> نہیں </item>
+        <item> معلوم نہیں  </item>
+
+
+    </string-array>
+    <string-array name="MC_606_value">
+        <item>1</item>
+        <item>2</item>
+        <item>99</item>
+
+    </string-array>
+
+
+    <string-array name="MC_607_list">
+        <item> حفاظتی ٹیکے دستیاب نہیں تھے  </item>
+        <item> ڈاکٹر نےمشورہ نہیں دیاتھا </item>
+        <item> بچہ بیمار تھا  </item>
+        <item> بچے کو ہیلتھ کیمپ نہیں لے کر گئے تھے  </item>
+        <item> ٹیکہ لگانے سے انکار کردیا  </item>
+        <item> بہت زیادہ انتظار کرنا پڑا تھا </item>
+        <item> حفاظتی ٹیکوں کا کورس مکمل تھا </item>
+        <item>(دیگر(وضاحت کریں  </item>
+
+
+    </string-array>
+    <string-array name="MC_607_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>88</item>
+    </string-array>
+
+
+    <string-array name="MC_607A_list">
+        <item>  </item>
+        <item> ہاں</item>
+        <item> نہیں  </item>
+        <item>معلوم نہیں  </item>
+
+
+    </string-array>
+    <string-array name="MC_607A_value">
+        <item>1</item>
+        <item>2</item>
+        <item>99</item>
+
+    </string-array>
+
+
+    <string-array name="MC_607B_list">
+        <item>  </item>
+        <item> پولیو کا ٹیکہ دستیاب نہیں تھا</item>
+        <item> ڈاکٹر نے مشورہ نہیں دیا تھا  </item>
+        <item>بچے کو ہیلتھ کیمپ نہیں لے کر گئے تھے  </item>
+        <item>پولیو کا ٹیکہ لگوانے سے انکار کردیا  </item>
+        <item>پولیو کا ٹیکہ غیر محفوظ ہے  </item>
+        <item>پچھلے ایک مہینے میں بچے کو پولیو کا ٹیکہ لگ چکا تھا </item>
+        <item>پچھلے ایک مہینے میں بچے کو پولیو کےقطرے پلائے جاچکے تھے </item>
+        <item>(دیگر(وضاحت کریں  </item>
+
+
+    </string-array>
+    <string-array name="MC_607B_value">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>88</item>
+
+    </string-array>
+
 </resources>

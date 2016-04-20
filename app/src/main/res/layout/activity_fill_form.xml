@@ -30,6 +30,10 @@
         android:layout_height="2dp"
         android:background="?android:attr/listDivider" />
 
+
+    <!--  = = = = =  START OF FORM FIELDS  = = = = = -->
+
+    <!--MC_101DATE-->
     <TextView
         style="@style/labels"
         android:text="@string/MC_101"
@@ -41,9 +45,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="5dp"
-        android:textSize="24sp"
-        android:datePickerMode="spinner"/>
+        android:datePickerMode="spinner"
+        android:textSize="24sp" />
 
+    <!--MC_101TIME-->
     <TextView
         style="@style/labels"
         android:text="@string/MC_101TIME"
@@ -57,6 +62,7 @@
         android:textSize="24sp"
         android:timePickerMode="spinner"/>
 
+    <!--MC_103 Town-->
     <TextView
         style="@style/labels"
         android:text="@string/MC_103">
@@ -66,83 +72,63 @@
 
     <Spinner
         android:id="@+id/MC_103"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/spinner"
         android:entries="@array/MC_103_list"
         android:prompt="@string/MC_103"
         android:textSize="24sp"
-        android:spinnerDropDownItemStyle="@style/spinner"
         > <!-- Todo: Increase textSize  -->
 
     </Spinner>
-    <!-- UC No. -->
+
+
+    <!-- MC_104 UC No. -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#0000ff"
+        style="@style/labels"
         android:labelFor="@+id/MC_104"
-        android:text="@string/MC_104"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+        android:text="@string/MC_104" />
     <EditText
-        style="@style/textInput"
         android:id="@+id/MC_104"
+        style="@style/textInput"
         android:hint="@string/MC_104"
         android:inputType="number"
         android:maxLength="3"
         android:singleLine="true"
         />
 
+
     <TextView
-        style="@style/errors"
         android:id="@+id/MC_104UCName"
+        style="@style/errors"
         android:text="@string/MC_104"
          />
 
-    <!-- Cluster No. -->
+    <!-- MC_105 Cluster No. -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#0000ff"
+        style="@style/labels"
         android:labelFor="@+id/MC_105"
-        android:text="@string/MC_105"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+        android:text="@string/MC_105" />
+
     <EditText
-        style="@style/textInput"
         android:id="@+id/MC_105"
+        style="@style/textInput"
         android:hint="@string/MC_105"
         android:inputType="number"
         android:maxLength="6"
         android:singleLine="true"
          />
 
+
     <TextView
         android:id="@+id/MC_105Name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#ffd6d6"
-        android:gravity="center"
+        style="@style/errors"
         android:labelFor="@+id/MC_105"
-        android:padding="5dp"
-        android:text="@string/MC_105"
-        android:textColor="#ff1e1e"
-        android:textSize="24sp"
-        android:visibility="invisible" />
+        android:text="@string/MC_105" />
 
     <!-- MC_106 - Household No. (with Family type) -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#0000ff"
+        style="@style/labels"
         android:labelFor="@+id/MC_106"
-        android:text="@string/MC_106"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+        android:text="@string/MC_106" />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -151,10 +137,10 @@
         android:orientation="horizontal">
 
         <EditText
-            style="@style/textInput"
             android:id="@+id/MC_106"
-            android:layout_weight="1"
+            style="@style/textInput"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:hint="@string/MC_106"
             android:inputType="number"
             android:maxLength="3"
@@ -163,6 +149,7 @@
 
         <Spinner
             android:id="@+id/MC_Ext"
+            style="@style/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:entries="@array/MC_106_list"
@@ -170,50 +157,31 @@
             android:textSize="24sp"></Spinner>
 
     </LinearLayout>
+
     <!-- MC_107 - EPI Mark -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#0000ff"
+        style="@style/labels"
         android:labelFor="@+id/MC_107"
-        android:text="@string/MC_107"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+        android:text="@string/MC_107" />
 
     <RadioGroup
         android:id="@+id/MC_107"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:orientation="vertical">
+        style="@style/radiogroup">
 
         <RadioButton
             android:id="@+id/MC_107_Yes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_Yes"
-            android:textSize="24dp"/>
+            style="@style/radiobutton"
+            android:text="@string/MC_Yes" />
 
         <RadioButton
             android:id="@+id/MC_107_No"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_No"
-            android:textSize="24dp"/>
+            style="@style/radiobutton"
+            android:text="@string/MC_No" />
 
         <RadioButton
             android:id="@+id/MC_107_Unclear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:drawableRight="@android:drawable/btn_radio"
-            android:text="@string/MC_Unclear"
-            android:textSize="24dp"/>
+            style="@style/radiobutton"
+            android:text="@string/MC_Unclear" />
     </RadioGroup>
 
     <!-- Instructions before MC_108 - Permission -->
@@ -225,14 +193,9 @@
 
     <!-- MC_108 - Permissions -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="#0000ff"
+        style="@style/labels"
         android:labelFor="@+id/MC_108"
-        android:text="@string/MC_108"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
+        android:text="@string/MC_108" />
 
     <RadioGroup
         android:id="@+id/MC_108"
@@ -245,22 +208,26 @@
            />
 
         <RadioButton
-            style="@style/radiobutton"
             android:id="@+id/MC_108_No"
+            style="@style/radiobutton"
             android:text="@string/MC_No"
             />
 
         <RadioButton
-            style="@style/radiobutton"
             android:id="@+id/MC_108_Close"
+            style="@style/radiobutton"
             android:text="@string/MC_108_Close"
             />
-
-
     </RadioGroup>
+
     <TextView
         android:id="@+id/fromError"
         style="@style/errors" />
+
+
+    <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -270,25 +237,23 @@
 
         <Button
             android:id="@+id/btn_End"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            style="@style/buttons"
             android:layout_weight="1"
+            android:onClick="endInterview"
             android:text="@string/end_interview"
             android:textColor="#ff1e1e"
-            android:textSize="24dp"
-            android:onClick="noInterview"
             />
+        <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
         <Button
             android:id="@+id/btn_Continue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
+            style="@style/buttons"
             android:onClick="startInterview"
             android:text="@string/start_interview"
-            android:textColor="#1ed61e"
-            android:textSize="24dp" />
-</LinearLayout>
+            android:textColor="#1ed61e" />
+        <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+    </LinearLayout>
 
 
 </LinearLayout>

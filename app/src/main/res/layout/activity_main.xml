@@ -37,6 +37,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:layout_marginTop="5dp"
+        android:onClick="syncForms"
         android:text="@string/sync_forms"
         android:textSize="24sp" />
 
@@ -46,6 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
         android:layout_marginTop="5dp"
+        android:onClick="deleteForms"
         android:text="@string/delete_forms"
         android:textSize="24sp" />
 </LinearLayout>

@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="horizontal">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        tools:context="com.example.hassannaqvi.mccp2.MainActivity">
+
+
+        <TextView
+            android:id="@+id/crf1_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/MCCP2_label"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+
+        <!--  = = = = =  START OF FORM FIELDS  = = = = = -->
+        <!--IM_CHID-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_CHID" />
+
+        <EditText
+            android:id="@+id/IM_CHID"
+            style="@style/textInput"
+            android:hint="@string/IM_CHID"
+            android:inputType="number"
+            android:maxLength='5'
+            android:singleLine="true" />
+
+        <!--IM_COMPID-->
+
+        <!-- IM_A-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_A" />
+
+        <EditText
+            android:id="@+id/IM_A"
+            style="@style/textInput"
+            android:hint="@string/IM_A"
+            android:inputType="text"
+            android:maxLength='50'
+            android:singleLine="true" />
+
+        <!-- IM_AF-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_AF" />
+
+        <EditText
+            android:id="@+id/IM_AF"
+            style="@style/textInput"
+            android:hint="@string/IM_AF"
+            android:inputType="text"
+            android:maxLength='50'
+            android:singleLine="true" />
+
+        <!-- IM_B-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_B" />
+
+        <Spinner
+            android:id="@+id/IM_B"
+            style="@style/spinner"
+            android:entries="@array/IM_B_list"
+            android:prompt="@string/IM_B"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <!-- IM_C-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_C" />
+
+        <Spinner
+            android:id="@+id/IM_C"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/IM_C"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <!-- IM_D-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_D" />
+
+        <DatePicker
+            android:id="@+id/IM_D"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:datePickerMode="spinner"
+            android:textSize="24sp" />
+
+        <!-- IM_EY-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_EY" />
+
+        <EditText
+            android:id="@+id/IM_EY"
+            style="@style/textInput"
+            android:hint="@string/IM_EY"
+            android:inputType="number"
+            android:maxLength='5'
+            android:singleLine="true" />
+
+        <!-- IM_EM-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_EM" />
+
+        <EditText
+            android:id="@+id/IM_EM"
+            style="@style/textInput"
+            android:hint="@string/IM_EM"
+            android:inputType="number"
+            android:maxLength='2'
+            android:singleLine="true" />
+
+
+        <!-- IM_ED-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_ED" />
+
+        <EditText
+            android:id="@+id/IM_ED"
+            style="@style/textInput"
+            android:hint="@string/IM_ED"
+            android:inputType="number"
+            android:maxLength='2'
+            android:singleLine="true" />
+
+        <!-- IM_F-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_F" />
+
+        <Spinner
+            android:id="@+id/IM_F"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/IM_F"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- IM_G-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_G" />
+
+        <Spinner
+            android:id="@+id/IM_G"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/IM_G"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <!-- IM_H-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_H" />
+
+        <Spinner
+            android:id="@+id/IM_H"
+            style="@style/spinner"
+            android:entries="@array/IM_H_list"
+            android:prompt="@string/IM_H"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- IM_I-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_I" />
+
+        <Spinner
+            android:id="@+id/IM_I"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/IM_I"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- IM_J-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_J" />
+
+        <Spinner
+            android:id="@+id/IM_J"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/IM_J"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- IM_JB-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_JB" />
+
+        <Spinner
+            android:id="@+id/IM_JB"
+            style="@style/spinner"
+            android:entries="@array/IM_JB_list"
+            android:prompt="@string/IM_JB"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- TODO: IM_K is remaining -->
+
+        <!-- BCG-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/BCG" />
+
+        <Spinner
+            android:id="@+id/BCG"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/BCG"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- BCG_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/BCG_SRC" />
+
+        <Spinner
+            android:id="@+id/BCG_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/BCG_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- BCG_SCAR -->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/BCG_SCAR" />
+
+        <Spinner
+            android:id="@+id/BCG_SCAR"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Scar_list"
+            android:prompt="@string/BCG_SCAR"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- OPV0 -->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/OPV0" />
+
+        <Spinner
+            android:id="@+id/OPV0"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/OPV0"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- OPV0_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/OPV0_SRC" />
+
+        <Spinner
+            android:id="@+id/OPV0_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/OPV0_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- Penta 1-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/P1" />
+
+        <Spinner
+            android:id="@+id/P1"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/P1"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- P1_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/P1_SRC" />
+
+        <Spinner
+            android:id="@+id/P1_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/P1_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- PCV1-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/PCV1" />
+
+        <Spinner
+            android:id="@+id/PCV1"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/PCV1"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <!-- PCV1_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/PCV1_SRC" />
+
+        <Spinner
+            android:id="@+id/PCV1_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/PCV1_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <!-- OPV1-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/OPV1" />
+
+        <Spinner
+            android:id="@+id/OPV1"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/OPV1"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- OPV1_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/OPV1_SRC" />
+
+        <Spinner
+            android:id="@+id/OPV1_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/OPV1_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- P2-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/P2" />
+
+        <Spinner
+            android:id="@+id/P2"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/P2"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- P2_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/P2_SRC" />
+
+        <Spinner
+            android:id="@+id/P2_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/P2_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- PCV2-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/PCV2" />
+
+        <Spinner
+            android:id="@+id/PCV2"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/PCV2"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- PCV2_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/PCV2_SRC" />
+
+        <Spinner
+            android:id="@+id/PCV2_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/PCV2_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- OPV2-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/OPV2" />
+
+        <Spinner
+            android:id="@+id/OPV2"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/OPV2"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- OPV2_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/OPV2_SRC" />
+
+        <Spinner
+            android:id="@+id/OPV2_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/OPV2_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- P3-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/P3" />
+
+        <Spinner
+            android:id="@+id/P3"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/P3"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- P3_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/P3_SRC" />
+
+        <Spinner
+            android:id="@+id/P3_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/P3_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- PCV3-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/PCV3" />
+
+        <Spinner
+            android:id="@+id/PCV3"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/PCV3"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <!-- PCV3_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/PCV3_SRC" />
+
+        <Spinner
+            android:id="@+id/PCV3_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/PCV3_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- OPV3-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/OPV3" />
+
+        <Spinner
+            android:id="@+id/OPV3"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/OPV3"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- OPV3_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/OPV3_SRC" />
+
+        <Spinner
+            android:id="@+id/OPV3_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/OPV3_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- M1-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/M1" />
+
+        <Spinner
+            android:id="@+id/M1"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/M1"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- M1_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/M1_SRC" />
+
+        <Spinner
+            android:id="@+id/M1_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/M1_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- M2-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/M2" />
+
+        <Spinner
+            android:id="@+id/M2"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/M2"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- M2_SRC-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/M2_SRC" />
+
+        <Spinner
+            android:id="@+id/M2_SRC"
+            style="@style/spinner"
+            android:entries="@array/IM_I_Source_list"
+            android:prompt="@string/M2_SRC"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- IM_M_D-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_M_D" />
+
+        <Spinner
+            android:id="@+id/IM_M_D"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/IM_M_D"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+        <!-- IM_M_A-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_M_A" />
+
+        <Spinner
+            android:id="@+id/IM_M_A"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/IM_M_A"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <!-- TODIM_RESP is remaining-->
+
+        <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_End"
+                style="@style/buttons"
+                android:layout_weight="1"
+                android:onClick="endInterview"
+                android:text="@string/end_interview"
+                android:textColor="#ff1e1e" />
+            <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+            <Button
+                android:id="@+id/btn_Continue"
+                style="@style/buttons"
+                android:onClick="openSection4"
+                android:text="@string/start_next_section"
+                android:textColor="#1ed61e" />
+            <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

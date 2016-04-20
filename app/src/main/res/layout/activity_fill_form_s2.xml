@@ -1,12 +1,438 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.hassannaqvi.mccp2.FillFormS2Activity">
+    android:layout_height="wrap_content"
+    android:scrollbars="horizontal">
 
-</RelativeLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        tools:context="com.example.hassannaqvi.mccp2.MainActivity">
+
+
+        <TextView
+            android:id="@+id/crf1_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/MCCP2_label"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+
+        <!--  = = = = =  START OF FORM FIELDS  = = = = = -->
+
+        <!--MC_201NM-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_201NM" />
+
+        <EditText
+            android:id="@+id/MC_201NM"
+            style="@style/textInput"
+            android:hint="@string/MC_201NM"
+            android:inputType="text"
+            android:maxLength='50' />
+
+        <!-- MC_201GNDR-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_201GNDR" />
+
+        <Spinner
+            android:id="@+id/MC_201GNDR"
+            style="@style/spinner"
+            android:entries="@array/MC_GNDR_list"
+            android:prompt="@string/MC_201GNDR"
+            android:textSize="24sp">  <!-- Todo: Increase textSize  -->
+
+            <!--android:entries="@array/MC_201GNDR_list"-->
+        </Spinner>
+
+        <!-- MC_201TYPE-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_201TYPE" />
+
+        <Spinner
+            android:id="@+id/MC_201TYPE"
+            style="@style/spinner"
+            android:entries="@array/MC_201TYPE_list"
+            android:prompt="@string/MC_201TYPE"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+            <!--android:entries="@array/MC_201TYPE_list"-->
+        </Spinner>
+
+        <!-- MC_201AGE -->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_201AGE" />
+
+        <EditText
+            android:id="@+id/MC_201AGE"
+            style="@style/textInput"
+            android:hint="@string/MC_201AGE"
+            android:inputType="number"
+            android:maxLength='2' />
+
+        <!-- MC_201EDU -->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_201EDU" />
+
+        <EditText
+            android:id="@+id/MC_201EDU"
+            style="@style/textInput"
+            android:hint="@string/MC_201EDU"
+            android:inputType="number"
+            android:maxLength='2' />
+
+
+        <!-- MC_201OCU -->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_201OCU" />
+
+        <Spinner
+            android:id="@+id/MC_201OCU"
+            style="@style/spinner"
+            android:entries="@array/MC_201OCU_list"
+            android:prompt="@string/MC_201OCU"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <!-- MC_202NM -->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_202NM" />
+
+        <EditText
+            android:id="@+id/MC_202NM"
+            style="@style/textInput"
+            android:hint="@string/MC_202NM"
+            android:inputType="text"
+            android:maxLength='50' />
+
+        <!-- MC_202GNDR -->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_202GNDR" />
+
+        <Spinner
+            android:id="@+id/MC_202GNDR"
+            style="@style/spinner"
+            android:entries="@array/MC_GNDR_list"
+            android:prompt="@string/MC_202GNDR"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+
+        </Spinner>
+
+        <!-- MC_202AGE-->
+
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_202AGE" />
+
+        <EditText
+            android:id="@+id/MC_202AGE"
+            style="@style/textInput"
+            android:hint="@string/MC_202AGE"
+            android:inputType="number"
+            android:maxLength='2' />
+
+
+        <!-- MC_202EDU-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_202EDU" />
+
+        <EditText
+            android:id="@+id/MC_202EDU"
+            style="@style/textInput"
+            android:hint="@string/MC_202EDU"
+            android:inputType="number"
+            android:maxLength='2' />
+        <!-- Instructions before MC_202 - Education -->
+        <TextView
+            style="@style/errors"
+            android:text="@string/MC_202inst"
+            android:visibility="visible" />
+        <!-- MC_202OCU -->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_202OCU" />
+
+        <Spinner
+            android:id="@+id/MC_202OCU"
+            style="@style/spinner"
+            android:entries="@array/MC_202OCU_list"
+            android:prompt="@string/MC_202OCU"
+            android:textSize="24sp"></Spinner>
+
+        <!-- MC_203TOT -->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_203TOT" />
+
+        <EditText
+            android:id="@+id/MC_203TOT"
+            style="@style/textInput"
+            android:hint="@string/MC_203TOT"
+            android:inputType="number"
+            android:maxLength='2' />
+
+        <!-- MC_203M -->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_203M" />
+
+        <EditText
+            android:id="@+id/MC_203M"
+            style="@style/textInput"
+            android:hint="@string/MC_203M"
+            android:inputType="number"
+            android:maxLength='2' />
+
+        <!-- MC_203F -->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_203F" />
+
+        <EditText
+            android:id="@+id/MC_203F"
+            style="@style/textInput"
+            android:hint="@string/MC_203F"
+            android:inputType="number"
+            android:maxLength='2' />
+
+
+        <!-- MC_204T-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_204T" />
+
+        <EditText
+            android:id="@+id/MC_204T"
+            style="@style/textInput"
+            android:hint="@string/MC_204T"
+            android:inputType="number"
+            android:maxLength='2' />
+
+
+        <!-- MC_204M-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_204M" />
+
+        <EditText
+            android:id="@+id/MC_204M"
+            style="@style/textInput"
+            android:hint="@string/MC_204M"
+            android:inputType="number"
+            android:maxLength='2' />
+
+
+        <!-- MC_204F-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_204F" />
+
+        <EditText
+            android:id="@+id/MC_204F"
+            style="@style/textInput"
+            android:hint="@string/MC_204F"
+            android:inputType="number"
+            android:maxLength='2' />
+
+
+        <!-- MC_205YY-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_205YY" />
+
+        <EditText
+            android:id="@+id/MC_205YY"
+            style="@style/textInput"
+            android:hint="@string/MC_205YY"
+            android:inputType="number"
+            android:maxLength='2' />
+
+        <!-- MC_205M-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_205MM" />
+
+        <EditText
+            android:id="@+id/MC_205MM"
+            style="@style/textInput"
+            android:hint="@string/MC_205MM"
+            android:inputType="number"
+            android:maxLength='2' />
+
+        <!-- MC_206-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_206" />
+
+        <RadioGroup
+            android:id="@+id/MC_206"
+            style="@style/radiogroup">
+
+            <RadioButton
+                android:id="@+id/MC_206_Yes"
+                style="@style/radiobutton"
+                android:text="@string/MC_Yes" />
+
+            <RadioButton
+                android:id="@+id/MC_206_No"
+                style="@style/radiobutton"
+                android:text="@string/MC_No" />
+        </RadioGroup>
+
+
+        <LinearLayout
+            android:id="@+id/MC_207"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible">
+
+            <!-- MC_207_1W-->
+
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_207_1W" />
+
+            <EditText
+                android:id="@+id/MC_207_1W"
+                style="@style/textInput"
+                android:hint="@string/MC_207_1W"
+                android:inputType="number"
+                android:maxLength='2' />
+
+
+            <!-- MC_207_1M-->
+
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_207_1M" />
+
+            <EditText
+                android:id="@+id/MC_207_1M"
+                style="@style/textInput"
+                android:hint="@string/MC_207_1M"
+                android:inputType="number"
+                android:maxLength='2' />
+
+            <!-- MC_207_2W-->
+
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_207_2W" />
+
+            <EditText
+                android:id="@+id/MC_207_2W"
+                style="@style/textInput"
+                android:hint="@string/MC_207_2W"
+                android:inputType="number"
+                android:maxLength='2' />
+
+            <!-- MC_207_2M-->
+
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_207_2M" />
+
+            <EditText
+                android:id="@+id/MC_207_2M"
+                style="@style/textInput"
+                android:hint="@string/MC_207_2M"
+                android:inputType="number"
+                android:maxLength='2' />
+
+            <!-- MC_207_3W-->
+
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_207_3W" />
+
+            <EditText
+                android:id="@+id/MC_207_3W"
+                style="@style/textInput"
+                android:hint="@string/MC_207_3W"
+                android:inputType="number"
+                android:maxLength='2' />
+
+            <!-- MC_207_3M-->
+
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_207_3M" />
+
+            <EditText
+                android:id="@+id/MC_207_3M"
+                style="@style/textInput"
+                android:hint="@string/MC_207_3M"
+                android:inputType="number"
+                android:maxLength='2' />
+
+
+        </LinearLayout>
+
+        <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_End"
+                style="@style/buttons"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:onClick="endInterview"
+                android:text="@string/end_interview"
+                android:textColor="#ff1e1e" />
+            <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+            <Button
+                android:id="@+id/btn_Continue"
+                style="@style/buttons"
+                android:onClick="startFormS3"
+                android:text="@string/start_next_section"
+                android:textColor="#1ed61e" />
+            <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
