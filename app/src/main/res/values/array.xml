@@ -49,7 +49,7 @@
         <item>88</item>
     </string-array>
 
-    <string-array name="MC_201OCU_list">
+    <string-array name="MC_OCU_list">
         <item> گھریلو خاتون </item>
         <item> ریٹائرڈ </item>
         <item> بے روزگار </item>
@@ -58,7 +58,7 @@
         <item> کاروبار </item>
         <item>پروفیشنل</item>
     </string-array>
-    <string-array name="MC_201OCU_value">
+    <string-array name="MC_OCU_value">
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -76,25 +76,6 @@
     <string-array name="MC_201TYPE_list">
         <item>Mother</item>
         <item>CareTaker</item>
-    </string-array>
-
-    <string-array name="MC_202OCU_list">
-        <item> گھریلو خاتون </item>
-        <item> ریٹائرڈ </item>
-        <item> بے روزگار </item>
-        <item> غیر ہنرمند مزدور </item>
-        <item> ہنر مند مزدور </item>
-        <item> کاروبار </item>
-        <item>پروفیشنل</item>
-    </string-array>
-    <string-array name="MC_202OCU_value">
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
-        <item>6</item>
-        <item>7</item>
     </string-array>
 
     <string-array name="IM_B_list">

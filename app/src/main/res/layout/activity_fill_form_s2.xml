@@ -74,7 +74,11 @@
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
             <!--android:entries="@array/MC_201TYPE_list"-->
         </Spinner>
-
+        <TextView
+            android:id="@+id/MC_201type_error"
+            style="@style/errors"
+            android:text="Invalid Relation. You Have Selected 'Male' above."
+            android:visibility="gone"/>
         <!-- MC_201AGE -->
 
         <TextView
@@ -111,12 +115,13 @@
         <Spinner
             android:id="@+id/MC_201OCU"
             style="@style/spinner"
-            android:entries="@array/MC_201OCU_list"
+            android:entries="@array/MC_OCU_list"
             android:prompt="@string/MC_201OCU"
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
 
         </Spinner>
 
+        <!-- MC_202NM -->
         <!-- MC_202NM -->
 
         <TextView
@@ -186,7 +191,7 @@
         <Spinner
             android:id="@+id/MC_202OCU"
             style="@style/spinner"
-            android:entries="@array/MC_202OCU_list"
+            android:entries="@array/MC_OCU_list"
             android:prompt="@string/MC_202OCU"
             android:textSize="24sp"></Spinner>
 
@@ -315,93 +320,90 @@
         </RadioGroup>
 
 
-        <LinearLayout
+        <TableLayout
             android:id="@+id/MC_207"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:stretchColumns="1"
             android:visibility="invisible">
 
-            <!-- MC_207_1W-->
-
+        <TableRow>
             <TextView
                 style="@style/labels"
-                android:text="@string/MC_207_1W" />
-
-            <EditText
-                android:id="@+id/MC_207_1W"
-                style="@style/textInput"
-                android:hint="@string/MC_207_1W"
-                android:inputType="number"
-                android:maxLength='2' />
+                android:layout_width="match_parent"
+                android:text="@string/MC_207" />
+            </TableRow>
+            <TableRow>
 
 
-            <!-- MC_207_1M-->
-
-            <TextView
-                style="@style/labels"
-                android:text="@string/MC_207_1M" />
 
             <EditText
                 android:id="@+id/MC_207_1M"
                 style="@style/textInput"
-                android:hint="@string/MC_207_1M"
+                android:layout_width="0dp"
+                android:layout_weight=".05"
+                android:hint="@string/MC_207_M"
                 android:inputType="number"
-                android:maxLength='2' />
-
-            <!-- MC_207_2W-->
-
-            <TextView
-                style="@style/labels"
-                android:text="@string/MC_207_2W" />
-
+                android:maxLength='2'/>
             <EditText
-                android:id="@+id/MC_207_2W"
+                android:id="@+id/MC_207_1W"
                 style="@style/textInput"
-                android:hint="@string/MC_207_2W"
+                android:layout_width="0dp"
+                android:layout_weight=".05"
+                android:hint="@string/MC_207_W"
                 android:inputType="number"
-                android:maxLength='2' />
+                android:maxLength='2'/>
 
-            <!-- MC_207_2M-->
 
-            <TextView
-                style="@style/labels"
-                android:text="@string/MC_207_2M" />
+        </TableRow>
+            <TableRow>
+
+
 
             <EditText
                 android:id="@+id/MC_207_2M"
                 style="@style/textInput"
-                android:hint="@string/MC_207_2M"
+                android:layout_width="0dp"
+                android:layout_weight=".05"
+                android:hint="@string/MC_207_M"
                 android:inputType="number"
-                android:maxLength='2' />
-
-            <!-- MC_207_3W-->
-
-            <TextView
-                style="@style/labels"
-                android:text="@string/MC_207_3W" />
-
+                android:maxLength='2'/>
             <EditText
-                android:id="@+id/MC_207_3W"
+                android:id="@+id/MC_207_2W"
                 style="@style/textInput"
-                android:hint="@string/MC_207_3W"
+                android:layout_width="0dp"
+                android:layout_weight=".05"
+                android:hint="@string/MC_207_W"
                 android:inputType="number"
-                android:maxLength='2' />
+                android:maxLength='2'/>
 
-            <!-- MC_207_3M-->
 
-            <TextView
-                style="@style/labels"
-                android:text="@string/MC_207_3M" />
+        </TableRow>
+            <TableRow>
 
             <EditText
                 android:id="@+id/MC_207_3M"
                 style="@style/textInput"
-                android:hint="@string/MC_207_3M"
+                android:layout_width="0dp"
+                android:layout_weight=".05"
+                android:hint="@string/MC_207_M"
+                android:inputType="number"
+                android:maxLength='2'/>
+            <EditText
+                android:id="@+id/MC_207_3W"
+                style="@style/textInput"
+                android:layout_width="0dp"
+                android:layout_weight=".05"
+                android:hint="@string/MC_207_W"
                 android:inputType="number"
                 android:maxLength='2' />
 
 
-        </LinearLayout>
+        </TableRow>
+
+
+
+        </TableLayout>
 
         <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 

@@ -50,4 +50,45 @@
         android:onClick="deleteForms"
         android:text="@string/delete_forms"
         android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_test_form_S2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="5dp"
+        android:onClick="testFormS2"
+        android:text="Test Form Section 2"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_move_DB_to_SD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="5dp"
+        android:onClick="moveDbToSd"
+        android:text="Move DB to SD"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_DEVICE_ID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="5dp"
+        android:onClick="showDeviceID"
+        android:text="Show Device ID"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btn_show_GPS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="5dp"
+        android:onClick="showGPSCoordinates"
+        android:text="Show GPS Coordinates"
+        android:textSize="24sp" />
+
 </LinearLayout>

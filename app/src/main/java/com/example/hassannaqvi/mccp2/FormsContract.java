@@ -1,6 +1,7 @@
 package com.example.hassannaqvi.mccp2;
 
 import android.provider.BaseColumns;
+import android.util.Log;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -10,7 +11,10 @@ import org.json.JSONObject;
  */
 public final class FormsContract {
 
-    String ROW_ID;
+    private static final String TAG = "FORM_CONTRACT";
+    Long _ID;
+    String DEVICE_ID;
+    String ROW_MC_FrmNo;
     String ROW_MC_101;
     String ROW_MC_101TIME;
     String ROW_MC_102;
@@ -32,8 +36,10 @@ public final class FormsContract {
         // Default Constructor
     }
 
-    public FormsContract(String id, JSONObject mc1) throws JSONException {
-        this.ROW_ID = id;
+    public FormsContract(JSONObject mc1) throws JSONException {
+        Log.d(TAG, "Constructor: String+JSON");
+        this.ROW_MC_FrmNo = mc1.getString("mcFrmNo");
+        this.DEVICE_ID = mc1.getString("deviceId");
         this.ROW_MC_101 = mc1.getString("mc101");
         this.ROW_MC_101TIME = mc1.getString("mc101Time");
         this.ROW_MC_102 = mc1.getString("mc102");
@@ -47,12 +53,30 @@ public final class FormsContract {
 
     }
 
-    public String getId() {
-        return this.ROW_ID;
+    public FormsContract(String id, String rowId, String ss) {
+        Log.d(TAG, "Constructor: String+String");
+
+        this.ROW_MC_FrmNo = id;
+        this._ID = Long.valueOf(rowId);
+        this.ROW_S_2 = ss;
+        Log.d(TAG, ss);
+
+    }
+
+    public Long getId() {
+        return this._ID;
     }
 
     public void setId(String id) {
-        this.ROW_ID = id;
+        this._ID = Long.valueOf(id);
+    }
+
+    public String getFrmNo() {
+        return this.ROW_MC_FrmNo;
+    }
+
+    public void setFrmNo(String mcFrmNo) {
+        this.ROW_MC_FrmNo = mcFrmNo;
     }
 
     public String get101() {
@@ -77,6 +101,14 @@ public final class FormsContract {
 
     public void set102(String mc102) {
         this.ROW_MC_102 = mc102;
+    }
+
+    public String getDeviceId() {
+        return this.DEVICE_ID;
+    }
+
+    public void setDeviceId(String deviceId) {
+        this.DEVICE_ID = deviceId;
     }
 
     public String get103() {
@@ -135,12 +167,11 @@ public final class FormsContract {
         this.ROW_MC_108 = mc108;
     }
 
+
+    //====================================================
     public String getS2() {
         return this.ROW_S_2;
     }
-
-
-    //====================================================
 
     public void setS2(String s2) {
         this.ROW_S_2 = s2;
@@ -188,7 +219,9 @@ public final class FormsContract {
 
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
-        json.put("mc_FrmNo", this.ROW_ID);
+        json.put("id", this._ID);
+        json.put("deviceId", this.DEVICE_ID);
+        json.put("mc_FrmNo", this.ROW_MC_FrmNo);
         json.put("mc_101", this.ROW_MC_101);
         json.put("mc_101time", this.ROW_MC_101TIME);
         json.put("mc_102", this.ROW_MC_102);
@@ -224,7 +257,8 @@ public final class FormsContract {
 
         public static final String TABLE_NAME = "forms";
         public static final String _ID = "_ID";
-        public static final String ROW_ID = "MC_FRMNO";
+        public static final String DEVICE_ID = "DEVICE_ID";
+        public static final String ROW_MC_FrmNo = "MC_FRMNO";
         public static final String ROW_MC_101 = "MC_101";
         public static final String ROW_MC_101TIME = "MC_101TIME";
         public static final String ROW_MC_102 = "MC_102";

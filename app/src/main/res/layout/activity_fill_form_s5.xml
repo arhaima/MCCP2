@@ -1,12 +1,1189 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.hassannaqvi.mccp2.FillFormS5Activity">
+    android:layout_height="wrap_content"
+    android:scrollbars="horizontal">
 
-</RelativeLayout>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        tools:context="com.example.hassannaqvi.mccp2.MainActivity">
+
+
+        <TextView
+            android:id="@+id/crf1_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/MCCP2_label"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+
+        <!--  = = = = =  START OF FORM FIELDS  = = = = = -->
+
+        <!--MC_501-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_501"
+            android:text="@string/MC_501" />
+
+        <Spinner
+            android:id="@+id/MC_501"
+            style="@style/spinner"
+            android:entries="@array/MC_501_list"
+            android:prompt="@string/MC_501"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <EditText
+            android:id="@+id/MC_501_88"
+            style="@style/textInput"
+            android:hint="@string/MC_501_88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+
+        <!--MC_502-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_502"
+            android:text="@string/MC_502" />
+
+        <RadioGroup
+            android:id="@+id/MC_502"
+            style="@style/radiogroup"
+            android:text="@string/MC_502">
+
+            <RadioButton
+                android:id="@+id/MC_502_Yes"
+                style="@style/radiobutton"
+                android:text="@string/MC_Yes" />
+
+            <RadioButton
+                android:id="@+id/MC_502_No"
+                style="@style/radiobutton"
+                android:text="@string/MC_No" />
+
+        </RadioGroup>
+
+
+        <!--MC_503_1-->
+
+        <!--TODO: Section 503-->
+
+        <!--MC_504W-->
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_504W"
+            android:text="@string/MC_504W"></TextView>
+
+        <Spinner
+            android:id="@+id/MC_504W"
+            style="@style/spinner"
+            android:entries="@array/MC_504W_list"
+            android:prompt="@string/MC_504W"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+
+        <EditText
+            android:id="@+id/MC_504_W88"
+            style="@style/textInput"
+            android:hint="@string/MC_504_W88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+        <!--MC_504W-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_504R"
+            android:text="@string/MC_504R"></TextView>
+
+        <Spinner
+            android:id="@+id/MC_504R"
+            style="@style/spinner"
+            android:entries="@array/MC_504R_list"
+            android:prompt="@string/MC_504R"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <EditText
+            android:id="@+id/MC_504_R88"
+            style="@style/textInput"
+            android:hint="@string/MC_504_R88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+        <!--MC_504F-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_504F"
+            android:text="@string/MC_504F"></TextView>
+
+
+        <Spinner
+            android:id="@+id/MC_504F"
+            style="@style/spinner"
+            android:entries="@array/MC_504F_list"
+            android:prompt="@string/MC_504F"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <EditText
+            android:id="@+id/MC_504_F88"
+            style="@style/textInput"
+            android:hint="@string/MC_504_F88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+
+        <!--MC_505-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_505"
+            android:text="@string/MC_505"></TextView>
+
+        <Spinner
+            android:id="@+id/MC_505"
+            style="@style/spinner"
+            android:entries="@array/MC_505_list"
+            android:prompt="@string/MC_505"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <!--MC_506-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_506"
+            android:text="@string/MC_506"></TextView>
+
+        <EditText
+            android:id="@+id/MC_506"
+            style="@style/textInput"
+            android:hint="@string/MC_506"
+            android:inputType="text"
+            android:maxLength="2"
+            android:singleLine="true" />
+
+
+        <!--MC_507-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_507"
+            android:text="@string/MC_507"></TextView>
+
+
+        <Spinner
+            android:id="@+id/MC_507"
+            style="@style/spinner"
+            android:entries="@array/MC_YN_list"
+            android:prompt="@string/MC_507"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <!--MC_508-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_508"
+            android:text="@string/MC_508"></TextView>
+
+        <Spinner
+            android:id="@+id/MC_508"
+            style="@style/spinner"
+            android:entries="@array/MC_508_list"
+            android:prompt="@string/MC_508"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <EditText
+            android:id="@+id/MC_508_88"
+            style="@style/textInput"
+            android:hint="@string/MC_508_88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+
+        <!--MC_509-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_509"
+            android:text="@string/MC_509"></TextView>
+
+        <Spinner
+            android:id="@+id/MC_509"
+            style="@style/spinner"
+            android:entries="@array/MC_509_list"
+            android:prompt="@string/MC_509"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <EditText
+            android:id="@+id/MC_509_88"
+            style="@style/textInput"
+            android:hint="@string/MC_509_88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+
+        <!--MC_510-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_510"
+            android:text="@string/MC_510"></TextView>
+
+
+        <Spinner
+            android:id="@+id/MC_510"
+            style="@style/spinner"
+            android:entries="@array/MC_510_list"
+            android:prompt="@string/MC_510"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <EditText
+            android:id="@+id/MC_510_88"
+            style="@style/textInput"
+            android:hint="@string/MC_510_88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+
+        <!--MC_511-->
+
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_511"
+            android:text="@string/MC_511" />
+
+        <RadioGroup
+            android:id="@+id/MC_511"
+            style="@style/radiogroup"
+            android:text="@string/MC_511">
+
+            <RadioButton
+                android:id="@+id/MC_511_Yes"
+                style="@style/radiobutton"
+                android:text="@string/MC_Yes" />
+
+            <RadioButton
+                android:id="@+id/MC_511_No"
+                style="@style/radiobutton"
+                android:text="@string/MC_No" />
+
+        </RadioGroup>
+
+
+        <!--MC_512-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_512"
+            android:text="Text Not Match" />
+
+        <CheckBox
+            android:id="@+id/MC_512_1"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_1" />
+
+        <CheckBox
+            android:id="@+id/MC_512_2"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_2" />
+
+
+        <CheckBox
+            android:id="@+id/MC_512_3"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_3" />
+
+
+        <CheckBox
+            android:id="@+id/MC_512_4"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_4" />
+
+
+        <CheckBox
+            android:id="@+id/MC_512_5"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_5" />
+
+        <CheckBox
+            android:id="@+id/MC_512_6"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_6" />
+
+        <CheckBox
+            android:id="@+id/MC_512_7"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_7" />
+
+
+        <CheckBox
+            android:id="@+id/MC_512_8"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_8" />
+
+        <CheckBox
+            android:id="@+id/MC_512_88"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_512"
+            android:text="@string/MC_512_88" />
+
+
+        <EditText
+            android:id="@+id/MC_512X"
+            style="@style/textInput"
+            android:hint="Text Not Match"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+
+        <!-- MC_513  -->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_513"
+            android:text="@string/MC_513" />
+
+
+        <RadioGroup
+
+            android:id="@+id/MC_513"
+            style="@style/radiogroup"
+            android:text="@string/MC_513">
+
+            <RadioButton
+                android:id="@+id/MC_513_1"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_513_2"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_513_3"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+
+                android:id="@+id/MC_513_4"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_513_5"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_513_6"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_513_7"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+
+            <RadioButton
+                android:id="@+id/MC_513_88"
+                style="@style/radiobutton"
+                android:text="@string/MC_513_88" />
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/MC_513X"
+            style="@style/textInput"
+            android:hint="Text Not Match"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+        <!--MC_514-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_514"
+            android:text="@string/MC_514" />
+
+
+        <RadioGroup
+
+            android:id="@+id/MC_514"
+            style="@style/radiobutton"
+            android:text="@string/MC_514"
+
+            >
+
+            <RadioButton
+                android:id="@+id/MC_514_Yes"
+                style="@style/radiobutton"
+                android:text="@string/MC_Yes" />
+
+            <RadioButton
+                android:id="@+id/MC_514_No"
+                style="@style/radiobutton"
+                android:text="@string/MC_No" />
+        </RadioGroup>
+
+
+        <!--MC_515-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_515"
+            android:text="@string/MC_515" />
+
+        <EditText
+            android:id="@+id/MC_515"
+            style="@style/textInput"
+            android:hint="@string/MC_515"
+            android:inputType="text"
+            android:maxLength="2"
+            android:singleLine="true" />
+
+        <!--MC_516-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_516"
+            android:text="@string/MC_516" />
+
+
+        <Spinner
+            android:id="@+id/MC_516"
+            style="@style/spinner"
+            android:entries="@array/MC_516_list"
+            android:prompt="@string/MC_516"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
+
+        <!--MC_517-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_517"
+            android:text="@string/MC_517" />
+
+        <RadioGroup
+
+            android:id="@+id/MC_517"
+            style="@style/radiobutton"
+            android:text="@string/MC_517"
+
+            >
+
+            <RadioButton
+                android:id="@+id/MC_517_1"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_517_2"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_517_3"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+        </RadioGroup>
+
+
+        <!--MC_518-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_518"
+            android:text="@string/MC_518" />
+
+        <Spinner
+            android:id="@+id/MC_518"
+            style="@style/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/MC_518_list"
+            android:prompt="@string/MC_518"
+            android:textSize="24sp"></Spinner>
+
+
+        <!--MC_519-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_519"
+            android:text="Text Not Match" />
+
+
+        <RadioGroup
+
+            android:id="@+id/MC_519"
+            style="@style/radiobutton"
+            android:text="Text Not Match">
+
+
+            <RadioButton
+                android:id="@+id/MC_519_1"
+                style="@style/radiobutton"
+                android:text="@string/MC_519_1" />
+
+            <RadioButton
+                android:id="@+id/MC_519_2"
+                style="@style/radiobutton"
+                android:text="@string/MC_519_2" />
+
+
+            <RadioButton
+                android:id="@+id/MC_519_3"
+                style="@style/radiobutton"
+                android:text="@string/MC_519_3" />
+
+
+            <RadioButton
+                android:id="@+id/MC_519_4"
+                style="@style/radiobutton"
+                android:text="@string/MC_519_4" />
+
+            <RadioButton
+                android:id="@+id/MC_519_5"
+                style="@style/radiobutton"
+                android:text="@string/MC_519_5" />
+
+
+        </RadioGroup>
+
+
+        <!--MC_520-->
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_520"
+            android:text="@string/MC_520" />
+
+
+        <RadioGroup
+
+            android:id="@+id/MC_520"
+            style="@style/radiobutton"
+            android:text="@string/MC_520">
+
+
+            <RadioButton
+                android:id="@+id/MC_520_Yes"
+                style="@style/radiobutton"
+                android:text="@string/MC_Yes" />
+
+
+            <RadioButton
+                android:id="@+id/MC_520_No"
+                style="@style/radiobutton"
+                android:text="@string/MC_No" />
+
+        </RadioGroup>
+
+
+        <!--MC_521-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_521"
+            android:text="Text Not Match" />
+
+        <Spinner
+            android:id="@+id/MC_521"
+            style="@style/spinner"
+            android:entries="@array/MC_521_list"
+            android:textSize="24sp"></Spinner>
+
+
+        <!--MC_522-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_522"
+            android:text="Text Not Match" />
+
+        <CheckBox
+            android:id="@+id/MC_522_1"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_1" />
+
+        <CheckBox
+            android:id="@+id/MC_522_2"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_2" />
+
+        <CheckBox
+            android:id="@+id/MC_522_3"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_3" />
+
+        <CheckBox
+            android:id="@+id/MC_522_4"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_4" />
+
+        <CheckBox
+            android:id="@+id/MC_522_5"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_5" />
+
+        <CheckBox
+            android:id="@+id/MC_522_6"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_6" />
+
+        <CheckBox
+            android:id="@+id/MC_522_7"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_7" />
+
+        <CheckBox
+            android:id="@+id/MC_522_8"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_8" />
+
+        <CheckBox
+            android:id="@+id/MC_522_9"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="@string/MC_522_9" />
+
+        <CheckBox
+            android:id="@+id/MC_522_88"
+            style="@style/checkbox"
+            android:onClick="onCheckboxClicked_MC_522"
+            android:text="Text Not Match" />
+
+
+        <EditText
+
+            android:id="@+id/MC_522X"
+            style="@style/textInput"
+            android:hint="Text Not Match"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+
+        <!--MC_523-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_523"
+            android:text="@string/MC_523" />
+
+        <RadioGroup
+
+            android:id="@+id/MC_523"
+            style="@style/radiobutton"
+            android:text="@string/MC_523">
+
+            <RadioButton
+                android:id="@+id/MC_523_Yes"
+                style="@style/radiobutton"
+                android:text="@string/MC_Yes" />
+
+            <RadioButton
+                android:id="@+id/MC_523_No"
+                style="@style/radiobutton"
+                android:text="@string/MC_No" />
+        </RadioGroup>
+
+
+        <!--MC_524-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_524"
+            android:text="Text Not Match" />
+
+        <RadioGroup
+
+            android:id="@+id/MC_524"
+            style="@style/radiobutton"
+            android:text="Text Not Match">
+
+            <RadioButton
+                android:id="@+id/MC_524_1"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_524_2"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+
+            <RadioButton
+                android:id="@+id/MC_524_99"
+                style="@style/radiobutton"
+                android:text="Text Not Match" />
+        </RadioGroup>
+
+
+        <!--MC_524ACR-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_524ACR"
+            android:text="@string/MC_524ACR" />
+
+
+        <EditText
+
+            android:id="@+id/MC_524ACR"
+            style="@style/textInput"
+            android:hint="@string/MC_524ACR"
+            android:inputType="text"
+            android:maxLength="4"
+            android:singleLine="true" />
+
+        <!--MC_524CAN-->
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_524CAN"
+            android:text="@string/MC_524CAN" />
+
+        <EditText
+
+            android:id="@+id/MC_524CAN"
+            style="@style/textInput"
+            android:hint="@string/MC_524CAN"
+            android:inputType="text"
+            android:maxLength="4"
+            android:singleLine="true" />
+
+        <!--MC_525_1-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_1"
+            android:text="@string/MC_525_1" />
+
+        <EditText
+
+            android:id="@+id/MC_525_1"
+            style="@style/textInput"
+            android:hint="@string/MC_525_1"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_2-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_2"
+            android:text="@string/MC_525_2" />
+
+        <EditText
+
+            android:id="@+id/MC_525_2"
+            style="@style/textInput"
+            android:hint="@string/MC_525_2"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_3-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_3"
+            android:text="@string/MC_525_3" />
+
+        <EditText
+
+            android:id="@+id/MC_525_3"
+            style="@style/textInput"
+            android:hint="@string/MC_525_3"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_4-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_4"
+            android:text="@string/MC_525_4" />
+
+        <EditText
+
+            android:id="@+id/MC_525_4"
+            style="@style/textInput"
+            android:hint="@string/MC_525_4"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_5-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_5"
+            android:text="@string/MC_525_5" />
+
+        <EditText
+
+            android:id="@+id/MC_525_5"
+            style="@style/textInput"
+            android:hint="@string/MC_525_5"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_6-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_6"
+            android:text="@string/MC_525_6" />
+
+        <EditText
+
+            android:id="@+id/MC_525_6"
+            style="@style/textInput"
+            android:hint="@string/MC_525_6"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!--MC_525_7-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_7"
+            android:text="@string/MC_525_7" />
+
+        <EditText
+
+            android:id="@+id/MC_525_7"
+            style="@style/textInput"
+            android:hint="@string/MC_525_7"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <EditText
+
+            android:id="@+id/MC_525_7X"
+            style="@style/textInput"
+            android:hint="@string/MC_525_7X"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true" />
+
+
+        <!--MC_525_8-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_8"
+            android:text="@string/MC_525_8" />
+
+        <EditText
+
+            android:id="@+id/MC_525_8"
+            style="@style/textInput"
+            android:hint="@string/MC_525_8"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_9-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_9"
+            android:text="@string/MC_525_9" />
+
+        <EditText
+
+            android:id="@+id/MC_525_9"
+            style="@style/textInput"
+            android:hint="@string/MC_525_9"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!-- -MC_525_10- -->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_10"
+            android:text="@string/MC_525_10" />
+
+        <EditText
+
+            android:id="@+id/MC_525_10"
+            style="@style/textInput"
+            android:hint="@string/MC_525_10"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!--MC_525_11-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_11"
+            android:text="@string/MC_525_11" />
+
+        <EditText
+
+            android:id="@+id/MC_525_11"
+            style="@style/textInput"
+            android:hint="@string/MC_525_11"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_12-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_12"
+            android:text="@string/MC_525_12" />
+
+        <EditText
+
+            android:id="@+id/MC_525_12"
+            style="@style/textInput"
+            android:hint="@string/MC_525_12"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!--MC_525_13-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_13"
+            android:text="@string/MC_525_13" />
+
+        <EditText
+
+            android:id="@+id/MC_525_13"
+            style="@style/textInput"
+            android:hint="@string/MC_525_13"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_14-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_14"
+            android:text="@string/MC_525_14" />
+
+        <EditText
+
+            android:id="@+id/MC_525_14"
+            style="@style/textInput"
+            android:hint="@string/MC_525_14"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!--MC_525_15-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_15"
+            android:text="@string/MC_525_15" />
+
+        <EditText
+
+            android:id="@+id/MC_525_15"
+            style="@style/textInput"
+            android:hint="@string/MC_525_15"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!--MC_525_16-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_16"
+            android:text="@string/MC_525_16" />
+
+        <EditText
+
+            android:id="@+id/MC_525_16"
+            style="@style/textInput"
+            android:hint="@string/MC_525_16"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_17-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_17"
+            android:text="@string/MC_525_17" />
+
+        <EditText
+
+            android:id="@+id/MC_525_17"
+            style="@style/textInput"
+            android:hint="@string/MC_525_17"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+        <!--MC_525_18-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_18"
+            android:text="@string/MC_525_18" />
+
+        <EditText
+
+            android:id="@+id/MC_525_18"
+            style="@style/textInput"
+            android:hint="@string/MC_525_18"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!--MC_525_19-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_19"
+            android:text="@string/MC_525_19" />
+
+        <EditText
+
+            android:id="@+id/MC_525_19"
+            style="@style/textInput"
+            android:hint="@string/MC_525_19"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!--MC_525_20-->
+
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_525_20"
+            android:text="@string/MC_525_20" />
+
+        <EditText
+
+            android:id="@+id/MC_525_20"
+            style="@style/textInput"
+            android:hint="@string/MC_525_20"
+            android:inputType="text"
+            android:maxLength="5"
+            android:singleLine="true" />
+
+
+        <!-- = = = = =  END OF FORM FIELDS  = = = = = -->
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_End"
+                style="@style/buttons"
+                android:layout_weight="1"
+                android:onClick="endInterview"
+                android:text="@string/end_interview"
+                android:textColor="#ff1e1e" />
+            <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+            <Button
+                android:id="@+id/btn_Continue"
+                style="@style/buttons"
+                android:onClick="openSection6"
+                android:text="@string/start_next_section"
+                android:textColor="#1ed61e" />
+            <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

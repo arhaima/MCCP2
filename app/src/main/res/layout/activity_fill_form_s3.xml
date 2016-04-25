@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/crf1_header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/MCCP2_label"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/child_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Child Name"
+        android:textSize="30sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider" />
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
     android:layout_width="match_parent"
@@ -18,18 +43,7 @@
         tools:context="com.example.hassannaqvi.mccp2.MainActivity">
 
 
-        <TextView
-            android:id="@+id/crf1_header"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/MCCP2_label"
-            android:textSize="30sp" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="?android:attr/listDivider" />
 
 
         <!--  = = = = =  START OF FORM FIELDS  = = = = = -->
@@ -76,6 +90,12 @@
             android:singleLine="true" />
 
         <!-- IM_B-->
+
+        <CheckBox
+            android:id="@+id/IM_RESP"
+            style="@style/checkbox"
+            android:text="@string/IM_RESP" />
+        <!--android:onClick="onCheckboxClicked_MC_101"-->
         <TextView
             style="@style/labels"
             android:text="@string/IM_B" />
@@ -115,6 +135,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="5dp"
             android:datePickerMode="spinner"
+            android:endYear="2016"
+            android:startYear="2010"
             android:textSize="24sp" />
 
         <!-- IM_EY-->
@@ -245,6 +267,18 @@
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
         </Spinner>
 
+        <TextView
+            style="@style/labels"
+            android:text="@string/IM_K" />
+
+        <Spinner
+            android:id="@+id/IM_K"
+            style="@style/spinner"
+            android:entries="@array/IM_K_list"
+            android:prompt="@string/IM_K"
+            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
+        </Spinner>
+
         <!-- TODO: IM_K is remaining -->
 
         <!-- BCG-->
@@ -284,7 +318,7 @@
         <Spinner
             android:id="@+id/BCG_SCAR"
             style="@style/spinner"
-            android:entries="@array/IM_I_Scar_list"
+            android:entries="@array/IM_H_list"
             android:prompt="@string/BCG_SCAR"
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
         </Spinner>
@@ -681,7 +715,7 @@
             <Button
                 android:id="@+id/btn_Continue"
                 style="@style/buttons"
-                android:onClick="openSection4"
+                android:onClick="processChild"
                 android:text="@string/start_next_section"
                 android:textColor="#1ed61e" />
             <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
@@ -691,3 +725,4 @@
 
     </LinearLayout>
 </ScrollView>
+</LinearLayout>

@@ -3,8 +3,8 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +27,7 @@ public class FillFormActivity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_ACTIVITY";
     public static String FORM_ID;
+    long rowId = 0;
     private String mcFrmNo;
     private DatePicker mc101date;
     private String spDateT;
@@ -51,6 +52,7 @@ public class FillFormActivity extends AppCompatActivity {
     private int mc108Selected;
     private TextView formErrorTxt;
     private Boolean formError;
+    private String deviceId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +62,8 @@ public class FillFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fill_form);
 
         formError = false;
+        String deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID);
 
         mcFrmNo = "";
         mc101date = (DatePicker) findViewById(R.id.MC_101DATE);
@@ -76,7 +80,6 @@ public class FillFormActivity extends AppCompatActivity {
             mc107epimark_no = (RadioButton) findViewById(R.id.MC_107_No);
         mc107epimark_yes = (RadioButton) findViewById(R.id.MC_107_Yes);
             mc107epimark_unclear = (RadioButton) findViewById(R.id.MC_107_Unclear);
-            mc107Selected = mc107epimark.getCheckedRadioButtonId();
 
 
         mc108permission = (RadioGroup) findViewById(R.id.MC_108);
@@ -91,6 +94,8 @@ public class FillFormActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
+
+
                     String clusterNo = mc105cluster.getText().toString();
                     Log.v(TAG, "index=" + clusterNo);
                     if (clusterNo.equals("407069")) {
@@ -136,8 +141,11 @@ public class FillFormActivity extends AppCompatActivity {
                 Log.d(TAG, "Button Id " +checkedId);
                 if(checkedId != mc108permission_yes.getId()){
                         btnContinue.setEnabled(false);
-                    }else{
+                    Toast.makeText(FillFormActivity.this, "Continue Button OFF", Toast.LENGTH_SHORT).show();
+                } else {
                     btnContinue.setEnabled(true);
+                    Toast.makeText(FillFormActivity.this, "Continue Button ON", Toast.LENGTH_SHORT).show();
+
                 }
              }
         });
@@ -145,7 +153,7 @@ public class FillFormActivity extends AppCompatActivity {
 
     // Start Interview Form 1 - Section 1
     public void startInterview(View view) {
-
+        rowId = 0;
 
         Toast.makeText(getApplicationContext(), "Starting Interview...", Toast.LENGTH_SHORT).show();
         FORM_ID = mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString();
@@ -161,6 +169,8 @@ public class FillFormActivity extends AppCompatActivity {
             StoreTempValues();
 
             Intent fill_form_S2_intent = new Intent(getApplicationContext(), FillFormS2Activity.class);
+            fill_form_S2_intent.putExtra("formId", GenerateFormId());
+
             startActivity(fill_form_S2_intent);
 
         } else {
@@ -214,34 +224,34 @@ public class FillFormActivity extends AppCompatActivity {
 
         if (mc104uc.getText().toString().isEmpty() || mc104uc.getText().toString() == null) {
             mc104uc.setError("Union Council Number not given!");
-            formError = true;
             Log.d(TAG, "Error Type: 104");
-
+            return false;
         }
 
         if (mc105cluster.getText().toString().isEmpty() || mc105cluster.getText().toString() == null) {
             mc105cluster.setError("Cluster Number not given!");
-            formError = true;
+
             Log.d(TAG, "Error Type: 105");
+            return false;
         }
         if (mc106hhno.getText().toString().isEmpty() || mc106hhno.getText().toString() == null) {
             mc106hhno.setError("Household Number not given!");
-            formError = true;
             Log.d(TAG, "Error Type: 106");
+            return false;
         }
 
         if (mc107Selected == -1) {
             mc107epimark_unclear.setError("Please select an answer!");
-            formError = true;
             Log.d(TAG, "Error Type: 107");
+            return false;
         }
         if (mc108Selected == -1) {
             mc108permission_close.setError("Please select an answer!");
-            formError = true;
             Log.d(TAG, "Error Type: 108 "+ mc108Selected );
+            return false;
         }
         // Return from fromValidation()
-        return !formError;
+        return true;
     }
 
     // Generating 11 digit ID ( ClusterNo + 3digit(106hhno) + convertLetterToNumber(106Ext) )
@@ -284,7 +294,6 @@ public class FillFormActivity extends AppCompatActivity {
 
 
         editor.putBoolean("formOpen", true);
-        Log.d("spFrmNo1: ", GenerateFormId());
         editor.putString("spFrmNo", GenerateFormId());
         editor.putString("sp101", String.valueOf(spDateT));
         editor.putString("sp101Time", String.valueOf(spTimeT));
@@ -335,6 +344,9 @@ public class FillFormActivity extends AppCompatActivity {
         JSONObject s1 = new JSONObject();
 
         try {
+
+            s1.put("mcFrmNo", sharedPref.getString("spFrmNo", "00"));
+            s1.put("deviceId", deviceId);
             s1.put("mc101", sharedPref.getString("sp101", "00"));
             s1.put("mc101Time", sharedPref.getString("sp101Time", "00"));
             s1.put("mc102", sharedPref.getString("sp102", "00"));
@@ -346,20 +358,23 @@ public class FillFormActivity extends AppCompatActivity {
             s1.put("mc107", sharedPref.getString("sp107", "00"));
             s1.put("mc108", sharedPref.getString("sp108", "00"));
 
-            FormsContract formContract = new FormsContract(sharedPref.getString("spFrmNo", "00"), s1);
+            Log.d(TAG, "JSON for Section 1: " + s1.toString());
+
+            /*FormsContract formContract = new FormsContract(s1);
             FormsDbHelper db = new FormsDbHelper(this);
             try {
                 Log.d(TAG, "Adding Form to DB...");
-                db.addForm(formContract);
+                rowId = db.addForm(formContract);
             } catch (SQLiteException e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
                 e.printStackTrace();
-            }
+            }*/
 
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        Log.d(TAG, "Added Form with Id: " + String.valueOf(rowId));
 
 
     }

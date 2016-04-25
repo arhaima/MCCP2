@@ -14,11 +14,12 @@ import java.util.List;
 
 public class FormsDbHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 2;
-    public static final String DATABASE_NAME = "mccp2";
+    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "mccp2-test.db";
     public static final String SQL_CREATE_FORMS = "CREATE TABLE Forms" + "("
             + singleForm._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + singleForm.ROW_ID + " TEXT,"
+            + singleForm.DEVICE_ID + " TEXT,"
+            + singleForm.ROW_MC_FrmNo + " TEXT,"
             + singleForm.ROW_MC_101 + " TEXT,"
             + singleForm.ROW_MC_101TIME + " TEXT,"
             + singleForm.ROW_MC_102 + " TEXT,"
@@ -56,12 +57,14 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addForm(FormsContract formscontract) {
+
+    public long addForm(FormsContract formscontract) {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        Log.d(TAG, "Get Form ROW_ID: " + formscontract.getId());
-        values.put(singleForm.ROW_ID, formscontract.getId());
+        Log.d(TAG, "Get Form ROW_ID: " + formscontract.getId()); // TODO: Check why form ID is 'null'
+        values.put(singleForm.ROW_MC_FrmNo, formscontract.getFrmNo());
+        values.put(singleForm.DEVICE_ID, formscontract.getFrmNo());
         values.put(singleForm.ROW_MC_101, formscontract.get101());
         values.put(singleForm.ROW_MC_101TIME, formscontract.get101Time());
         values.put(singleForm.ROW_MC_102, formscontract.get102());
@@ -75,8 +78,24 @@ public class FormsDbHelper extends SQLiteOpenHelper {
 
 
         // Inserting Row
-        db.insert(singleForm.TABLE_NAME, null, values);
+        long rowId = db.insert(singleForm.TABLE_NAME, null, values);
         db.close(); // Closing database connection
+        return rowId;
+    }
+
+    public long updateForm(FormsContract formscontract) {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        Log.d(TAG, "Get Form _ID: " + formscontract.getId());
+        Log.d(TAG, "Get Form ROW_MC_FrmNo: " + formscontract.getFrmNo());
+        values.put(singleForm.ROW_S_2, formscontract.getS2());
+
+
+        // Inserting Row
+        long rowId = db.update(singleForm.TABLE_NAME, values, singleForm._ID + " = ?", new String[]{String.valueOf(formscontract.getId())});
+        db.close();
+        return rowId;
     }
 
     public List<FormsContract> getAllForms() {
@@ -91,7 +110,9 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         if (cursor.moveToFirst()) {
             do {
                 FormsContract form = new FormsContract();
-                form.setId(cursor.getString(cursor.getColumnIndex(singleForm.ROW_ID)));
+                form.setId(cursor.getString(cursor.getColumnIndex(singleForm._ID)));
+                form.setFrmNo(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_FrmNo)));
+                form.setDeviceId(cursor.getString(cursor.getColumnIndex(singleForm.DEVICE_ID)));
                 form.set101(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101)));
                 form.set101Time(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101TIME)));
                 form.set102(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_102)));
