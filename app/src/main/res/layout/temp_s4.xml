@@ -1,282 +1,866 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="horizontal">
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        tools:context="com.example.hassannaqvi.mccp2.MainActivity">
+
+
+        <TextView
+            android:id="@+id/crf1_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/MCCP2_label"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
 
 
 
-<string-array name="MC_401_list">
-    <item> ہاں </item>
-    <item> نہیں </item>
-    <item> معلوم نہیں </item>
+        <!--  = = = = =  START OF FORM FIELDS  = = = = = -->
 
-</string-array>
-<string-array name="MC_401_value">
-<item>1</item>
-<item>2</item>
-<item>99</item>
-</string-array>
+        <!--MC_401-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_401"
+            />
 
+        <RadioGroup
+            android:id="@+id/MC_401"
+            style="@style/radiogroup">
 
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_401_Yes"
+                android:text="@string/MC_Yes"
+                />
 
-<string-array name="MC_402_list">
-<item> ٹی-وی </item>
-<item> ریڈیو </item>
-<item> اخبارات </item>
-<item> پوسٹر/بینر </item>
-<item> محکمہ صحت کے افراد </item>
-<item> امام مسجد </item>
-<item> مقامی لیڈر </item>
-<item> گھر والوں سے </item>
-<item> دوست/ہمسائے/رشتہ دار  </item>
-<item> NGO ورکر </item>
-<item>(دیگر(وضاحت کریں </item>
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_401_No"
+                android:text="@string/MC_No"
+                />
 
-</string-array>
-<string-array name="MC_402_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>5</item>
-<item>6</item>
-<item>7</item>
-<item>8</item>
-<item>9</item>
-<item>10</item>
-<item>88</item>
-</string-array>
-
-
-<string-array name="MC_404_list">
-<item> پو لیو </item>
-<item> ٹی-بی </item>
-<item> خناق </item>
-<item> کالی کھانسی </item>
-<item> خسرہ </item>
-<item> یرقان </item>
-<item> تشنج </item>
-<item> حمل کے دوران تشنج  </item>
-<item> چیچک  </item>
-<item> معلوم نہیں  </item>
-<item> (دیگر(وضاحت کریں</item>
-
-</string-array>
-<string-array name="MC_404_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>5</item>
-<item>6</item>
-<item>7</item>
-<item>8</item>
-<item>9</item>
-<item>99</item>
-<item>88</item>
-</string-array>
-
-
-<string-array name="MC_405_list">
-<item> تعلیم کی کمی  </item>
-<item> پیسوں کی کمی  </item>
-<item> آگاہی کی کمی </item>
-<item> سہولیات کی کمی  </item>
-<item> ٹیکوں  کے منفی اثرات کا خوف   </item>
-<item> معلوم نہیں  </item>
-<item> (دیگر(وضاحت کریں</item>
-
-</string-array>
-<string-array name="MC_405_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>5</item>
-<item>99</item>
-<item>88</item>
-
-</string-array>
-
-<string-array name="MC_405A_list">
-<item> گورنمنٹ ہسپتال  </item>
-<item> نجی ہسپتال </item>
-<item> ہیلتھ سینٹر </item>
-<item> ہیلتھ کیمپ  </item>
-<item> معلوم نہیں  </item>
-<item> (دیگر(وضاحت کریں</item>
-</string-array>
-<string-array name="MC_405A_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>99</item>
-<item>88</item>
-
-</string-array>
-
-
-<string-array name="MC_407_list">
-<item> یہ ضروری  نہیں  </item>
-<item> مذہبی عقیدے کے خلاف ہے </item>
-<item> خاندان والے منع کرتے ہیں </item>
-<item> صحت کے لیے مضر  ہے  </item>
-<item> حلال نہیں ہیں  </item>
-<item> تولیدی نظام کو متاثر کرتے ہیں </item>
-<item> (دیگر(وضاحت کریں</item>
-</string-array>
-<string-array name="MC_407_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>5</item>
-<item>6</item>
-<item>88</item>
-
-</string-array>
-
-
-<string-array name="MC_409_list">
-<item> مکمل طور پر محفوظ  </item>
-<item> مناسب حدتک محفوظ </item>
-<item> غیر محفوظ  </item>
-<item> معلوم نہیں  </item>
-<item> (دیگر(وضاحت کریں</item>
-</string-array>
-<string-array name="MC_409_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>99</item>
-<item>88</item>
-</string-array>
-
-
-<string-array name="MC_410_list">
-<item> گورنمنٹ ہسپتال </item>
-<item> نجی ہسپتال  </item>
-<item> ہیلتھ سنٹر  </item>
-<item> ہیلتھ ورکر   </item>
-<item> ہیلتھ کیمپ  </item>
-<item> گھر پر  </item>
-<item> معلوم نہیں  </item>
-<item> (دیگر(وضاحت کریں</item>
-</string-array>
-<string-array name="MC_410_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>5</item>
-<item>6</item>
-<item>99</item>
-<item>88</item>
-</string-array>
-
-
-<string-array name="MC_410A_list">
-<item> ہرپولیو مہم کے دوران </item>
-<item> زیادہ تر پولیو مہم کے دوران </item>
-<item> صرف چند بار  </item>
-<item> صرف ایک بار  </item>
-<item> میں قطرے پلوانا نہیں چاہتی  </item>
-<item> معلوم نہیں  </item>
-
-
-</string-array>
-<string-array name="MC_410A_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>5</item>
-<item>99</item>
-
-</string-array>
-
-<string-array name="MC_410B_list">
-<item> ہر پولیو مہم میں قطرے پلانے کی ضرورت نہیں ہے </item>
-<item> باربار پولیو کے قطرے پلانے سے ہونے والے منفی اثرات سے فکرمند ہوں </item>
-<item> ہر پولیو مہم کے دوران میں گھر پر موجود نہیں ہوسکتی/ہوسکتا  </item>
-<item> پولیوکے قطرے فائدہ مند نہیں ہیں  </item>
-<item> مجھے پولیو ورکر کابار بار گھر آنا پسند نہیں ہیں   </item>
-<item> معلوم نہیں  </item>
-<item> (دیگر(وضاحت کریں</item>
-
-</string-array>
-<string-array name="MC_410B_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>5</item>
-<item>99</item>
-<item>88</item>
-</string-array>
+            <!--check please-->
+            <RadioButton
+                android:id="@+id/MC_401_Dontknow"
+                style="@style/radiobutton"
+                android:text="@string/MC_Dontknow"
+                />
+        </RadioGroup>
 
 
 
-<string-array name="MC_413_list">
-<item> بچے کو پولیو کے قطرے  بہت دفعہ پلا چکے ہیں </item>
-<item> گھر والے اجازت نہیں دیتے ہیں </item>
-<item> حفاظتی ٹیکے حلال نہیں ہیں </item>
-<item> حفاظتی ٹیکے تولیدی نظام کو متاثر کرتے ہیں</item>
-<item> حفاظتی ٹیکے محفوظ نہیں ہیں    </item>
-<item> مقامی لیڈر منع کرتے ہیں  </item>
-<item> مذہبی عقائد کے خلاف ہے </item>
-<item> (دیگر(وضاحت کریں</item>
+        <!--MC_402-->
 
-</string-array>
-<string-array name="MC_413_value">
-<item>1</item>
-<item>2</item>
-<item>3</item>
-<item>4</item>
-<item>5</item>
-<item>6</item>
-<item>7</item>
-<item>88</item>
-</string-array>
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_402"
+            />
 
+        <TextView
+            style="@style/labels"
+            android:labelFor="@+id/MC_402"
+            android:text="@string/MC_402"
+            />
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_1"
+            android:text="@string/MC_402_1"
+            android:onClick="onCheckboxClicked_MC_402"/>
 
-<string-array name="MC_414_list">
-<item> ہاں </item>
-<item> نہیں </item>
-<item>  معلوم نہیں   </item>
-
-</string-array>
-<string-array name="MC_414_value">
-<item>1</item>
-<item>2</item>
-<item>99</item>
-
-</string-array>
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_2"
+            android:text="@string/MC_402_2"
+            android:onClick="onCheckboxClicked_MC_402"/>
 
 
-<string-array name="MC_415_list">
-<item> پولیو کا ٹیکہ کافی ہےاور پولیو کے قطروں کی مزید ضرورت نہیں</item>
-<item> پولیو کے قطروں کا پلانا اضافی خوراک ہے اور یہ منفی اثرات پیدا کرےگا</item>
-<item>  (دیگر(وضاحت کریں  </item>
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_3"
+            android:text="@string/MC_402_3"
+            android:onClick="onCheckboxClicked_MC_402"/>
 
-</string-array>
-<string-array name="MC_415_value">
-<item>1</item>
-<item>2</item>
-<item>88</item>
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_4"
+            android:text="@string/MC_402_4"
+            android:onClick="onCheckboxClicked_MC_402"/>
 
-</string-array>
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_5"
+            android:text="@string/MC_402_5"
+            android:onClick="onCheckboxClicked_MC_402"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_6"
+            android:text="@string/MC_402_6"
+            android:onClick="onCheckboxClicked_MC_402"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_7"
+            android:text="@string/MC_402_7"
+            android:onClick="onCheckboxClicked_MC_402"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_8"
+            android:text="@string/MC_402_8"
+            android:onClick="onCheckboxClicked_MC_402"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_9"
+            android:text="@string/MC_402_9"
+            android:onClick="onCheckboxClicked_MC_402"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_10"
+            android:text="@string/MC_402_10"
+            android:onClick="onCheckboxClicked_MC_402"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_402_88"
+            android:text="@string/MC_402_88"
+            android:onClick="onCheckboxClicked_MC_402"/>
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_402x"
+            android:hint="@string/MC_402x"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+
+        <!--MC_403-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_403">
+
+        </TextView>
+
+
+        <Spinner
+            style="@style/spinner"
+            android:id="@+id/MC_403"
+            android:entries="@array/MC_403_list"
+            android:prompt="@string/MC_403"
+            android:textSize="24sp"
+            > <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+
+        <!--MC_404-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_404">
+
+        </TextView>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_1"
+            android:text="@string/MC_404_1"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_2"
+            android:text="@string/MC_404_2"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_3"
+            android:text="@string/MC_404_3"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_4"
+            android:text="@string/MC_404_4"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_5"
+            android:text="@string/MC_404_5"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_6"
+            android:text="@string/MC_404_6"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_7"
+            android:text="@string/MC_404_7"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_8"
+            android:text="@string/MC_404_8"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_9"
+            android:text="@string/MC_404_9"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_99"
+            android:text="@string/MC_404_99"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_404_88"
+            android:text="@string/MC_404_88"
+            android:onClick="onCheckboxClicked_MC_404"/>
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_404_X1"
+            android:hint="@string/MC_404_X1"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_404_X2"
+            android:hint="@string/MC_404_X2"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_404_X3"
+            android:hint="@string/MC_404_X3"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+
+        <!--MC_405-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_405">
+
+        </TextView>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405_1"
+            android:text="@string/MC_405_1"
+            android:onClick="onCheckboxClicked_MC_405"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405_2"
+            android:text="@string/MC_405_2"
+            android:onClick="onCheckboxClicked_MC_405"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405_3"
+            android:text="@string/MC_405_3"
+            android:onClick="onCheckboxClicked_MC_405"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405_4"
+            android:text="@string/MC_405_4"
+            android:onClick="onCheckboxClicked_MC_405"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405_5"
+            android:text="@string/MC_405_5"
+            android:onClick="onCheckboxClicked_MC_405"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405_99"
+            android:text="@string/MC_405_99"
+            android:onClick="onCheckboxClicked_MC_405"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405_88"
+            android:text="@string/MC_405_88"
+            android:onClick="onCheckboxClicked_MC_405"/>
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_405X"
+            android:hint="@string/MC_405X"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+
+        <!--MC_405A-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_405A">
+        </TextView>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405A1"
+            android:text="@string/MC_405A1"
+            android:onClick="onCheckboxClicked_MC_405A"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405A2"
+            android:text="@string/MC_405A2"
+            android:onClick="onCheckboxClicked_MC_405A"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405A3"
+            android:text="@string/MC_405A3"
+            android:onClick="onCheckboxClicked_MC_405A"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405A4"
+            android:text="@string/MC_405A4"
+            android:onClick="onCheckboxClicked_MC_405A"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405A99"
+            android:text="@string/MC_405A99"
+            android:onClick="onCheckboxClicked_MC_405A"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_405A88"
+            android:text="@string/MC_405A88"
+            android:onClick="onCheckboxClicked_MC_405A"/>
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_405AX"
+            android:hint="@string/MC_405AX"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+
+        <!--MC_406-->
+
+        <RadioGroup
+            android:id="@+id/MC_406"
+            style="@style/radiogroup">
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_406_Yes"
+                android:text="@string/MC_Yes"
+                />
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_406_No"
+                android:text="@string/MC_No"
+                />
+
+        </RadioGroup>
+
+
+        <!--MC_407-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_407">
+        </TextView>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_407_1"
+            android:text="@string/MC_407_1"
+            android:onClick="onCheckboxClicked_MC_407"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_407_2"
+            android:text="@string/MC_407_2"
+            android:onClick="onCheckboxClicked_MC_407"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_407_3"
+            android:text="@string/MC_407_3"
+            android:onClick="onCheckboxClicked_MC_407"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_407_4"
+            android:text="@string/MC_407_4"
+            android:onClick="onCheckboxClicked_MC_407"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_407_5"
+            android:text="@string/MC_407_5"
+            android:onClick="onCheckboxClicked_MC_407"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_407_6"
+            android:text="@string/MC_407_6"
+            android:onClick="onCheckboxClicked_MC_407"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_407_88"
+            android:text="@string/MC_407_88"
+            android:onClick="onCheckboxClicked_MC_407"/>
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_407X"
+            android:hint="@string/MC_407X"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+        <!--MC_408-->
+
+        <RadioGroup
+            android:id="@+id/MC_408"
+            style="@style/radiogroup">
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_408_Yes"
+                android:text="@string/MC_Yes"
+                />
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_408_No"
+                android:text="@string/MC_No"
+                />
+
+        </RadioGroup>
+
+        <!--MC_409-->
+
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_409">
+
+        </TextView>
+
+        <Spinner
+            style="@style/spinner"
+            android:id="@+id/MC_409"
+            android:entries="@array/MC_409_list"
+            android:prompt="@string/MC_409"
+            android:textSize="24sp"
+            > <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_409_88"
+            android:hint="@string/MC_409_88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+
+        <!--MC_410-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_410">
+
+        </TextView>
+
+        <Spinner
+            style="@style/spinner"
+            android:id="@+id/MC_410"
+            android:entries="@array/MC_410_list"
+            android:prompt="@string/MC_410"
+            android:textSize="24sp"
+            > <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_410_88"
+            android:hint="@string/MC_410_88"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
 
 
 
+        <!--MC_410A-->
+
+        <RadioGroup
+            android:id="@+id/MC_410A"
+            style="@style/radiogroup">
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_410A_1"
+                android:text="@string/MC_410A_1"
+                />
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_410A_2"
+                android:text="@string/MC_410A_2"
+                />
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_410A_3"
+                android:text="@string/MC_410A_3"
+                />
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_410A_4"
+                android:text="@string/MC_410A_4"
+                />
 
 
 
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_410A_5"
+                android:text="@string/MC_410A_5"
+                />
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_410A_99"
+                android:text="@string/MC_410A_99"
+                />
 
 
 
+        </RadioGroup>
+
+
+        <!--MC_410B-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_410B">
+        </TextView>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_410B1"
+            android:text="@string/MC_410B1"
+            android:onClick="onCheckboxClicked_MC_410B"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_410B2"
+            android:text="@string/MC_410B2"
+            android:onClick="onCheckboxClicked_MC_410B"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_410B3"
+            android:text="@string/MC_410B3"
+            android:onClick="onCheckboxClicked_MC_410B"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_410B4"
+            android:text="@string/MC_410B4"
+            android:onClick="onCheckboxClicked_MC_410B"/>
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_410B5"
+            android:text="@string/MC_410B5"
+            android:onClick="onCheckboxClicked_MC_410B"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_410B99"
+            android:text="@string/MC_410B99"
+            android:onClick="onCheckboxClicked_MC_410B"/>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_410B88"
+            android:text="@string/MC_410B88"
+            android:onClick="onCheckboxClicked_MC_410B"/>
 
 
 
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_410BX"
+            android:hint="@string/MC_410BX"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+        <!--MC_411-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_411">
+        </TextView>
+
+        <Spinner
+            style="@style/spinner"
+            android:id="@+id/MC_411"
+            android:entries="@array/MC_411_list"
+            android:prompt="@string/MC_411"
+            android:textSize="24sp"
+            > <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <!--MC_412-->
+
+        <RadioGroup
+            android:id="@+id/MC_412"
+            style="@style/radiogroup">
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_412_Yes"
+                android:text="@string/MC_Yes"
+                />
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_412_No"
+                android:text="@string/MC_No"
+                />
+
+        </RadioGroup>
+
+        <!--MC_413-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_413">
+        </TextView>
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_413_1"
+            android:text="@string/MC_413_1"
+            android:onClick="onCheckboxClicked_MC_413" />
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_413_2"
+            android:text="@string/MC_413_2"
+            android:onClick="onCheckboxClicked_MC_413" />
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_413_3"
+            android:text="@string/MC_413_3"
+            android:onClick="onCheckboxClicked_MC_413" />
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_413_4"
+            android:text="@string/MC_413_4"
+            android:onClick="onCheckboxClicked_MC_413" />
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_413_5"
+            android:text="@string/MC_413_5"
+            android:onClick="onCheckboxClicked_MC_413" />
 
 
-	
-	
-	
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_413_6"
+            android:text="@string/MC_413_6"
+            android:onClick="onCheckboxClicked_MC_413" />
+
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_413_7"
+            android:text="@string/MC_413_7"
+            android:onClick="onCheckboxClicked_MC_413" />
+
+        <CheckBox
+            style="@style/checkbox"
+            android:id="@+id/MC_413_88"
+            android:text="@string/MC_413_88"
+            android:onClick="onCheckboxClicked_MC_413" />
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_413X"
+            android:hint="@string/MC_413X"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+
+        <!--MC_414-->
+
+
+        <RadioGroup
+            android:id="@+id/MC_414"
+            style="@style/radiogroup">
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_414_Yes"
+                android:text="@string/MC_Yes"
+                />
+
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_414_No"
+                android:text="@string/MC_No"
+                />
+
+            <RadioButton
+                style="@style/radiobutton"
+                android:id="@+id/MC_414_Dontknow"
+                android:text="@string/MC_Dontknow"
+                />
+
+        </RadioGroup>
+
+
+        <!--MC_415-->
+
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_415">
+        </TextView>
+
+        <Spinner
+            style="@style/spinner"
+            android:id="@+id/MC_415"
+            android:entries="@array/MC_415_list"
+            android:prompt="@string/MC_415"
+            android:textSize="24sp"
+            > <!-- Todo: Increase textSize  -->
+
+        </Spinner>
+
+        <EditText
+            style="@style/textInput"
+            android:id="@+id/MC_415X"
+            android:hint="@string/MC_415X"
+            android:inputType="text"
+            android:maxLength="256"
+            android:singleLine="true"
+            />
+
+
+        <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_End"
+                style="@style/buttons"
+                android:layout_weight="1"
+                android:text="@string/end_interview"
+                android:textColor="#ff1e1e"
+                android:onClick="endInterview"
+                />
+            <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+            <Button
+                android:id="@+id/btn_Continue"
+                style="@style/buttons"
+                android:text="@string/openSection5"
+                android:textColor="#1ed61e"
+                android:onClick="openSection5"
+                />
+            <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>
