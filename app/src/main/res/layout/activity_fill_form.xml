@@ -154,7 +154,7 @@
             android:layout_height="wrap_content"
             android:entries="@array/MC_106_list"
             android:prompt="@string/MC_106"
-            android:textSize="24sp"></Spinner>
+            android:textSize="24sp" />
 
     </LinearLayout>
 
@@ -239,6 +239,7 @@
             android:id="@+id/btn_End"
             style="@style/buttons"
             android:layout_weight="1"
+            android:layout_width="0dp"
             android:onClick="endInterview"
             android:text="@string/end_interview"
             android:textColor="#ff1e1e"

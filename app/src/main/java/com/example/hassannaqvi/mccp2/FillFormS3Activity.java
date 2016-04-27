@@ -177,8 +177,8 @@ public class FillFormS3Activity extends AppCompatActivity {
         pcv_3src = (Spinner) findViewById(R.id.PCV3_SRC);
         m_1 = (Spinner) findViewById(R.id.M1);
         m_1src = (Spinner) findViewById(R.id.M1_SRC);
-        m_2 = (Spinner) findViewById(R.id.M1);
-        m_2src = (Spinner) findViewById(R.id.M1_SRC);
+        m_2 = (Spinner) findViewById(R.id.M2);
+        m_2src = (Spinner) findViewById(R.id.M2_SRC);
         imma = (Spinner) findViewById(R.id.IM_M_A);
         immd = (Spinner) findViewById(R.id.IM_M_D);
 

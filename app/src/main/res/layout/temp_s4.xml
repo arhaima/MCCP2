@@ -1,0 +1,282 @@
+
+
+
+<string-array name="MC_401_list">
+    <item> ہاں </item>
+    <item> نہیں </item>
+    <item> معلوم نہیں </item>
+
+</string-array>
+<string-array name="MC_401_value">
+<item>1</item>
+<item>2</item>
+<item>99</item>
+</string-array>
+
+
+
+<string-array name="MC_402_list">
+<item> ٹی-وی </item>
+<item> ریڈیو </item>
+<item> اخبارات </item>
+<item> پوسٹر/بینر </item>
+<item> محکمہ صحت کے افراد </item>
+<item> امام مسجد </item>
+<item> مقامی لیڈر </item>
+<item> گھر والوں سے </item>
+<item> دوست/ہمسائے/رشتہ دار  </item>
+<item> NGO ورکر </item>
+<item>(دیگر(وضاحت کریں </item>
+
+</string-array>
+<string-array name="MC_402_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>6</item>
+<item>7</item>
+<item>8</item>
+<item>9</item>
+<item>10</item>
+<item>88</item>
+</string-array>
+
+
+<string-array name="MC_404_list">
+<item> پو لیو </item>
+<item> ٹی-بی </item>
+<item> خناق </item>
+<item> کالی کھانسی </item>
+<item> خسرہ </item>
+<item> یرقان </item>
+<item> تشنج </item>
+<item> حمل کے دوران تشنج  </item>
+<item> چیچک  </item>
+<item> معلوم نہیں  </item>
+<item> (دیگر(وضاحت کریں</item>
+
+</string-array>
+<string-array name="MC_404_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>6</item>
+<item>7</item>
+<item>8</item>
+<item>9</item>
+<item>99</item>
+<item>88</item>
+</string-array>
+
+
+<string-array name="MC_405_list">
+<item> تعلیم کی کمی  </item>
+<item> پیسوں کی کمی  </item>
+<item> آگاہی کی کمی </item>
+<item> سہولیات کی کمی  </item>
+<item> ٹیکوں  کے منفی اثرات کا خوف   </item>
+<item> معلوم نہیں  </item>
+<item> (دیگر(وضاحت کریں</item>
+
+</string-array>
+<string-array name="MC_405_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>99</item>
+<item>88</item>
+
+</string-array>
+
+<string-array name="MC_405A_list">
+<item> گورنمنٹ ہسپتال  </item>
+<item> نجی ہسپتال </item>
+<item> ہیلتھ سینٹر </item>
+<item> ہیلتھ کیمپ  </item>
+<item> معلوم نہیں  </item>
+<item> (دیگر(وضاحت کریں</item>
+</string-array>
+<string-array name="MC_405A_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>99</item>
+<item>88</item>
+
+</string-array>
+
+
+<string-array name="MC_407_list">
+<item> یہ ضروری  نہیں  </item>
+<item> مذہبی عقیدے کے خلاف ہے </item>
+<item> خاندان والے منع کرتے ہیں </item>
+<item> صحت کے لیے مضر  ہے  </item>
+<item> حلال نہیں ہیں  </item>
+<item> تولیدی نظام کو متاثر کرتے ہیں </item>
+<item> (دیگر(وضاحت کریں</item>
+</string-array>
+<string-array name="MC_407_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>6</item>
+<item>88</item>
+
+</string-array>
+
+
+<string-array name="MC_409_list">
+<item> مکمل طور پر محفوظ  </item>
+<item> مناسب حدتک محفوظ </item>
+<item> غیر محفوظ  </item>
+<item> معلوم نہیں  </item>
+<item> (دیگر(وضاحت کریں</item>
+</string-array>
+<string-array name="MC_409_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>99</item>
+<item>88</item>
+</string-array>
+
+
+<string-array name="MC_410_list">
+<item> گورنمنٹ ہسپتال </item>
+<item> نجی ہسپتال  </item>
+<item> ہیلتھ سنٹر  </item>
+<item> ہیلتھ ورکر   </item>
+<item> ہیلتھ کیمپ  </item>
+<item> گھر پر  </item>
+<item> معلوم نہیں  </item>
+<item> (دیگر(وضاحت کریں</item>
+</string-array>
+<string-array name="MC_410_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>6</item>
+<item>99</item>
+<item>88</item>
+</string-array>
+
+
+<string-array name="MC_410A_list">
+<item> ہرپولیو مہم کے دوران </item>
+<item> زیادہ تر پولیو مہم کے دوران </item>
+<item> صرف چند بار  </item>
+<item> صرف ایک بار  </item>
+<item> میں قطرے پلوانا نہیں چاہتی  </item>
+<item> معلوم نہیں  </item>
+
+
+</string-array>
+<string-array name="MC_410A_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>99</item>
+
+</string-array>
+
+<string-array name="MC_410B_list">
+<item> ہر پولیو مہم میں قطرے پلانے کی ضرورت نہیں ہے </item>
+<item> باربار پولیو کے قطرے پلانے سے ہونے والے منفی اثرات سے فکرمند ہوں </item>
+<item> ہر پولیو مہم کے دوران میں گھر پر موجود نہیں ہوسکتی/ہوسکتا  </item>
+<item> پولیوکے قطرے فائدہ مند نہیں ہیں  </item>
+<item> مجھے پولیو ورکر کابار بار گھر آنا پسند نہیں ہیں   </item>
+<item> معلوم نہیں  </item>
+<item> (دیگر(وضاحت کریں</item>
+
+</string-array>
+<string-array name="MC_410B_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>99</item>
+<item>88</item>
+</string-array>
+
+
+
+<string-array name="MC_413_list">
+<item> بچے کو پولیو کے قطرے  بہت دفعہ پلا چکے ہیں </item>
+<item> گھر والے اجازت نہیں دیتے ہیں </item>
+<item> حفاظتی ٹیکے حلال نہیں ہیں </item>
+<item> حفاظتی ٹیکے تولیدی نظام کو متاثر کرتے ہیں</item>
+<item> حفاظتی ٹیکے محفوظ نہیں ہیں    </item>
+<item> مقامی لیڈر منع کرتے ہیں  </item>
+<item> مذہبی عقائد کے خلاف ہے </item>
+<item> (دیگر(وضاحت کریں</item>
+
+</string-array>
+<string-array name="MC_413_value">
+<item>1</item>
+<item>2</item>
+<item>3</item>
+<item>4</item>
+<item>5</item>
+<item>6</item>
+<item>7</item>
+<item>88</item>
+</string-array>
+
+
+<string-array name="MC_414_list">
+<item> ہاں </item>
+<item> نہیں </item>
+<item>  معلوم نہیں   </item>
+
+</string-array>
+<string-array name="MC_414_value">
+<item>1</item>
+<item>2</item>
+<item>99</item>
+
+</string-array>
+
+
+<string-array name="MC_415_list">
+<item> پولیو کا ٹیکہ کافی ہےاور پولیو کے قطروں کی مزید ضرورت نہیں</item>
+<item> پولیو کے قطروں کا پلانا اضافی خوراک ہے اور یہ منفی اثرات پیدا کرےگا</item>
+<item>  (دیگر(وضاحت کریں  </item>
+
+</string-array>
+<string-array name="MC_415_value">
+<item>1</item>
+<item>2</item>
+<item>88</item>
+
+</string-array>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
