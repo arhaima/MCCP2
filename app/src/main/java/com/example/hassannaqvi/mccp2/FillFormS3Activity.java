@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -18,6 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 
 public class FillFormS3Activity extends AppCompatActivity {
 
@@ -129,8 +131,10 @@ public class FillFormS3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_fill_form_s3);
 
         formId = getIntent().getStringExtra("formId");
-        girlCount = Integer.valueOf(getIntent().getStringExtra("girlCount"));
-        boyCount = Integer.valueOf(getIntent().getStringExtra("boyCount"));
+        girlCount = 1;
+        boyCount = 1;
+//        girlCount = Integer.valueOf(getIntent().getStringExtra("girlCount"));
+//        boyCount = Integer.valueOf(getIntent().getStringExtra("boyCount"));
 
         ima = (EditText) findViewById(R.id.IM_A);
         imaf = (EditText) findViewById(R.id.IM_AF);
@@ -411,28 +415,96 @@ public class FillFormS3Activity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Validating Form Values...", Toast.LENGTH_SHORT).show();
 
         if (ima.getText().toString().isEmpty() || ima.getText().toString() == null) {
+            Toast.makeText(getApplicationContext(), "Name not Given!", Toast.LENGTH_SHORT).show();
+
             ima.setError("Name not Given!");
             Log.d(TAG, "Error Type: ima Empty");
             return false;
         }
 
         if (imaf.getText().toString().isEmpty() || imaf.getText().toString() == null) {
+            Toast.makeText(getApplicationContext(), "Father's Name not Given!", Toast.LENGTH_SHORT).show();
             imaf.setError("Father's Name not Given!");
             Log.d(TAG, "Error Type: imaf Empty");
             return false;
         }
 
+        if (imbselected.toString().equals("1") && boyCount < 1) {
+            Toast.makeText(getApplicationContext(), "Boy Count Completed!", Toast.LENGTH_SHORT).show();
+            TextView errorText = (TextView) imb.getSelectedView();
+            errorText.setError(" ");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Boy Count Completed!");//changes the selected item text to this
+            Log.d(TAG, "Error Type: imb - Boy Count: " + boyCount);
+            return false;
+        }
+        if (imbselected.toString().equals("2") && girlCount < 1) {
+            Toast.makeText(getApplicationContext(), "Girl Count Completed!", Toast.LENGTH_SHORT).show();
+            TextView errorText = (TextView) imb.getSelectedView();
+            errorText.setError(" ");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Girl Count Completed!");//changes the selected item text to this
+            Log.d(TAG, "Error Type: imb - Girl Count: " + girlCount);
+            return false;
+        }
+
+        if (!imey.toString().isEmpty() && !imey.toString().isEmpty()) {
+
+            Calendar today = Calendar.getInstance();
+            Calendar dob = Calendar.getInstance();
+
+            dob.set(imd.getYear(), imd.getMonth(), imd.getDayOfMonth());
+            int ageA = today.get(Calendar.YEAR) - dob.get(Calendar.YEAR);
+
+            if (today.get(Calendar.DAY_OF_YEAR) < dob.get(Calendar.DAY_OF_YEAR)) {
+                ageA--;
+            }
+            if (ageA < Integer.valueOf(imey.getText().toString()) || ageA > Integer.valueOf(imey.getText().toString())) {
+
+                Toast.makeText(getApplicationContext(), "Age does not match Date of Birth", Toast.LENGTH_SHORT).show();
+                imey.setError("Age does not match Date of Birth");
+                Log.d(TAG, "Error Type: imey mismatch");
+                return false;
+            }
+
+
+        }
+
+
+
         if (imey.getText().toString().isEmpty() || imey.getText().toString() == null) {
+            Toast.makeText(getApplicationContext(), "Year of Birth not Given!", Toast.LENGTH_SHORT).show();
             imey.setError("Year of Birth not Given!");
             Log.d(TAG, "Error Type: imey Empty");
             return false;
         }
 
         if (imem.getText().toString().isEmpty() || imem.getText().toString() == null) {
+            Toast.makeText(getApplicationContext(), "Month of Birth not Given!", Toast.LENGTH_SHORT).show();
             imem.setError("Month of Birth not Given!");
             Log.d(TAG, "Error Type: imem Empty");
             return false;
         }
+
+        if (imed.getText().toString().isEmpty() || imed.getText().toString() == null) {
+            Toast.makeText(getApplicationContext(), "Day of Birth not Given!", Toast.LENGTH_SHORT).show();
+            imed.setError("Day of Birth not Given!");
+            Log.d(TAG, "Error Type: imem Empty");
+            return false;
+        }
+
+        if (!imed.getText().toString().isEmpty() && !imem.getText().toString().isEmpty() && !imey.getText().toString().isEmpty()) {
+            if (imem.getText().toString().equals(imd.getMonth())
+                    || imed.getText().toString().equals(imd.getDayOfMonth())
+                    || imey.getText().toString().equals(imd.getYear())
+                    ) {
+                Toast.makeText(getApplicationContext(), "Date of Birth do not match!", Toast.LENGTH_SHORT).show();
+                imed.setError("Date of Birth do not match!");
+                Log.d(TAG, "Error Type: DOB Do Not Match");
+                return false;
+            }
+        }
+
 
         return true;
     }

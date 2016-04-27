@@ -31,14 +31,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".FillFormActivity" />
-        <activity android:name=".EditFormActivity" />
-        <activity android:name=".FillFormS2Activity" />
-        <activity android:name=".FillFormS3Activity" />
-        <activity android:name=".FillFormS4Activity" />
-        <activity android:name=".FillFormS5Activity" />
-        <activity android:name=".FillFormS6Activity" />
-        <activity android:name=".EndFormActivity" />
+        <activity
+            android:name=".FillFormActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".EditFormActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".FillFormS2Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".FillFormS3Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".FillFormS4Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".FillFormS5Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".FillFormS6Activity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".EndFormActivity"
+            android:windowSoftInputMode="adjustResize" />
 
         <activity
             android:name=".LoginActivity"

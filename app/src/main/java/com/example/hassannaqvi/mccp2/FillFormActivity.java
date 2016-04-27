@@ -119,7 +119,7 @@ public class FillFormActivity extends AppCompatActivity {
                 if (!hasFocus) {
                     String UCNo = mc104uc.getText().toString();
 
-                    if (UCNo.equals("007")) {
+                    if (UCNo.equals("07")) {
                         mc104ucNm.setText("Yusuf Goth");
                         mc104ucNm.setVisibility(View.VISIBLE);
                     } else {

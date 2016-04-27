@@ -91,7 +91,7 @@
         style="@style/textInput"
         android:hint="@string/MC_104"
         android:inputType="number"
-        android:maxLength="3"
+        android:maxLength="2"
         android:singleLine="true"
         />
 
