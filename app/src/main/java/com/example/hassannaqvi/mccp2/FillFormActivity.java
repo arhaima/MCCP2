@@ -270,7 +270,7 @@ public class FillFormActivity extends AppCompatActivity {
         String hhCode = "";
 
         if (len < 3){
-            String stCode = mc106hhno.getText().toString();
+            Integer stCode = Integer.valueOf(mc106hhno.getText().toString());
             hhCode = String.format("%03d", stCode);
         } else {
             hhCode = mc106hhno.getText().toString();

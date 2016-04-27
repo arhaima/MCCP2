@@ -75,13 +75,18 @@
 
         </RadioGroup>
 
-
+        <LinearLayout
+            android:id="@+id/fldGrp602"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
         <!--MC_603-->
 
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_603"
-            android:text="Text not Match" />
+            android:text="@string/MC_603" />
 
         <CheckBox
             android:id="@+id/MC_603_1"
@@ -122,14 +127,14 @@
             android:inputType="text"
             android:maxLength="256"
             android:singleLine="true" />
-
+        </LinearLayout>
 
         <!--MC_604 -->
 
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_604"
-            android:text="Text Not Match" />
+            android:text="@string/MC_604" />
 
 
         <CheckBox
@@ -192,25 +197,20 @@
         <CheckBox
             android:id="@+id/MC_604_10"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
-            android:text="@string/MC_604_10" />
+            android:onClick="onCheckboxClicked_MC_604" />
+        <!--android:text="@string/MC_604_10"-->
 
         <CheckBox
             android:id="@+id/MC_604_11"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
-            android:text="@string/MC_604_11" />
+            android:onClick="onCheckboxClicked_MC_604" />
+        <!--android:text="@string/MC_604_11"-->
 
-        <CheckBox
-            android:id="@+id/MC_604_12"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
-            android:text="@string/MC_604_12" />
 
         <EditText
-            android:id="@+id/MC_604_12X"
+            android:id="@+id/MC_604_X"
             style="@style/textInput"
-            android:hint="Text Not Match"
+            android:hint="@string/MC_604_88"
             android:inputType="text"
             android:maxLength="256"
             android:singleLine="true" />
@@ -219,7 +219,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_605"
-            android:text="Text Not Match" />
+            android:text="@string/MC_605" />
 
         <CheckBox
             android:id="@+id/MC_605_1"
@@ -257,11 +257,11 @@
         <EditText
             android:id="@+id/MC_605X"
             style="@style/textInput"
-            android:hint="Text Not Match"
+
             android:inputType="text"
             android:maxLength="256"
             android:singleLine="true" />
-
+        <!--android:hint="@string/MC_605_88"-->
 
         <!--MC_606-->
 
@@ -296,13 +296,19 @@
 
         </RadioGroup>
 
+        <LinearLayout
+            android:id="@+id/fldGrp606"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
 
         <!-- -MC_607 -->
 
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_607"
-            android:text="Text Not Match" />
+            android:text="@string/MC_607" />
 
         <CheckBox
             android:id="@+id/MC_607_1"
@@ -356,11 +362,12 @@
         <EditText
             android:id="@+id/MC_607X"
             style="@style/textInput"
-            android:hint="Text Not Match"
             android:inputType="text"
             android:maxLength="256"
             android:singleLine="true" />
+            <!--android:hint="@string/MC_607_88"-->
 
+        </LinearLayout>
         <!-- -MC_607A -->
 
         <TextView
@@ -387,66 +394,31 @@
             <RadioButton
                 android:id="@+id/MC_607A_Dontknow"
                 style="@style/radiobutton"
-                android:text="Text Not Match" />
+                android:text="@string/MC_DontKnow" />
 
 
         </RadioGroup>
 
+        <LinearLayout
+            android:id="@+id/fldGrp607a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
         <!-- -MC_607B -->
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_607B"
             android:text="@string/MC_607B" />
 
-        <CheckBox
-            android:id="@+id/MC_607B_1"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607B"
-            android:text="Text Not Match" />
+            <Spinner
+                android:id="@+id/MC_607B"
+                style="@style/spinner"
+                android:entries="@array/MC_607_list"
+                android:prompt="@string/MC_607"
+                android:textSize="24sp"> <!-- Todo: Increase textSize  -->
 
-        <CheckBox
-            android:id="@+id/MC_607B_2"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607B"
-            android:text="Text Not Match" />
-
-        <CheckBox
-            android:id="@+id/MC_607B_3"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607B"
-            android:text="Text Not Match" />
-
-        <CheckBox
-            android:id="@+id/MC_607B_4"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607B"
-            android:text="Text Not Match" />
-
-
-        <CheckBox
-            android:id="@+id/MC_607B_5"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607B"
-            android:text="Text Not Match" />
-
-        <CheckBox
-            android:id="@+id/MC_607B_6"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607B"
-            android:text="Text Not Match" />
-
-        <CheckBox
-            android:id="@+id/MC_607B_7"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607B"
-            android:text="Text Not Match" />
-
-
-        <CheckBox
-            android:id="@+id/MC_607B_88"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607B"
-            android:text="Text Not Match" />
+            </Spinner>
 
 
         <EditText
@@ -457,13 +429,13 @@
             android:maxLength="256"
             android:singleLine="true" />
 
-
+        </LinearLayout>
         <!--MC_608_M-->
 
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_608_M"
-            android:text="Text Not Match" />
+            android:text="@string/MC_608_M" />
 
         <CheckBox
             android:id="@+id/MC_608_M1"
@@ -499,36 +471,7 @@
             android:text="@string/MC_608_M5" />
 
         <!--MC_608_C-->
-
-        <TextView
-            style="@style/labels"
-            android:labelFor="@+id/MC_608_C"
-            android:text="Text Not Match" />
-
-        <CheckBox
-            android:id="@+id/MC_608_C1"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_C1"
-            android:text="Text Not Match" />
-
-        <CheckBox
-            android:id="@+id/MC_608_C2"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_C2"
-            android:text="Text Not Match" />
-
-        <CheckBox
-            android:id="@+id/MC_608_C3"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_C3"
-            android:text="Text Not Match" />
-
-        <CheckBox
-            android:id="@+id/MC_608_C4"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_C4"
-            android:text="Text Not Match" />
-
+        <!--// TODO: New Table for Child Care-->
         <!-- -MC_609 -->
 
         <TextView
@@ -585,7 +528,7 @@
                 android:id="@+id/btn_Continue"
                 style="@style/buttons"
                 android:onClick="openSection6"
-                android:text="Text Not Match"
+                android:text="@string/start_next_section"
                 android:textColor="#1ed61e" />
             <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
 

@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -214,23 +215,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         mc203m.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             int m203 = 0;
             int f203 = 0;
-
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                if (!hasFocus) {
-                    m203 = Integer.valueOf(mc203m.getText().toString());
-                    if (!mc203f.getText().toString().isEmpty()) {
-                        f203 = Integer.valueOf(mc203f.getText().toString());
-                    }
-                    mc203tot.setError("Total do not match!");
-                }
-            }
-        });
-
-        mc203f.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            int m203 = 0;
-            int f203 = 0;
-
+            int t203 = 0;
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -240,37 +225,20 @@ public class FillFormS2Activity extends AppCompatActivity {
                     if (!mc203f.getText().toString().isEmpty()) {
                         f203 = Integer.valueOf(mc203f.getText().toString());
                     }
-                    mc203tot.setError("Total do not match!");
+                    if (!mc203f.getText().toString().isEmpty() && !mc203m.getText().toString().isEmpty() && !mc203tot.getText().toString().isEmpty()) {
+                        if ((m203 + f203) != Integer.valueOf(mc203tot.getText().toString())) {
+                            mc203tot.setError("Total do not match!");
+                        }
+                    }
+                    
                 }
             }
         });
 
-        // Checking Total number of HH members against 203M+203F
         mc204m.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             int m204 = 0;
             int f204 = 0;
-
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                int m204 = 0;
-                int f204 = 0;
-                if (!hasFocus) {
-                    if (!mc204m.getText().toString().isEmpty()) {
-                        m204 = Integer.valueOf(mc204m.getText().toString());
-                    }
-                    if (!mc204m.getText().toString().isEmpty()) {
-                        f204 = Integer.valueOf(mc204m.getText().toString());
-                    }
-                    mc204t.setError("Total do not match!");
-                }
-            }
-        });
-
-        mc204f.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-
-            int m204 = 0;
-            int f204 = 0;
-
+            int t204 = 0;
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -280,10 +248,19 @@ public class FillFormS2Activity extends AppCompatActivity {
                     if (!mc204f.getText().toString().isEmpty()) {
                         f204 = Integer.valueOf(mc204f.getText().toString());
                     }
-                    mc204t.setError("Total do not match!");
+                    if (!mc204f.getText().toString().isEmpty() && !mc204m.getText().toString().isEmpty() && !mc204t.getText().toString().isEmpty()) {
+                        if ((m204 + f204) != Integer.valueOf(mc204t.getText().toString())) {
+                            mc204t.setError("Total do not match!");
+                        }
+                    }
+
                 }
             }
         });
+
+
+        // Checking Total number of HH members against 203M+203F
+       
 
         mc206.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -304,6 +281,9 @@ public class FillFormS2Activity extends AppCompatActivity {
     }
 
     public void startFormS3(View view) {
+        Toast.makeText(getApplicationContext(), "Processing Section 2...", Toast.LENGTH_SHORT).show();
+
+
 
         mc201typeSelected = getResources().getStringArray(R.array.MC_201TYPE_list)[mc201type.getSelectedItemPosition()];
         mc201ocuSelected = getResources().getStringArray(R.array.MC_OCU_value)[mc201ocu.getSelectedItemPosition()];
@@ -320,6 +300,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             s2_form_intent.putExtra("girlCount", mc204f.getText().toString());
             startActivity(s2_form_intent);
         } else {
+            Toast.makeText(getApplicationContext(), "Form Validation Failed!" + mcFrmNo, Toast.LENGTH_SHORT).show();
 
 
         }
@@ -439,18 +420,30 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         String gndr201 = mc201gndr.getSelectedItem().toString();
 
-        if (mc201gndr.getSelectedItem().toString() == "Male" && mc201type.getSelectedItem().toString() == "Mother") {
-            mc201type_error.setVisibility(View.VISIBLE);
-
-            Log.d(TAG, "Error Type: 201type mismatch");
+        if (mc201nm.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Name is Empty...", Toast.LENGTH_SHORT).show();
+            mc201nm.setError("Name not Given!");
+            Log.d(TAG, "Error Type: 201nm  missing");
             return false;
         }
+
+        if (mc201gndr.getSelectedItem().toString().equals("Male") && mc201type.getSelectedItem().toString().equals("Mother")) {
+            Toast.makeText(getApplicationContext(), "Please select correct Relation Type.", Toast.LENGTH_SHORT).show();
+            mc201type_error.setVisibility(View.VISIBLE);
+            TextView errorText = (TextView) mc201gndr.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select correct Relation Type.");//changes the selected item text to this
+
+            Log.d(TAG, "Error Type: 201gndr mismatch");
+            return false;
+        }
+
 
         mc206selected = mc206.getCheckedRadioButtonId();
 
         if (mc201nm.getText().toString().isEmpty() || mc201nm.getText().toString() == null) {
             mc201nm.setError("Name not Given!");
-
             Log.d(TAG, "Error Type: 201nm Empty");
             return false;
         }
@@ -463,7 +456,6 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         if (mc201edu.getText().toString().isEmpty() || mc201edu.getText().toString() == null) {
             mc201edu.setError("Education not Given!");
-
             Log.d(TAG, "Error Type: 201edu Empty");
             return false;
         }

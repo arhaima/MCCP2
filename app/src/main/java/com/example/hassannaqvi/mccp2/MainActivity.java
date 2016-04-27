@@ -113,11 +113,46 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void testFormS1(View view) {
+
+        Intent s1_form_intent = new Intent(getApplicationContext(), FillFormActivity.class);
+
+        startActivity(s1_form_intent);
+    }
+
     public void testFormS2(View view) {
 
         Intent s2_form_intent = new Intent(getApplicationContext(), FillFormS2Activity.class);
 
         startActivity(s2_form_intent);
+    }
+
+    public void testFormS3(View view) {
+
+        Intent s3_form_intent = new Intent(getApplicationContext(), FillFormS3Activity.class);
+
+        startActivity(s3_form_intent);
+    }
+
+    public void testFormS4(View view) {
+
+        Intent s4_form_intent = new Intent(getApplicationContext(), FillFormS4Activity.class);
+
+        startActivity(s4_form_intent);
+    }
+
+    public void testFormS5(View view) {
+
+        Intent s5_form_intent = new Intent(getApplicationContext(), FillFormS5Activity.class);
+
+        startActivity(s5_form_intent);
+    }
+
+    public void testFormS6(View view) {
+
+        Intent s6_form_intent = new Intent(getApplicationContext(), FillFormS6Activity.class);
+
+        startActivity(s6_form_intent);
     }
 
     public void moveDbToSd() {
