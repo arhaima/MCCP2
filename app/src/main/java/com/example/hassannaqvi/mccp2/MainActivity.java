@@ -115,9 +115,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void testFormS1(View view) {
 
-        Intent s1_form_intent = new Intent(getApplicationContext(), FillFormActivity.class);
+        FormsDbHelper db = new FormsDbHelper(this);
 
-        startActivity(s1_form_intent);
+        Log.i(TAG, "User Count: " + db.getUserCount());
+
+
+
+        /*GetUsers users = new GetUsers(getApplicationContext());
+        users.execute();
+*/
+        /*Intent s1_form_intent = new Intent(getApplicationContext(), FillFormActivity.class);
+
+        startActivity(s1_form_intent);*/
     }
 
     public void testFormS2(View view) {
@@ -244,5 +253,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
 
 }

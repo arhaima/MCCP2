@@ -325,10 +325,10 @@ public class FillFormS4Activity extends AppCompatActivity {
         mc401.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == mc401_yes.getId()) {
-                    fldGrp401.setVisibility(View.VISIBLE);
-                } else {
+                if (checkedId == mc401_no.getId()) {
                     fldGrp401.setVisibility(View.GONE);
+                } else {
+                    fldGrp401.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -774,7 +774,9 @@ public class FillFormS4Activity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
-        return false;
+
+//        return false;
+        return true;
     }
 
 }

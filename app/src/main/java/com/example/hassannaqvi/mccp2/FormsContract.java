@@ -255,7 +255,7 @@ public final class FormsContract {
 
     public static abstract class singleForm implements BaseColumns {
 
-        public static final String TABLE_NAME = "forms";
+        public static final String TABLE_NAME = "Forms";
         public static final String _ID = "_ID";
         public static final String DEVICE_ID = "DEVICE_ID";
         public static final String ROW_MC_FrmNo = "MC_FRMNO";

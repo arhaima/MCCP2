@@ -1,5 +1,6 @@
 package com.example.hassannaqvi.mccp2;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,8 +10,13 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class FillFormS5Activity extends AppCompatActivity {
+
+    private String formId;
+
+
 
     private Spinner mc501;
     private EditText mc501_88;
@@ -172,6 +178,8 @@ public class FillFormS5Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_form_s5);
+
+        formId = getIntent().getStringExtra("formId");
 
         mc501 = (Spinner) findViewById(R.id.MC_501);
         mc501_88 = (EditText) findViewById(R.id.MC_501_88);
@@ -402,8 +410,33 @@ public class FillFormS5Activity extends AppCompatActivity {
                 }
             }
         });
-        
 
+
+    }
+
+    public void openSection6(View view) {
+
+        if (formValidation()) {
+            Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
+
+            StoreTempValues();
+
+            Intent s6_form_intent = new Intent(getApplicationContext(), FillFormS6Activity.class);
+            s6_form_intent.putExtra("formId", formId);
+//            s2_form_intent.putExtra("boyCount", mc204m.getText().toString());
+//            s2_form_intent.putExtra("girlCount", mc204f.getText().toString());
+            startActivity(s6_form_intent);
+        } else {
+
+
+        }
+    }
+
+    private boolean formValidation() {
+        return true;
+    }
+
+    private void StoreTempValues() {
     }
 
 

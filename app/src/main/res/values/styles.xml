@@ -6,6 +6,27 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textViewStyle">@style/UrduTextViewStyle</item>
+        <item name="buttonStyle">@style/UrduButtonStyle</item>
+
+        <!-- For the resting Spinner style -->
+        <item name="android:spinnerItemStyle">
+            @style/spinnerItemStyle
+        </item>
+
+        <!-- For each individual Spinner list item once clicked on -->
+        <item name="android:spinnerDropDownItemStyle">
+            @style/spinnerDropDownItemStyle
+        </item>
+    </style>
+
+
+    <style name="UrduTextViewStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">fonts/Jameel Noori Nastaleeq</item>
+    </style>
+
+    <style name="UrduButtonStyle" parent="android:Widget.Holo.Button">
+        <item name="android:fontFamily">fonts/Jameel Noori Nastaleeq</item>
     </style>
 
     <!-- Form Styles -->
@@ -44,15 +65,6 @@
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#ff0000</item>
-        <item name="android:spinnerItemStyle">
-            @style/spinnerItemStyle
-        </item>
-
-        <!-- For each individual Spinner list item once clicked on -->
-        <item name="android:spinnerDropDownItemStyle">
-            @style/spinnerDropDownItemStyle
-        </item>
-
     </style>
 
     <style name="spinnerItemStyle">
@@ -62,10 +74,11 @@
     </style>
 
     <style name="spinnerDropDownItemStyle">
-        <item name="android:padding">24dp</item>
-        <item name="android:textSize">36sp</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">30sp</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
+
     <style name="radiogroup">
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -74,6 +87,7 @@
         <item name="android:layout_marginBottom">5dp</item>
 
     </style>
+
     <style name="radiobutton">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -100,6 +114,14 @@
 
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

@@ -69,9 +69,6 @@
 
             <!--MC_402-->
 
-            <TextView
-                style="@style/labels"
-                android:text="@string/MC_402" />
 
             <TextView
                 style="@style/labels"
@@ -438,6 +435,10 @@
 
         <!--MC_408-->
 
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_408"></TextView>
+
         <RadioGroup
             android:id="@+id/MC_408"
             style="@style/radiogroup">
@@ -633,6 +634,9 @@
 
 
         <!--MC_412-->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_412"></TextView>
 
         <RadioGroup
             android:id="@+id/MC_412"
@@ -714,7 +718,9 @@
         </LinearLayout>
 
         <!--MC_414-->
-
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_414"></TextView>
 
         <RadioGroup
             android:id="@+id/MC_414"

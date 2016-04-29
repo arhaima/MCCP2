@@ -22,11 +22,14 @@ import org.json.JSONObject;
 
 public class FillFormS2Activity extends AppCompatActivity {
 
-    private static final String TAG = "FILL_FORM_S2_ACTIVITY";
-    private static final Integer AGE_LIMIT = 16;
-
-
+    public static JSONObject JsonS2;
+    // Section 2 Field Variables
     public static String FORM_ID;
+    // Activity Variables
+    private final String TAG = "FILL_FORM_S2_ACTIVITY";
+    private final Integer AGE_LIMIT = 16;
+    private final Integer MONTH_LIMIT = 9;
+    private final Integer WEEK_LIMIT = 8;
     private String mcFrmNo;
     private EditText mc201nm;
     private Spinner mc201gndr;
@@ -60,24 +63,29 @@ public class FillFormS2Activity extends AppCompatActivity {
     private EditText mc2073m;
     private LinearLayout mc207;
 
+    // Variable declarations for All Spinner Selected Values
     private String mc201typeSelected;
     private String mc201ocuSelected;
     private String mc202ocuSelected;
 
-    private TextView formErrorTxt;
-    private Boolean formError;
+    // Form Variables
     private String formId;
     private String rowId;
+
+
+    // onCreate Function for Form S2
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_form_s2);
 
+        // Initializing From Variables
         formId = getIntent().getStringExtra("formId");
 
-        Log.d(TAG, "i.fromId: " + formId);
-        formError = false;
 
+        Log.d(TAG, "Form Id: " + formId);
+
+        // Initializing Form Field Variables with layout field IDs
         mc201nm = (EditText) findViewById(R.id.MC_201NM);
         mc201gndr = (Spinner) findViewById(R.id.MC_201GNDR);
         mc201type = (Spinner) findViewById(R.id.MC_201TYPE);
@@ -110,10 +118,6 @@ public class FillFormS2Activity extends AppCompatActivity {
         mc2073m = (EditText) findViewById(R.id.MC_207_3M);
         mc207 = (LinearLayout) findViewById(R.id.MC_207);
 
-        // Spinner Selected Value from List Array
-        mc201ocuSelected = getResources().getStringArray(R.array.MC_OCU_value)[mc201ocu.getSelectedItemPosition()];
-        mc202ocuSelected = getResources().getStringArray(R.array.MC_OCU_value)[mc202ocu.getSelectedItemPosition()];
-
 
         // Validation for age of Respondent (MIN_AGE_LIMIT = 18)
         mc201age.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -127,10 +131,8 @@ public class FillFormS2Activity extends AppCompatActivity {
                     }
                     if (age201 < AGE_LIMIT) {
                         mc201age.setError("Too Young for Interview!");
-                        formError = true;
                     } else {
                         mc201age.setError(null);
-                        formError = false;
 
                     }
                 }
@@ -155,10 +157,9 @@ public class FillFormS2Activity extends AppCompatActivity {
                     }
                     if (edu201 > age201 - 5 && edu201 != 77) {
                         mc201edu.setError("Education does not match Age.");
-                        formError = true;
+
                     } else {
                         mc201age.setError(null);
-                        formError = false;
 
                     }
                 }
@@ -177,10 +178,11 @@ public class FillFormS2Activity extends AppCompatActivity {
                     }
                     if (age202 < AGE_LIMIT) {
                         mc202age.setError("Too Young for Interview!");
-                        formError = true;
+
+
                     } else {
                         mc202age.setError(null);
-                        formError = false;
+
 
                     }
                 }
@@ -203,10 +205,10 @@ public class FillFormS2Activity extends AppCompatActivity {
                     }
                     if (edu202 > age202 - 5 && edu202 != 77) {
                         mc202edu.setError("Education does not match Age.");
-                        formError = true;
+
                     } else {
                         mc202age.setError(null);
-                        formError = false;
+
 
                     }
                 }
@@ -262,9 +264,9 @@ public class FillFormS2Activity extends AppCompatActivity {
         });
 
 
-        // Checking Total number of HH members against 203M+203F
-       
+        // SKIP PATTERNS
 
+        // For Q.206 
         mc206.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -281,15 +283,14 @@ public class FillFormS2Activity extends AppCompatActivity {
 
     }
 
-    public void onCheckboxClicked(View view) {
-
-    }
 
     public void startFormS3(View view) {
+
+        // Make changes to String according to Section.
         Toast.makeText(getApplicationContext(), "Processing Section 2...", Toast.LENGTH_SHORT).show();
 
 
-
+        // Initializing All Spinner Selected values from Form-Fields-Arrays _value (NOT _list). 
         mc201typeSelected = getResources().getStringArray(R.array.MC_201TYPE_list)[mc201type.getSelectedItemPosition()];
         mc201ocuSelected = getResources().getStringArray(R.array.MC_OCU_value)[mc201ocu.getSelectedItemPosition()];
         mc202ocuSelected = getResources().getStringArray(R.array.MC_OCU_value)[mc202ocu.getSelectedItemPosition()];
@@ -299,10 +300,15 @@ public class FillFormS2Activity extends AppCompatActivity {
 
             StoreTempValues();
 
+            // Make Changes acording to Section.
             Intent s2_form_intent = new Intent(getApplicationContext(), FillFormS3Activity.class);
             s2_form_intent.putExtra("formId", formId);
+
+            // Additional Variables For Next Section (if any) 
             s2_form_intent.putExtra("boyCount", mc204m.getText().toString());
             s2_form_intent.putExtra("girlCount", mc204f.getText().toString());
+
+            // Start Next Section
             startActivity(s2_form_intent);
         } else {
             Toast.makeText(getApplicationContext(), "Form Validation Failed!" + mcFrmNo, Toast.LENGTH_SHORT).show();
@@ -325,7 +331,9 @@ public class FillFormS2Activity extends AppCompatActivity {
         // Selected value of RadioGroups
         mc206selected = mc206.getCheckedRadioButtonId();
 
+        // Initialising SharedPreference for temporary storage
 
+        // -- EditText & Spinners
         editor.putString("sp201nm", mc201nm.getText().toString());  // EditText Respondent's Name
         editor.putString("sp201age", mc201age.getText().toString()); // EditText Respondent's Age
         editor.putString("sp201gndr", mc201gndr.getSelectedItem().toString()); // Spinner Respondent's Gender
@@ -353,7 +361,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         editor.putString("sp2073w", mc2073w.getText().toString()); // EditText Living Duration
         editor.putString("sp2073m", mc2073m.getText().toString()); // EditText Living Duration
 
-        // Switch for RadioGroups
+        // -- RadioGroups
         switch (mc206selected) {
             case R.id.MC_206_No:
                 editor.putString("sp206", "2");
@@ -369,37 +377,39 @@ public class FillFormS2Activity extends AppCompatActivity {
         editor.apply();
         Log.d(TAG, "Stored sharedValues.");
 
-        JSONObject s2 = new JSONObject();
+
         long newFormId = 0;
         try {
-            s2.put("mc201nm", sharedPref.getString("sp201nm", "00"));
-            s2.put("mc201gndr", sharedPref.getString("sp201gndr", "00"));
-            s2.put("mc201type", sharedPref.getString("sp201type", "00"));
-            s2.put("mc201age", sharedPref.getString("sp201age", "00"));
-            s2.put("mc201edu", sharedPref.getString("sp201edu", "00"));
-            s2.put("mc201ocu", sharedPref.getString("sp201ocu", "00"));
-            s2.put("mc202nm", sharedPref.getString("sp202nm", "00"));
-            s2.put("mc202gndr", sharedPref.getString("sp202gndr", "00"));
-            s2.put("mc202age", sharedPref.getString("sp202age", "00"));
-            s2.put("mc202edu", sharedPref.getString("sp202edu", "00"));
-            s2.put("mc202ocu", sharedPref.getString("sp202ocu", "00"));
-            s2.put("mc203tot", sharedPref.getString("sp203tot", "00"));
-            s2.put("mc203m", sharedPref.getString("sp203m", "00"));
-            s2.put("mc203f", sharedPref.getString("sp203f", "00"));
-            s2.put("mc204t", sharedPref.getString("sp204t", "00"));
-            s2.put("mc204m", sharedPref.getString("sp204m", "00"));
-            s2.put("mc204f", sharedPref.getString("sp204f", "00"));
-            s2.put("mc205mm", sharedPref.getString("sp205mm", "00"));
-            s2.put("mc205yy", sharedPref.getString("sp205yy", "00"));
-            s2.put("mc206", sharedPref.getString("sp206", "00"));
-            s2.put("mc2071w", sharedPref.getString("sp2071w", "00"));
-            s2.put("mc2071m", sharedPref.getString("sp2071m", "00"));
-            s2.put("mc2072w", sharedPref.getString("sp2072w", "00"));
-            s2.put("mc2072m", sharedPref.getString("sp2072m", "00"));
-            s2.put("mc2073w", sharedPref.getString("sp2073w", "00"));
-            s2.put("mc2073m", sharedPref.getString("sp2073m", "00"));
 
-            Log.d(TAG, s2.toString());
+            // Initialize JSON Object For Section 2
+            JsonS2.put("mc201nm", sharedPref.getString("sp201nm", "00"));
+            JsonS2.put("mc201gndr", sharedPref.getString("sp201gndr", "00"));
+            JsonS2.put("mc201type", sharedPref.getString("sp201type", "00"));
+            JsonS2.put("mc201age", sharedPref.getString("sp201age", "00"));
+            JsonS2.put("mc201edu", sharedPref.getString("sp201edu", "00"));
+            JsonS2.put("mc201ocu", sharedPref.getString("sp201ocu", "00"));
+            JsonS2.put("mc202nm", sharedPref.getString("sp202nm", "00"));
+            JsonS2.put("mc202gndr", sharedPref.getString("sp202gndr", "00"));
+            JsonS2.put("mc202age", sharedPref.getString("sp202age", "00"));
+            JsonS2.put("mc202edu", sharedPref.getString("sp202edu", "00"));
+            JsonS2.put("mc202ocu", sharedPref.getString("sp202ocu", "00"));
+            JsonS2.put("mc203tot", sharedPref.getString("sp203tot", "00"));
+            JsonS2.put("mc203m", sharedPref.getString("sp203m", "00"));
+            JsonS2.put("mc203f", sharedPref.getString("sp203f", "00"));
+            JsonS2.put("mc204t", sharedPref.getString("sp204t", "00"));
+            JsonS2.put("mc204m", sharedPref.getString("sp204m", "00"));
+            JsonS2.put("mc204f", sharedPref.getString("sp204f", "00"));
+            JsonS2.put("mc205mm", sharedPref.getString("sp205mm", "00"));
+            JsonS2.put("mc205yy", sharedPref.getString("sp205yy", "00"));
+            JsonS2.put("mc206", sharedPref.getString("sp206", "00"));
+            JsonS2.put("mc2071w", sharedPref.getString("sp2071w", "00"));
+            JsonS2.put("mc2071m", sharedPref.getString("sp2071m", "00"));
+            JsonS2.put("mc2072w", sharedPref.getString("sp2072w", "00"));
+            JsonS2.put("mc2072m", sharedPref.getString("sp2072m", "00"));
+            JsonS2.put("mc2073w", sharedPref.getString("sp2073w", "00"));
+            JsonS2.put("mc2073m", sharedPref.getString("sp2073m", "00"));
+
+            Log.d(TAG, JsonS2.toString());
             /*FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
             FormsDbHelper db = new FormsDbHelper(this);
 
@@ -423,8 +433,8 @@ public class FillFormS2Activity extends AppCompatActivity {
     private boolean formValidation() {
         Toast.makeText(getApplicationContext(), "Validating Form Values...", Toast.LENGTH_SHORT).show();
 
-        String gndr201 = mc201gndr.getSelectedItem().toString();
-
+        // Field By Field Verification
+        // 201name EditText
         if (mc201nm.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Name is Empty...", Toast.LENGTH_SHORT).show();
             mc201nm.setError("Name not Given!");
@@ -432,6 +442,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             return false;
         }
 
+        // 201Gender Spinner
         if (mc201gndr.getSelectedItem().toString().equals("Male") && mc201ocuSelected.toString().equals("1")) {
             Toast.makeText(getApplicationContext(), "Please select correct Profession Type.", Toast.LENGTH_SHORT).show();
             TextView errorText = (TextView) mc201ocu.getSelectedView();
@@ -442,6 +453,8 @@ public class FillFormS2Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 201ocu mismatch");
             return false;
         }
+
+        // 202Gender Spinner
         if (mc202gndr.getSelectedItem().toString().equals("Male") && mc202ocuSelected.toString().equals("1")) {
             Toast.makeText(getApplicationContext(), "Please select correct Profession Type.", Toast.LENGTH_SHORT).show();
             TextView errorText = (TextView) mc202ocu.getSelectedView();
@@ -453,6 +466,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             return false;
         }
 
+        // 202Occupation Spinner
         if (mc201ocu.getSelectedItem().toString().equals("Male") && mc201type.getSelectedItem().toString().equals("Mother")) {
             Toast.makeText(getApplicationContext(), "Please select correct Relation Type.", Toast.LENGTH_SHORT).show();
             mc201type_error.setVisibility(View.VISIBLE);
@@ -464,9 +478,6 @@ public class FillFormS2Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 201gndr mismatch");
             return false;
         }
-
-
-        mc206selected = mc206.getCheckedRadioButtonId();
 
         if (mc201nm.getText().toString().isEmpty() || mc201nm.getText().toString() == null) {
             Toast.makeText(getApplicationContext(), "Name not Given!", Toast.LENGTH_SHORT).show();
@@ -590,12 +601,18 @@ public class FillFormS2Activity extends AppCompatActivity {
             return false;
         }
 
+        // 206 RadioGroup
+        mc206selected = mc206.getCheckedRadioButtonId();
+
+        // -- Check at least one RadioButton selected (-1 = None Selected)
         if (mc206selected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc206_no.setError("Please select an answer!");
             Log.d(TAG, "Error Type: 206 not selected");
             return false;
         }
+
+        // If 206 is 'YES' THAN Check 207 EditText -- months and weeks are not empty
         if (mc206selected == 2) {
             if (
                     (mc2071m.toString().isEmpty() && mc2071w.toString().isEmpty())
@@ -609,42 +626,43 @@ public class FillFormS2Activity extends AppCompatActivity {
             }
         }
 
-        if (!mc2071w.getText().toString().isEmpty() && Integer.valueOf(mc2071w.getText().toString()) > 8) {
+        // 207 EditText -- Months & Weeks
+        if (!mc2071w.getText().toString().isEmpty() && Integer.valueOf(mc2071w.getText().toString()) > WEEK_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
             mc2071w.setError("Gestational age in weeks is over limit!");
             Log.d(TAG, "Error Type: 2071w");
             return false;
         }
-        if (!mc2073w.getText().toString().isEmpty() && Integer.valueOf(mc2073w.getText().toString()) > 8) {
+        if (!mc2073w.getText().toString().isEmpty() && Integer.valueOf(mc2073w.getText().toString()) > WEEK_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
             mc2073w.setError("Gestational age in weeks is over limit!");
             Log.d(TAG, "Error Type: 2073w");
             return false;
         }
-        if (!mc2072w.getText().toString().isEmpty() && Integer.valueOf(mc2072w.getText().toString()) > 8) {
+        if (!mc2072w.getText().toString().isEmpty() && Integer.valueOf(mc2072w.getText().toString()) > WEEK_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
             mc2072w.setError("Gestational age in weeks is over limit!");
             Log.d(TAG, "Error Type: 2072w");
             return false;
         }
-        if (!mc2071m.getText().toString().isEmpty() && Integer.valueOf(mc2071m.getText().toString()) > 9) {
+        if (!mc2071m.getText().toString().isEmpty() && Integer.valueOf(mc2071m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
             mc2071m.setError("Gestational age in weeks is over limit!");
             Log.d(TAG, "Error Type: 2071m");
             return false;
         }
-        if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2073m.getText().toString()) > 9) {
+        if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2073m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
             mc2073m.setError("Gestational age in weeks is over limit!");
             Log.d(TAG, "Error Type: 2073m");
             return false;
         }
-        if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2072m.getText().toString()) > 9) {
+        if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2072m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
             mc2072m.setError("Gestational age in weeks is over limit!");

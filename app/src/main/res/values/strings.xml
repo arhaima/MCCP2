@@ -592,6 +592,10 @@
     <string name="IM_COMPID">Child_Id</string>
     <string name="MC_202inst">باقاعدہ تعلیم کتنے سال حاصل کی ؟  (کسی بھی تعلیمی ادارے ،اسکول،کالج ، یونیورسٹی وغیرہ)  انپڑھ کے لیے 77 کا کوڈ استعمال کریں</string>
     <string name="MC_608_M">ماں</string>
+    <string name="title_activity_http">HttpActivity</string>
+
+
+    <!--ADDITIONAL CHANGES-->
 
 
 </resources>
