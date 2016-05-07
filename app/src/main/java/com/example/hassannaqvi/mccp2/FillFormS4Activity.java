@@ -347,7 +347,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         mc408.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == mc408_no.getId()) {
+                if (checkedId == mc408_yes.getId()) {
                     fldGrp408.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp408.setVisibility(View.GONE);
@@ -359,9 +359,9 @@ public class FillFormS4Activity extends AppCompatActivity {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == mc410A_1.getId()) {
-                    fldGrp410A.setVisibility(View.VISIBLE);
-                } else {
                     fldGrp410A.setVisibility(View.GONE);
+                } else {
+                    fldGrp410A.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -395,7 +395,24 @@ public class FillFormS4Activity extends AppCompatActivity {
        /* mc201typeSelected = getResources().getStringArray(R.array.MC_201TYPE_list)[mc201type.getSelectedItemPosition()];
         mc201ocuSelected = getResources().getStringArray(R.array.MC_OCU_value)[mc201ocu.getSelectedItemPosition()];
         mc202ocuSelected = getResources().getStringArray(R.array.MC_OCU_value)[mc202ocu.getSelectedItemPosition()];
+
 */
+        mc401selected = mc401.getCheckedRadioButtonId();
+        Log.d(TAG, "Selected:" + mc401selected);
+        mc406selected = mc406.getCheckedRadioButtonId();
+        mc408selected = mc408.getCheckedRadioButtonId();
+        mc410Aselected = mc410A.getCheckedRadioButtonId();
+        mc412selected = mc412.getCheckedRadioButtonId();
+        mc414selected = mc414.getCheckedRadioButtonId();
+
+        //Spinner getting value of selected for putString()
+        mc403Selected = getResources().getStringArray(R.array.MC_YN_value)[mc403.getSelectedItemPosition()];
+        mc411Selected = getResources().getStringArray(R.array.MC_YN_value)[mc411.getSelectedItemPosition()];
+        mc409Selected = getResources().getStringArray(R.array.MC_409_value)[mc409.getSelectedItemPosition()];
+        mc410Selected = getResources().getStringArray(R.array.MC_410_value)[mc410.getSelectedItemPosition()];
+        mc415Selected = getResources().getStringArray(R.array.MC_415_value)[mc415.getSelectedItemPosition()];
+
+
         if (formValidation()) {
             Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
 
@@ -421,6 +438,7 @@ public class FillFormS4Activity extends AppCompatActivity {
 
         //RadioButton Selected for switches in putString()
         mc401selected = mc401.getCheckedRadioButtonId();
+        Log.d(TAG, "Selected:" + mc401selected);
         mc406selected = mc406.getCheckedRadioButtonId();
         mc408selected = mc408.getCheckedRadioButtonId();
         mc410Aselected = mc410A.getCheckedRadioButtonId();
@@ -754,12 +772,12 @@ public class FillFormS4Activity extends AppCompatActivity {
 
 
             Log.d(TAG, s4.toString());
-            /*FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
+            /*FormsContract formContractS4 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s4.toString());
             FormsDbHelper db = new FormsDbHelper(this);
 
             try {
                 Log.d(TAG, "Updating Section 2 of the Form to DB...");
-                newFormId = db.updateForm(formContractS2);
+                newFormId = db.updateForm(formContractS4);
             } catch (SQLiteException e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -774,6 +792,55 @@ public class FillFormS4Activity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
+
+        if (mc401selected == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc401_dontknow.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 401 not selected");
+            return false;
+        }
+
+        if (mc406_no.isChecked() && !(mc407_1.isChecked()
+                || mc407_2.isChecked()
+                || mc407_5.isChecked()
+                || mc407_3.isChecked()
+                || mc407_4.isChecked()
+                || mc407_6.isChecked()
+                || mc407_88.isChecked()
+        )
+                ) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc407_6.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 401 not selected");
+            return false;
+        }
+
+        if (mc408selected == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc408_no.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 408 not selected");
+            return false;
+        }
+        if (mc410Aselected == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc410A_99.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 410 not selected");
+            return false;
+        }
+        if (mc412selected == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc412_no.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 412 not selected");
+            return false;
+        }
+
+        if (mc414selected == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc414_no.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 414 not selected");
+            return false;
+        }
+
 
 //        return false;
         return true;

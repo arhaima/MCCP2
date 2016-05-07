@@ -3,19 +3,15 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.TextView;
-
-import java.text.DateFormat;
+import android.widget.Toast;
 
 public class EndFormActivity extends AppCompatActivity {
 
@@ -97,44 +93,46 @@ public class EndFormActivity extends AppCompatActivity {
         mc109Selected = mc109.getCheckedRadioButtonId();
         mc110Selected = mc110.getCheckedRadioButtonId();
 // Form Validation
+
+
+        if (formValidation()) {
+            StoreTempValues();
+            Log.i(TAG, "Form Values Stored! Starting Interview... (S2)");
+            Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(main_intent);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Form Validation Failed!", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private boolean formValidation() {
         if (mc109Selected == -1) {
             mc109_noQ.setError("Please select an answer!");
-            formError = true;
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+
             Log.d(TAG, "Error Type: 109");
-        } else {
-            formError = false;
+            return true;
         }
 
         if (mc110Selected == -1) {
             mc110_88.setError("Please select an answer!");
-            formError = true;
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+
+
             Log.d(TAG, "Error Type: 110");
-        } else {
-            formError = false;
+            return true;
         }
 
 
         if (mc110x.getText().toString().isEmpty() || mc110x.getText().toString() == null) {
-            mc110x.setError("Specify other reason !");
+            mc110x.setError("Specify other reason!");
+            Toast.makeText(getApplicationContext(), "Specify other reason!", Toast.LENGTH_SHORT).show();
+
             Log.d(TAG, "Error Type: 110x");
-            formError = true;
-        } else {
-            formError = false;
+            return true;
         }
-
-
-        if (formError == false) {
-            StoreTempValues();
-            Log.i(TAG, "Form Values Stored! Starting Interview... (S2)");
-            Intent fill_form_S2_intent = new Intent(getApplicationContext(), FillFormS2Activity.class);
-            startActivity(fill_form_S2_intent);
-
-        } else {
-            formError = false;
-            formErrorTxt.setText("Please remove all errors to continue!");
-            formErrorTxt.setVisibility(View.VISIBLE);
-
-        }
+        return true;
     }
 
     private void StoreTempValues() {

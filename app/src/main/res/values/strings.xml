@@ -367,8 +367,8 @@
     <string name="MC_513_ah3"> دیگر </string>
 
     <string name="MC_513">گھر کے افراد عام طور پر کس قسم کا لیٹرین استعمال کرتے ہیں؟</string>
-    <string name="MC_513_1"> ابالتے ہیں </string>
-    <string name="MC_513_2">فلش   سیوریح کے نظام سے ملا ہوا </string>
+    <string name="MC_513_0"> ابالتے ہیں </string>
+    <string name="MC_513_1">فلش   سیوریح کے نظام سے ملا ہوا </string>
     <string name="MC_513_3"> فلش   گڑھےواے لیٹرین سے جڑاہوا</string>
     <string name="MC_513_4"> فلش معلوم نہیں کہاں</string>
     <string name="MC_513_5"> گڑھے والا لیٹرین ڈھکا ہوا </string>
@@ -524,7 +524,7 @@
     <string name="MC_606_Yes"> ہاں  </string>
     <string name="MC_606_No"> نہیں   </string>
     <string name="MC_606_Dntknow">معلوم نہیں</string>
-    <string name="MC_607">کیا آپ کے کسی بھی بچے کو TVI  کیمپ میں پولیو کا ٹیکہ لگا تھا؟ </string>
+    <string name="MC_607">آپ کے بچے کو  TVI کیمپ میں حفاظتی ٹیکے نہ لگنے کی کیا وجوہات تھی؟</string>
     <string name="MC_607_1"> حفاظتی ٹیکے دستیاب نہیں تھے </string>
     <string name="MC_607_2"> ڈاکٹر نےمشورہ نہیں دیاتھا  </string>
     <string name="MC_607_3"> بچہ بیمار تھا        </string>
@@ -593,6 +593,11 @@
     <string name="MC_202inst">باقاعدہ تعلیم کتنے سال حاصل کی ؟  (کسی بھی تعلیمی ادارے ،اسکول،کالج ، یونیورسٹی وغیرہ)  انپڑھ کے لیے 77 کا کوڈ استعمال کریں</string>
     <string name="MC_608_M">ماں</string>
     <string name="title_activity_http">HttpActivity</string>
+    <string name="MC_205_SUB">(ایک سال سے کم ہوتو مہینوں میں لکھیں)</string>
+    <string name="username">Username</string>
+    <string name="MC_607_88">دیگر (وضاحت  کریں)</string>
+    <string name="MC_513_2">فلش سپٹک ٹینک سے جڑا ہوا</string>
+    <string name="MC_606_2">حفاظتی ٹیکے</string>
 
 
     <!--ADDITIONAL CHANGES-->

@@ -14,7 +14,6 @@
         android:paddingLeft="@dimen/activity_horizontal_margin"
         android:paddingRight="@dimen/activity_horizontal_margin"
         android:paddingTop="@dimen/activity_vertical_margin"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
         tools:context="com.example.hassannaqvi.mccp2.MainActivity">
 
 
@@ -25,6 +24,7 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/MCCP2_label"
             android:textSize="30sp" />
+
 
         <View
             android:layout_width="match_parent"
@@ -98,6 +98,10 @@
             style="@style/labels"
             android:text="@string/MC_201EDU" />
 
+        <TextView
+            style="@style/sub"
+            android:text="@string/MC_202inst"
+            android:visibility="visible" />
         <EditText
             android:id="@+id/MC_201EDU"
             style="@style/textInput"
@@ -179,10 +183,7 @@
             android:inputType="number"
             android:maxLength='2' />
         <!-- Instructions before MC_202 - Education -->
-        <TextView
-            style="@style/errors"
-            android:text="@string/MC_202inst"
-            android:visibility="visible" />
+
         <!-- MC_202OCU -->
         <TextView
             style="@style/labels"
@@ -276,7 +277,7 @@
 
         <TextView
             style="@style/labels"
-            android:text="@string/MC_205YY" />
+            android:text="@string/MC_205" />
 
         <EditText
             android:id="@+id/MC_205YY"
@@ -285,11 +286,17 @@
             android:inputType="number"
             android:maxLength='2' />
 
+
         <!-- MC_205M-->
 
         <TextView
             style="@style/labels"
             android:text="@string/MC_205MM" />
+
+        <TextView
+            style="@style/sub"
+            android:text="@string/MC_205_Info"
+            android:visibility="visible" />
 
         <EditText
             android:id="@+id/MC_205MM"

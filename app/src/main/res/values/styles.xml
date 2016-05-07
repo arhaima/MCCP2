@@ -9,15 +9,7 @@
         <item name="android:textViewStyle">@style/UrduTextViewStyle</item>
         <item name="buttonStyle">@style/UrduButtonStyle</item>
 
-        <!-- For the resting Spinner style -->
-        <item name="android:spinnerItemStyle">
-            @style/spinnerItemStyle
-        </item>
 
-        <!-- For each individual Spinner list item once clicked on -->
-        <item name="android:spinnerDropDownItemStyle">
-            @style/spinnerDropDownItemStyle
-        </item>
     </style>
 
 
@@ -52,6 +44,17 @@
         <item name="android:visibility">invisible</item>
     </style>
 
+    <style name="sub">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:background">#efefef</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">#6d6d6d</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:visibility">invisible</item>
+    </style>
+
     <style name="textInput">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -65,19 +68,9 @@
         <item name="android:layout_marginBottom">5dp</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#ff0000</item>
+
     </style>
 
-    <style name="spinnerItemStyle">
-        <item name="android:padding">12dp</item>
-        <item name="android:textSize">24sp</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
-
-    <style name="spinnerDropDownItemStyle">
-        <item name="android:padding">20dp</item>
-        <item name="android:textSize">30sp</item>
-        <item name="android:textColor">#FFFFFF</item>
-    </style>
 
     <style name="radiogroup">
         <item name="android:layout_width">fill_parent</item>

@@ -13,6 +13,12 @@
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/child_count"
+        style="@style/labels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:id="@+id/child_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,6 +115,18 @@
 
         </Spinner>
 
+        <TextView
+            android:id="@+id/imb_b"
+            style="@style/errors"
+            android:text="No More Boys Allowed!"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/imb_g"
+            style="@style/errors"
+            android:text="No More Girls Allowed!"
+            android:visibility="gone" />
+
         <!-- IM_C-->
         <TextView
             style="@style/labels"
@@ -136,6 +154,7 @@
             android:layout_marginBottom="5dp"
             android:datePickerMode="spinner"
             android:endYear="2016"
+            android:maxDate=""
             android:startYear="2010"
             android:textSize="24sp" />
 

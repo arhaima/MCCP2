@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:scrollbars="horizontal">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        tools:context="com.example.hassannaqvi.mccp2.MainActivity">
+
+
+        <TextView
+            android:id="@+id/crf1_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/MCCP2_label"
+            android:textSize="30sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+
+        <!--  = = = = =  START OF FORM FIELDS  = = = = = -->
+
+        <!-- CF_FRMNO -->
+
+
+        <!--CF_CHID -->
+
+
+        <!-- CF_COMPID -->
+
+
+        <!-- CF_Q1 -->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_608" />
+
+        <CheckBox
+            android:id="@+id/CF_Q1"
+            style="@style/checkbox"
+            android:text="@string/CF_Q1" />
+
+
+        <CheckBox
+            android:id="@+id/CF_Q2"
+            style="@style/checkbox"
+            android:text="@string/CF_Q2" />
+
+        <LinearLayout
+            android:id="@+id/fldGrp606_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="#d6d6d6"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:visibility="gone">
+
+            <CheckBox
+                android:id="@+id/CF_Q2_1"
+                style="@style/checkbox"
+                android:text="@string/CF_Q2_1" />
+
+            <CheckBox
+                android:id="@+id/CF_Q2_2"
+                style="@style/checkbox"
+                android:text="@string/CF_Q2_2" />
+
+            <CheckBox
+                android:id="@+id/CF_Q2_3"
+                style="@style/checkbox"
+                android:text="@string/CF_Q2_3" />
+
+            <CheckBox
+                android:id="@+id/CF_Q2_4"
+                style="@style/checkbox"
+                android:text="@string/CF_Q2_4" />
+
+            <CheckBox
+                android:id="@+id/CF_Q2_5"
+                style="@style/checkbox"
+                android:text="@string/CF_Q2_5" />
+
+            <CheckBox
+                android:id="@+id/CF_Q2_6"
+                style="@style/checkbox"
+                android:text="@string/CF_Q2_6" />
+
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/CF_Q3"
+            style="@style/checkbox"
+            android:text="@string/CF_Q3" />
+
+
+        <CheckBox
+            android:id="@+id/CF_Q4"
+            style="@style/checkbox"
+            android:text="@string/CF_Q4" />
+
+
+        <!--   = = = = =  END OF FORM FIELDS  = = = = =  -->
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/btn_End"
+                style="@style/buttons"
+                android:layout_weight="1"
+                android:onClick="endInterview"
+                android:text="@string/end_interview"
+                android:textColor="#ff1e1e" />
+            <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+
+            <Button
+                android:id="@+id/btn_Continue"
+                style="@style/buttons"
+                android:onClick="openSection6"
+                android:text="@string/start_next_section"
+                android:textColor="#1ed61e" />
+            <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

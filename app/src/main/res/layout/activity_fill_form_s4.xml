@@ -359,6 +359,9 @@
 
 
             <!--MC_406-->
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_406"></TextView>
 
             <RadioGroup
                 android:id="@+id/MC_406"
@@ -484,7 +487,7 @@
             <EditText
                 android:id="@+id/MC_409_88"
                 style="@style/textInput"
-                android:hint="Text Not Match"
+                android:hint="MC_409_88"
                 android:inputType="text"
                 android:maxLength="256"
                 android:singleLine="true" />
@@ -511,13 +514,16 @@
             <EditText
                 android:id="@+id/MC_410_88"
                 style="@style/textInput"
-                android:hint="Text Not Match"
+                android:hint="MC_410_88"
                 android:inputType="text"
                 android:maxLength="256"
                 android:singleLine="true" />
 
 
             <!--MC_410A-->
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_410A"></TextView>
 
             <RadioGroup
                 android:id="@+id/MC_410A"
@@ -664,7 +670,7 @@
 
             <TextView
                 style="@style/labels"
-                android:text="@string/MC_413_1"></TextView>
+                android:text="@string/MC_413"></TextView>
 
             <CheckBox
                 android:id="@+id/MC_413_1"
@@ -768,7 +774,7 @@
             <EditText
                 android:id="@+id/MC_415X"
                 style="@style/textInput"
-                android:hint="Text Not Match"
+                android:hint="@string/MC_415_88"
                 android:inputType="text"
                 android:maxLength="256"
                 android:singleLine="true" />

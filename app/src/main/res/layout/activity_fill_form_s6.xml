@@ -20,7 +20,7 @@
 
         <TextView
             android:id="@+id/crf1_header"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/MCCP2_label"
@@ -77,7 +77,7 @@
 
         <LinearLayout
             android:id="@+id/fldGrp602"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone">
@@ -91,32 +91,27 @@
         <CheckBox
             android:id="@+id/MC_603_1"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_603"
             android:text="@string/MC_603_1" />
 
         <CheckBox
             android:id="@+id/MC_603_2"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_603"
             android:text="@string/MC_603_2" />
 
 
         <CheckBox
             android:id="@+id/MC_603_3"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_603"
             android:text="@string/MC_603_3" />
 
         <CheckBox
             android:id="@+id/MC_603_4"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_603"
             android:text="@string/MC_603_4" />
 
         <CheckBox
             android:id="@+id/MC_603_5"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_603"
             android:text="@string/MC_603_5" />
 
 
@@ -140,70 +135,58 @@
         <CheckBox
             android:id="@+id/MC_604_1"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_604_1" />
 
         <CheckBox
             android:id="@+id/MC_604_2"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_604_2" />
 
         <CheckBox
             android:id="@+id/MC_604_3"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604_3"
             android:text="@string/MC_604_3" />
 
         <CheckBox
             android:id="@+id/MC_604_4"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_604_4" />
 
         <CheckBox
             android:id="@+id/MC_604_5"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_604_5" />
 
 
         <CheckBox
             android:id="@+id/MC_604_6"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_604_6" />
 
 
         <CheckBox
             android:id="@+id/MC_604_7"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_604_7" />
 
 
         <CheckBox
             android:id="@+id/MC_604_8"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_604_8" />
 
         <CheckBox
             android:id="@+id/MC_604_9"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_604_9" />
 
-        <CheckBox
-            android:id="@+id/MC_604_10"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604" />
-        <!--android:text="@string/MC_604_10"-->
 
         <CheckBox
-            android:id="@+id/MC_604_11"
+            android:id="@+id/MC_604_88"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604" />
+            android:text="@string/MC_604_88" />
+
+
         <!--android:text="@string/MC_604_11"-->
 
 
@@ -224,33 +207,28 @@
         <CheckBox
             android:id="@+id/MC_605_1"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_605"
             android:text="@string/MC_605_1" />
 
         <CheckBox
             android:id="@+id/MC_605_2"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_605"
             android:text="@string/MC_605_2" />
 
 
         <CheckBox
             android:id="@+id/MC_605_3"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_605"
             android:text="@string/MC_605_3" />
 
         <CheckBox
             android:id="@+id/MC_605_4"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_605"
             android:text="@string/MC_605_4" />
 
 
         <CheckBox
             android:id="@+id/MC_605_5"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_605"
             android:text="@string/MC_605_5" />
 
 
@@ -275,9 +253,7 @@
 
             android:id="@+id/MC_606"
             style="@style/radiobutton"
-            android:text="@string/MC_606"
-
-            >
+            android:text="@string/MC_606">
 
             <RadioButton
                 android:id="@+id/MC_606_Yes"
@@ -298,7 +274,7 @@
 
         <LinearLayout
             android:id="@+id/fldGrp606"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone">
@@ -313,51 +289,43 @@
         <CheckBox
             android:id="@+id/MC_607_1"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607"
             android:text="@string/MC_607_1" />
 
         <CheckBox
             android:id="@+id/MC_607_2"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_602"
             android:text="@string/MC_607_2" />
 
         <CheckBox
             android:id="@+id/MC_607_3"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_603"
             android:text="@string/MC_607_3" />
 
         <CheckBox
             android:id="@+id/MC_607_4"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_604"
             android:text="@string/MC_607_4" />
 
 
         <CheckBox
             android:id="@+id/MC_607_5"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_605"
             android:text="@string/MC_607_5" />
 
         <CheckBox
             android:id="@+id/MC_607_6"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_606"
             android:text="@string/MC_607_6" />
 
         <CheckBox
             android:id="@+id/MC_607_7"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_607"
             android:text="@string/MC_607_7" />
 
         <CheckBox
-            android:id="@+id/MC_607_8"
+            android:id="@+id/MC_607_88"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608"
-            android:text="@string/MC_607_8" />
+            android:text="@string/MC_607_88" />
 
         <EditText
             android:id="@+id/MC_607X"
@@ -401,7 +369,7 @@
 
         <LinearLayout
             android:id="@+id/fldGrp607a"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone">
@@ -440,39 +408,35 @@
         <CheckBox
             android:id="@+id/MC_608_M1"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_M1"
             android:text="@string/MC_608_M1" />
 
         <CheckBox
             android:id="@+id/MC_608_M2"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_M2"
             android:text="@string/MC_608_M2" />
 
 
         <CheckBox
             android:id="@+id/MC_608_M3"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_M3"
             android:text="@string/MC_608_M3" />
 
 
         <CheckBox
             android:id="@+id/MC_608_M4"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_M4"
             android:text="@string/MC_608_M4" />
 
 
         <CheckBox
             android:id="@+id/MC_608_M5"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_608_M5"
             android:text="@string/MC_608_M5" />
 
         <!--MC_608_C-->
         <!--// TODO: New Table for Child Care-->
         <!-- -MC_609 -->
+
 
         <TextView
             style="@style/labels"
@@ -489,6 +453,12 @@
         </Spinner>
 
         <!-- -MC_610 -->
+        <LinearLayout
+            android:id="@+id/fldGrp609"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="gone">
 
         <TextView
             style="@style/labels"
@@ -503,13 +473,13 @@
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
 
         </Spinner>
-
+        </LinearLayout>
 
         <!-- -  = = = = =  END OF FORM FIELDS  = = = = = -->
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:orientation="horizontal">
@@ -527,7 +497,7 @@
             <Button
                 android:id="@+id/btn_Continue"
                 style="@style/buttons"
-                android:onClick="openSection6"
+                android:onClick="openSectionCF"
                 android:text="@string/start_next_section"
                 android:textColor="#1ed61e" />
             <!--'onClick' for btn_Continue will call next section form e.g.: openSection2-->

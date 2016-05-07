@@ -18,6 +18,7 @@
     </string-array>
 
     <string-array name="MC_106_list">
+        <item>X</item>
         <item>A</item>
         <item>B</item>
         <item>C</item>
@@ -41,7 +42,6 @@
         <item>U</item>
         <item>V</item>
         <item>W</item>
-        <item>X</item>
         <item>Y</item>
         <item>Z</item>
 
@@ -849,14 +849,14 @@
     </string-array>
 
 
-    <string-array name="MC_606_list">
+    <string-array name="MC_YNDK_list">
         <item> ہاں  </item>
         <item> نہیں </item>
         <item> معلوم نہیں  </item>
 
 
     </string-array>
-    <string-array name="MC_606_value">
+    <string-array name="MC_YNDK_value">
         <item>1</item>
         <item>2</item>
         <item>99</item>

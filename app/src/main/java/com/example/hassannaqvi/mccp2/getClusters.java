@@ -18,13 +18,13 @@ import java.util.ArrayList;
 /**
  * Created by hassan.naqvi on 4/29/2016.
  */
-public class getTowns extends AsyncTask<String, String, String> {
+public class getClusters extends AsyncTask<String, String, String> {
 
-    private final String TAG = "GetTowns()";
+    private final String TAG = "GetClusters()";
     HttpURLConnection urlConnection;
     private Context mContext;
 
-    public getTowns(Context context) {
+    public getClusters(Context context) {
         mContext = context;
     }
 
@@ -34,8 +34,7 @@ public class getTowns extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL("http://192.168.1.10/appdata/town_array.php");
-
+            URL url = new URL("http://192.168.1.10/appdata/cluster_array.php");
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
@@ -66,17 +65,17 @@ public class getTowns extends AsyncTask<String, String, String> {
         String json = result;
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
         Log.d("My App", result);
-        ArrayList<TownsContract> townArrayList;
+        ArrayList<ClustersContract> ClustersArrayList;
         FormsDbHelper db = new FormsDbHelper(mContext);
         try {
-            townArrayList = new ArrayList<TownsContract>();
+            ClustersArrayList = new ArrayList<ClustersContract>();
             //JSONObject jsonObject = new JSONObject(json);
             JSONArray jsonArray = new JSONArray(json);
-            db.syncTowns(jsonArray);
+            db.syncClusters(jsonArray);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        db.getAllTowns();
+        db.getAllClusters();
     }
 
 

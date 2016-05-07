@@ -22,20 +22,22 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 
 public class FillFormActivity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_ACTIVITY";
     public static String FORM_ID;
-    long rowId = 0;
+    public static long rowId = 0;
     private String mcFrmNo;
     private DatePicker mc101date;
     private String spDateT;
     private String spTimeT;
     private TimePicker mc101time;
-    private Spinner mc103town;
+    /*private Spinner mc103town;
     private EditText mc104uc;
-    private TextView mc104ucNm;
+    private TextView mc104ucNm;*/
     private EditText mc105cluster;
     private TextView mc105clusterNm;
     private EditText mc106hhno;
@@ -68,9 +70,11 @@ public class FillFormActivity extends AppCompatActivity {
         mcFrmNo = "";
         mc101date = (DatePicker) findViewById(R.id.MC_101DATE);
         mc101time = (TimePicker) findViewById(R.id.MC_101TIME);
-        mc103town = (Spinner) findViewById(R.id.MC_103);
-        mc104uc = (EditText) findViewById(R.id.MC_104);
+//        mc103town = (Spinner) findViewById(R.id.MC_103);
+//        mc104uc = (EditText) findViewById(R.id.MC_104);
+/*
         mc104ucNm = (TextView) findViewById(R.id.MC_104UCName);
+*/
         mc105cluster = (EditText) findViewById(R.id.MC_105);
         mc105clusterNm = (TextView) findViewById(R.id.MC_105Name);
         mc106hhno = (EditText) findViewById(R.id.MC_106);
@@ -89,8 +93,13 @@ public class FillFormActivity extends AppCompatActivity {
 
         formErrorTxt = (TextView) findViewById(R.id.fromError);
 
+        mc101date.setMaxDate(new Date().getTime());
+        // mc101date.setMinDate(new Date().getTime()-TimeUnit.DAYS.toMillis(1));
+
+
+
         // Cluster Number (mc105cluster) Validation onFocusChange
-        mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        /*mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -110,26 +119,51 @@ public class FillFormActivity extends AppCompatActivity {
                     }
                 }
             }
-        });
+        });*/
 
         // Union Council (mc104uc) Validation onFocusChange
-        mc104uc.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//        mc104uc.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+//            @Override
+//            public void onFocusChange(View v, boolean hasFocus) {
+//                if (!hasFocus) {
+//                    String UCNo = mc104uc.getText().toString();
+//
+//                    if (UCNo.equals("07")) {
+//                        mc104ucNm.setText(
+//                                "Yusuf Goth");
+//                        mc104ucNm.setVisibility(View.VISIBLE);
+//                    } else {
+//                        mc104ucNm.setText("Invalid Union Council Number!");
+//                        mc104ucNm.setVisibility(View.VISIBLE);
+//                        mc104uc.setError("Invalid Union Council Number!");
+//                        formError = true;
+//
+//                    }
+//                }
+//            }
+//        });
+
+        mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    String UCNo = mc104uc.getText().toString();
+                    FormsDbHelper db = new FormsDbHelper(getApplicationContext());
+                    ArrayList<ClustersContract> clusterList;
+                    clusterList = db.getClustersByUC(LoginActivity.UC_ID);
+                    for (ClustersContract UC : clusterList) {
+                        Log.i(TAG, UC.getClusterName());
+                        if (UC.getClusterCode().equals(mc105cluster.getText().toString())) {
+                            Log.i(TAG, "Match:" + UC.getClusterName());
 
-                    if (UCNo.equals("07")) {
-                        mc104ucNm.setText(
-                                "Yusuf Goth");
-                        mc104ucNm.setVisibility(View.VISIBLE);
-                    } else {
-                        mc104ucNm.setText("Invalid Union Council Number!");
-                        mc104ucNm.setVisibility(View.VISIBLE);
-                        mc104uc.setError("Invalid Union Council Number!");
-                        formError = true;
+                            mc105clusterNm.setText(UC.getClusterName());
+                            break;
+                        } else {
+                            mc105clusterNm.setText("Invalid Cluster Number!");
 
+                        }
                     }
+                    mc105clusterNm.setVisibility(View.VISIBLE);
+
                 }
             }
         });
@@ -150,6 +184,8 @@ public class FillFormActivity extends AppCompatActivity {
                 }
              }
         });
+
+
     }
 
     // Start Interview Form 1 - Section 1
@@ -223,11 +259,11 @@ public class FillFormActivity extends AppCompatActivity {
         mc108Selected = mc108permission.getCheckedRadioButtonId();
 
 
-        if (mc104uc.getText().toString().isEmpty() || mc104uc.getText().toString() == null) {
+        /*if (mc104uc.getText().toString().isEmpty() || mc104uc.getText().toString() == null) {
             mc104uc.setError("Union Council Number not given!");
             Log.d(TAG, "Error Type: 104");
             return false;
-        }
+        }*/
 
         if (mc105cluster.getText().toString().isEmpty() || mc105cluster.getText().toString() == null) {
             mc105cluster.setError("Cluster Number not given!");
@@ -299,10 +335,16 @@ public class FillFormActivity extends AppCompatActivity {
         editor.putString("sp101", String.valueOf(spDateT));
         editor.putString("sp101Time", String.valueOf(spTimeT));
 
+/*
         String mc103Selected = getResources().getStringArray(R.array.MC_103_value)[mc103town.getSelectedItemPosition()];
+*/
 
+/*
         editor.putString("sp103", String.valueOf(mc103Selected));
+*/
+/*
         editor.putString("sp104", mc104uc.getText().toString());
+*/
         editor.putString("sp105", mc105cluster.getText().toString());
         editor.putString("sp106", mc106hhno.getText().toString());
         editor.putString("spExt", mcExt.getSelectedItem().toString());
@@ -351,8 +393,12 @@ public class FillFormActivity extends AppCompatActivity {
             s1.put("mc101", sharedPref.getString("sp101", "00"));
             s1.put("mc101Time", sharedPref.getString("sp101Time", "00"));
             s1.put("mc102", sharedPref.getString("sp102", "00"));
+/*
             s1.put("mc103", sharedPref.getString("sp103", "00"));
+*/
+/*
             s1.put("mc104", sharedPref.getString("sp104", "00"));
+*/
             s1.put("mc105", sharedPref.getString("sp105", "00"));
             s1.put("mc106", sharedPref.getString("sp106", "00"));
             s1.put("mcExt", sharedPref.getString("spExt", "00"));
@@ -371,14 +417,9 @@ public class FillFormActivity extends AppCompatActivity {
 
                 e.printStackTrace();
             }*/
-
         } catch (JSONException e) {
             e.printStackTrace();
         }
         Log.d(TAG, "Added Form with Id: " + String.valueOf(rowId));
-
-
     }
-
-
 }

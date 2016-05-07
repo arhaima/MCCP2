@@ -8,8 +8,10 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.hassannaqvi.mccp2.ClustersContract.singleCluster;
 import com.example.hassannaqvi.mccp2.FormsContract.singleForm;
 import com.example.hassannaqvi.mccp2.TownsContract.singleTown;
+import com.example.hassannaqvi.mccp2.UCContract.singleUC;
 import com.example.hassannaqvi.mccp2.UsersContract.singleUser;
 
 import org.json.JSONArray;
@@ -20,9 +22,9 @@ import java.util.List;
 
 public class FormsDbHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 5;
     public static final String DATABASE_NAME = "mccp2-test.db";
-    public static final String SQL_CREATE_FORMS = "CREATE TABLE" + singleForm.TABLE_NAME + "("
+    public static final String SQL_CREATE_FORMS = "CREATE TABLE " + singleForm.TABLE_NAME + "("
             + singleForm._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + singleForm.DEVICE_ID + " TEXT,"
             + singleForm.ROW_MC_FrmNo + " TEXT,"
@@ -49,6 +51,19 @@ public class FormsDbHelper extends SQLiteOpenHelper {
     public static final String SQL_CREATE_TOWNS = "CREATE TABLE " + singleTown.TABLE_NAME + "("
             + singleTown._ID + " INTEGER PRIMARY KEY,"
             + singleTown.ROW_TOWN + " TEXT );";
+    public static final String SQL_CREATE_CLUSTETRS = "CREATE TABLE " + singleCluster.TABLE_NAME + "("
+            + singleCluster._ID + " INTEGER PRIMARY KEY,"
+            + singleCluster.ROW_CLUSTERS_CODE + " TEXT,"
+            + singleCluster.ROW_UC_ID + " TEXT,"
+            + singleCluster.ROW_TOWN_ID + " TEXT,"
+            + singleCluster.ROW_CLUSTERS_NAME + " TEXT"
+            + " );";
+    public static final String SQL_CREATE_UC = "CREATE TABLE " + singleUC.TABLE_NAME + "("
+            + singleUC._ID + " INTEGER PRIMARY KEY,"
+            + singleUC.ROW_UC_ID + " TEXT,"
+            + singleUC.ROW_UC_NAME + " TEXT,"
+            + singleUC.ROW_TOWN_ID + " TEXT"
+            + ");";
     private static final String TAG = "DB_HELPER_CLASS";
     private static final String SQL_DELETE_FORMS =
             "DROP TABLE IF EXISTS " + singleForm.TABLE_NAME;
@@ -56,6 +71,10 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + singleUser.TABLE_NAME;
     private static final String SQL_DELETE_TOWNS =
             "DROP TABLE IF EXISTS " + singleTown.TABLE_NAME;
+    private static final String SQL_DELETE_CLUSTER =
+            "DROP TABLE IF EXISTS " + singleCluster.TABLE_NAME;
+    private static final String SQL_DELETE_UC =
+            "DROP TABLE IF EXISTS " + singleUC.TABLE_NAME;
 
     public FormsDbHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -68,6 +87,8 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_FORMS);
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_TOWNS);
+        db.execSQL(SQL_CREATE_CLUSTETRS);
+        db.execSQL(SQL_CREATE_UC);
 
 
     }
@@ -77,6 +98,8 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_DELETE_FORMS);
         db.execSQL(SQL_DELETE_USERS);
         db.execSQL(SQL_DELETE_TOWNS);
+        db.execSQL(SQL_DELETE_CLUSTER);
+        db.execSQL(SQL_DELETE_UC);
         onCreate(db);
     }
 
@@ -109,8 +132,6 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        Log.d(TAG, "Get Form _ID: " + formscontract.getId());
-        Log.d(TAG, "Get Form ROW_MC_FrmNo: " + formscontract.getFrmNo());
         values.put(singleForm.ROW_S_2, formscontract.getS2());
 
 
@@ -160,7 +181,6 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         try {
             ContentValues values = new ContentValues();
-            Log.d(TAG, "Add Users: " + userscontract.getUserName() + "(" + userscontract.getPassword() + ")");
 
             values.put(singleUser.ROW_USERNAME, userscontract.getUserName());
             values.put(singleUser.ROW_PASSWORD, userscontract.getPassword());
@@ -168,7 +188,6 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             db.close();
 
         } catch (Exception e) {
-            Log.e("problem", e + "");
         }
     }
 
@@ -183,11 +202,9 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 String userName = jsonObjectUser.getString("username");
                 String password = jsonObjectUser.getString("password");
 
-                Log.i(TAG, "User: " + userName + "(" + password + ")");
 
 
                 ContentValues values = new ContentValues();
-                Log.d(TAG, "Add Users: " + userName + "(" + password + ")");
 
                 values.put(singleUser.ROW_USERNAME, userName);
                 values.put(singleUser.ROW_PASSWORD, password);
@@ -196,35 +213,89 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             db.close();
 
         } catch (Exception e) {
-            Log.e("problem", e + "");
+        }
+    }
+
+    public void syncClusters(JSONArray Clusterslist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(ClustersContract.singleCluster.TABLE_NAME, null, null);
+
+        try {
+            JSONArray jsonArray = Clusterslist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectCluster = jsonArray.getJSONObject(i);
+                String id = jsonObjectCluster.getString("ClusterID");
+                String ClusterCode = jsonObjectCluster.getString("cluster");
+                String UCId = jsonObjectCluster.getString("ids");
+                String TownId = jsonObjectCluster.getString("town_id");
+                String ClusterName = jsonObjectCluster.getString("cl_name");
+
+
+                ContentValues values = new ContentValues();
+
+                values.put(singleCluster._ID, id);
+                values.put(singleCluster.ROW_CLUSTERS_NAME, ClusterName);
+                values.put(singleCluster.ROW_CLUSTERS_CODE, ClusterCode);
+                values.put(singleCluster.ROW_TOWN_ID, TownId);
+                values.put(singleCluster.ROW_UC_ID, UCId);
+                db.insert(singleCluster.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
         }
     }
 
     public void syncTowns(JSONArray townlist) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TownsContract.singleTown.TABLE_NAME, null, null);
+        db.delete(singleTown.TABLE_NAME, null, null);
 
         try {
             JSONArray jsonArray = townlist;
             for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObjectUser = jsonArray.getJSONObject(i);
-                String town = jsonObjectUser.getString("town id");
-                String id = jsonObjectUser.getString("town name");
+                JSONObject jsonObjectTown = jsonArray.getJSONObject(i);
+                String id = jsonObjectTown.getString("town id");
+                String town = jsonObjectTown.getString("town name");
 
-                Log.i(TAG, "User: " + town + "(" + id + ")");
 
 
                 ContentValues values = new ContentValues();
-                Log.d(TAG, "Add Users: " + town + "(" + id + ")");
 
-                values.put(singleUser.ROW_USERNAME, town);
-                values.put(singleUser.ROW_PASSWORD, id);
-                db.insert(singleUser.TABLE_NAME, null, values);
+                values.put(singleTown._ID, id);
+                values.put(singleTown.ROW_TOWN, town);
+                db.insert(singleTown.TABLE_NAME, null, values);
             }
             db.close();
 
         } catch (Exception e) {
-            Log.e("problem", e + "");
+        }
+    }
+
+    public void syncUC(JSONArray uclist) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(singleUC.TABLE_NAME, null, null);
+
+        try {
+            JSONArray jsonArray = uclist;
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObjectTown = jsonArray.getJSONObject(i);
+                String ids = jsonObjectTown.getString("ids");
+                String uc_id = jsonObjectTown.getString("uc_id");
+                String town_id = jsonObjectTown.getString("town_id");
+                String uc_name = jsonObjectTown.getString("uc_name");
+
+                ContentValues values = new ContentValues();
+
+                values.put(singleUC._ID, ids);
+                values.put(singleUC.ROW_UC_ID, uc_id);
+                values.put(singleUC.ROW_UC_NAME, uc_name);
+                values.put(singleUC.ROW_TOWN_ID, town_id);
+                db.insert(singleUC.TABLE_NAME, null, values);
+            }
+            db.close();
+
+        } catch (Exception e) {
+
         }
     }
 
@@ -238,7 +309,6 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             int num = cursor.getCount();
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {
-                    Log.i(TAG, "username:" + num + " " + cursor.getString(1) + "(" + cursor.getString(2) + ")");
                     UsersContract user = new UsersContract();
                     user.setId(cursor.getInt(0));
                     user.setUserName(cursor.getString(1));
@@ -248,9 +318,58 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             }
             db.close();
         } catch (Exception e) {
-            Log.e("error", e + "");
         }
         return userList;
+    }
+
+    public ArrayList<ClustersContract> getAllClusters() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<ClustersContract> ClusterList = null;
+        try {
+            ClusterList = new ArrayList<ClustersContract>();
+            String QUERY = "SELECT * FROM " + singleCluster.TABLE_NAME;
+            Cursor cursor = db.rawQuery(QUERY, null);
+            int num = cursor.getCount();
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    ClustersContract Cluster = new ClustersContract();
+                    Cluster.setId(cursor.getString(0));
+                    Cluster.setClusterCode(cursor.getString(1));
+                    Cluster.setUCId(cursor.getString(2));
+
+                    Cluster.setTownId(cursor.getString(3));
+                    Cluster.setClusterName(cursor.getString(4));
+                    ClusterList.add(Cluster);
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+        }
+        return ClusterList;
+    }
+
+    public ArrayList<ClustersContract> getClustersByUC(String uc) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String ucId = uc;
+        ArrayList<ClustersContract> ClusterList = null;
+        try {
+            ClusterList = new ArrayList<ClustersContract>();
+            String QUERY = "SELECT " + singleCluster.ROW_CLUSTERS_CODE + ", " + singleCluster.ROW_CLUSTERS_NAME + " FROM " + singleCluster.TABLE_NAME + " WHERE " + singleCluster.ROW_UC_ID + "=" + ucId;
+            Cursor cursor = db.rawQuery(QUERY, null);
+            int num = cursor.getCount();
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    ClustersContract Cluster = new ClustersContract();
+                    Cluster.setClusterCode(cursor.getString(0));
+                    Cluster.setClusterName(cursor.getString(1));
+                    ClusterList.add(Cluster);
+                }
+            }
+            db.close();
+        } catch (Exception e) {
+
+        }
+        return ClusterList;
     }
 
     public ArrayList<TownsContract> getAllTowns() {
@@ -263,7 +382,6 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             int num = cursor.getCount();
             if (!cursor.isLast()) {
                 while (cursor.moveToNext()) {
-                    Log.i(TAG, "TownName:(" + num + ") " + cursor.getString(1) + "(" + cursor.getString(0) + ")");
                     TownsContract town = new TownsContract();
                     town.setId(cursor.getInt(0));
                     town.setTown(cursor.getString(1));
@@ -273,9 +391,33 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             db.close();
             db.close();
         } catch (Exception e) {
-            Log.e("error", e + "");
         }
         return townList;
+    }
+
+    public ArrayList<UCContract> getAllUC() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        ArrayList<UCContract> ucList = null;
+        try {
+            ucList = new ArrayList<UCContract>();
+            String QUERY = "SELECT * FROM " + singleUC.TABLE_NAME;
+            Cursor cursor = db.rawQuery(QUERY, null);
+            int num = cursor.getCount();
+            if (!cursor.isLast()) {
+                while (cursor.moveToNext()) {
+                    UCContract uc = new UCContract();
+                    uc.setId(cursor.getInt(0));
+                    uc.setUCId(cursor.getString(1));
+                    uc.setTownId(cursor.getString(3));
+                    uc.setUCName(cursor.getString(2));
+                    ucList.add(uc);
+                }
+            }
+            db.close();
+            db.close();
+        } catch (Exception e) {
+        }
+        return ucList;
     }
 
     public int getUserCount() {
@@ -288,7 +430,6 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             db.close();
             return num;
         } catch (Exception e) {
-            Log.e("error", e + "");
         }
         return 0;
     }

@@ -36,6 +36,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (LoginActivity.appAdmin) {
+            findViewById(R.id.adminOptions).setVisibility(View.VISIBLE);
+        }
+
         FormsDbHelper db = new FormsDbHelper(this);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
@@ -114,19 +118,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void testFormS1(View view) {
+/*
+        FormsDbHelper db = new FormsDbHelper(getApplicationContext());
+        ArrayList<ClustersContract> clusterList;
+        Log.d(TAG,"UC_ID: "+LoginActivity.UC_ID);
+        clusterList = db.getAllClusters();
+        for(ClustersContract UC : clusterList){
+            Log.d(TAG, "C_ID: "+UC.getId()+" C_Code: "+UC.getClusterCode()+" UC_ID: "+UC.getUCId()+" TownID: "+UC.getTownId()+" C_Name: "+UC.getClusterName());
+        }*/
 
-        FormsDbHelper db = new FormsDbHelper(this);
 
-        Log.i(TAG, "User Count: " + db.getUserCount());
+   /*Log.i(TAG, "User Count: " + db.getUserCount());*/
 
 
 
         /*GetUsers users = new GetUsers(getApplicationContext());
-        users.execute();
-*/
-        /*Intent s1_form_intent = new Intent(getApplicationContext(), FillFormActivity.class);
+        users.execute();*/
 
-        startActivity(s1_form_intent);*/
+        Intent s1_form_intent = new Intent(getApplicationContext(), FillFormActivity.class);
+        startActivity(s1_form_intent);
     }
 
     public void testFormS2(View view) {
@@ -164,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(s6_form_intent);
     }
 
-    public void moveDbToSd() {
+    public void moveDbToSd(View view) {
 
         try {
             File sd = Environment.getExternalStorageDirectory();

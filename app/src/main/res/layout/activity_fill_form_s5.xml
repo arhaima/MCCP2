@@ -48,6 +48,7 @@
             android:prompt="@string/MC_501"
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
 
+
         </Spinner>
 
         <EditText
@@ -83,12 +84,16 @@
 
         </RadioGroup>
 
+            <ScrollView
+                android:id="@+id/fldGrp502"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="visible">
 <LinearLayout
-    android:id="@+id/fldGrp502"
+
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:visibility="visible">
+    android:orientation="vertical">
         <!--MC_503_FULL-->
 
         <TextView
@@ -104,28 +109,24 @@
         <CheckBox
             android:id="@+id/MC_503_A_LHW"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHW"
             android:text="@string/MC_503_LHW"/>
         <CheckBox
             android:id="@+id/MC_503_A_FCV"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_FCV"
             android:text="@string/MC_503_FCV"/>
         <CheckBox
             android:id="@+id/MC_503_A_LHS"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHS"
             android:text="@string/MC_503_LHS"/>
         <CheckBox
             android:id="@+id/MC_503_A_NGO"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
             android:text="@string/MC_503_NGO"/>
-        <CheckBox
+
+        <EditText
             android:id="@+id/MC_503_A_X"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
+            style="@style/textInput"
+            android:hint="@string/MC_503_X" />
         <!--FOR 503_ B-->
         <TextView
             style="@style/labels"
@@ -136,28 +137,24 @@
         <CheckBox
             android:id="@+id/MC_503_B_LHW"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHW"
             android:text="@string/MC_503_LHW"/>
         <CheckBox
             android:id="@+id/MC_503_B_FCV"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_FCV"
             android:text="@string/MC_503_FCV"/>
         <CheckBox
             android:id="@+id/MC_503_B_LHS"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHS"
             android:text="@string/MC_503_LHS"/>
         <CheckBox
             android:id="@+id/MC_503_B_NGO"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
             android:text="@string/MC_503_NGO"/>
-        <CheckBox
+
+        <EditText
             android:id="@+id/MC_503_B_X"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
+            style="@style/textInput"
+            android:hint="@string/MC_503_X" />
         <!--FOR 503_C-->
         <TextView
             style="@style/labels"
@@ -168,28 +165,24 @@
         <CheckBox
             android:id="@+id/MC_503_C_LHW"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHW"
             android:text="@string/MC_503_LHW"/>
         <CheckBox
             android:id="@+id/MC_503_C_FCV"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_FCV"
             android:text="@string/MC_503_FCV"/>
         <CheckBox
             android:id="@+id/MC_503_C_LHS"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHS"
             android:text="@string/MC_503_LHS"/>
         <CheckBox
             android:id="@+id/MC_503_C_NGO"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
             android:text="@string/MC_503_NGO"/>
-        <CheckBox
+
+        <EditText
             android:id="@+id/MC_503_C_X"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
+            style="@style/textInput"
+            android:hint="@string/MC_503_X" />
         <!--FOR 503_D-->
         <TextView
             style="@style/labels"
@@ -200,28 +193,24 @@
         <CheckBox
             android:id="@+id/MC_503_D_LHW"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHW"
             android:text="@string/MC_503_LHW"/>
         <CheckBox
             android:id="@+id/MC_503_D_FCV"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_FCV"
             android:text="@string/MC_503_FCV"/>
         <CheckBox
             android:id="@+id/MC_503_D_LHS"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHS"
             android:text="@string/MC_503_LHS"/>
         <CheckBox
             android:id="@+id/MC_503_D_NGO"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
-        <CheckBox
+            android:text="@string/MC_503_X" />
+
+        <EditText
             android:id="@+id/MC_503_D_X"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
+            style="@style/textInput"
+            android:hint="@string/MC_503_X" />
         <!--FOR 503_E-->
         <TextView
             style="@style/labels"
@@ -232,28 +221,24 @@
         <CheckBox
             android:id="@+id/MC_503_E_LHW"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHW"
             android:text="@string/MC_503_LHW"/>
         <CheckBox
             android:id="@+id/MC_503_E_FCV"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_FCV"
             android:text="@string/MC_503_FCV"/>
         <CheckBox
             android:id="@+id/MC_503_E_LHS"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHS"
             android:text="@string/MC_503_LHS"/>
         <CheckBox
             android:id="@+id/MC_503_E_NGO"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
             android:text="@string/MC_503_NGO"/>
-        <CheckBox
+
+        <EditText
             android:id="@+id/MC_503_E_X"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
+            style="@style/textInput"
+            android:hint="@string/MC_503_X" />
         <!--FOR 503_F-->
         <TextView
             style="@style/labels"
@@ -264,28 +249,24 @@
         <CheckBox
             android:id="@+id/MC_503_F_LHW"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHW"
             android:text="@string/MC_503_LHW"/>
         <CheckBox
             android:id="@+id/MC_503_F_FCV"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_FCV"
             android:text="@string/MC_503_FCV"/>
         <CheckBox
             android:id="@+id/MC_503_F_LHS"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHS"
             android:text="@string/MC_503_LHS"/>
         <CheckBox
             android:id="@+id/MC_503_F_NGO"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
             android:text="@string/MC_503_NGO"/>
-        <CheckBox
+
+        <EditText
             android:id="@+id/MC_503_F_X"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
+            style="@style/textInput"
+            android:hint="@string/MC_503_X" />
         <!--FOR 503_G-->
         <TextView
             style="@style/labels"
@@ -296,28 +277,24 @@
         <CheckBox
             android:id="@+id/MC_503_G_LHW"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHW"
             android:text="@string/MC_503_LHW"/>
         <CheckBox
             android:id="@+id/MC_503_G_FCV"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_FCV"
             android:text="@string/MC_503_FCV"/>
         <CheckBox
             android:id="@+id/MC_503_G_LHS"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHS"
             android:text="@string/MC_503_LHS"/>
         <CheckBox
             android:id="@+id/MC_503_G_NGO"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
             android:text="@string/MC_503_NGO"/>
-        <CheckBox
+
+        <EditText
             android:id="@+id/MC_503_G_X"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
+            style="@style/textInput"
+            android:hint="@string/MC_503_X" />
         <!--FOR 503_X-->
         <TextView
             style="@style/labels"
@@ -328,30 +305,27 @@
         <CheckBox
             android:id="@+id/MC_503_X_LHW"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHW"
             android:text="@string/MC_503_LHW"/>
         <CheckBox
             android:id="@+id/MC_503_X_FCV"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_FCV"
             android:text="@string/MC_503_FCV"/>
         <CheckBox
             android:id="@+id/MC_503_X_LHS"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_LHS"
             android:text="@string/MC_503_LHS"/>
         <CheckBox
             android:id="@+id/MC_503_X_NGO"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
-        <CheckBox
-            android:id="@+id/MC_503_X_X"
-            style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512_NGO"
-            android:text="@string/MC_503_NGO"/>
-</LinearLayout>
+            android:text="@string/MC_503_X" />
 
+        <EditText
+            android:id="@+id/MC_503_X_X"
+            style="@style/textInput"
+            android:hint="@string/MC_503_X" />
+
+</LinearLayout>
+            </ScrollView>
         <!--MC_504W-->
         <TextView
             style="@style/labels"
@@ -453,7 +427,7 @@
             android:id="@+id/MC_506"
             style="@style/textInput"
             android:hint="@string/MC_506"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="2"
             android:singleLine="true" />
 
@@ -578,7 +552,7 @@
 
 <LinearLayout
     android:id="@+id/fldGrp511"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:visibility="gone">
@@ -592,59 +566,50 @@
         <CheckBox
             android:id="@+id/MC_512_1"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_1" />
 
         <CheckBox
             android:id="@+id/MC_512_2"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_2" />
 
 
         <CheckBox
             android:id="@+id/MC_512_3"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_3" />
 
 
         <CheckBox
             android:id="@+id/MC_512_4"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_4" />
 
 
         <CheckBox
             android:id="@+id/MC_512_5"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_5" />
 
         <CheckBox
             android:id="@+id/MC_512_6"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_6" />
 
         <CheckBox
             android:id="@+id/MC_512_7"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_7" />
 
 
         <CheckBox
             android:id="@+id/MC_512_8"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_8" />
 
         <CheckBox
             android:id="@+id/MC_512_88"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_512"
             android:text="@string/MC_512_88" />
 
 
@@ -723,7 +688,7 @@
             android:singleLine="true" />
 <LinearLayout
     android:id="@+id/fldGrp513"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:visibility="gone">
@@ -757,7 +722,7 @@
 
     <LinearLayout
         android:id="@+id/fldGrp514"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone">
@@ -772,7 +737,7 @@
             android:id="@+id/MC_515"
             style="@style/textInput"
             android:hint="@string/MC_515"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="2"
             android:singleLine="true" />
 
@@ -818,17 +783,17 @@
             <RadioButton
                 android:id="@+id/MC_517_2"
                 style="@style/radiobutton"
-                android:text="@string/MC_517_1" />
+                android:text="@string/MC_517_2" />
 
             <RadioButton
                 android:id="@+id/MC_517_3"
                 style="@style/radiobutton"
-                android:text="@string/MC_517_1" />
+                android:text="@string/MC_517_3" />
 
         </RadioGroup>
     <LinearLayout
         android:id="@+id/fldGrp517"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone">
@@ -843,7 +808,7 @@
         <Spinner
             android:id="@+id/MC_518"
             style="@style/spinner"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:entries="@array/MC_518_list"
             android:prompt="@string/MC_518"
@@ -895,10 +860,10 @@
 
         </RadioGroup>
 
-</LinearLayout>
+    </LinearLayout>
     <LinearLayout
         android:id="@+id/fldGrp519"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone">
@@ -930,7 +895,7 @@
         </RadioGroup>
         <LinearLayout
             android:id="@+id/fldGrp520"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:visibility="gone">
@@ -966,62 +931,52 @@
         <CheckBox
             android:id="@+id/MC_522_1"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_1" />
 
         <CheckBox
             android:id="@+id/MC_522_2"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_2" />
 
         <CheckBox
             android:id="@+id/MC_522_3"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_3" />
 
         <CheckBox
             android:id="@+id/MC_522_4"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_4" />
 
         <CheckBox
             android:id="@+id/MC_522_5"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_5" />
 
         <CheckBox
             android:id="@+id/MC_522_6"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_6" />
 
         <CheckBox
             android:id="@+id/MC_522_7"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_7" />
 
         <CheckBox
             android:id="@+id/MC_522_8"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_8" />
 
         <CheckBox
             android:id="@+id/MC_522_9"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
             android:text="@string/MC_522_9" />
 
         <CheckBox
             android:id="@+id/MC_522_88"
             style="@style/checkbox"
-            android:onClick="onCheckboxClicked_MC_522"
-            android:text="@string/MC_522" />
+            android:text="@string/MC_522X" />
 
 
         <EditText
@@ -1060,7 +1015,7 @@
 
     <LinearLayout
         android:id="@+id/fldGrp523"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone">
@@ -1071,27 +1026,6 @@
             android:labelFor="@+id/MC_524"
             android:text="@string/MC_524" />
 
-        <RadioGroup
-
-            android:id="@+id/MC_524"
-            style="@style/radiogroup"
-            android:text="@string/MC_524">
-
-            <RadioButton
-                android:id="@+id/MC_524_1"
-                style="@style/radiobutton"
-                android:text="@string/MC_519" />
-
-            <RadioButton
-                android:id="@+id/MC_524_2"
-                style="@style/radiobutton"
-                android:text="@string/MC_524_2" />
-
-            <RadioButton
-                android:id="@+id/MC_524_99"
-                style="@style/radiobutton"
-                android:text="@string/MC_524_99" />
-        </RadioGroup>
 
 
         <!--MC_524ACR-->
@@ -1107,7 +1041,7 @@
             android:id="@+id/MC_524ACR"
             style="@style/textInput"
             android:hint="@string/MC_524ACR"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="4"
             android:singleLine="true" />
 
@@ -1122,30 +1056,37 @@
             android:id="@+id/MC_524CAN"
             style="@style/textInput"
             android:hint="@string/MC_524CAN"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="4"
             android:singleLine="true" />
-
+    </LinearLayout>
         <!--MC_525_1-->
 
         <TextView
             style="@style/labels"
-            android:labelFor="@+id/MC_525_1"
-            android:text="@string/MC_525_1" />
+            android:text="@string/MC_525" />
+
+            <TextView
+                style="@style/labels"
+                android:background="#d6d6d6"
+                android:labelFor="@+id/MC_525_1"
+                android:text="@string/MC_525_1" />
 
         <EditText
 
             android:id="@+id/MC_525_1"
             style="@style/textInput"
             android:hint="@string/MC_525_1"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
-</LinearLayout>
+
         <!--MC_525_2-->
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
+
             android:labelFor="@+id/MC_525_2"
             android:text="@string/MC_525_2" />
 
@@ -1154,7 +1095,7 @@
             android:id="@+id/MC_525_2"
             style="@style/textInput"
             android:hint="@string/MC_525_2"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1162,6 +1103,9 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
+
+
             android:labelFor="@+id/MC_525_3"
             android:text="@string/MC_525_3" />
 
@@ -1170,7 +1114,7 @@
             android:id="@+id/MC_525_3"
             style="@style/textInput"
             android:hint="@string/MC_525_3"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1178,6 +1122,8 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
+
             android:labelFor="@+id/MC_525_4"
             android:text="@string/MC_525_4" />
 
@@ -1186,7 +1132,7 @@
             android:id="@+id/MC_525_4"
             style="@style/textInput"
             android:hint="@string/MC_525_4"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1194,6 +1140,8 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
+
             android:labelFor="@+id/MC_525_5"
             android:text="@string/MC_525_5" />
 
@@ -1202,7 +1150,7 @@
             android:id="@+id/MC_525_5"
             style="@style/textInput"
             android:hint="@string/MC_525_5"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1210,6 +1158,8 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
+
             android:labelFor="@+id/MC_525_6"
             android:text="@string/MC_525_6" />
 
@@ -1218,7 +1168,7 @@
             android:id="@+id/MC_525_6"
             style="@style/textInput"
             android:hint="@string/MC_525_6"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1227,6 +1177,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_7"
             android:text="@string/MC_525_7" />
 
@@ -1235,7 +1186,7 @@
             android:id="@+id/MC_525_7"
             style="@style/textInput"
             android:hint="@string/MC_525_7"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1244,7 +1195,7 @@
             android:id="@+id/MC_525_7X"
             style="@style/textInput"
             android:hint="@string/MC_525_7X"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="256"
             android:singleLine="true" />
 
@@ -1253,6 +1204,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_8"
             android:text="@string/MC_525_8" />
 
@@ -1261,7 +1213,7 @@
             android:id="@+id/MC_525_8"
             style="@style/textInput"
             android:hint="@string/MC_525_8"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1269,6 +1221,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_9"
             android:text="@string/MC_525_9" />
 
@@ -1277,7 +1230,7 @@
             android:id="@+id/MC_525_9"
             style="@style/textInput"
             android:hint="@string/MC_525_9"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1286,6 +1239,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_10"
             android:text="@string/MC_525_10" />
 
@@ -1294,7 +1248,7 @@
             android:id="@+id/MC_525_10"
             style="@style/textInput"
             android:hint="@string/MC_525_10"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1303,6 +1257,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_11"
             android:text="@string/MC_525_11" />
 
@@ -1311,7 +1266,7 @@
             android:id="@+id/MC_525_11"
             style="@style/textInput"
             android:hint="@string/MC_525_11"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1319,6 +1274,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_12"
             android:text="@string/MC_525_12" />
 
@@ -1327,7 +1283,7 @@
             android:id="@+id/MC_525_12"
             style="@style/textInput"
             android:hint="@string/MC_525_12"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1336,6 +1292,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_13"
             android:text="@string/MC_525_13" />
 
@@ -1344,7 +1301,7 @@
             android:id="@+id/MC_525_13"
             style="@style/textInput"
             android:hint="@string/MC_525_13"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1352,6 +1309,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_14"
             android:text="@string/MC_525_14" />
 
@@ -1360,7 +1318,7 @@
             android:id="@+id/MC_525_14"
             style="@style/textInput"
             android:hint="@string/MC_525_14"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1369,6 +1327,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_15"
             android:text="@string/MC_525_15" />
 
@@ -1377,7 +1336,7 @@
             android:id="@+id/MC_525_15"
             style="@style/textInput"
             android:hint="@string/MC_525_15"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1386,6 +1345,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_16"
             android:text="@string/MC_525_16" />
 
@@ -1394,7 +1354,7 @@
             android:id="@+id/MC_525_16"
             style="@style/textInput"
             android:hint="@string/MC_525_16"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1402,6 +1362,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_17"
             android:text="@string/MC_525_17" />
 
@@ -1410,7 +1371,7 @@
             android:id="@+id/MC_525_17"
             style="@style/textInput"
             android:hint="@string/MC_525_17"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1418,6 +1379,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_18"
             android:text="@string/MC_525_18" />
 
@@ -1426,7 +1388,7 @@
             android:id="@+id/MC_525_18"
             style="@style/textInput"
             android:hint="@string/MC_525_18"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1435,6 +1397,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_19"
             android:text="@string/MC_525_19" />
 
@@ -1443,7 +1406,7 @@
             android:id="@+id/MC_525_19"
             style="@style/textInput"
             android:hint="@string/MC_525_19"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1452,6 +1415,7 @@
 
         <TextView
             style="@style/labels"
+            android:background="#d6d6d6"
             android:labelFor="@+id/MC_525_20"
             android:text="@string/MC_525_20" />
 
@@ -1460,7 +1424,7 @@
             android:id="@+id/MC_525_20"
             style="@style/textInput"
             android:hint="@string/MC_525_20"
-            android:inputType="text"
+            android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
 
@@ -1469,7 +1433,7 @@
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:orientation="horizontal">

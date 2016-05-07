@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -19,7 +20,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
-import java.util.Calendar;
 
 public class FillFormS3Activity extends AppCompatActivity {
 
@@ -30,6 +30,7 @@ public class FillFormS3Activity extends AppCompatActivity {
     private Integer girlCount;
     private Integer boyCount;
     private TextView childName;
+    private TextView childCount;
 
 
     private String imfrmno;
@@ -131,10 +132,9 @@ public class FillFormS3Activity extends AppCompatActivity {
         setContentView(R.layout.activity_fill_form_s3);
 
         formId = getIntent().getStringExtra("formId");
-        girlCount = 1;
-        boyCount = 1;
-//        girlCount = Integer.valueOf(getIntent().getStringExtra("girlCount"));
-//        boyCount = Integer.valueOf(getIntent().getStringExtra("boyCount"));
+
+        girlCount = Integer.valueOf(getIntent().getStringExtra("girlCount"));
+        boyCount = Integer.valueOf(getIntent().getStringExtra("boyCount"));
 
         ima = (EditText) findViewById(R.id.IM_A);
         imaf = (EditText) findViewById(R.id.IM_AF);
@@ -184,6 +184,10 @@ public class FillFormS3Activity extends AppCompatActivity {
 
 
         childName = (TextView) findViewById(R.id.child_name);
+        childCount = (TextView) findViewById(R.id.child_count);
+
+        childCount.setText("Boy Remaining: " + boyCount + " Girl Remaining: " + girlCount);
+
 
         ima.setOnFocusChangeListener(new View.OnFocusChangeListener() {
 
@@ -197,11 +201,34 @@ public class FillFormS3Activity extends AppCompatActivity {
                 }
             }
         });
+
+        imb.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                imbselected = getResources().getStringArray(R.array.IM_B_value)[imb.getSelectedItemPosition()];
+                if (Integer.valueOf(imbselected) == 1 && boyCount < 0) {
+                    findViewById(R.id.imb_b).setVisibility(View.VISIBLE);
+                } else {
+                    findViewById(R.id.imb_b).setVisibility(View.GONE);
+                }
+                if (Integer.valueOf(imbselected) == 2 && girlCount < 0) {
+                    findViewById(R.id.imb_g).setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+
+
     }
 
     public void processChild(View view) {
 
-        imbselected = getResources().getStringArray(R.array.MC_YN_value)[imb.getSelectedItemPosition()];
+        imbselected = getResources().getStringArray(R.array.IM_B_value)[imb.getSelectedItemPosition()];
         imcselected = getResources().getStringArray(R.array.MC_YN_value)[imc.getSelectedItemPosition()];
         imfselected = getResources().getStringArray(R.array.MC_YN_value)[imf.getSelectedItemPosition()];
         imgselected = getResources().getStringArray(R.array.MC_YN_value)[img.getSelectedItemPosition()];
@@ -244,8 +271,8 @@ public class FillFormS3Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
 
             StoreTempValues();
-
-            if (boyCount > 0 || girlCount > 0) {
+            Log.d(TAG, "BCount: " + boyCount + " GCount: " + girlCount);
+            if (Integer.valueOf(boyCount) >= 1 || Integer.valueOf(girlCount) >= 1) {
                 Intent s3_form_intent = new Intent(getApplicationContext(), FillFormS3Activity.class);
                 s3_form_intent.putExtra("formId", formId);
                 s3_form_intent.putExtra("boyCount", String.valueOf(boyCount));
@@ -258,6 +285,7 @@ public class FillFormS3Activity extends AppCompatActivity {
 
             }
         } else {
+            Toast.makeText(getApplicationContext(), "Form Validation... Failed!", Toast.LENGTH_SHORT).show();
 
 
         }
@@ -447,8 +475,18 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imb - Girl Count: " + girlCount);
             return false;
         }
+        if (imgselected.toString().equals("2") && girlCount < 1) {
+            Toast.makeText(getApplicationContext(), "Girl Count Completed!", Toast.LENGTH_SHORT).show();
+            TextView errorText = (TextView) imb.getSelectedView();
+            errorText.setError(" ");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Girl Count Completed!");//changes the selected item text to this
+            Log.d(TAG, "Error Type: imb - Girl Count: " + girlCount);
+            return false;
+        }
 
-        if (!imey.toString().isEmpty() && !imey.toString().isEmpty()) {
+
+        /*if (!imey.toString().isEmpty() && !imey.toString().isEmpty()) {
 
             Calendar today = Calendar.getInstance();
             Calendar dob = Calendar.getInstance();
@@ -503,7 +541,7 @@ public class FillFormS3Activity extends AppCompatActivity {
                 Log.d(TAG, "Error Type: DOB Do Not Match");
                 return false;
             }
-        }
+        }*/
 
 
         return true;

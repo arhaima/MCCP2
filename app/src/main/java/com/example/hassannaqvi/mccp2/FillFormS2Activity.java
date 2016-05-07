@@ -22,14 +22,14 @@ import org.json.JSONObject;
 
 public class FillFormS2Activity extends AppCompatActivity {
 
-    public static JSONObject JsonS2;
     // Section 2 Field Variables
     public static String FORM_ID;
     // Activity Variables
     private final String TAG = "FILL_FORM_S2_ACTIVITY";
     private final Integer AGE_LIMIT = 16;
-    private final Integer MONTH_LIMIT = 9;
-    private final Integer WEEK_LIMIT = 8;
+    private final Integer MONTH_LIMIT = 10;
+    private final Integer WEEK_LIMIT = 42;
+    public JSONObject JsonS2;
     private String mcFrmNo;
     private EditText mc201nm;
     private Spinner mc201gndr;
@@ -381,6 +381,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         long newFormId = 0;
         try {
 
+            JsonS2 = new JSONObject();
             // Initialize JSON Object For Section 2
             JsonS2.put("mc201nm", sharedPref.getString("sp201nm", "00"));
             JsonS2.put("mc201gndr", sharedPref.getString("sp201gndr", "00"));
@@ -440,6 +441,8 @@ public class FillFormS2Activity extends AppCompatActivity {
             mc201nm.setError("Name not Given!");
             Log.d(TAG, "Error Type: 201nm  missing");
             return false;
+        } else {
+            mc201nm.setError(null);
         }
 
         // 201Gender Spinner
@@ -467,7 +470,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         }
 
         // 202Occupation Spinner
-        if (mc201ocu.getSelectedItem().toString().equals("Male") && mc201type.getSelectedItem().toString().equals("Mother")) {
+        if (mc201gndr.getSelectedItem().toString().equals("Male") && mc201type.getSelectedItem().toString().equals("Mother")) {
             Toast.makeText(getApplicationContext(), "Please select correct Relation Type.", Toast.LENGTH_SHORT).show();
             mc201type_error.setVisibility(View.VISIBLE);
             TextView errorText = (TextView) mc201gndr.getSelectedView();
@@ -479,17 +482,10 @@ public class FillFormS2Activity extends AppCompatActivity {
             return false;
         }
 
-        if (mc201nm.getText().toString().isEmpty() || mc201nm.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Name not Given!", Toast.LENGTH_SHORT).show();
 
-            mc201nm.setError("Name not Given!");
-            Log.d(TAG, "Error Type: 201nm Empty");
-            return false;
-        }
-
-        if (Integer.valueOf(mc201age.getText().toString()) < 18) {
-            Toast.makeText(getApplicationContext(), "Too young to answer! Must be atleast 18", Toast.LENGTH_SHORT).show();
-            mc201age.setError("Too young to answer! Must be atleast 18");
+        if (!mc201age.getText().toString().isEmpty() && Integer.valueOf(mc201age.getText().toString()) < AGE_LIMIT) {
+            Toast.makeText(getApplicationContext(), "Too young to answer! Must be atleast " + AGE_LIMIT, Toast.LENGTH_SHORT).show();
+            mc201age.setError("Too young to answer! Must be atleast " + AGE_LIMIT);
             Log.d(TAG, "Error Type: Too young");
             return false;
         }
@@ -581,7 +577,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         }
 
 
-        if (Integer.valueOf(mc204t.getText().toString()) > Integer.valueOf(mc203tot.getText().toString())) {
+        if (Integer.valueOf(mc204t.getText().toString()) > Integer.valueOf(mc203tot.getText().toString()) - 1) {
             Toast.makeText(getApplicationContext(), "Total Children cannot be more than Total Members!", Toast.LENGTH_SHORT).show();
             mc204t.setError("Total Children cannot be more than Total Members!");
             Log.d(TAG, "Error Type: 204t more than 203tot");

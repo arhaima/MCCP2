@@ -34,7 +34,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL("http://f30539/mccp2/users_login.php");
+            URL url = new URL("http://192.168.1.10/appdata/users_login.php");
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
@@ -42,6 +42,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
 
             String line;
             while ((line = reader.readLine()) != null) {
+                Log.i(TAG, "User In: " + line);
                 result.append(line);
             }
 
@@ -64,7 +65,7 @@ public class GetUsers extends AsyncTask<String, String, String> {
 
         String json = result;
         //json = json.replaceAll("\\[", "").replaceAll("\\]","");
-        Log.d("My App", result);
+        Log.d(TAG, result);
         ArrayList<UsersContract> userArrayList;
         FormsDbHelper db = new FormsDbHelper(mContext);
         try {

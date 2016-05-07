@@ -62,39 +62,39 @@
         android:textSize="24sp"
         android:timePickerMode="spinner"/>
 
-    <!--MC_103 Town-->
-    <TextView
-        style="@style/labels"
-        android:text="@string/MC_103">
+    <!-- &lt;!&ndash;MC_103 Town&ndash;&gt;
+     <TextView
+         style="@style/labels"
+         android:text="@string/MC_103">
 
-    </TextView>
-
-
-    <Spinner
-        android:id="@+id/MC_103"
-        style="@style/spinner"
-        android:entries="@array/MC_103_list"
-        android:prompt="@string/MC_103"
-        android:textSize="24sp"
-        > <!-- Todo: Increase textSize  -->
-
-    </Spinner>
+     </TextView>
 
 
-    <!-- MC_104 UC No. -->
-    <TextView
-        style="@style/labels"
-        android:labelFor="@+id/MC_104"
-        android:text="@string/MC_104" />
-    <EditText
-        android:id="@+id/MC_104"
-        style="@style/textInput"
-        android:hint="@string/MC_104"
-        android:inputType="number"
-        android:maxLength="2"
-        android:singleLine="true"
-        />
+     <Spinner
+         android:id="@+id/MC_103"
+         style="@style/spinner"
+         android:entries="@array/MC_103_list"
+         android:prompt="@string/MC_103"
+         android:textSize="24sp"
+         > &lt;!&ndash; Todo: Increase textSize  &ndash;&gt;
 
+     </Spinner>
+
+
+     &lt;!&ndash; MC_104 UC No. &ndash;&gt;
+     <TextView
+         style="@style/labels"
+         android:labelFor="@+id/MC_104"
+         android:text="@string/MC_104" />
+     <EditText
+         android:id="@+id/MC_104"
+         style="@style/textInput"
+         android:hint="@string/MC_104"
+         android:inputType="number"
+         android:maxLength="2"
+         android:singleLine="true"
+         />
+ -->
 
     <TextView
         android:id="@+id/MC_104UCName"
@@ -238,8 +238,8 @@
         <Button
             android:id="@+id/btn_End"
             style="@style/buttons"
-            android:layout_weight="1"
             android:layout_width="0dp"
+            android:layout_weight="1"
             android:onClick="endInterview"
             android:text="@string/end_interview"
             android:textColor="#ff1e1e"
