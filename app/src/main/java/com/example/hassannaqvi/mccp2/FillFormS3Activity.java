@@ -9,9 +9,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,19 +24,20 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FillFormS3Activity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_S3_ACTIVITY";
 
     public static String FORM_ID;
+    public List<String> chids = new ArrayList<String>();
     private String formId;
     private Integer girlCount;
     private Integer boyCount;
     private TextView childName;
     private TextView childCount;
-
-
     private String imfrmno;
     private String imchid;
     private EditText ima;
@@ -40,7 +45,12 @@ public class FillFormS3Activity extends AppCompatActivity {
     private CheckBox imresp;
     private Spinner imb;
     private Spinner imc;
+    private RadioGroup image;
+    private RadioButton imagey;
+    private RadioButton imagen;
+
     private DatePicker imd;
+    private CheckBox imddoc;
     private EditText imey;
     private EditText imem;
     private EditText imed;
@@ -48,9 +58,11 @@ public class FillFormS3Activity extends AppCompatActivity {
     private Spinner img;
     private Spinner imh;
     private Spinner imi;
-    private Spinner imj;
-    private Spinner imjb;
     private Spinner imk;
+    private Spinner imjb;
+    private RadioGroup imj;
+    private RadioButton imj_yes;
+    private RadioButton imj_no;
     private Spinner bcg;
     private Spinner bcgsrc;
     private Spinner bcgscar;
@@ -86,7 +98,7 @@ public class FillFormS3Activity extends AppCompatActivity {
     private String imgselected;
     private String imhselected;
     private String imiselected;
-    private String imjselected;
+    private int imjselected;
     private String imjbselected;
     private String imkselected;
     private String bcgselected;
@@ -120,11 +132,9 @@ public class FillFormS3Activity extends AppCompatActivity {
     private String immaselected;
     private Boolean formError;
 
-
-
-
-
-
+    private LinearLayout fldGrpIM_D;
+    private LinearLayout fldGrpIM_E;
+    private LinearLayout fldGrpIM_JA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,13 +145,22 @@ public class FillFormS3Activity extends AppCompatActivity {
 
         girlCount = Integer.valueOf(getIntent().getStringExtra("girlCount"));
         boyCount = Integer.valueOf(getIntent().getStringExtra("boyCount"));
+        if (FillFormS2Activity.gndrChk == true) {
+            FillFormS2Activity.gndrChk = false;
+        } else if (FillFormS2Activity.gndrChk == false) {
+            FillFormS2Activity.gndrChk = true;
+        }
 
         ima = (EditText) findViewById(R.id.IM_A);
         imaf = (EditText) findViewById(R.id.IM_AF);
         imresp = (CheckBox) findViewById(R.id.IM_RESP);
         imb = (Spinner) findViewById(R.id.IM_B);
         imc = (Spinner) findViewById(R.id.IM_C);
+        image = (RadioGroup) findViewById(R.id.IM_AGE);
+        imagey = (RadioButton) findViewById(R.id.IM_AGE_YES);
+        imagen = (RadioButton) findViewById(R.id.IM_AGE_NO);
         imd = (DatePicker) findViewById(R.id.IM_D);
+        imddoc = (CheckBox) findViewById(R.id.IM_D_Doc);
         imey = (EditText) findViewById(R.id.IM_EY);
         imem = (EditText) findViewById(R.id.IM_EM);
         imed = (EditText) findViewById(R.id.IM_ED);
@@ -149,9 +168,11 @@ public class FillFormS3Activity extends AppCompatActivity {
         img = (Spinner) findViewById(R.id.IM_G);
         imh = (Spinner) findViewById(R.id.IM_H);
         imi = (Spinner) findViewById(R.id.IM_I);
-        imj = (Spinner) findViewById(R.id.IM_J);
-        imjb = (Spinner) findViewById(R.id.IM_JB);
         imk = (Spinner) findViewById(R.id.IM_K);
+        imjb = (Spinner) findViewById(R.id.IM_JB);
+        imj = (RadioGroup) findViewById(R.id.IM_JA);
+        imj_yes = (RadioButton) findViewById(R.id.IM_J_Yes);
+        imj_no = (RadioButton) findViewById(R.id.IM_J_No);
         bcg = (Spinner) findViewById(R.id.BCG);
         bcgsrc = (Spinner) findViewById(R.id.BCG_SRC);
         bcgscar = (Spinner) findViewById(R.id.BCG_SCAR);
@@ -181,6 +202,11 @@ public class FillFormS3Activity extends AppCompatActivity {
         m_2src = (Spinner) findViewById(R.id.M2_SRC);
         imma = (Spinner) findViewById(R.id.IM_M_A);
         immd = (Spinner) findViewById(R.id.IM_M_D);
+
+
+        fldGrpIM_D = (LinearLayout) findViewById(R.id.fldGrpIM_D);
+        fldGrpIM_E = (LinearLayout) findViewById(R.id.fldGrpIM_E);
+        fldGrpIM_JA = (LinearLayout) findViewById(R.id.fldGrpIM_JA);
 
 
         childName = (TextView) findViewById(R.id.child_name);
@@ -223,6 +249,40 @@ public class FillFormS3Activity extends AppCompatActivity {
 
         });
 
+        image.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                if (checkedId == imagen.getId()) {
+                    fldGrpIM_D.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpIM_D.setVisibility(View.GONE);
+
+                }
+                if (checkedId == imagey.getId()) {
+                    fldGrpIM_E.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpIM_E.setVisibility(View.GONE);
+                    imed.setText("");
+                    imem.setText("");
+                    imey.setText("");
+
+                }
+            }
+        });
+        imj.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                Button btnContinue = (Button) findViewById(R.id.btn_Continue);
+                Log.d(TAG, "Button Id " + checkedId);
+                if (checkedId != imj_yes.getId()) {
+                    fldGrpIM_JA.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrpIM_JA.setVisibility(View.GONE);
+
+                }
+            }
+        });
+
 
     }
 
@@ -234,38 +294,39 @@ public class FillFormS3Activity extends AppCompatActivity {
         imgselected = getResources().getStringArray(R.array.MC_YN_value)[img.getSelectedItemPosition()];
         imhselected = getResources().getStringArray(R.array.IM_H_value)[imh.getSelectedItemPosition()];
         imiselected = getResources().getStringArray(R.array.MC_YN_value)[imi.getSelectedItemPosition()];
-        imjselected = getResources().getStringArray(R.array.MC_YN_value)[imj.getSelectedItemPosition()];
-        imjbselected = getResources().getStringArray(R.array.IM_JB_value)[imjb.getSelectedItemPosition()];
         imkselected = getResources().getStringArray(R.array.IM_K_value)[imk.getSelectedItemPosition()];
+        imjbselected = getResources().getStringArray(R.array.IM_JB_value)[imjb.getSelectedItemPosition()];
+        imjselected = imj.getCheckedRadioButtonId();
         bcgselected = getResources().getStringArray(R.array.MC_YN_value)[bcg.getSelectedItemPosition()];
-        bcgscarselected = getResources().getStringArray(R.array.IM_H_value)[bcgscar.getSelectedItemPosition()];
-        bcgsrcselected = getResources().getStringArray(R.array.MC_YN_value)[bcgsrc.getSelectedItemPosition()];
+        bcgscarselected = getResources().getStringArray(R.array.IM_I_Scar_value)[bcgscar.getSelectedItemPosition()];
+        bcgsrcselected = getResources().getStringArray(R.array.IM_I_Source_value)[bcgsrc.getSelectedItemPosition()];
         opv_0selected = getResources().getStringArray(R.array.MC_YN_value)[opv_0.getSelectedItemPosition()];
-        opv_0srcselected = getResources().getStringArray(R.array.MC_YN_value)[opv_0src.getSelectedItemPosition()];
+        opv_0srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_0src.getSelectedItemPosition()];
         opv_1selected = getResources().getStringArray(R.array.MC_YN_value)[opv_0.getSelectedItemPosition()];
-        opv_1srcselected = getResources().getStringArray(R.array.MC_YN_value)[opv_0src.getSelectedItemPosition()];
+        opv_1srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_0src.getSelectedItemPosition()];
         opv_2selected = getResources().getStringArray(R.array.MC_YN_value)[opv_0.getSelectedItemPosition()];
-        opv_2srcselected = getResources().getStringArray(R.array.MC_YN_value)[opv_0src.getSelectedItemPosition()];
+        opv_2srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_0src.getSelectedItemPosition()];
         opv_3selected = getResources().getStringArray(R.array.MC_YN_value)[opv_0.getSelectedItemPosition()];
-        opv_3srcselected = getResources().getStringArray(R.array.MC_YN_value)[opv_0src.getSelectedItemPosition()];
+        opv_3srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_0src.getSelectedItemPosition()];
         p_1selected = getResources().getStringArray(R.array.MC_YN_value)[p_1.getSelectedItemPosition()];
-        p_1srcselected = getResources().getStringArray(R.array.MC_YN_value)[p_1src.getSelectedItemPosition()];
+        p_1srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[p_1src.getSelectedItemPosition()];
         p_2selected = getResources().getStringArray(R.array.MC_YN_value)[p_2.getSelectedItemPosition()];
-        p_2srcselected = getResources().getStringArray(R.array.MC_YN_value)[p_2src.getSelectedItemPosition()];
+        p_2srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[p_2src.getSelectedItemPosition()];
         p_3selected = getResources().getStringArray(R.array.MC_YN_value)[p_3.getSelectedItemPosition()];
-        p_3srcselected = getResources().getStringArray(R.array.MC_YN_value)[p_3src.getSelectedItemPosition()];
+        p_3srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[p_3src.getSelectedItemPosition()];
         pcv_1selected = getResources().getStringArray(R.array.MC_YN_value)[pcv_1.getSelectedItemPosition()];
-        pcv_1srcselected = getResources().getStringArray(R.array.MC_YN_value)[pcv_1src.getSelectedItemPosition()];
+        pcv_1srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[pcv_1src.getSelectedItemPosition()];
         pcv_2selected = getResources().getStringArray(R.array.MC_YN_value)[pcv_2.getSelectedItemPosition()];
-        pcv_2srcselected = getResources().getStringArray(R.array.MC_YN_value)[pcv_2src.getSelectedItemPosition()];
+        pcv_2srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[pcv_2src.getSelectedItemPosition()];
         pcv_3selected = getResources().getStringArray(R.array.MC_YN_value)[pcv_3.getSelectedItemPosition()];
-        pcv_3srcselected = getResources().getStringArray(R.array.MC_YN_value)[pcv_3src.getSelectedItemPosition()];
+        pcv_3srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[pcv_3src.getSelectedItemPosition()];
         m_1selected = getResources().getStringArray(R.array.MC_YN_value)[m_1.getSelectedItemPosition()];
-        m_1srcselected = getResources().getStringArray(R.array.MC_YN_value)[m_1src.getSelectedItemPosition()];
+        m_1srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[m_1src.getSelectedItemPosition()];
         m_2selected = getResources().getStringArray(R.array.MC_YN_value)[m_2.getSelectedItemPosition()];
-        m_2srcselected = getResources().getStringArray(R.array.MC_YN_value)[m_2src.getSelectedItemPosition()];
+        m_2srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[m_2src.getSelectedItemPosition()];
         immaselected = getResources().getStringArray(R.array.MC_YN_value)[imma.getSelectedItemPosition()];
         immdselected = getResources().getStringArray(R.array.MC_YN_value)[immd.getSelectedItemPosition()];
+
 
         if (formValidation()) {
             Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
@@ -277,10 +338,14 @@ public class FillFormS3Activity extends AppCompatActivity {
                 s3_form_intent.putExtra("formId", formId);
                 s3_form_intent.putExtra("boyCount", String.valueOf(boyCount));
                 s3_form_intent.putExtra("girlCount", String.valueOf(girlCount));
+                FillFormS2Activity.gndrChk = false;
                 startActivity(s3_form_intent);
             } else {
                 Intent s4_form_intent = new Intent(getApplicationContext(), FillFormS4Activity.class);
                 s4_form_intent.putExtra("formId", formId);
+                Log.d(TAG, "All Child Ids : " + chids.toString());
+                FillFormS2Activity.gndrChk = true;
+
                 startActivity(s4_form_intent);
 
             }
@@ -295,35 +360,39 @@ public class FillFormS3Activity extends AppCompatActivity {
 
     private void StoreTempValues() {
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
-
-        SharedPreferences sharedPref = getSharedPreferences(FORM_ID, Context.MODE_PRIVATE);
+        Integer chid = boyCount + girlCount;
+        imchid = formId.concat(String.format("%02d", chid));
+        chids.add(imchid);
+        SharedPreferences sharedPref = getSharedPreferences(imchid, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
-        Integer chid = boyCount + girlCount;
+        if (FillFormS2Activity.gndrChk == true) {
 
-        switch (imbselected.toString()) {
-            case "1":
-                boyCount--;
-                break;
-            case "2":
-                girlCount--;
-                break;
+            switch (imbselected.toString()) {
+                case "1":
+                    boyCount--;
+                    break;
+                case "2":
+                    girlCount--;
+                    break;
 
+            }
+            Log.d(TAG, "boyCount: " + boyCount + " girlCount: " + girlCount);
         }
-        Log.d(TAG, "boyCount: " + boyCount + " girlCount: " + girlCount);
 
 
-        imchid = formId + String.format("%02d", chid);
         Log.d(TAG, "Child Id: " + imchid);
-
-        String spDateOB = DateFormat.getDateInstance().format(imd.getCalendarView().getDate());
-
+        String spDateOB = "";
+        if (imagen.isChecked()) {
+            spDateOB = DateFormat.getDateInstance().format(imd.getCalendarView().getDate());
+        }
         editor.putString("spimchid", imchid);
         editor.putString("spima", ima.getText().toString());
         editor.putString("spimaf", imaf.getText().toString());
         editor.putString("spimb", imbselected.toString());
         editor.putString("spimc", imcselected.toString());
         editor.putString("spimd", spDateOB);
+        editor.putString("spimddoc", (imddoc.isChecked() ? "1" : ""));
         editor.putString("spimey", imey.getText().toString());
         editor.putString("spimem", imem.getText().toString());
         editor.putString("spimed", imed.getText().toString());
@@ -331,9 +400,9 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.putString("spimg", imgselected.toString());
         editor.putString("spimh", imhselected.toString());
         editor.putString("spimi", imiselected.toString());
-        editor.putString("spimj", imjselected.toString());
-        editor.putString("spimjb", imjbselected.toString());
         editor.putString("spimk", imkselected.toString());
+        editor.putString("spimjb", imjbselected.toString());
+
         editor.putString("spbcg", bcgselected.toString());
         editor.putString("spbcgsrc", bcgsrcselected.toString());
         editor.putString("spbcgscar", bcgscarselected.toString());
@@ -364,6 +433,21 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.putString("sp1mma", immaselected.toString());
         editor.putString("sp1mmd", immdselected.toString());
 
+        switch (imjselected) {
+
+            case R.id.IM_J_Yes:
+                editor.putString("spimj", "1");
+                break;
+
+            case R.id.IM_J_No:
+                editor.putString("spimj", "2");
+                break;
+
+            default:
+                editor.putString("spimj", "00");
+                break;
+        }
+
         editor.commit();
         Log.d(TAG, "Stored sharedValues!");
 
@@ -377,6 +461,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             s3.put("imb", sharedPref.getString("spimb", "00"));
             s3.put("imc", sharedPref.getString("spimc", "00"));
             s3.put("imd", sharedPref.getString("spimd", "00"));
+            s3.put("imddoc", sharedPref.getString("spimddoc", "00"));
             s3.put("imey", sharedPref.getString("spimey", "00"));
             s3.put("imem", sharedPref.getString("spimem", "00"));
             s3.put("imed", sharedPref.getString("spimed", "00"));
@@ -438,7 +523,6 @@ public class FillFormS3Activity extends AppCompatActivity {
 
     }
 
-
     private boolean formValidation() {
         Toast.makeText(getApplicationContext(), "Validating Form Values...", Toast.LENGTH_SHORT).show();
 
@@ -455,7 +539,10 @@ public class FillFormS3Activity extends AppCompatActivity {
             imaf.setError("Father's Name not Given!");
             Log.d(TAG, "Error Type: imaf Empty");
             return false;
+        } else {
+            imaf.setError(null);
         }
+
 
         if (imbselected.toString().equals("1") && boyCount < 1) {
             Toast.makeText(getApplicationContext(), "Boy Count Completed!", Toast.LENGTH_SHORT).show();
@@ -475,6 +562,36 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imb - Girl Count: " + girlCount);
             return false;
         }
+
+        if (image.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please Select Age Type", Toast.LENGTH_SHORT).show();
+            imagen.setError("Please Select Age Type");
+            Log.d(TAG, "Please Select Age Type");
+            return false;
+        }
+
+        if (!imed.getText().toString().isEmpty() && Integer.valueOf(imed.getText().toString()) > 30) {
+            Toast.makeText(getApplicationContext(), "AGE: Days cannot be more than 30", Toast.LENGTH_LONG).show();
+            imed.setError("AGE: Days cannot be more than 30");
+            Log.d(TAG, "Error Type: imed 30");
+            return false;
+        }
+
+        if (!imem.getText().toString().isEmpty() && Integer.valueOf(imem.getText().toString()) > 11) {
+            Toast.makeText(getApplicationContext(), "AGE: Months cannot be more than 11", Toast.LENGTH_LONG).show();
+            imem.setError("AGE: Months cannot be more than 11");
+            Log.d(TAG, "Error Type: imem 11");
+            return false;
+        }
+
+        if (!imey.getText().toString().isEmpty() && Integer.valueOf(imey.getText().toString()) > 4) {
+            Toast.makeText(getApplicationContext(), "AGE: Year cannot be more than 4", Toast.LENGTH_LONG).show();
+            imey.setError("AGE: Year cannot be more than 4");
+            Log.d(TAG, "Error Type: imem 4");
+            return false;
+        }
+        if (imfselected.toString().equals(""))
+
         if (imgselected.toString().equals("2") && girlCount < 1) {
             Toast.makeText(getApplicationContext(), "Girl Count Completed!", Toast.LENGTH_SHORT).show();
             TextView errorText = (TextView) imb.getSelectedView();
@@ -542,8 +659,116 @@ public class FillFormS3Activity extends AppCompatActivity {
                 return false;
             }
         }*/
+        if (imcselected.equals("2")) {
 
+            if (bcgsrc.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card BCG Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) bcgsrc.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card BCG Source");//changes the selected item text to this
+                return false;
+            }
+            if (opv_0src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card OPV 0 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) opv_0src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (opv_1src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card OPV 1 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) opv_1src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (opv_2src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card OPV 2 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) opv_2src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (opv_3src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card OPV 3 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) opv_3src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (p_1src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card Penta 1 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) p_1src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (p_2src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card Penta 2 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) p_2src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (p_3src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card Penta 3 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) p_3src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (pcv_1src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card PCV 1 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) pcv_1src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (pcv_2src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card PCV 2 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) pcv_2src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (pcv_3src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card PCV 3 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) pcv_3src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (m_1src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card Measles 1 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) m_1src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+            if (m_2src.getSelectedItemPosition() == 0) {
+                Toast.makeText(getApplicationContext(), "Invalid Card Measles 2 Source", Toast.LENGTH_SHORT).show();
+                TextView errorText = (TextView) m_2src.getSelectedView();
+                errorText.setError(" ");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Invalid Card Source");//changes the selected item text to this
+                return false;
+            }
+
+        }
 
         return true;
     }
+
 }

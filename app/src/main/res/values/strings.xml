@@ -598,6 +598,9 @@
     <string name="MC_607_88">دیگر (وضاحت  کریں)</string>
     <string name="MC_513_2">فلش سپٹک ٹینک سے جڑا ہوا</string>
     <string name="MC_606_2">حفاظتی ٹیکے</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="google_app_id">MCCP2</string>
+    <string name="IM_D_Doc">مستند دستاویزی ثبوت</string>
 
 
     <!--ADDITIONAL CHANGES-->

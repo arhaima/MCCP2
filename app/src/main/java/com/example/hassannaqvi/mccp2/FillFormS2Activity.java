@@ -24,6 +24,8 @@ public class FillFormS2Activity extends AppCompatActivity {
 
     // Section 2 Field Variables
     public static String FORM_ID;
+    public static boolean gndrChk;
+
     // Activity Variables
     private final String TAG = "FILL_FORM_S2_ACTIVITY";
     private final Integer AGE_LIMIT = 16;
@@ -283,6 +285,11 @@ public class FillFormS2Activity extends AppCompatActivity {
 
     }
 
+    public void openMap(View view) {
+        Intent map_intent = new Intent(getApplicationContext(), MapsActivity.class);
+        startActivity(map_intent);
+
+    }
 
     public void startFormS3(View view) {
 
@@ -300,6 +307,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
             StoreTempValues();
 
+            gndrChk = false;
             // Make Changes acording to Section.
             Intent s2_form_intent = new Intent(getApplicationContext(), FillFormS3Activity.class);
             s2_form_intent.putExtra("formId", formId);
@@ -581,6 +589,20 @@ public class FillFormS2Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Total Children cannot be more than Total Members!", Toast.LENGTH_SHORT).show();
             mc204t.setError("Total Children cannot be more than Total Members!");
             Log.d(TAG, "Error Type: 204t more than 203tot");
+            return false;
+        }
+
+        if (Integer.valueOf(mc204m.getText().toString()) > Integer.valueOf(mc203m.getText().toString()) - 1) {
+            Toast.makeText(getApplicationContext(), "Total Male U5 Children cannot be more than Total Male Members!", Toast.LENGTH_SHORT).show();
+            mc204m.setError("Total Male U5 Children cannot be more than Total Male Members!");
+            Log.d(TAG, "Error Type: 204m more than 203m");
+            return false;
+        }
+
+        if (Integer.valueOf(mc204f.getText().toString()) > Integer.valueOf(mc203f.getText().toString()) - 1) {
+            Toast.makeText(getApplicationContext(), "Total Female U5 Children cannot be more than Total Female Members!", Toast.LENGTH_SHORT).show();
+            mc204f.setError("Total Female U5 Children cannot be more than Total Female Members!");
+            Log.d(TAG, "Error Type: 204f more than 203f");
             return false;
         }
         if (!mc204t.getText().toString().isEmpty() && Integer.valueOf(mc204t.getText().toString()) < 1) {

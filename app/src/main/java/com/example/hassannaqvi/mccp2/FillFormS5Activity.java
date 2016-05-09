@@ -138,14 +138,15 @@ public class FillFormS5Activity extends AppCompatActivity {
     private CheckBox mc522_7;
     private CheckBox mc522_8;
     private CheckBox mc522_9;
-    private RadioButton mc522_88;
+    private CheckBox mc522_88;
     private EditText mc522X;
     private RadioGroup mc523;
     private RadioButton mc523_yes;
     private RadioButton mc523_no;
     private EditText mc524ACR;
     private EditText mc524CAN;
-    private EditText mc204_1;
+    private CheckBox mc524_99;
+
     private EditText mc525_1;
     private EditText mc525_2;
     private EditText mc525_3;
@@ -318,11 +319,14 @@ public class FillFormS5Activity extends AppCompatActivity {
         mc522_7 = (CheckBox) findViewById(R.id.MC_522_7);
         mc522_8 = (CheckBox) findViewById(R.id.MC_522_8);
         mc522_9 = (CheckBox) findViewById(R.id.MC_522_9);
+        mc522_88 = (CheckBox) findViewById(R.id.MC_522_88);
         mc522X = (EditText) findViewById(R.id.MC_522X);
         mc523 = (RadioGroup) findViewById(R.id.MC_523);
         mc523_yes = (RadioButton) findViewById(R.id.MC_523_Yes);
         mc523_no = (RadioButton) findViewById(R.id.MC_523_No);
         mc524ACR = (EditText) findViewById(R.id.MC_524ACR);
+        mc524CAN = (EditText) findViewById(R.id.MC_524CAN);
+        mc524_99 = (CheckBox) findViewById(R.id.MC_524_99);
         mc525_1 = (EditText) findViewById(R.id.MC_525_1);
         mc525_2 = (EditText) findViewById(R.id.MC_525_2);
         mc525_3 = (EditText) findViewById(R.id.MC_525_3);
@@ -330,6 +334,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         mc525_5 = (EditText) findViewById(R.id.MC_525_5);
         mc525_6 = (EditText) findViewById(R.id.MC_525_6);
         mc525_7 = (EditText) findViewById(R.id.MC_525_7);
+        mc525_7x = (EditText) findViewById(R.id.MC_525_7X);
         mc525_8 = (EditText) findViewById(R.id.MC_525_8);
         mc525_9 = (EditText) findViewById(R.id.MC_525_9);
         mc525_10 = (EditText) findViewById(R.id.MC_525_10);
@@ -441,8 +446,6 @@ public class FillFormS5Activity extends AppCompatActivity {
 
     public void openSection6(View view) {
 
-        mc501selected = getResources().getStringArray(R.array.MC_501_value)[mc501.getSelectedItemPosition()];
-        mc502selected = mc502.getCheckedRadioButtonId();
 
         //RadioButton Selected for switches in putString()
         mc502selected = mc502.getCheckedRadioButtonId();
@@ -456,7 +459,7 @@ public class FillFormS5Activity extends AppCompatActivity {
 
         //Spinner getting value of selected for putString()
 
-        mc501selected = getResources().getStringArray(R.array.MC_YN_value)[mc501.getSelectedItemPosition()];
+        mc501selected = getResources().getStringArray(R.array.MC_501_value)[mc501.getSelectedItemPosition()];
         mc504Wselected = getResources().getStringArray(R.array.MC_504W_value)[mc504W.getSelectedItemPosition()];
         mc504Rselected = getResources().getStringArray(R.array.MC_504R_value)[mc504R.getSelectedItemPosition()];
         mc504Fselected = getResources().getStringArray(R.array.MC_504F_value)[mc504F.getSelectedItemPosition()];
@@ -468,7 +471,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         mc509selected = getResources().getStringArray(R.array.MC_509_value)[mc509.getSelectedItemPosition()];
         mc510selected = getResources().getStringArray(R.array.MC_510_value)[mc510.getSelectedItemPosition()];
 
-        mc516selected = getResources().getStringArray(R.array.MC_YN_value)[mc516.getSelectedItemPosition()];
+        mc516selected = getResources().getStringArray(R.array.MC_YNDK_value)[mc516.getSelectedItemPosition()];
         mc518selected = getResources().getStringArray(R.array.MC_518_value)[mc518.getSelectedItemPosition()];
 
         mc521selected = getResources().getStringArray(R.array.MC_521_value)[mc521.getSelectedItemPosition()];
@@ -519,7 +522,7 @@ public class FillFormS5Activity extends AppCompatActivity {
 
         if (mc506.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please write an answer!", Toast.LENGTH_SHORT).show();
-            mc503Gx.setError("Please write an answer!");
+            mc506.setError("Please write an answer!");
             Log.d(TAG, "Error Type: 506 not selected");
             return false;
         }
@@ -545,11 +548,12 @@ public class FillFormS5Activity extends AppCompatActivity {
         }
         if (mc523selected == -1
                 && mc524ACR.getText().toString().isEmpty()
-                && mc524CAN.getText().toString().isEmpty()) {
+                && mc524CAN.getText().toString().isEmpty()
+                && !mc524_99.isChecked()) {
             Toast.makeText(getApplicationContext(), "Please write an answer!", Toast.LENGTH_SHORT).show();
             mc524ACR.setError("Please write an answer!");
             mc524CAN.setError("Please write an answer!");
-            Log.d(TAG, "Error Type: 524 not selected");
+            Log.d(TAG, "Error Type: 524 not Answered");
             return false;
         }
 
@@ -563,35 +567,6 @@ public class FillFormS5Activity extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-
-        //RadioButton Selected for switches in putString()
-        mc502selected = mc502.getCheckedRadioButtonId();
-        mc511selected = mc511.getCheckedRadioButtonId();
-        mc513selected = mc513.getCheckedRadioButtonId();
-        mc514selected = mc514.getCheckedRadioButtonId();
-        mc517selected = mc517.getCheckedRadioButtonId();
-        mc519selected = mc519.getCheckedRadioButtonId();
-        mc520selected = mc520.getCheckedRadioButtonId();
-        mc523selected = mc523.getCheckedRadioButtonId();
-
-        //Spinner getting value of selected for putString()
-
-        mc501selected = getResources().getStringArray(R.array.MC_YN_value)[mc501.getSelectedItemPosition()];
-        mc504Wselected = getResources().getStringArray(R.array.MC_504W_value)[mc504W.getSelectedItemPosition()];
-        mc504Rselected = getResources().getStringArray(R.array.MC_504R_value)[mc504R.getSelectedItemPosition()];
-        mc504Fselected = getResources().getStringArray(R.array.MC_504F_value)[mc504F.getSelectedItemPosition()];
-
-        mc505selected = getResources().getStringArray(R.array.MC_505_value)[mc505.getSelectedItemPosition()];
-
-        mc507selected = getResources().getStringArray(R.array.MC_YN_value)[mc507.getSelectedItemPosition()];
-        mc508selected = getResources().getStringArray(R.array.MC_508_value)[mc508.getSelectedItemPosition()];
-        mc509selected = getResources().getStringArray(R.array.MC_509_value)[mc509.getSelectedItemPosition()];
-        mc510selected = getResources().getStringArray(R.array.MC_510_value)[mc510.getSelectedItemPosition()];
-
-        mc516selected = getResources().getStringArray(R.array.MC_YN_value)[mc516.getSelectedItemPosition()];
-        mc518selected = getResources().getStringArray(R.array.MC_518_value)[mc518.getSelectedItemPosition()];
-
-        mc521selected = getResources().getStringArray(R.array.MC_521_value)[mc521.getSelectedItemPosition()];
 
 
         // Putting values of CheckBoxes
@@ -651,7 +626,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp522_7", (mc522_7.isChecked() ? "7" : ""));
         editor.putString("sp522_8", (mc522_8.isChecked() ? "8" : ""));
         editor.putString("sp522_9", (mc522_9.isChecked() ? "9" : ""));
-        //editor.putString("sp522_88",(mc522_88.isChecked() ? "88" : ""));
+        editor.putString("sp522_88", (mc522_88.isChecked() ? "88" : ""));
 
 
         // Putting values of Radiobuttons

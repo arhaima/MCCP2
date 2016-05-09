@@ -141,8 +141,31 @@
 
         </Spinner>
 
-        <!-- IM_D-->
+        <RadioGroup
+            android:id="@+id/IM_AGE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
+            <RadioButton
+                android:id="@+id/IM_AGE_YES"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AGE" />
+
+            <RadioButton
+                android:id="@+id/IM_AGE_NO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date Of Birth" />
+        </RadioGroup>
+
+        <!-- IM_D-->
+        <LinearLayout
+            android:id="@+id/fldGrpIM_D"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
         <TextView
             style="@style/labels"
             android:text="@string/IM_D" />
@@ -158,8 +181,19 @@
             android:startYear="2010"
             android:textSize="24sp" />
 
+            <CheckBox
+                android:id="@+id/IM_D_Doc"
+                style="@style/checkbox"
+                android:text="@string/IM_D_Doc" />
+        </LinearLayout>
         <!-- IM_EY-->
 
+        <LinearLayout
+            android:id="@+id/fldGrpIM_E"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
         <TextView
             style="@style/labels"
             android:text="@string/IM_EY" />
@@ -200,6 +234,7 @@
             android:inputType="number"
             android:maxLength='2'
             android:singleLine="true" />
+        </LinearLayout>
 
         <!-- IM_F-->
 
@@ -264,13 +299,20 @@
             style="@style/labels"
             android:text="@string/IM_J" />
 
-        <Spinner
-            android:id="@+id/IM_J"
-            style="@style/spinner"
-            android:entries="@array/MC_YN_list"
-            android:prompt="@string/IM_J"
-            android:textSize="24sp"> <!-- Todo: Increase textSize  -->
-        </Spinner>
+        <RadioGroup
+            android:id="@+id/IM_JA"
+            style="@style/radiogroup">
+
+            <RadioButton
+                android:id="@+id/IM_J_Yes"
+                style="@style/radiobutton"
+                android:text="@string/MC_Yes" />
+
+            <RadioButton
+                android:id="@+id/IM_J_No"
+                style="@style/radiobutton"
+                android:text="@string/MC_No" />
+        </RadioGroup>
 
         <!-- IM_JB-->
 
@@ -286,6 +328,12 @@
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
         </Spinner>
 
+        <LinearLayout
+            android:id="@+id/fldGrpIM_JA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
         <TextView
             style="@style/labels"
             android:text="@string/IM_K" />
@@ -297,7 +345,7 @@
             android:prompt="@string/IM_K"
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
         </Spinner>
-
+        </LinearLayout>
         <!-- TODO: IM_K is remaining -->
 
         <!-- BCG-->

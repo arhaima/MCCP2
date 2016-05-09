@@ -30,6 +30,8 @@ public class FillFormActivity extends AppCompatActivity {
     private static final String TAG = "FILL_FORM_ACTIVITY";
     public static String FORM_ID;
     public static long rowId = 0;
+    public FormsDbHelper db;
+    public ArrayList<ClustersContract> clusterList;
     private String mcFrmNo;
     private DatePicker mc101date;
     private String spDateT;
@@ -63,8 +65,10 @@ public class FillFormActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_form);
 
+        db = new FormsDbHelper(getApplicationContext());
+
         formError = false;
-        String deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
+        deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);
 
         mcFrmNo = "";
@@ -147,8 +151,7 @@ public class FillFormActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-                    FormsDbHelper db = new FormsDbHelper(getApplicationContext());
-                    ArrayList<ClustersContract> clusterList;
+
                     clusterList = db.getClustersByUC(LoginActivity.UC_ID);
                     for (ClustersContract UC : clusterList) {
                         Log.i(TAG, UC.getClusterName());
@@ -271,6 +274,23 @@ public class FillFormActivity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 105");
             return false;
         }
+        if (!mc105clusterNm.getText().toString().isEmpty()) {
+            clusterList = db.getClustersByUC(LoginActivity.UC_ID);
+
+            for (ClustersContract UC : clusterList) {
+                Log.i(TAG, UC.getClusterName());
+                if (UC.getClusterCode().equals(mc105cluster.getText().toString())) {
+                    Log.i(TAG, "Match:" + UC.getClusterName());
+                    mc105clusterNm.setText(UC.getClusterName());
+                    break;
+                } else {
+                    mc105clusterNm.setText("Invalid Cluster Number!");
+                    mc105cluster.setError("Invalid Cluster Number!");
+                    return false;
+                }
+            }
+        }
+
         if (mc106hhno.getText().toString().isEmpty() || mc106hhno.getText().toString() == null) {
             mc106hhno.setError("Household Number not given!");
             Log.d(TAG, "Error Type: 106");
@@ -326,6 +346,8 @@ public class FillFormActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
         SharedPreferences sharedPref = getSharedPreferences(FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+
         SharedPreferences.Editor editor = sharedPref.edit();
 
 
@@ -334,20 +356,26 @@ public class FillFormActivity extends AppCompatActivity {
         editor.putString("spFrmNo", GenerateFormId());
         editor.putString("sp101", String.valueOf(spDateT));
         editor.putString("sp101Time", String.valueOf(spTimeT));
+        editor.putString("sp102", LoginActivity.MC_102);
+        editor.putString("spCity", "Karachi");
+        editor.putString("sp103", mc105cluster.getText().toString().substring(0, 1));
+        editor.putString("sp104", mc105cluster.getText().toString().substring(1, 3));
+        editor.putString("spGPSLat", GPSPref.getString("Latitude", "0"));
+        editor.putString("spGPSLng", GPSPref.getString("Longitude", "0"));
 
-/*
-        String mc103Selected = getResources().getStringArray(R.array.MC_103_value)[mc103town.getSelectedItemPosition()];
-*/
+        //To Retrieve: double latitude = Double.longBitsToDouble(prefs.getLong("Latitude", 0);
 
-/*
-        editor.putString("sp103", String.valueOf(mc103Selected));
-*/
+
 /*
         editor.putString("sp104", mc104uc.getText().toString());
 */
         editor.putString("sp105", mc105cluster.getText().toString());
-        editor.putString("sp106", mc106hhno.getText().toString());
-        editor.putString("spExt", mcExt.getSelectedItem().toString());
+        editor.putString("sp106", mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString());
+        editor.putString("spDeviceID", Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID));
+        Toast.makeText(getApplicationContext(), "DEVICE IS: " + Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID), Toast.LENGTH_SHORT).show();
+
 
         switch (mc107Selected) {
             case R.id.MC_107_No:
@@ -389,21 +417,20 @@ public class FillFormActivity extends AppCompatActivity {
         try {
 
             s1.put("mcFrmNo", sharedPref.getString("spFrmNo", "00"));
-            s1.put("deviceId", deviceId);
+            s1.put("mcDeviceId", Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                    Settings.Secure.ANDROID_ID));
             s1.put("mc101", sharedPref.getString("sp101", "00"));
             s1.put("mc101Time", sharedPref.getString("sp101Time", "00"));
+            s1.put("mcCity", sharedPref.getString("spCity", "00"));
             s1.put("mc102", sharedPref.getString("sp102", "00"));
-/*
             s1.put("mc103", sharedPref.getString("sp103", "00"));
-*/
-/*
             s1.put("mc104", sharedPref.getString("sp104", "00"));
-*/
             s1.put("mc105", sharedPref.getString("sp105", "00"));
             s1.put("mc106", sharedPref.getString("sp106", "00"));
-            s1.put("mcExt", sharedPref.getString("spExt", "00"));
             s1.put("mc107", sharedPref.getString("sp107", "00"));
             s1.put("mc108", sharedPref.getString("sp108", "00"));
+            s1.put("mcGPSLat", sharedPref.getString("spGPSLat", "0"));
+            s1.put("mcGPSLng", sharedPref.getString("spGPSLng", "0"));
 
             Log.d(TAG, "JSON for Section 1: " + s1.toString());
 

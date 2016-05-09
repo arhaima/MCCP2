@@ -26,6 +26,7 @@ import java.util.Map;
 
 public class LoginActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
+    public static String MC_102;
     public static String UC_ID = "";
     public static boolean appAdmin = false;
     public ArrayList<String> lables;
@@ -177,6 +178,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             syncForms ff = new syncForms();
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             ff.execute();
+        } else {
+            Toast.makeText(getApplicationContext(), "Network Not Available", Toast.LENGTH_SHORT).show();
+
         }
     }
 
@@ -194,6 +198,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 appAdmin = username.contains("@");
                 if (db.Login(username, password)) {
                     Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
+                    MC_102 = username;
                     Intent login_intent = new Intent(getApplicationContext(), MainActivity.class);
 
                     startActivity(login_intent);

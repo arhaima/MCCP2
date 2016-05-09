@@ -245,13 +245,17 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
 
+
             editor.putString("Longitude", String.valueOf(location.getLongitude()));
             editor.putString("Latitude", String.valueOf(location.getLatitude()));
+            Toast.makeText(getApplicationContext(), "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) + " LNG: " + String.valueOf(location.getLatitude()), Toast.LENGTH_SHORT).show();
+
+            editor.commit();
 
         }
 
         public void onStatusChanged(String s, int i, Bundle b) {
-
+            showCurrentLocation();
         }
 
         public void onProviderDisabled(String s) {

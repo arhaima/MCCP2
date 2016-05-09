@@ -610,7 +610,7 @@
                 <CheckBox
                     android:id="@+id/MC_410B88"
                     style="@style/checkbox"
-                    android:text="Text Not Match" />
+                    android:text="@string/MC_410B88" />
 
 
                 <EditText

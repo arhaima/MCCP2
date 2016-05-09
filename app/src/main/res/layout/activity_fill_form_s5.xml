@@ -555,7 +555,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:visibility="gone">
+    android:visibility="visible">
         <!--MC_512-->
 
         <TextView
@@ -691,7 +691,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:visibility="gone">
+    android:visibility="visible">
         <!--MC_514-->
 
         <TextView
@@ -725,7 +725,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
         <!--MC_515-->
 
         <TextView
@@ -796,7 +796,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
 
         <!--MC_518-->
 
@@ -866,7 +866,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
         <!--MC_520-->
         <TextView
             style="@style/labels"
@@ -898,7 +898,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
         <!--MC_521-->
 
@@ -1018,7 +1018,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:visibility="gone">
+        android:visibility="visible">
         <!--MC_524-->
 
         <TextView
@@ -1059,6 +1059,11 @@
             android:inputType="number"
             android:maxLength="4"
             android:singleLine="true" />
+
+            <CheckBox
+                android:id="@+id/MC_524_99"
+                style="@style/checkbox"
+                android:text="@string/MC_524_99" />
     </LinearLayout>
         <!--MC_525_1-->
 
@@ -1195,7 +1200,7 @@
             android:id="@+id/MC_525_7X"
             style="@style/textInput"
             android:hint="@string/MC_525_7X"
-            android:inputType="number"
+            android:inputType="text"
             android:maxLength="256"
             android:singleLine="true" />
 

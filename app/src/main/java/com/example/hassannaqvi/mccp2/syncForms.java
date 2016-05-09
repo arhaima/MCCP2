@@ -36,7 +36,9 @@ public class syncForms extends AsyncTask<Void, Void, Void> {
             String query = builder.build().getEncodedQuery();
             Log.d("syncforms", query);
             OutputStream os = conn.getOutputStream();
+            Log.d("syncforms-os", String.valueOf(os));
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            Log.d("syncforms", String.valueOf(writer));
             writer.write(query);
             writer.flush();
             writer.close();

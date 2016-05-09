@@ -144,6 +144,7 @@
     </string-array>
 
     <string-array name="IM_K_list">
+        <item> سرکاری ہیلتھ کیمپ. </item>
         <item> کیمپ.1 TVI ہیلتھ کیمپ </item>
         <item> ای پی آئی ہیلتھ سنیٹر  </item>
         <item> کوئی اور این </item>
@@ -152,6 +153,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
     <string-array name="IM_I_Source_list">
