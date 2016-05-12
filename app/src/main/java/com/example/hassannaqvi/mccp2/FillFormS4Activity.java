@@ -3,16 +3,20 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -332,6 +336,150 @@ public class FillFormS4Activity extends AppCompatActivity {
                 }
             }
         });
+        mc402_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                @Override
+                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                    if (!mc402_88.isChecked()) {
+                                                        mc402x.setVisibility(View.GONE);
+                                                    } else {
+                                                        mc402x.setVisibility(View.VISIBLE);
+
+                                                    }
+                                                }
+                                            }
+        );
+
+        mc404_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                @Override
+                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                    if (mc404_88.isChecked()) {
+                                                        mc404x_1.setVisibility(View.VISIBLE);
+                                                        mc404x_2.setVisibility(View.VISIBLE);
+                                                        mc404x_3.setVisibility(View.VISIBLE);
+                                                    } else {
+                                                        mc404x_1.setVisibility(View.GONE);
+                                                        mc404x_1.setText("");
+                                                        mc404x_2.setVisibility(View.GONE);
+                                                        mc404x_2.setText("");
+                                                        mc404x_3.setVisibility(View.GONE);
+                                                        mc404x_3.setText("");
+
+                                                    }
+                                                }
+                                            }
+        );
+
+        mc405_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                @Override
+                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                    if (mc405_88.isChecked()) {
+                                                        mc405x.setVisibility(View.VISIBLE);
+                                                    } else {
+                                                        mc405x.setVisibility(View.GONE);
+                                                        mc405x.setText("");
+
+                                                    }
+                                                }
+                                            }
+        );
+        mc405a88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                @Override
+                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                    if (mc405a88.isChecked()) {
+                                                        mc405ax.setVisibility(View.VISIBLE);
+                                                    } else {
+                                                        mc405ax.setVisibility(View.GONE);
+                                                        mc405ax.setText("");
+
+                                                    }
+                                                }
+                                            }
+        );
+        mc407_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                @Override
+                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                    if (mc407_88.isChecked()) {
+                                                        mc407x.setVisibility(View.VISIBLE);
+                                                    } else {
+                                                        mc407x.setVisibility(View.GONE);
+                                                        mc407x.setText("");
+
+                                                    }
+                                                }
+                                            }
+        );
+        mc409.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc409.getSelectedItemPosition() == 5) {
+                    mc409x.setVisibility(View.VISIBLE);
+                } else {
+                    mc409x.setVisibility(View.GONE);
+                    mc409x.setText("");
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+
+        });
+        mc410.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc410.getSelectedItemPosition() == 8) {
+                    mc410x.setVisibility(View.VISIBLE);
+                } else {
+                    mc410x.setVisibility(View.GONE);
+                    mc410x.setText("");
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+        mc410B_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                 @Override
+                                                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                     if (mc410B_88.isChecked()) {
+                                                         mc410Bx.setVisibility(View.VISIBLE);
+                                                     } else {
+                                                         mc410Bx.setVisibility(View.GONE);
+                                                         mc410Bx.setText("");
+
+                                                     }
+                                                 }
+                                             }
+        );
+        mc413_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                @Override
+                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                    if (mc413_88.isChecked()) {
+                                                        mc413x.setVisibility(View.VISIBLE);
+                                                    } else {
+                                                        mc413x.setVisibility(View.GONE);
+                                                        mc413x.setText("");
+
+                                                    }
+                                                }
+                                            }
+        );
+
+
 
         mc406.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -374,6 +522,25 @@ public class FillFormS4Activity extends AppCompatActivity {
                 } else {
                     fldGrp412.setVisibility(View.GONE);
                 }
+            }
+        });
+
+        mc415.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc415.getSelectedItemPosition() == 2) {
+                    mc415x.setVisibility(View.VISIBLE);
+                } else {
+                    mc415x.setVisibility(View.GONE);
+                    mc415x.setText("");
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
             }
         });
 
@@ -433,7 +600,7 @@ public class FillFormS4Activity extends AppCompatActivity {
     private void StoreTempValues() {
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences(FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         //RadioButton Selected for switches in putString()
@@ -680,99 +847,102 @@ public class FillFormS4Activity extends AppCompatActivity {
         Log.d(TAG, "Stored sharedValues.");
 
 
-        JSONObject s4 = new JSONObject();
+        JSONObject S4 = new JSONObject();
         long newFormId = 0;
         try {
-            s4.put("mc401", sharedPref.getString("sp401", "00"));
-            s4.put("mc402_1", sharedPref.getString("sp402_1", "00"));
-            s4.put("mc402_2", sharedPref.getString("sp402_2", "00"));
-            s4.put("mc402_3", sharedPref.getString("sp402_3", "00"));
-            s4.put("mc402_4", sharedPref.getString("sp402_4", "00"));
-            s4.put("mc402_5", sharedPref.getString("sp402_5", "00"));
-            s4.put("mc402_6", sharedPref.getString("sp402_6", "00"));
-            s4.put("mc402_7", sharedPref.getString("sp402_7", "00"));
-            s4.put("mc402_8", sharedPref.getString("sp402_8", "00"));
-            s4.put("mc402_9", sharedPref.getString("sp402_9", "00"));
-            s4.put("mc402_10", sharedPref.getString("sp402_10", "00"));
-            s4.put("mc402_88", sharedPref.getString("sp402_88", "00"));
-            s4.put("mc402x", sharedPref.getString("sp402x", "00"));
-            s4.put("mc403", sharedPref.getString("sp403", "00"));
-            s4.put("mc404_1", sharedPref.getString("sp404_1", "00"));
-            s4.put("mc404_2", sharedPref.getString("sp404_2", "00"));
-            s4.put("mc404_3", sharedPref.getString("sp404_3", "00"));
-            s4.put("mc404_4", sharedPref.getString("sp404_4", "00"));
-            s4.put("mc404_5", sharedPref.getString("sp404_5", "00"));
-            s4.put("mc404_6", sharedPref.getString("sp404_6", "00"));
-            s4.put("mc404_7", sharedPref.getString("sp404_7", "00"));
-            s4.put("mc404_8", sharedPref.getString("sp404_8", "00"));
-            s4.put("mc404_9", sharedPref.getString("sp404_9", "00"));
-            s4.put("mc404_99", sharedPref.getString("sp404_99", "00"));
-            s4.put("mc404_88", sharedPref.getString("sp404_88", "00"));
-            s4.put("mc404x", sharedPref.getString("sp404x", "00"));
-            s4.put("mc404x_1", sharedPref.getString("sp404x_1", "00"));
-            s4.put("mc404x_2", sharedPref.getString("sp404x_2", "00"));
-            s4.put("mc404x_3", sharedPref.getString("sp404x_3", "00"));
-            s4.put("mc405_1", sharedPref.getString("sp405_1", "00"));
-            s4.put("mc405_2", sharedPref.getString("sp405_2", "00"));
-            s4.put("mc405_3", sharedPref.getString("sp405_3", "00"));
-            s4.put("mc405_4", sharedPref.getString("sp405_4", "00"));
-            s4.put("mc405_5", sharedPref.getString("sp405_5", "00"));
-            s4.put("mc405_88", sharedPref.getString("sp405_88", "00"));
-            s4.put("mc405x", sharedPref.getString("sp405x", "00"));
-            s4.put("mc405_99", sharedPref.getString("sp405_99", "00"));
-            s4.put("mc405a1", sharedPref.getString("sp405a1", "00"));
-            s4.put("mc405a2", sharedPref.getString("sp405a2", "00"));
-            s4.put("mc405a3", sharedPref.getString("sp405a3", "00"));
-            s4.put("mc405a4", sharedPref.getString("sp405a4", "00"));
-            s4.put("mc405a88", sharedPref.getString("sp405a88", "00"));
-            s4.put("mc405a99", sharedPref.getString("sp405a99", "00"));
-            s4.put("mc405ax", sharedPref.getString("sp405ax", "00"));
-            s4.put("mc406", sharedPref.getString("sp406", "00"));
-            s4.put("mc407_1", sharedPref.getString("sp407_1", "00"));
-            s4.put("mc407_2", sharedPref.getString("sp407_2", "00"));
-            s4.put("mc407_3", sharedPref.getString("sp407_3", "00"));
-            s4.put("mc407_4", sharedPref.getString("sp407_4", "00"));
-            s4.put("mc407_5", sharedPref.getString("sp407_5", "00"));
-            s4.put("mc407_6", sharedPref.getString("sp407_6", "00"));
-            s4.put("mc407_88", sharedPref.getString("sp407_88", "00"));
-            s4.put("mc407x", sharedPref.getString("sp407x", "00"));
-            s4.put("mc408", sharedPref.getString("sp408", "00"));
-            s4.put("mc409", sharedPref.getString("sp409", "00"));
-            s4.put("mc409x", sharedPref.getString("sp409x", "00"));
-            s4.put("mc410", sharedPref.getString("sp410", "00"));
-            s4.put("mc410x", sharedPref.getString("sp410x", "00"));
-            s4.put("mc410a_1", sharedPref.getString("sp410a_1", "00"));
-            s4.put("mc410a_2", sharedPref.getString("sp410a_2", "00"));
-            s4.put("mc410a_3", sharedPref.getString("sp410a_3", "00"));
-            s4.put("mc410a_4", sharedPref.getString("sp410a_4", "00"));
-            s4.put("mc410a_5", sharedPref.getString("sp410a_5", "00"));
-            s4.put("mc410a_99", sharedPref.getString("sp410a_99", "00"));
-            s4.put("mc410B_1", sharedPref.getString("sp410B_1", "00"));
-            s4.put("mc410B_2", sharedPref.getString("sp410B_2", "00"));
-            s4.put("mc410B_3", sharedPref.getString("sp410B_3", "00"));
-            s4.put("mc410B_4", sharedPref.getString("sp410B_4", "00"));
-            s4.put("mc410B_5", sharedPref.getString("sp410B_5", "00"));
-            s4.put("mc410B_88", sharedPref.getString("sp410B_88", "00"));
-            s4.put("mc410B_99", sharedPref.getString("sp410B_99", "00"));
-            s4.put("mc410B_x", sharedPref.getString("sp410Bx", "00"));
-            s4.put("mc411", sharedPref.getString("sp411", "00"));
-            s4.put("mc412", sharedPref.getString("sp412", "00"));
-            s4.put("mc413_1", sharedPref.getString("sp413_1", "00"));
-            s4.put("mc413_2", sharedPref.getString("sp413_2", "00"));
-            s4.put("mc413_3", sharedPref.getString("sp413_3", "00"));
-            s4.put("mc413_4", sharedPref.getString("sp413_4", "00"));
-            s4.put("mc413_5", sharedPref.getString("sp413_5", "00"));
-            s4.put("mc413_6", sharedPref.getString("sp413_6", "00"));
-            s4.put("mc413_7", sharedPref.getString("sp413_7", "00"));
-            s4.put("mc413_88", sharedPref.getString("sp413_88", "00"));
-            s4.put("mc413x", sharedPref.getString("sp413x", "00"));
-            s4.put("mc414", sharedPref.getString("sp414", "00"));
-            s4.put("mc415", sharedPref.getString("sp415", "00"));
-            s4.put("mc415x", sharedPref.getString("sp415x", "00"));
+            S4.put("mc401", sharedPref.getString("sp401", "00"));
+            S4.put("mc402_1", sharedPref.getString("sp402_1", "00"));
+            S4.put("mc402_2", sharedPref.getString("sp402_2", "00"));
+            S4.put("mc402_3", sharedPref.getString("sp402_3", "00"));
+            S4.put("mc402_4", sharedPref.getString("sp402_4", "00"));
+            S4.put("mc402_5", sharedPref.getString("sp402_5", "00"));
+            S4.put("mc402_6", sharedPref.getString("sp402_6", "00"));
+            S4.put("mc402_7", sharedPref.getString("sp402_7", "00"));
+            S4.put("mc402_8", sharedPref.getString("sp402_8", "00"));
+            S4.put("mc402_9", sharedPref.getString("sp402_9", "00"));
+            S4.put("mc402_10", sharedPref.getString("sp402_10", "00"));
+            S4.put("mc402_88", sharedPref.getString("sp402_88", "00"));
+            S4.put("mc402x", sharedPref.getString("sp402x", "00"));
+            S4.put("mc403", sharedPref.getString("sp403", "00"));
+            S4.put("mc404_1", sharedPref.getString("sp404_1", "00"));
+            S4.put("mc404_2", sharedPref.getString("sp404_2", "00"));
+            S4.put("mc404_3", sharedPref.getString("sp404_3", "00"));
+            S4.put("mc404_4", sharedPref.getString("sp404_4", "00"));
+            S4.put("mc404_5", sharedPref.getString("sp404_5", "00"));
+            S4.put("mc404_6", sharedPref.getString("sp404_6", "00"));
+            S4.put("mc404_7", sharedPref.getString("sp404_7", "00"));
+            S4.put("mc404_8", sharedPref.getString("sp404_8", "00"));
+            S4.put("mc404_9", sharedPref.getString("sp404_9", "00"));
+            S4.put("mc404_99", sharedPref.getString("sp404_99", "00"));
+            S4.put("mc404_88", sharedPref.getString("sp404_88", "00"));
+            S4.put("mc404x", sharedPref.getString("sp404x", "00"));
+            S4.put("mc404x_1", sharedPref.getString("sp404x_1", "00"));
+            S4.put("mc404x_2", sharedPref.getString("sp404x_2", "00"));
+            S4.put("mc404x_3", sharedPref.getString("sp404x_3", "00"));
+            S4.put("mc405_1", sharedPref.getString("sp405_1", "00"));
+            S4.put("mc405_2", sharedPref.getString("sp405_2", "00"));
+            S4.put("mc405_3", sharedPref.getString("sp405_3", "00"));
+            S4.put("mc405_4", sharedPref.getString("sp405_4", "00"));
+            S4.put("mc405_5", sharedPref.getString("sp405_5", "00"));
+            S4.put("mc405_88", sharedPref.getString("sp405_88", "00"));
+            S4.put("mc405x", sharedPref.getString("sp405x", "00"));
+            S4.put("mc405_99", sharedPref.getString("sp405_99", "00"));
+            S4.put("mc405a1", sharedPref.getString("sp405a1", "00"));
+            S4.put("mc405a2", sharedPref.getString("sp405a2", "00"));
+            S4.put("mc405a3", sharedPref.getString("sp405a3", "00"));
+            S4.put("mc405a4", sharedPref.getString("sp405a4", "00"));
+            S4.put("mc405a88", sharedPref.getString("sp405a88", "00"));
+            S4.put("mc405a99", sharedPref.getString("sp405a99", "00"));
+            S4.put("mc405ax", sharedPref.getString("sp405ax", "00"));
+            S4.put("mc406", sharedPref.getString("sp406", "00"));
+            S4.put("mc407_1", sharedPref.getString("sp407_1", "00"));
+            S4.put("mc407_2", sharedPref.getString("sp407_2", "00"));
+            S4.put("mc407_3", sharedPref.getString("sp407_3", "00"));
+            S4.put("mc407_4", sharedPref.getString("sp407_4", "00"));
+            S4.put("mc407_5", sharedPref.getString("sp407_5", "00"));
+            S4.put("mc407_6", sharedPref.getString("sp407_6", "00"));
+            S4.put("mc407_88", sharedPref.getString("sp407_88", "00"));
+            S4.put("mc407x", sharedPref.getString("sp407x", "00"));
+            S4.put("mc408", sharedPref.getString("sp408", "00"));
+            S4.put("mc409", sharedPref.getString("sp409", "00"));
+            S4.put("mc409x", sharedPref.getString("sp409x", "00"));
+            S4.put("mc410", sharedPref.getString("sp410", "00"));
+            S4.put("mc410x", sharedPref.getString("sp410x", "00"));
+            S4.put("mc410a_1", sharedPref.getString("sp410a_1", "00"));
+            S4.put("mc410a_2", sharedPref.getString("sp410a_2", "00"));
+            S4.put("mc410a_3", sharedPref.getString("sp410a_3", "00"));
+            S4.put("mc410a_4", sharedPref.getString("sp410a_4", "00"));
+            S4.put("mc410a_5", sharedPref.getString("sp410a_5", "00"));
+            S4.put("mc410a_99", sharedPref.getString("sp410a_99", "00"));
+            S4.put("mc410B_1", sharedPref.getString("sp410B_1", "00"));
+            S4.put("mc410B_2", sharedPref.getString("sp410B_2", "00"));
+            S4.put("mc410B_3", sharedPref.getString("sp410B_3", "00"));
+            S4.put("mc410B_4", sharedPref.getString("sp410B_4", "00"));
+            S4.put("mc410B_5", sharedPref.getString("sp410B_5", "00"));
+            S4.put("mc410B_88", sharedPref.getString("sp410B_88", "00"));
+            S4.put("mc410B_99", sharedPref.getString("sp410B_99", "00"));
+            S4.put("mc410B_x", sharedPref.getString("sp410Bx", "00"));
+            S4.put("mc411", sharedPref.getString("sp411", "00"));
+            S4.put("mc412", sharedPref.getString("sp412", "00"));
+            S4.put("mc413_1", sharedPref.getString("sp413_1", "00"));
+            S4.put("mc413_2", sharedPref.getString("sp413_2", "00"));
+            S4.put("mc413_3", sharedPref.getString("sp413_3", "00"));
+            S4.put("mc413_4", sharedPref.getString("sp413_4", "00"));
+            S4.put("mc413_5", sharedPref.getString("sp413_5", "00"));
+            S4.put("mc413_6", sharedPref.getString("sp413_6", "00"));
+            S4.put("mc413_7", sharedPref.getString("sp413_7", "00"));
+            S4.put("mc413_88", sharedPref.getString("sp413_88", "00"));
+            S4.put("mc413x", sharedPref.getString("sp413x", "00"));
+            S4.put("mc414", sharedPref.getString("sp414", "00"));
+            S4.put("mc415", sharedPref.getString("sp415", "00"));
+            S4.put("mc415x", sharedPref.getString("sp415x", "00"));
 
 
-            Log.d(TAG, s4.toString());
-            /*FormsContract formContractS4 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s4.toString());
+            Log.d(TAG, S4.toString());
+
+            FormsContract.getInstance().setS4(S4.toString());
+
+            /*FormsContract formContractS4 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, S4.toString());
             FormsDbHelper db = new FormsDbHelper(this);
 
             try {
@@ -799,6 +969,15 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 401 not selected");
             return false;
         }
+        if (mc403.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc403.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 403 Empty");
+            return false;
+        }
 
         if (mc406_no.isChecked() && !(mc407_1.isChecked()
                 || mc407_2.isChecked()
@@ -821,10 +1000,38 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 408 not selected");
             return false;
         }
-        if (mc410Aselected == -1) {
+        if (mc408selected == 0 && mc410Aselected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc410A_99.setError("Please select an answer!");
-            Log.d(TAG, "Error Type: 410 not selected");
+            Log.d(TAG, "Error Type: 410A not selected");
+            return false;
+        }
+        if (mc409.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc409.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 409 Empty");
+            return false;
+        }
+
+        if (mc410.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc410.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 410 Empty");
+            return false;
+        }
+        if (mc411.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc411.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 411 Empty");
             return false;
         }
         if (mc412selected == -1) {
@@ -840,10 +1047,23 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 414 not selected");
             return false;
         }
-
+        if (mc415.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc415.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 415 Empty");
+            return false;
+        }
 
 //        return false;
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "Back Button NOT Allowed!", Toast.LENGTH_SHORT).show();
+
+    }
 }

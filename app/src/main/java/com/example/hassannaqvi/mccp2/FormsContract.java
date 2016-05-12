@@ -10,33 +10,56 @@ import org.json.JSONObject;
  * Created by hassan.naqvi on 4/15/2016.
  */
 public final class FormsContract {
-
     private static final String TAG = "FORM_CONTRACT";
-    Long _ID;
-    String DEVICE_ID;
-    String ROW_MC_FrmNo;
-    String ROW_MC_101;
-    String ROW_MC_101TIME;
-    String ROW_MC_102;
-    String ROW_MC_103;
-    String ROW_MC_104;
-    String ROW_MC_105;
-    String ROW_MC_106;
-    String ROW_MC_EXT;
-    String ROW_MC_107;
-    String ROW_MC_108;
-    String ROW_S_2;
-    String ROW_S_3;
-    String ROW_S_4;
-    String ROW_S_5;
-    String ROW_S_6;
-    String ROW_Ending;
+    private static FormsContract fcInstance = null;
+    private Long _ID;
+    private String DEVICE_ID;
+    private String ROW_MC_FrmNo;
+    private String ROW_MC_101;
+    private String ROW_MC_101TIME;
+    private String ROW_MC_102;
+    private String ROW_MC_103;
+    private String ROW_MC_104;
+    private String ROW_MC_105;
+    private String ROW_MC_106;
+    private String ROW_MC_107;
+    private String ROW_MC_108;
+    private String ROW_GPS_LAT;
+    private String ROW_GPS_LNG;
+    private String ROW_SYNC;
+    private String ROW_S_2;
+    private String ROW_S_3;
+    private String ROW_S_4;
+    private String ROW_S_5;
+    private String ROW_S_6;
+    private String ROW_Ending;
 
-    public FormsContract(){
+    private FormsContract() {
         // Default Constructor
     }
 
-    public FormsContract(JSONObject mc1) throws JSONException {
+    public FormsContract(String id, String rowId, String ss) {
+        Log.d(TAG, "Constructor: String+String");
+
+        this.ROW_MC_FrmNo = id;
+        this._ID = Long.valueOf(rowId);
+        this.ROW_S_2 = ss;
+        Log.d(TAG, ss);
+
+    }
+
+    public static FormsContract getInstance() {
+        if (fcInstance == null) {
+            fcInstance = new FormsContract();
+        }
+        return fcInstance;
+    }
+
+    public void Clear() {
+        fcInstance = null;
+    }
+
+    public void setS1(JSONObject mc1) throws JSONException {
         Log.d(TAG, "Constructor: String+JSON");
         this.ROW_MC_FrmNo = mc1.getString("mcFrmNo");
         this.DEVICE_ID = mc1.getString("deviceId");
@@ -47,19 +70,13 @@ public final class FormsContract {
         this.ROW_MC_104 = mc1.getString("mc104");
         this.ROW_MC_105 = mc1.getString("mc105");
         this.ROW_MC_106 = mc1.getString("mc106");
-        this.ROW_MC_EXT = mc1.getString("mcExt");
         this.ROW_MC_107 = mc1.getString("mc107");
         this.ROW_MC_108 = mc1.getString("mc108");
+        this.ROW_GPS_LAT = mc1.getString("mcGPSLat");
+        this.ROW_GPS_LNG = mc1.getString("mcGPSLng");
+        this.DEVICE_ID = mc1.getString("mcGPSLng");
+        this.ROW_SYNC = "1";
 
-    }
-
-    public FormsContract(String id, String rowId, String ss) {
-        Log.d(TAG, "Constructor: String+String");
-
-        this.ROW_MC_FrmNo = id;
-        this._ID = Long.valueOf(rowId);
-        this.ROW_S_2 = ss;
-        Log.d(TAG, ss);
 
     }
 
@@ -111,6 +128,30 @@ public final class FormsContract {
         this.DEVICE_ID = deviceId;
     }
 
+    public String getGPSLat() {
+        return this.ROW_GPS_LAT;
+    }
+
+    public void setGPSLat(String GPSLat) {
+        this.ROW_GPS_LAT = GPSLat;
+    }
+
+    public String getGPSLng() {
+        return this.ROW_GPS_LNG;
+    }
+
+    public void setGPSLng(String GPSLng) {
+        this.ROW_GPS_LNG = GPSLng;
+    }
+
+    public String getSync() {
+        return this.ROW_SYNC;
+    }
+
+    public void setSync(String Sync) {
+        this.ROW_GPS_LNG = Sync;
+    }
+
     public String get103() {
         return this.ROW_MC_103;
     }
@@ -141,14 +182,6 @@ public final class FormsContract {
 
     public void set106(String mc106) {
         this.ROW_MC_106 = mc106;
-    }
-
-    public String getExt() {
-        return this.ROW_MC_EXT;
-    }
-
-    public void setExt(String mcExt) {
-        this.ROW_MC_EXT = mcExt;
     }
 
     public String get107() {
@@ -229,7 +262,6 @@ public final class FormsContract {
         json.put("mc_104", this.ROW_MC_104);
         json.put("mc_105", this.ROW_MC_105);
         json.put("mc_106", this.ROW_MC_106);
-        json.put("mc_ext", this.ROW_MC_EXT);
         json.put("mc_107", this.ROW_MC_107);
         json.put("mc_108", this.ROW_MC_108);
 
@@ -258,6 +290,9 @@ public final class FormsContract {
         public static final String TABLE_NAME = "Forms";
         public static final String _ID = "_ID";
         public static final String DEVICE_ID = "DEVICE_ID";
+        public static final String ROW_GPS_LAT = "GPS_LAT";
+        public static final String ROW_GPS_LNG = "GPS_LNG";
+        public static final String ROW_SYNC = "SYNC";
         public static final String ROW_MC_FrmNo = "MC_FRMNO";
         public static final String ROW_MC_101 = "MC_101";
         public static final String ROW_MC_101TIME = "MC_101TIME";
@@ -266,11 +301,9 @@ public final class FormsContract {
         public static final String ROW_MC_104 = "MC_104";
         public static final String ROW_MC_105 = "MC_105";
         public static final String ROW_MC_106 = "MC_106";
-        public static final String ROW_MC_EXT = "MC_EXT";
         public static final String ROW_MC_107 = "MC_107";
         public static final String ROW_MC_108 = "MC_108";
         public static final String ROW_S_2 = "MC_S2";
-        public static final String ROW_S_3 = "MC_S3";
         public static final String ROW_S_4 = "MC_S4";
         public static final String ROW_S_5 = "MC_S5";
         public static final String ROW_S_6 = "MC_S6";

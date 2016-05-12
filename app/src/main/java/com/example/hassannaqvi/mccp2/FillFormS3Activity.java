@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -203,11 +202,9 @@ public class FillFormS3Activity extends AppCompatActivity {
         imma = (Spinner) findViewById(R.id.IM_M_A);
         immd = (Spinner) findViewById(R.id.IM_M_D);
 
-
         fldGrpIM_D = (LinearLayout) findViewById(R.id.fldGrpIM_D);
         fldGrpIM_E = (LinearLayout) findViewById(R.id.fldGrpIM_E);
         fldGrpIM_JA = (LinearLayout) findViewById(R.id.fldGrpIM_JA);
-
 
         childName = (TextView) findViewById(R.id.child_name);
         childCount = (TextView) findViewById(R.id.child_count);
@@ -223,7 +220,6 @@ public class FillFormS3Activity extends AppCompatActivity {
                     if (!ima.getText().toString().isEmpty()) {
                         childName.setText(ima.getText().toString());
                     }
-
                 }
             }
         });
@@ -256,7 +252,6 @@ public class FillFormS3Activity extends AppCompatActivity {
                     fldGrpIM_D.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpIM_D.setVisibility(View.GONE);
-
                 }
                 if (checkedId == imagey.getId()) {
                     fldGrpIM_E.setVisibility(View.VISIBLE);
@@ -265,24 +260,19 @@ public class FillFormS3Activity extends AppCompatActivity {
                     imed.setText("");
                     imem.setText("");
                     imey.setText("");
-
                 }
             }
         });
         imj.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                Button btnContinue = (Button) findViewById(R.id.btn_Continue);
-                Log.d(TAG, "Button Id " + checkedId);
-                if (checkedId != imj_yes.getId()) {
+                if (checkedId == imj_yes.getId()) {
                     fldGrpIM_JA.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpIM_JA.setVisibility(View.GONE);
-
                 }
             }
         });
-
 
     }
 
@@ -361,7 +351,7 @@ public class FillFormS3Activity extends AppCompatActivity {
     private void StoreTempValues() {
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
         Integer chid = boyCount + girlCount;
-        imchid = formId.concat(String.format("%02d", chid));
+        imchid = formId + String.format("%02d", chid);
         chids.add(imchid);
         SharedPreferences sharedPref = getSharedPreferences(imchid, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -391,7 +381,7 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.putString("spimaf", imaf.getText().toString());
         editor.putString("spimb", imbselected.toString());
         editor.putString("spimc", imcselected.toString());
-        editor.putString("spimd", spDateOB);
+        editor.putString("spimd", String.valueOf(spDateOB));
         editor.putString("spimddoc", (imddoc.isChecked() ? "1" : ""));
         editor.putString("spimey", imey.getText().toString());
         editor.putString("spimem", imem.getText().toString());
@@ -451,59 +441,60 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.commit();
         Log.d(TAG, "Stored sharedValues!");
 
-        JSONObject s3 = new JSONObject();
+        JSONObject S3 = new JSONObject();
 
         try {
 
-            s3.put("imchid", sharedPref.getString("spimchid", "00"));
-            s3.put("ima", sharedPref.getString("spima", "00"));
-            s3.put("imaf", sharedPref.getString("spimaf", "00"));
-            s3.put("imb", sharedPref.getString("spimb", "00"));
-            s3.put("imc", sharedPref.getString("spimc", "00"));
-            s3.put("imd", sharedPref.getString("spimd", "00"));
-            s3.put("imddoc", sharedPref.getString("spimddoc", "00"));
-            s3.put("imey", sharedPref.getString("spimey", "00"));
-            s3.put("imem", sharedPref.getString("spimem", "00"));
-            s3.put("imed", sharedPref.getString("spimed", "00"));
-            s3.put("imf", sharedPref.getString("spimf", "00"));
-            s3.put("img", sharedPref.getString("spimg", "00"));
-            s3.put("imh", sharedPref.getString("spimh", "00"));
-            s3.put("imi", sharedPref.getString("spimi", "00"));
-            s3.put("imj", sharedPref.getString("spimj", "00"));
-            s3.put("imjb", sharedPref.getString("spimjb", "00"));
-            s3.put("imk", sharedPref.getString("spimk", "00"));
-            s3.put("bcg", sharedPref.getString("spbcg", "00"));
-            s3.put("bcgsrc", sharedPref.getString("spbcgsrc", "00"));
-            s3.put("bcgscar", sharedPref.getString("spbcgscar", "00"));
-            s3.put("opv_0", sharedPref.getString("spopv_0", "00"));
-            s3.put("opv_0src", sharedPref.getString("spopv_0src", "00"));
-            s3.put("opv_1", sharedPref.getString("spopv_1", "00"));
-            s3.put("opv_1src", sharedPref.getString("spopv_1src", "00"));
-            s3.put("opv_2", sharedPref.getString("spopv_2", "00"));
-            s3.put("opv_2src", sharedPref.getString("spopv_2src", "00"));
-            s3.put("opv_3", sharedPref.getString("spopv_3", "00"));
-            s3.put("opv_3src", sharedPref.getString("spopv_3src", "00"));
-            s3.put("p_1", sharedPref.getString("spp_1", "00"));
-            s3.put("p_1src", sharedPref.getString("spp_1src", "00"));
-            s3.put("p_2", sharedPref.getString("spp_2", "00"));
-            s3.put("p_2src", sharedPref.getString("spp_2src", "00"));
-            s3.put("p_3", sharedPref.getString("spp_3", "00"));
-            s3.put("p_3src", sharedPref.getString("spp_3src", "00"));
-            s3.put("pcv_3src", sharedPref.getString("sppcv_3src", "00"));
-            s3.put("pcv_3", sharedPref.getString("sppcv_3", "00"));
-            s3.put("pcv_2src", sharedPref.getString("sppcv_2src", "00"));
-            s3.put("pcv_2", sharedPref.getString("sppcv_2", "00"));
-            s3.put("pcv_1src", sharedPref.getString("sppcv_1src", "00"));
-            s3.put("pcv_1", sharedPref.getString("sppcv_1", "00"));
-            s3.put("m_1", sharedPref.getString("spm_1", "00"));
-            s3.put("m_1src", sharedPref.getString("spm_1src", "00"));
-            s3.put("m_2", sharedPref.getString("spm_2", "00"));
-            s3.put("m_2src", sharedPref.getString("spm_2src", "00"));
-            s3.put("immd", sharedPref.getString("immd", "00"));
-            s3.put("imma", sharedPref.getString("imma", "00"));
+            S3.put("imchid", sharedPref.getString("spimchid", "00"));
+            S3.put("ima", sharedPref.getString("spima", "00"));
+            S3.put("imaf", sharedPref.getString("spimaf", "00"));
+            S3.put("imb", sharedPref.getString("spimb", "00"));
+            S3.put("imc", sharedPref.getString("spimc", "00"));
+            S3.put("imd", sharedPref.getString("spimd", "00"));
+            S3.put("imddoc", sharedPref.getString("spimddoc", "00"));
+            S3.put("imey", sharedPref.getString("spimey", "00"));
+            S3.put("imem", sharedPref.getString("spimem", "00"));
+            S3.put("imed", sharedPref.getString("spimed", "00"));
+            S3.put("imf", sharedPref.getString("spimf", "00"));
+            S3.put("img", sharedPref.getString("spimg", "00"));
+            S3.put("imh", sharedPref.getString("spimh", "00"));
+            S3.put("imi", sharedPref.getString("spimi", "00"));
+            S3.put("imj", sharedPref.getString("spimj", "00"));
+            S3.put("imjb", sharedPref.getString("spimjb", "00"));
+            S3.put("imk", sharedPref.getString("spimk", "00"));
+            S3.put("bcg", sharedPref.getString("spbcg", "00"));
+            S3.put("bcgsrc", sharedPref.getString("spbcgsrc", "00"));
+            S3.put("bcgscar", sharedPref.getString("spbcgscar", "00"));
+            S3.put("opv_0", sharedPref.getString("spopv_0", "00"));
+            S3.put("opv_0src", sharedPref.getString("spopv_0src", "00"));
+            S3.put("opv_1", sharedPref.getString("spopv_1", "00"));
+            S3.put("opv_1src", sharedPref.getString("spopv_1src", "00"));
+            S3.put("opv_2", sharedPref.getString("spopv_2", "00"));
+            S3.put("opv_2src", sharedPref.getString("spopv_2src", "00"));
+            S3.put("opv_3", sharedPref.getString("spopv_3", "00"));
+            S3.put("opv_3src", sharedPref.getString("spopv_3src", "00"));
+            S3.put("p_1", sharedPref.getString("spp_1", "00"));
+            S3.put("p_1src", sharedPref.getString("spp_1src", "00"));
+            S3.put("p_2", sharedPref.getString("spp_2", "00"));
+            S3.put("p_2src", sharedPref.getString("spp_2src", "00"));
+            S3.put("p_3", sharedPref.getString("spp_3", "00"));
+            S3.put("p_3src", sharedPref.getString("spp_3src", "00"));
+            S3.put("pcv_3src", sharedPref.getString("sppcv_3src", "00"));
+            S3.put("pcv_3", sharedPref.getString("sppcv_3", "00"));
+            S3.put("pcv_2src", sharedPref.getString("sppcv_2src", "00"));
+            S3.put("pcv_2", sharedPref.getString("sppcv_2", "00"));
+            S3.put("pcv_1src", sharedPref.getString("sppcv_1src", "00"));
+            S3.put("pcv_1", sharedPref.getString("sppcv_1", "00"));
+            S3.put("m_1", sharedPref.getString("spm_1", "00"));
+            S3.put("m_1src", sharedPref.getString("spm_1src", "00"));
+            S3.put("m_2", sharedPref.getString("spm_2", "00"));
+            S3.put("m_2src", sharedPref.getString("spm_2src", "00"));
+            S3.put("immd", sharedPref.getString("immd", "00"));
+            S3.put("imma", sharedPref.getString("imma", "00"));
 
 
-            Log.d(TAG, "JSON for Section 1: " + s3.toString());
+            Log.d(TAG, "JSON for Section 1: " + S3.toString());
+            //FormsContract.getInstance().setS3(S3.toString());
 
             /*FormsContract formContract = new FormsContract(s1);
             FormsDbHelper db = new FormsDbHelper(this);
@@ -543,6 +534,15 @@ public class FillFormS3Activity extends AppCompatActivity {
             imaf.setError(null);
         }
 
+        if (imb.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) imb.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select a Child's Gender");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Gender.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imb empty");
+            return false;
+        }
 
         if (imbselected.toString().equals("1") && boyCount < 1) {
             Toast.makeText(getApplicationContext(), "Boy Count Completed!", Toast.LENGTH_SHORT).show();
@@ -560,6 +560,15 @@ public class FillFormS3Activity extends AppCompatActivity {
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Girl Count Completed!");//changes the selected item text to this
             Log.d(TAG, "Error Type: imb - Girl Count: " + girlCount);
+            return false;
+        }
+        if (imc.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) imc.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imc empty");
             return false;
         }
 
@@ -590,8 +599,24 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imem 4");
             return false;
         }
-        if (imfselected.toString().equals(""))
 
+        if (imf.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) imf.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            return false;
+        }
+        if (img.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) img.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: img empty");
+            return false;
+        }
+        
         if (imgselected.toString().equals("2") && girlCount < 1) {
             Toast.makeText(getApplicationContext(), "Girl Count Completed!", Toast.LENGTH_SHORT).show();
             TextView errorText = (TextView) imb.getSelectedView();
@@ -601,8 +626,306 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imb - Girl Count: " + girlCount);
             return false;
         }
+        if (imh.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) imh.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imh empty");
+            return false;
+        }
+        if (imi.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) imi.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imi empty");
+            return false;
+        }
 
+        if (imjb.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) imjb.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imjb empty");
+            return false;
+        }
+        if (imj.getCheckedRadioButtonId() == 0 && imk.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) imk.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imk empty");
+            return false;
+        }
+        if (bcg.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) bcg.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select BCG.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: bcg empty");
+            return false;
+        }
+        if (bcgsrc.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) bcgsrc.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select BCG-Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: BCGscr empty");
+            return false;
+        }
 
+        if (bcgscar.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) bcgscar.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select BCG0Scar.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: BCGScar empty");
+            return false;
+
+        }
+        if (opv_0.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) opv_0.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select OPV.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: OPV empty");
+            return false;
+        }
+        if (opv_0src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) opv_0src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select OPV Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: OPVsrc empty");
+            return false;
+        }
+        if (opv_1.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) opv_1.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select OPV1.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: OPV1 empty");
+            return false;
+        }
+        if (opv_1src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) opv_1src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an OPV1 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: OPVScr empty");
+            return false;
+        }
+        if (opv_2.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) opv_2.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an OPV2.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: OPV2 empty");
+            return false;
+        }
+        if (opv_2src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) opv_2src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select OPV2 Src.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: OPV2 Src empty");
+            return false;
+        }
+        if (opv_3.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) opv_3.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select OPV3.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: OPV3 empty");
+            return false;
+        }
+        if (opv_3src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) opv_3src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an OPV3 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: OPV3_src empty");
+            return false;
+        }
+        if (p_1.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) p_1.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Penta 1.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: P1 empty");
+            return false;
+        }
+        if (p_1src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) p_1src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Penta 1 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: P1Src empty");
+            return false;
+        }
+        if (p_2.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) p_2.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Penta 2.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: P2 empty");
+            return false;
+        }
+        if (p_2src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) p_2src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Penta 2 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: P2 empty");
+            return false;
+        }
+        if (p_3.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) p_3.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+        }
+        if (p_3src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) p_3src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Penta 3 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: P3src empty");
+            return false;
+        }
+        if (pcv_1.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) pcv_1.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select PCV 1.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: pvc1 empty");
+            return false;
+        }
+        if (pcv_1src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) pcv_1src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select PVC1 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: PVC1src empty");
+            return false;
+        }
+        if (pcv_2.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) pcv_2.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imc empty");
+            return false;
+        }
+        if (pcv_2src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) pcv_2src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select PCV2 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: PCV2src empty");
+            return false;
+        }
+        if (pcv_3.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) pcv_3.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select PCV 3.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: pcv3src empty");
+            return false;
+        }
+        if (pcv_3src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) pcv_3src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select PCV3 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: pcv3src empty");
+            return false;
+        }
+        if (m_1.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) m_1.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Measles 1.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: m_1 empty");
+            return false;
+        }
+        if (m_1src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) m_1src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Measles 1 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: m_1src empty");
+            return false;
+        }
+        if (m_2.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) m_2.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Measles 2.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: m_2 empty");
+            return false;
+        }
+        if (m_2src.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) m_2src.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Measles 2 Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: m_2src empty");
+            return false;
+        }
+        if (immd.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) immd.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Diarrhea.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: immd empty");
+            return false;
+        }
+        if (imma.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) imma.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select ARI.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imma empty");
+            return false;
+        }
+
+        
+        
         /*if (!imey.toString().isEmpty() && !imey.toString().isEmpty()) {
 
             Calendar today = Calendar.getInstance();
@@ -769,6 +1092,12 @@ public class FillFormS3Activity extends AppCompatActivity {
         }
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "Back Button NOT Allowed!", Toast.LENGTH_SHORT).show();
+
     }
 
 }

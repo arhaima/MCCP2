@@ -31,7 +31,7 @@ public class FillFormS2Activity extends AppCompatActivity {
     private final Integer AGE_LIMIT = 16;
     private final Integer MONTH_LIMIT = 10;
     private final Integer WEEK_LIMIT = 42;
-    public JSONObject JsonS2;
+    public JSONObject S2;
     private String mcFrmNo;
     private EditText mc201nm;
     private Spinner mc201gndr;
@@ -326,11 +326,12 @@ public class FillFormS2Activity extends AppCompatActivity {
 
     }
 
+
     private void StoreTempValues() {
 
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences(FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         // Value Selection for Spinners
@@ -389,36 +390,39 @@ public class FillFormS2Activity extends AppCompatActivity {
         long newFormId = 0;
         try {
 
-            JsonS2 = new JSONObject();
+            S2 = new JSONObject();
             // Initialize JSON Object For Section 2
-            JsonS2.put("mc201nm", sharedPref.getString("sp201nm", "00"));
-            JsonS2.put("mc201gndr", sharedPref.getString("sp201gndr", "00"));
-            JsonS2.put("mc201type", sharedPref.getString("sp201type", "00"));
-            JsonS2.put("mc201age", sharedPref.getString("sp201age", "00"));
-            JsonS2.put("mc201edu", sharedPref.getString("sp201edu", "00"));
-            JsonS2.put("mc201ocu", sharedPref.getString("sp201ocu", "00"));
-            JsonS2.put("mc202nm", sharedPref.getString("sp202nm", "00"));
-            JsonS2.put("mc202gndr", sharedPref.getString("sp202gndr", "00"));
-            JsonS2.put("mc202age", sharedPref.getString("sp202age", "00"));
-            JsonS2.put("mc202edu", sharedPref.getString("sp202edu", "00"));
-            JsonS2.put("mc202ocu", sharedPref.getString("sp202ocu", "00"));
-            JsonS2.put("mc203tot", sharedPref.getString("sp203tot", "00"));
-            JsonS2.put("mc203m", sharedPref.getString("sp203m", "00"));
-            JsonS2.put("mc203f", sharedPref.getString("sp203f", "00"));
-            JsonS2.put("mc204t", sharedPref.getString("sp204t", "00"));
-            JsonS2.put("mc204m", sharedPref.getString("sp204m", "00"));
-            JsonS2.put("mc204f", sharedPref.getString("sp204f", "00"));
-            JsonS2.put("mc205mm", sharedPref.getString("sp205mm", "00"));
-            JsonS2.put("mc205yy", sharedPref.getString("sp205yy", "00"));
-            JsonS2.put("mc206", sharedPref.getString("sp206", "00"));
-            JsonS2.put("mc2071w", sharedPref.getString("sp2071w", "00"));
-            JsonS2.put("mc2071m", sharedPref.getString("sp2071m", "00"));
-            JsonS2.put("mc2072w", sharedPref.getString("sp2072w", "00"));
-            JsonS2.put("mc2072m", sharedPref.getString("sp2072m", "00"));
-            JsonS2.put("mc2073w", sharedPref.getString("sp2073w", "00"));
-            JsonS2.put("mc2073m", sharedPref.getString("sp2073m", "00"));
+            S2.put("mc201nm", sharedPref.getString("sp201nm", "00"));
+            S2.put("mc201gndr", sharedPref.getString("sp201gndr", "00"));
+            S2.put("mc201type", sharedPref.getString("sp201type", "00"));
+            S2.put("mc201age", sharedPref.getString("sp201age", "00"));
+            S2.put("mc201edu", sharedPref.getString("sp201edu", "00"));
+            S2.put("mc201ocu", sharedPref.getString("sp201ocu", "00"));
+            S2.put("mc202nm", sharedPref.getString("sp202nm", "00"));
+            S2.put("mc202gndr", sharedPref.getString("sp202gndr", "00"));
+            S2.put("mc202age", sharedPref.getString("sp202age", "00"));
+            S2.put("mc202edu", sharedPref.getString("sp202edu", "00"));
+            S2.put("mc202ocu", sharedPref.getString("sp202ocu", "00"));
+            S2.put("mc203tot", sharedPref.getString("sp203tot", "00"));
+            S2.put("mc203m", sharedPref.getString("sp203m", "00"));
+            S2.put("mc203f", sharedPref.getString("sp203f", "00"));
+            S2.put("mc204t", sharedPref.getString("sp204t", "00"));
+            S2.put("mc204m", sharedPref.getString("sp204m", "00"));
+            S2.put("mc204f", sharedPref.getString("sp204f", "00"));
+            S2.put("mc205mm", sharedPref.getString("sp205mm", "00"));
+            S2.put("mc205yy", sharedPref.getString("sp205yy", "00"));
+            S2.put("mc206", sharedPref.getString("sp206", "00"));
+            S2.put("mc2071w", sharedPref.getString("sp2071w", "00"));
+            S2.put("mc2071m", sharedPref.getString("sp2071m", "00"));
+            S2.put("mc2072w", sharedPref.getString("sp2072w", "00"));
+            S2.put("mc2072m", sharedPref.getString("sp2072m", "00"));
+            S2.put("mc2073w", sharedPref.getString("sp2073w", "00"));
+            S2.put("mc2073m", sharedPref.getString("sp2073m", "00"));
 
-            Log.d(TAG, JsonS2.toString());
+            Log.d(TAG, S2.toString());
+
+            FormsContract.getInstance().setS2(S2.toString());
+
             /*FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
             FormsDbHelper db = new FormsDbHelper(this);
 
@@ -452,6 +456,26 @@ public class FillFormS2Activity extends AppCompatActivity {
         } else {
             mc201nm.setError(null);
         }
+        if (mc201gndr.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc201gndr.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select a Gender");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Gender.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 201gndr mismatch");
+            return false;
+        }
+
+        if (mc202gndr.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc202gndr.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select a Gender");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Gender.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 202gndr mismatch");
+            return false;
+        }
+
 
         // 201Gender Spinner
         if (mc201gndr.getSelectedItem().toString().equals("Male") && mc201ocuSelected.toString().equals("1")) {
@@ -461,7 +485,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select correct Profession Type.");//changes the selected item text to this
 
-            Log.d(TAG, "Error Type: 201ocu mismatch");
+            Log.d(TAG, "Error Type: 201ocu-gndr mismatch");
             return false;
         }
 
@@ -490,6 +514,15 @@ public class FillFormS2Activity extends AppCompatActivity {
             return false;
         }
 
+        if (mc201type.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc201type.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select a Relation");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Gender.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 201gndr mismatch");
+            return false;
+        }
 
         if (!mc201age.getText().toString().isEmpty() && Integer.valueOf(mc201age.getText().toString()) < AGE_LIMIT) {
             Toast.makeText(getApplicationContext(), "Too young to answer! Must be atleast " + AGE_LIMIT, Toast.LENGTH_SHORT).show();
@@ -509,6 +542,15 @@ public class FillFormS2Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Education not Given!", Toast.LENGTH_SHORT).show();
             mc201edu.setError("Education not Given!");
             Log.d(TAG, "Error Type: 201edu Empty");
+            return false;
+        }
+        if (mc201ocu.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc201ocu.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Occupation");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Occupation", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 201ocu empty");
             return false;
         }
 
@@ -532,7 +574,15 @@ public class FillFormS2Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 202edu Empty");
             return false;
         }
-
+        if (mc202ocu.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc202ocu.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Occupation");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Occupation.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 202ocu empty");
+            return false;
+        }
         if (mc203tot.getText().toString().isEmpty() || mc203tot.getText().toString() == null) {
             Toast.makeText(getApplicationContext(), "Total members not Given!", Toast.LENGTH_SHORT).show();
             mc203tot.setError("Total members not Given!");
@@ -592,14 +642,14 @@ public class FillFormS2Activity extends AppCompatActivity {
             return false;
         }
 
-        if (Integer.valueOf(mc204m.getText().toString()) > Integer.valueOf(mc203m.getText().toString()) - 1) {
+        if (Integer.valueOf(mc204m.getText().toString()) > Integer.valueOf(mc203m.getText().toString())) {
             Toast.makeText(getApplicationContext(), "Total Male U5 Children cannot be more than Total Male Members!", Toast.LENGTH_SHORT).show();
             mc204m.setError("Total Male U5 Children cannot be more than Total Male Members!");
             Log.d(TAG, "Error Type: 204m more than 203m");
             return false;
         }
 
-        if (Integer.valueOf(mc204f.getText().toString()) > Integer.valueOf(mc203f.getText().toString()) - 1) {
+        if (Integer.valueOf(mc204f.getText().toString()) > Integer.valueOf(mc203f.getText().toString())) {
             Toast.makeText(getApplicationContext(), "Total Female U5 Children cannot be more than Total Female Members!", Toast.LENGTH_SHORT).show();
             mc204f.setError("Total Female U5 Children cannot be more than Total Female Members!");
             Log.d(TAG, "Error Type: 204f more than 203f");
@@ -691,5 +741,9 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         // Return from fromValidation()
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }

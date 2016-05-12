@@ -52,33 +52,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:onClick="loginUser"
-                android:text="@string/action_sign_in"
+                android:text="Login"
                 android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/UpdateUsers"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:onClick="updateUsers"
-                android:text="Update Users"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/syncFunction"
-                style="?android:textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:onClick="syncFunction"
-                android:text="Sync Function"
-                android:textStyle="bold" />
 
             <Spinner
                 android:id="@+id/spinner1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"></Spinner>
+                android:layout_height="match_parent" />
+
+            <Button
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:onClick="viewForm"
+                android:text="Select a Form" />
+
 
         </LinearLayout>
     </ScrollView>

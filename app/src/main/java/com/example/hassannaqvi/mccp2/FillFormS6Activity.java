@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -93,7 +95,9 @@ public class FillFormS6Activity extends AppCompatActivity {
     private String mc610selected;
 
 
+    private LinearLayout fldGrp601;
     private LinearLayout fldGrp602;
+    private LinearLayout fldGrp602b;
     private LinearLayout fldGrp606;
     private LinearLayout fldGrp607a;
     private LinearLayout fldGrp609;
@@ -161,20 +165,45 @@ public class FillFormS6Activity extends AppCompatActivity {
         mc609 = (Spinner) findViewById(R.id.MC_609);
         mc610 = (Spinner) findViewById(R.id.MC_610);
 
+        fldGrp601 = (LinearLayout) findViewById(R.id.fldGrp601);
         fldGrp602 = (LinearLayout) findViewById(R.id.fldGrp602);
+        fldGrp602b = (LinearLayout) findViewById(R.id.fldGrp602b);
         fldGrp606 = (LinearLayout) findViewById(R.id.fldGrp606);
         fldGrp607a = (LinearLayout) findViewById(R.id.fldGrp607a);
         fldGrp609 = (LinearLayout) findViewById(R.id.fldGrp609);
 
         // SKIP PATTERNS
 
+
+        mc601.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                String mc601selected = getResources().getStringArray(R.array.MC_YN_value)[mc601.getSelectedItemPosition()];
+                if (mc601selected.equals("1")) {
+                    fldGrp601.setVisibility(View.VISIBLE);
+                } else {
+                    fldGrp601.setVisibility(View.GONE);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Required by super class
+            }
+
+
+        });
         // For Q.602
+
         mc602.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == mc602_no.getId()) {
                     fldGrp602.setVisibility(View.VISIBLE);
+                    fldGrp602b.setVisibility(View.GONE);
+
                 } else {
+                    fldGrp602b.setVisibility(View.VISIBLE);
                     fldGrp602.setVisibility(View.GONE);
                 }
             }
@@ -386,61 +415,64 @@ public class FillFormS6Activity extends AppCompatActivity {
         editor.apply();
         Log.d(TAG, "Stored sharedValues.");
 
-        JSONObject JsonS6 = new JSONObject();
+        JSONObject S6 = new JSONObject();
         long newFormId = 0;
         try {
 
             // Initialize JSON Object For Section 6
-            JsonS6.put("mc601", sharedPref.getString("sp601", "00"));
-            JsonS6.put("mc602", sharedPref.getString("sp602", "00"));
-            JsonS6.put("mc603_1", sharedPref.getString("sp603_1", "00"));
-            JsonS6.put("mc603_2", sharedPref.getString("sp603_2", "00"));
-            JsonS6.put("mc603_3", sharedPref.getString("sp603_3", "00"));
-            JsonS6.put("mc603_4", sharedPref.getString("sp603_4", "00"));
-            JsonS6.put("mc603_5", sharedPref.getString("sp603_5", "00"));
-            JsonS6.put("mc603x1", sharedPref.getString("sp603x1", "00"));
-            JsonS6.put("mc604_1", sharedPref.getString("sp604_1", "00"));
-            JsonS6.put("mc604_2", sharedPref.getString("sp604_2", "00"));
-            JsonS6.put("mc604_3", sharedPref.getString("sp604_3", "00"));
-            JsonS6.put("mc604_4", sharedPref.getString("sp604_4", "00"));
-            JsonS6.put("mc604_5", sharedPref.getString("sp604_5", "00"));
-            JsonS6.put("mc604_6", sharedPref.getString("sp604_6", "00"));
-            JsonS6.put("mc604_7", sharedPref.getString("sp604_7", "00"));
-            JsonS6.put("mc604_8", sharedPref.getString("sp604_8", "00"));
-            JsonS6.put("mc604_9", sharedPref.getString("sp604_9", "00"));
-            JsonS6.put("mc604_10", sharedPref.getString("sp604_10", "00"));
-            JsonS6.put("mc604_11", sharedPref.getString("sp604_11", "00"));
-            JsonS6.put("mc604_12", sharedPref.getString("sp604_12", "00"));
-            JsonS6.put("mc604_12x", sharedPref.getString("sp604_12x", "00"));
-            JsonS6.put("mc605_1", sharedPref.getString("sp605_1", "00"));
-            JsonS6.put("mc605_2", sharedPref.getString("sp605_2", "00"));
-            JsonS6.put("mc605_3", sharedPref.getString("sp605_3", "00"));
-            JsonS6.put("mc605_4", sharedPref.getString("sp605_4", "00"));
-            JsonS6.put("mc605_5", sharedPref.getString("sp605_5", "00"));
-            JsonS6.put("mc605x", sharedPref.getString("sp605x", "00"));
+            S6.put("mc601", sharedPref.getString("sp601", "00"));
+            S6.put("mc602", sharedPref.getString("sp602", "00"));
+            S6.put("mc603_1", sharedPref.getString("sp603_1", "00"));
+            S6.put("mc603_2", sharedPref.getString("sp603_2", "00"));
+            S6.put("mc603_3", sharedPref.getString("sp603_3", "00"));
+            S6.put("mc603_4", sharedPref.getString("sp603_4", "00"));
+            S6.put("mc603_5", sharedPref.getString("sp603_5", "00"));
+            S6.put("mc603x1", sharedPref.getString("sp603x1", "00"));
+            S6.put("mc604_1", sharedPref.getString("sp604_1", "00"));
+            S6.put("mc604_2", sharedPref.getString("sp604_2", "00"));
+            S6.put("mc604_3", sharedPref.getString("sp604_3", "00"));
+            S6.put("mc604_4", sharedPref.getString("sp604_4", "00"));
+            S6.put("mc604_5", sharedPref.getString("sp604_5", "00"));
+            S6.put("mc604_6", sharedPref.getString("sp604_6", "00"));
+            S6.put("mc604_7", sharedPref.getString("sp604_7", "00"));
+            S6.put("mc604_8", sharedPref.getString("sp604_8", "00"));
+            S6.put("mc604_9", sharedPref.getString("sp604_9", "00"));
+            S6.put("mc604_10", sharedPref.getString("sp604_10", "00"));
+            S6.put("mc604_11", sharedPref.getString("sp604_11", "00"));
+            S6.put("mc604_12", sharedPref.getString("sp604_12", "00"));
+            S6.put("mc604_12x", sharedPref.getString("sp604_12x", "00"));
+            S6.put("mc605_1", sharedPref.getString("sp605_1", "00"));
+            S6.put("mc605_2", sharedPref.getString("sp605_2", "00"));
+            S6.put("mc605_3", sharedPref.getString("sp605_3", "00"));
+            S6.put("mc605_4", sharedPref.getString("sp605_4", "00"));
+            S6.put("mc605_5", sharedPref.getString("sp605_5", "00"));
+            S6.put("mc605x", sharedPref.getString("sp605x", "00"));
 
-            JsonS6.put("mc606", sharedPref.getString("sp606", "00"));
-            JsonS6.put("mc607_1", sharedPref.getString("sp607_1", "00"));
-            JsonS6.put("mc607_2", sharedPref.getString("sp607_2", "00"));
-            JsonS6.put("mc607_3", sharedPref.getString("sp607_3", "00"));
-            JsonS6.put("mc607_4", sharedPref.getString("sp607_4", "00"));
-            JsonS6.put("mc607_5", sharedPref.getString("sp607_5", "00"));
-            JsonS6.put("mc607_6", sharedPref.getString("sp607_6", "00"));
-            JsonS6.put("mc607_7", sharedPref.getString("sp607_7", "00"));
-            JsonS6.put("mc607_8", sharedPref.getString("sp607_8", "00"));
-            JsonS6.put("mc607x", sharedPref.getString("sp607x", "00"));
-            JsonS6.put("mc607a", sharedPref.getString("sp607a", "00"));
-            JsonS6.put("mc607b", sharedPref.getString("sp607b", "00"));
-            JsonS6.put("mc608_m1", sharedPref.getString("sp608_m1", "00"));
-            JsonS6.put("mc608_m2", sharedPref.getString("sp608_m2", "00"));
-            JsonS6.put("mc608_m3", sharedPref.getString("sp608_m3", "00"));
-            JsonS6.put("mc608_m4", sharedPref.getString("sp608_m4", "00"));
-            JsonS6.put("mc608_m5", sharedPref.getString("sp608_m5", "00"));
-            JsonS6.put("mc609", sharedPref.getString("sp609", "00"));
-            JsonS6.put("mc610", sharedPref.getString("sp610", "00"));
+            S6.put("mc606", sharedPref.getString("sp606", "00"));
+            S6.put("mc607_1", sharedPref.getString("sp607_1", "00"));
+            S6.put("mc607_2", sharedPref.getString("sp607_2", "00"));
+            S6.put("mc607_3", sharedPref.getString("sp607_3", "00"));
+            S6.put("mc607_4", sharedPref.getString("sp607_4", "00"));
+            S6.put("mc607_5", sharedPref.getString("sp607_5", "00"));
+            S6.put("mc607_6", sharedPref.getString("sp607_6", "00"));
+            S6.put("mc607_7", sharedPref.getString("sp607_7", "00"));
+            S6.put("mc607_8", sharedPref.getString("sp607_8", "00"));
+            S6.put("mc607x", sharedPref.getString("sp607x", "00"));
+            S6.put("mc607a", sharedPref.getString("sp607a", "00"));
+            S6.put("mc607b", sharedPref.getString("sp607b", "00"));
+            S6.put("mc608_m1", sharedPref.getString("sp608_m1", "00"));
+            S6.put("mc608_m2", sharedPref.getString("sp608_m2", "00"));
+            S6.put("mc608_m3", sharedPref.getString("sp608_m3", "00"));
+            S6.put("mc608_m4", sharedPref.getString("sp608_m4", "00"));
+            S6.put("mc608_m5", sharedPref.getString("sp608_m5", "00"));
+            S6.put("mc609", sharedPref.getString("sp609", "00"));
+            S6.put("mc610", sharedPref.getString("sp610", "00"));
 
 
-            Log.d(TAG, JsonS6.toString());
+            Log.d(TAG, S6.toString());
+
+            FormsContract.getInstance().setS6(S6.toString());
+
             /*FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
             FormsDbHelper db = new FormsDbHelper(this);
 
@@ -469,7 +501,16 @@ public class FillFormS6Activity extends AppCompatActivity {
 
 
         // -- Check at least one RadioButton selected (-1 = None Selected)
-
+        if (mc601.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc601.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 601 empty");
+            return false;
+        }
+        
         if (mc602selected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc602_no.setError("Please select an answer!");
@@ -477,23 +518,49 @@ public class FillFormS6Activity extends AppCompatActivity {
             return false;
         }
 
+        if (mc602selected == 1) {
+            if (mc606selected == -1) {
+                Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+                mc606_no.setError("Please select an answer!");
+                Log.d(TAG, "Error Type: 606 not selected");
+                return false;
+            }
 
-        if (mc606selected == -1) {
-            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc606_no.setError("Please select an answer!");
-            Log.d(TAG, "Error Type: 606 not selected");
-            return false;
+
+            if (mc607Aselected == -1) {
+                Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+                mc607A_no.setError("Please select an answer!");
+                Log.d(TAG, "Error Type: 607A not selected");
+                return false;
+            }
+            if (mc607A_no.isChecked() && mc607B.getSelectedItemPosition() == 0) {
+                TextView errorText = (TextView) mc607B.getSelectedView();
+                errorText.setError("anything here, just to add the icon");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Please select an answer");//changes the selected item text to this
+                Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Error Type: 607B empty");
+                return false;
+            }
+            if (mc609.getSelectedItemPosition() == 0) {
+                TextView errorText = (TextView) mc609.getSelectedView();
+                errorText.setError("anything here, just to add the icon");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Please select an answer");//changes the selected item text to this
+                Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Error Type: 609 empty");
+                return false;
+            }
+            if (mc609.getSelectedItemPosition() == 1 && mc610.getSelectedItemPosition() == 0) {
+                TextView errorText = (TextView) mc610.getSelectedView();
+                errorText.setError("anything here, just to add the icon");
+                errorText.setTextColor(Color.RED);//just to highlight that this is an error
+                errorText.setText("Please select an answer");//changes the selected item text to this
+                Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+                Log.d(TAG, "Error Type: 610 empty");
+                return false;
+            }
         }
-
-
-        if (mc607Aselected == -1) {
-            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc607A_no.setError("Please select an answer!");
-            Log.d(TAG, "Error Type: 607A not selected");
-            return false;
-        }
-
-
 
 
       /*  if (mc609selected.equals(null))

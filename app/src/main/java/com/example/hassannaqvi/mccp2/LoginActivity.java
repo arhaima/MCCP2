@@ -1,11 +1,8 @@
 
 package com.example.hassannaqvi.mccp2;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -17,9 +14,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.io.File;
-import java.net.InetSocketAddress;
-import java.net.Socket;
-import java.net.SocketAddress;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -32,6 +26,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public ArrayList<String> lables;
     public ArrayList<String> values;
     Spinner spSP;
+    String listText1;
     private Spinner spUC;
 
     @Override
@@ -41,6 +36,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.activity_login);
 
         spSP = (Spinner) findViewById(R.id.spinner1);
+        listText1 = "";
 
 
         File prefsdir = new File(getApplicationInfo().dataDir, "shared_prefs");
@@ -65,8 +61,14 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 Map<String, ?> map = sp2.getAll();
 
                 for (Map.Entry<String, ?> entry : map.entrySet()) {
-                    System.out.println(entry.getKey() + " -|- " + entry.getValue());
+                    Log.d("SOut ", entry.getKey() + " -|- " + entry.getValue());
+                    listText1.concat("\r\n");
+                    listText1.concat(entry.getKey() + " : " + entry.getValue());
                 }
+                Log.d("TAG: ", listText1);
+                Log.d("TAG: ", "End");
+
+
             }
 
             @Override
@@ -91,8 +93,11 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         for (int i = 0; i < ucList.size(); i++) {
             lables.add(ucList.get(i).getUCName());
             values.add(String.valueOf(ucList.get(i).getID()));
+
             Log.i("Key - Value:", ucList.get(i).getTownId() + " - " + ucList.get(i).getUCId() + " - " + ucList.get(i).getUCName() + " - " + ucList.get(i).getID());
+
         }
+
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(),
@@ -103,86 +108,22 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         // attaching data adapter to spinner
         spUC.setAdapter(dataAdapter);
+        spUC.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         spUC.setOnItemSelectedListener(this);
 
 
     }
 
+    public void viewForm(View view) {
+        Intent vF_intent = new Intent(getApplicationContext(), FormView.class);
+        vF_intent.putExtra("listText", listText1);
 
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    private boolean isHostAvailable() {
-
-        if (isNetworkAvailable()) {
-            try {
-                SocketAddress sockaddr = new InetSocketAddress("192.168.1.10", 80);
-                // Create an unbound socket
-                Socket sock = new Socket();
-
-                // This method will block no more than timeoutMs.
-                // If the timeout occurs, SocketTimeoutException is thrown.
-                int timeoutMs = 2000;   // 2 seconds
-                sock.connect(sockaddr, timeoutMs);
-                return true;
-            } catch (Exception e) {
-                Toast.makeText(getApplicationContext(), "Server Not Available for Update", Toast.LENGTH_SHORT).show();
-                return false;
-            }
-
-        } else {
-            Toast.makeText(getApplicationContext(), "Network not available for Update", Toast.LENGTH_SHORT).show();
-            return false;
-
-        }
-    }
-
-
-    public void updateUsers(View view) {
-
-        if (isNetworkAvailable()) {
-            // Syncing Towns Table from Server
-            getTowns towns = new getTowns(getApplicationContext());
-            Toast.makeText(getApplicationContext(), "Syncing Towns from Server...", Toast.LENGTH_SHORT).show();
-            towns.execute();
-
-            // Syncing Clusters Table from Server
-            getClusters clusters = new getClusters(getApplicationContext());
-            Toast.makeText(getApplicationContext(), "Syncing Clusters from Server...", Toast.LENGTH_SHORT).show();
-            clusters.execute();
-
-            // Syncing UCs Table from Server
-            getUC UC = new getUC(getApplicationContext());
-            Toast.makeText(getApplicationContext(), "Syncing UC from Server...", Toast.LENGTH_SHORT).show();
-            UC.execute();
-
-            GetUsers users = new GetUsers(getApplicationContext());
-            Toast.makeText(getApplicationContext(), "Syncing Users from Server...", Toast.LENGTH_SHORT).show();
-            users.execute();
-        } else {
-
-            Toast.makeText(LoginActivity.this, "Network not available for update!", Toast.LENGTH_LONG).show();
-
-        }
-        
-
+        startActivity(vF_intent);
 
     }
 
-    public void syncFunction(View view) {
-        if (isNetworkAvailable()) {
-            syncForms ff = new syncForms();
-            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
-            ff.execute();
-        } else {
-            Toast.makeText(getApplicationContext(), "Network Not Available", Toast.LENGTH_SHORT).show();
 
-        }
-    }
+
 
     public void loginUser(View view) {
         final EditText txtUserName = (EditText) findViewById(R.id.email);
@@ -194,7 +135,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             if (username.length() > 0 && password.length() > 0) {
                 FormsDbHelper db = new FormsDbHelper(LoginActivity.this);
 
-                //username = username.replaceAll("@","");
                 appAdmin = username.contains("@");
                 if (db.Login(username, password)) {
                     Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();

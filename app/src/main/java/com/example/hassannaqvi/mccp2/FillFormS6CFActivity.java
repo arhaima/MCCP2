@@ -21,8 +21,8 @@ public class FillFormS6CFActivity extends AppCompatActivity {
 
 
     private String formId;
-    private String CF_FRMNO;
-    private String CF_CHID;
+    private String CF_FRMNO = FillFormActivity.FORM_ID;
+    private Integer CF_CHID;
     private String CF_COMPID;
 
 
@@ -44,6 +44,11 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_form_s6_cf);
 
+        if (CF_CHID == null) {
+            CF_CHID = 1;
+        } else {
+            CF_CHID++;
+        }
         CF_Q1 = (CheckBox) findViewById(R.id.CF_Q1);
         CF_Q2 = (CheckBox) findViewById(R.id.CF_Q2);
         CF_Q2_1 = (CheckBox) findViewById(R.id.CF_Q2_1);
@@ -103,24 +108,32 @@ public class FillFormS6CFActivity extends AppCompatActivity {
 
         // Make changes to String according to Section.
         Toast.makeText(getApplicationContext(), "Processing Section CF...", Toast.LENGTH_SHORT).show();
+        if (CF_Q1.isChecked() || CF_Q2.isChecked() || CF_Q3.isChecked() || CF_Q4.isChecked()) {
+
+            if (formValidation()) {
+                Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
+
+                StoreTempValues();
+
+                // Make Changes acording to Section.
+                Intent end_form_intent = new Intent(getApplicationContext(), FillFormS6CFActivity.class);
+                end_form_intent.putExtra("formId", formId);
+
+                // Additional Variables For Next Section (if any)
+                // Start Next Section
+                startActivity(end_form_intent);
+            } else {
+                Toast.makeText(getApplicationContext(), "Form Validation Failed!", Toast.LENGTH_SHORT).show();
 
 
-        if (formValidation()) {
-            Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
-
-            StoreTempValues();
-
-            // Make Changes acording to Section.
+            }
+        } else {
             Intent end_form_intent = new Intent(getApplicationContext(), FillFormS6CFActivity.class);
             end_form_intent.putExtra("formId", formId);
 
             // Additional Variables For Next Section (if any)
             // Start Next Section
             startActivity(end_form_intent);
-        } else {
-            Toast.makeText(getApplicationContext(), "Form Validation Failed!", Toast.LENGTH_SHORT).show();
-
-
         }
 
     }
@@ -161,7 +174,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
 
-        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("CF_" + CF_FRMNO + CF_CHID, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         // Value Selection for Spinners

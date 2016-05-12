@@ -602,6 +602,10 @@
     <string name="google_app_id">MCCP2</string>
     <string name="IM_D_Doc">مستند دستاویزی ثبوت</string>
 
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
 
     <!--ADDITIONAL CHANGES-->
 

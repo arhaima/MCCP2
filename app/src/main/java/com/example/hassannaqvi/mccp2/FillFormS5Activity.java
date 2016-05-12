@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,7 +15,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class FillFormS5Activity extends AppCompatActivity {
 
@@ -496,11 +501,12 @@ public class FillFormS5Activity extends AppCompatActivity {
     private boolean formValidation() {
         if (mc502selected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc502_no.setError("Please select an answer!");
+            mc502_no.setError("5.02: Please select an answer!");
             Log.d(TAG, "Error Type: 502 not selected");
             return false;
         }
-        if (
+        if (mc502_yes.isChecked()) {
+            if (
                 mc503Alhs.isChecked() || mc503Afcv.isChecked() || mc503Alhw.isChecked() || mc503Ango.isChecked() || !mc503Ax.getText().toString().isEmpty() ||
                         mc503Blhs.isChecked() || mc503Bfcv.isChecked() || mc503Blhw.isChecked() || mc503Bngo.isChecked() || !mc503Ax.getText().toString().isEmpty() ||
                         mc503Clhs.isChecked() || mc503Cfcv.isChecked() || mc503Clhw.isChecked() || mc503Cngo.isChecked() || !mc503Ax.getText().toString().isEmpty() ||
@@ -510,47 +516,152 @@ public class FillFormS5Activity extends AppCompatActivity {
                         mc503Glhs.isChecked() || mc503Gfcv.isChecked() || mc503Glhw.isChecked() || mc503Gngo.isChecked() || !mc503Ax.getText().toString().isEmpty() ||
                         mc503Xlhs.isChecked() || mc503Xfcv.isChecked() || mc503Xlhw.isChecked() || mc503Xngo.isChecked() || !mc503Ax.getText().toString().isEmpty()
 
-                ) {
+                    ) {
 
 
         } else {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc503Gx.setError("Please select an answer!");
+                mc503Gx.setError("5.03: Please select an answer!");
             Log.d(TAG, "Error Type: 503 not selected");
+            return false;
+            }
+        }
+        if (mc504W.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc504W.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select a Material");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select a Material.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 504W empty");
+            return false;
+        }
+        if (mc504R.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc504R.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select a Material");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select a Material.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 504R empty");
+            return false;
+        }
+        if (mc504F.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc504F.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select a Material");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select a Material.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 504F empty");
+            return false;
+        }
+        if (mc505.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc505.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select Ownership status");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Ownership Status.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 505 empty");
             return false;
         }
 
+        if (mc507.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc507.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select Electricity status");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Electricity Status.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 507 empty");
+            return false;
+        }
+        if (mc508.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc508.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select Energy Source");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Energy Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 508 empty");
+            return false;
+        }
+        if (mc509.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc509.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select Drinking Water Source");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Dringking Water Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 509 empty");
+            return false;
+        }
+        if (mc510.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc510.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select Cooking Water Source");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Cooking Water Source.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 510 empty");
+            return false;
+        }
+        
+
         if (mc506.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please write an answer!", Toast.LENGTH_SHORT).show();
-            mc506.setError("Please write an answer!");
+            mc506.setError("5.06: Please write an answer!");
             Log.d(TAG, "Error Type: 506 not selected");
             return false;
         }
 
         if (mc511selected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc511_no.setError("Please select an answer!");
+            mc511_no.setError("5.11: Please select an answer!");
             Log.d(TAG, "Error Type: 511 not selected");
             return false;
 
         }
         if (mc514_yes.isChecked() && mc515.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please write an answer!", Toast.LENGTH_SHORT).show();
-            mc515.setError("Please select an answer!");
+            mc515.setError("5.15: Please select an answer!");
             Log.d(TAG, "Error Type: 515 not selected");
             return false;
         }
+
+        if (mc516.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc516.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 516 empty");
+            return false;
+        }
+        if (mc518.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc518.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 518 empty");
+            return false;
+        }
+        if (mc520_yes.isChecked() && mc521.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc521.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select washing material");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select washing material.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 521 empty");
+            return false;
+        }
+        
+        
         if (mc520_yes.isChecked() && (mc521selected.equals("-1"))) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc521_5.setError("Please Select an answer!");
-            Log.d(TAG, "Error Type: 515 not selected");
+            mc521_5.setError("5.21: Please Select an answer!");
+            Log.d(TAG, "Error Type: 521 not selected");
             return false;
         }
         if (mc523selected == -1
                 && mc524ACR.getText().toString().isEmpty()
                 && mc524CAN.getText().toString().isEmpty()
                 && !mc524_99.isChecked()) {
-            Toast.makeText(getApplicationContext(), "Please write an answer!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "5.24: Please write an answer!", Toast.LENGTH_SHORT).show();
             mc524ACR.setError("Please write an answer!");
             mc524CAN.setError("Please write an answer!");
             Log.d(TAG, "Error Type: 524 not Answered");
@@ -597,7 +708,7 @@ public class FillFormS5Activity extends AppCompatActivity {
 
         editor.putString("sp503Flhw", (mc503Flhw.isChecked() ? "1" : ""));
         editor.putString("sp503Ffcv", (mc503Ffcv.isChecked() ? "2" : ""));
-        editor.putString("sp503lhs", (mc503Flhs.isChecked() ? "3" : ""));
+        editor.putString("sp503Flhs", (mc503Flhs.isChecked() ? "3" : ""));
         editor.putString("sp503Fngo", (mc503Fngo.isChecked() ? "4" : ""));
 
         editor.putString("sp503Glhw", (mc503Glhw.isChecked() ? "1" : ""));
@@ -631,172 +742,130 @@ public class FillFormS5Activity extends AppCompatActivity {
 
         // Putting values of Radiobuttons
         switch (mc502selected) {
-
             case R.id.MC_502_Yes:
                 editor.putString("sp502", "1");
                 break;
-
             case R.id.MC_502_No:
                 editor.putString("sp502", "2");
                 break;
-
             default:
                 editor.putString("sp502", "00");
                 break;
         }
 
         switch (mc511selected) {
-
             case R.id.MC_511_Yes:
                 editor.putString("sp511", "1");
                 break;
-
             case R.id.MC_502_No:
                 editor.putString("sp511", "2");
                 break;
-
             default:
                 editor.putString("sp511", "00");
                 break;
         }
 
-
         switch (mc513selected) {
-
             case R.id.MC_513_1:
                 editor.putString("sp513", "1");
                 break;
-
             case R.id.MC_513_2:
                 editor.putString("sp513", "2");
                 break;
-
             case R.id.MC_513_3:
                 editor.putString("sp513", "3");
                 break;
-
-
             case R.id.MC_513_4:
                 editor.putString("sp513", "4");
                 break;
-
             case R.id.MC_513_5:
                 editor.putString("sp513", "5");
                 break;
-
             case R.id.MC_513_6:
                 editor.putString("sp513", "6");
                 break;
-
             case R.id.MC_513_7:
                 editor.putString("sp513", "7");
                 break;
-
             case R.id.MC_513_88:
                 editor.putString("sp513", "88");
                 break;
-
             default:
                 editor.putString("sp513", "00");
                 break;
         }
 
-
         switch (mc514selected) {
-
             case R.id.MC_514_Yes:
                 editor.putString("sp514", "1");
                 break;
-
             case R.id.MC_514_No:
                 editor.putString("sp514", "2");
                 break;
-
             default:
                 editor.putString("sp514", "00");
                 break;
         }
 
-
         switch (mc517selected) {
-
             case R.id.MC_517_1:
                 editor.putString("sp517", "1");
                 break;
-
             case R.id.MC_517_2:
                 editor.putString("sp517", "2");
                 break;
             case R.id.MC_517_3:
                 editor.putString("sp517", "3");
                 break;
-
             default:
                 editor.putString("sp517", "00");
                 break;
         }
 
-
         switch (mc519selected) {
-
             case R.id.MC_519_1:
                 editor.putString("sp519", "1");
                 break;
-
             case R.id.MC_519_2:
                 editor.putString("sp519", "2");
                 break;
-
             case R.id.MC_519_3:
                 editor.putString("sp519", "3");
                 break;
-
             case R.id.MC_519_4:
                 editor.putString("sp519", "4");
                 break;
-
             case R.id.MC_519_5:
                 editor.putString("sp519", "5");
                 break;
-
-
             default:
                 editor.putString("sp519", "00");
                 break;
         }
 
-
         switch (mc520selected) {
-
             case R.id.MC_520_Yes:
                 editor.putString("sp520", "1");
                 break;
-
             case R.id.MC_520_No:
                 editor.putString("sp520", "2");
                 break;
-
             default:
                 editor.putString("sp520", "00");
                 break;
         }
 
-
         switch (mc523selected) {
-
             case R.id.MC_523_Yes:
                 editor.putString("sp523", "1");
                 break;
-
             case R.id.MC_523_No:
                 editor.putString("sp523", "2");
                 break;
-
             default:
                 editor.putString("sp523", "00");
                 break;
         }
-
 
         //Putting values for EditText
         editor.putString("sp503Ax", mc503Ax.getText().toString());
@@ -842,6 +911,139 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp525_19", mc525_19.getText().toString());
         editor.putString("sp525_20", mc525_20.getText().toString());
 
+        editor.apply();
+        Log.d(TAG, "Stored sharedValues.");
+
+        JSONObject S5 = new JSONObject();
+        long newFormId = 0;
+        try {
+            S5.put("mc501", sharedPref.getString("sp501", "00"));
+            S5.put("mc501_88", sharedPref.getString("sp501_88", "00"));
+            S5.put("mc502", sharedPref.getString("sp502", "00"));
+            S5.put("mc503Alhw", sharedPref.getString("sp503Alhw", "00"));
+            S5.put("mc503Afcv", sharedPref.getString("sp503Afcv", "00"));
+            S5.put("mc503Alhs", sharedPref.getString("sp503Alhs", "00"));
+            S5.put("mc503Ango", sharedPref.getString("sp503Ango", "00"));
+            S5.put("mc503Ax", sharedPref.getString("sp503Ax", "00"));
+            S5.put("mc503Blhw", sharedPref.getString("sp503Blhw", "00"));
+            S5.put("mc503Bfcv", sharedPref.getString("sp503Bfcv", "00"));
+            S5.put("mc503Blhs", sharedPref.getString("sp503Blhs", "00"));
+            S5.put("mc503Bngo", sharedPref.getString("sp503Bngo", "00"));
+            S5.put("mc503Bx", sharedPref.getString("sp503Bx", "00"));
+            S5.put("mc503Clhw", sharedPref.getString("sp503Clhw", "00"));
+            S5.put("mc503Cfcv", sharedPref.getString("sp503Cfcv", "00"));
+            S5.put("mc503Clhs", sharedPref.getString("sp503Clhs", "00"));
+            S5.put("mc503Cngo", sharedPref.getString("sp503Cngo", "00"));
+            S5.put("mc503Cx", sharedPref.getString("sp503Cx", "00"));
+            S5.put("mc503Clhw", sharedPref.getString("sp503Clhw", "00"));
+            S5.put("mc503Cfcv", sharedPref.getString("sp503Cfcv", "00"));
+            S5.put("mc503Clhs", sharedPref.getString("sp503Clhs", "00"));
+            S5.put("mc503Cngo", sharedPref.getString("sp503Cngo", "00"));
+            S5.put("mc503Cx", sharedPref.getString("sp503Cx", "00"));
+            S5.put("mc503Dlhw", sharedPref.getString("sp503Dlhw", "00"));
+            S5.put("mc503Dfcv", sharedPref.getString("sp503Dfcv", "00"));
+            S5.put("mc503Dlhs", sharedPref.getString("sp503Dlhs", "00"));
+            S5.put("mc503Dngo", sharedPref.getString("sp503Dngo", "00"));
+            S5.put("mc503Dx", sharedPref.getString("sp503Dx", "00"));
+            S5.put("mc503Elhw", sharedPref.getString("sp503Elhw", "00"));
+            S5.put("mc503Efcv", sharedPref.getString("sp503Efcv", "00"));
+            S5.put("mc503Elhs", sharedPref.getString("sp503Elhs", "00"));
+            S5.put("mc503Engo", sharedPref.getString("sp503Engo", "00"));
+            S5.put("mc503Ex", sharedPref.getString("sp503Ex", "00"));
+            S5.put("mc503Flhw", sharedPref.getString("sp503Flhw", "00"));
+            S5.put("mc503Ffcv", sharedPref.getString("sp503Ffcv", "00"));
+            S5.put("mc503Flhs", sharedPref.getString("sp503Flhs", "00"));
+            S5.put("mc503Fngo", sharedPref.getString("sp503Fngo", "00"));
+            S5.put("mc503Fx", sharedPref.getString("sp503Fx", "00"));
+            S5.put("mc503Glhw", sharedPref.getString("sp503Clhw", "00"));
+            S5.put("mc503Cfcv", sharedPref.getString("sp503Cfcv", "00"));
+            S5.put("mc503Clhs", sharedPref.getString("sp503Clhs", "00"));
+            S5.put("mc503Cngo", sharedPref.getString("sp503Cngo", "00"));
+            S5.put("mc503Cx", sharedPref.getString("sp503Cx", "00"));
+            S5.put("mc503Xlhw", sharedPref.getString("sp503Clhw", "00"));
+            S5.put("mc503Cfcv", sharedPref.getString("sp503Cfcv", "00"));
+            S5.put("mc503Clhs", sharedPref.getString("sp503Clhs", "00"));
+            S5.put("mc503Cngo", sharedPref.getString("sp503Cngo", "00"));
+            S5.put("mc503Cx", sharedPref.getString("sp503Cx", "00"));
+            S5.put("mc503GXx", sharedPref.getString("sp503GXx", "00"));
+            S5.put("mc504W", sharedPref.getString("sp504W", "00"));
+            S5.put("mc504Wx", sharedPref.getString("sp504Wx", "00"));
+            S5.put("mc504R", sharedPref.getString("sp504R", "00"));
+            S5.put("mc504Rx", sharedPref.getString("sp504Rx", "00"));
+            S5.put("mc504F", sharedPref.getString("sp504F", "00"));
+            S5.put("mc504Fx", sharedPref.getString("sp504Fx", "00"));
+            S5.put("mc505", sharedPref.getString("sp505", "00"));
+            S5.put("mc505", sharedPref.getString("sp505", "00"));
+            S5.put("mc506", sharedPref.getString("sp506", "00"));
+            S5.put("mc507", sharedPref.getString("sp507", "00"));
+            S5.put("mc508", sharedPref.getString("sp508", "00"));
+            S5.put("mc508_88", sharedPref.getString("sp508_88", "00"));
+            S5.put("mc509", sharedPref.getString("sp509", "00"));
+            S5.put("mc509_88", sharedPref.getString("sp509_88", "00"));
+            S5.put("mc510", sharedPref.getString("sp510", "00"));
+            S5.put("mc510_88", sharedPref.getString("sp510_88", "00"));
+            S5.put("mc511", sharedPref.getString("sp511", "00"));
+            S5.put("mc503Alhw", sharedPref.getString("sp503Alhw", "00"));
+            S5.put("mc503Afcv", sharedPref.getString("sp503Afcv", "00"));
+            S5.put("mc503Alhs", sharedPref.getString("sp503Alhs", "00"));
+            S5.put("mc503Ango", sharedPref.getString("sp503Ango", "00"));
+            S5.put("mc503Blhw", sharedPref.getString("sp503Blhw", "00"));
+            S5.put("mc503Bfcv", sharedPref.getString("sp503Bfcv", "00"));
+            S5.put("mc503Blhs", sharedPref.getString("sp503Blhs", "00"));
+            S5.put("mc503Bngo", sharedPref.getString("sp503Bngo", "00"));
+            S5.put("mc503Clhw", sharedPref.getString("sp503Clhw", "00"));
+            S5.put("mc503Cfcv", sharedPref.getString("sp503Cfcv", "00"));
+            S5.put("mc503Clhs", sharedPref.getString("sp503Clhs", "00"));
+            S5.put("mc503Cngo", sharedPref.getString("sp503Cngo", "00"));
+            S5.put("mc503Dlhw", sharedPref.getString("sp503Dlhw", "00"));
+            S5.put("mc503Dfcv", sharedPref.getString("sp503Dfcv", "00"));
+            S5.put("mc503Dlhs", sharedPref.getString("sp503Dlhs", "00"));
+            S5.put("mc503Dngo", sharedPref.getString("sp503Dngo", "00"));
+            S5.put("mc503Elhw", sharedPref.getString("sp503Elhw", "00"));
+            S5.put("mc503Efcv", sharedPref.getString("sp503Efcv", "00"));
+            S5.put("mc503Elhs", sharedPref.getString("sp503Elhs", "00"));
+            S5.put("mc503Engo", sharedPref.getString("sp503Engo", "00"));
+            S5.put("mc503Flhw", sharedPref.getString("sp503Flhw", "00"));
+            S5.put("mc503Ffcv", sharedPref.getString("sp503Ffcv", "00"));
+            S5.put("mc503Flhs", sharedPref.getString("sp503Flhs", "00"));
+            S5.put("mc503Fngo", sharedPref.getString("sp503Fngo", "00"));
+            S5.put("mc503Glhs", sharedPref.getString("sp503Glhs", "00"));
+            S5.put("mc503Gngo", sharedPref.getString("sp503Gngo", "00"));
+            S5.put("mc503Xlhs", sharedPref.getString("sp503Xlhs", "00"));
+            S5.put("mc503Xngo", sharedPref.getString("sp503Xngo", "00"));
+            S5.put("mc512_1", sharedPref.getString("sp512_1", "00"));
+            S5.put("mc512_2", sharedPref.getString("sp512_2", "00"));
+            S5.put("mc512_3", sharedPref.getString("sp512_3", "00"));
+            S5.put("mc512_4", sharedPref.getString("sp512_4", "00"));
+            S5.put("mc512_5", sharedPref.getString("sp512_5", "00"));
+            S5.put("mc522_1", sharedPref.getString("sp522_1", "00"));
+            S5.put("mc522_2", sharedPref.getString("sp522_2", "00"));
+            S5.put("mc522_3", sharedPref.getString("sp522_3", "00"));
+            S5.put("mc522_4", sharedPref.getString("sp522_4", "00"));
+            S5.put("mc522_5", sharedPref.getString("sp522_5", "00"));
+            S5.put("mc522_6", sharedPref.getString("sp522_6", "00"));
+            S5.put("mc522_7", sharedPref.getString("sp522_7", "00"));
+            S5.put("mc522_8", sharedPref.getString("sp522_8", "00"));
+            S5.put("mc522_9", sharedPref.getString("sp522_9", "00"));
+            S5.put("mc522_88", sharedPref.getString("sp522_88", "00"));
+            S5.put("mc502", sharedPref.getString("sp502", "00"));
+            S5.put("mc511", sharedPref.getString("sp511", "00"));
+            S5.put("mc513", sharedPref.getString("sp513", "00"));
+            S5.put("mc514", sharedPref.getString("sp514", "00"));
+            S5.put("mc517", sharedPref.getString("sp517", "00"));
+            S5.put("mc519", sharedPref.getString("sp519", "00"));
+            S5.put("mc520", sharedPref.getString("sp520", "00"));
+            S5.put("mc523", sharedPref.getString("sp523", "00"));
+
+            FormsContract.getInstance().setS5(S5.toString());
+
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        Log.d(TAG, "Updated Form with Id: " + String.valueOf(newFormId));
     }
+
+    
 
 }

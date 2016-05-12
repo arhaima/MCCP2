@@ -22,7 +22,7 @@ import java.util.List;
 
 public class FormsDbHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 5;
+    public static final int DATABASE_VERSION = 6;
     public static final String DATABASE_NAME = "mccp2-test.db";
     public static final String SQL_CREATE_FORMS = "CREATE TABLE " + singleForm.TABLE_NAME + "("
             + singleForm._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -35,11 +35,12 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             + singleForm.ROW_MC_104 + " TEXT,"
             + singleForm.ROW_MC_105 + " TEXT,"
             + singleForm.ROW_MC_106 + " TEXT,"
-            + singleForm.ROW_MC_EXT + " TEXT,"
             + singleForm.ROW_MC_107 + " TEXT,"
             + singleForm.ROW_MC_108 + " TEXT,"
+            + singleForm.ROW_GPS_LAT + " TEXT,"
+            + singleForm.ROW_GPS_LNG + " TEXT,"
+            + singleForm.ROW_SYNC + " TEXT,"
             + singleForm.ROW_S_2 + " TEXT,"
-            + singleForm.ROW_S_3 + " TEXT,"
             + singleForm.ROW_S_4 + " TEXT,"
             + singleForm.ROW_S_5 + " TEXT,"
             + singleForm.ROW_S_6 + " TEXT,"
@@ -110,6 +111,9 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         Log.d(TAG, "Add Form ROW_ID: " + formscontract.getId()); // TODO: Check why form ID is 'null'
         values.put(singleForm.ROW_MC_FrmNo, formscontract.getFrmNo());
         values.put(singleForm.DEVICE_ID, formscontract.getFrmNo());
+        values.put(singleForm.ROW_GPS_LAT, formscontract.getGPSLat());
+        values.put(singleForm.ROW_GPS_LNG, formscontract.getGPSLng());
+        values.put(singleForm.ROW_SYNC, formscontract.getSync());
         values.put(singleForm.ROW_MC_101, formscontract.get101());
         values.put(singleForm.ROW_MC_101TIME, formscontract.get101Time());
         values.put(singleForm.ROW_MC_102, formscontract.get102());
@@ -117,9 +121,12 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         values.put(singleForm.ROW_MC_104, formscontract.get104());
         values.put(singleForm.ROW_MC_105, formscontract.get105());
         values.put(singleForm.ROW_MC_106, formscontract.get106());
-        values.put(singleForm.ROW_MC_EXT, formscontract.getExt());
         values.put(singleForm.ROW_MC_107, formscontract.get107());
         values.put(singleForm.ROW_MC_108, formscontract.get108());
+        values.put(singleForm.ROW_S_2, formscontract.getS2());
+        values.put(singleForm.ROW_S_4, formscontract.getS4());
+        values.put(singleForm.ROW_S_5, formscontract.getS5());
+        values.put(singleForm.ROW_S_6, formscontract.getS6());
 
 
         // Inserting Row
@@ -132,7 +139,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(singleForm.ROW_S_2, formscontract.getS2());
+        values.put(singleForm.ROW_SYNC, formscontract.getSync());
 
 
         // Inserting Row
@@ -144,7 +151,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
     public List<FormsContract> getAllForms() {
         List<FormsContract> formList = new ArrayList<FormsContract>();
         // Select All Query
-        String selectQuery = "SELECT  * FROM " + singleForm.TABLE_NAME;
+        String selectQuery = "SELECT  * FROM " + singleForm.TABLE_NAME + "WHERE " + singleForm.ROW_SYNC + "='1'";
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -152,10 +159,13 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         // looping through all rows and adding to list
         if (cursor.moveToFirst()) {
             do {
-                FormsContract form = new FormsContract();
+                FormsContract form = FormsContract.getInstance();
                 form.setId(cursor.getString(cursor.getColumnIndex(singleForm._ID)));
                 form.setFrmNo(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_FrmNo)));
                 form.setDeviceId(cursor.getString(cursor.getColumnIndex(singleForm.DEVICE_ID)));
+                form.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
+                form.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
+                form.setSync(cursor.getString(cursor.getColumnIndex(singleForm.ROW_SYNC)));
                 form.set101(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101)));
                 form.set101Time(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101TIME)));
                 form.set102(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_102)));
@@ -163,9 +173,12 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.set104(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_104)));
                 form.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
                 form.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
-                form.setExt(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_EXT)));
                 form.set107(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_107)));
                 form.set108(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_108)));
+                form.setS2(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_2)));
+                form.setS4(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_4)));
+                form.setS5(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_5)));
+                form.setS6(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_6)));
 
                 // Adding contact to list
                 formList.add(form);
@@ -425,6 +438,20 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         try {
             String QUERY = "SELECT * FROM " + singleUser.TABLE_NAME;
+            Cursor cursor = db.rawQuery(QUERY, null);
+            num = cursor.getCount();
+            db.close();
+            return num;
+        } catch (Exception e) {
+        }
+        return 0;
+    }
+
+    public int getFormCount() {
+        int num = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            String QUERY = "SELECT * FROM " + singleForm.TABLE_NAME;
             Cursor cursor = db.rawQuery(QUERY, null);
             num = cursor.getCount();
             db.close();

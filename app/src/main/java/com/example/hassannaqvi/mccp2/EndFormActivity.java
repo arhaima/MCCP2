@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -12,6 +13,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Map;
 
 public class EndFormActivity extends AppCompatActivity {
 
@@ -88,7 +94,7 @@ public class EndFormActivity extends AppCompatActivity {
 
     }
 
-    public void noInterview(View view) {
+    public void noInterview(View view) throws JSONException {
 
         mc109Selected = mc109.getCheckedRadioButtonId();
         mc110Selected = mc110.getCheckedRadioButtonId();
@@ -135,7 +141,7 @@ public class EndFormActivity extends AppCompatActivity {
         return true;
     }
 
-    private void StoreTempValues() {
+    private void StoreTempValues() throws JSONException {
 
         SharedPreferences sharedPref = getSharedPreferences(formId, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -175,6 +181,49 @@ public class EndFormActivity extends AppCompatActivity {
 
         // Comit to storage
         editor.commit();
+
+        JSONObject ending = new JSONObject();
+        Long newFormId;
+        try {
+
+            // Initialize JSON Object For Section 6
+            ending.put("mc109", sharedPref.getString("sp109", "00"));
+            ending.put("mc110", sharedPref.getString("sp110", "00"));
+
+
+            Log.d(TAG, ending.toString());
+
+            FormsContract.getInstance().setEnding(ending.toString());
+
+            //FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
+            FormsDbHelper db = new FormsDbHelper(this);
+
+            try {
+                Log.d(TAG, "Updating DataBase...");
+                db.addForm(FormsContract.getInstance());
+            } catch (SQLiteException e) {
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                e.printStackTrace();
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        //Log.d(TAG, "Updated Form with Id: " + String.valueOf(newFormId));
+        FormsContract.getInstance().Clear();
+
+
+        JSONObject FormFull = new JSONObject();
+        Map<String, ?> keys = sharedPref.getAll();
+
+        for (Map.Entry<String, ?> entry : keys.entrySet()) {
+
+
+            FormFull.put(entry.getKey(), entry.getValue().toString());
+
+
+        }
 
 
 

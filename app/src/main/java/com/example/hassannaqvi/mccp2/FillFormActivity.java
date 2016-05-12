@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
@@ -28,8 +29,10 @@ import java.util.Date;
 public class FillFormActivity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_ACTIVITY";
+    public static String Cluster;
     public static String FORM_ID;
     public static long rowId = 0;
+    static FillFormActivity fillformactivity;
     public FormsDbHelper db;
     public ArrayList<ClustersContract> clusterList;
     private String mcFrmNo;
@@ -66,6 +69,7 @@ public class FillFormActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fill_form);
 
         db = new FormsDbHelper(getApplicationContext());
+        fillformactivity = this;
 
         formError = false;
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
@@ -80,6 +84,10 @@ public class FillFormActivity extends AppCompatActivity {
         mc104ucNm = (TextView) findViewById(R.id.MC_104UCName);
 */
         mc105cluster = (EditText) findViewById(R.id.MC_105);
+        if (Cluster != null) {
+            mc105cluster.setText(Cluster);
+            mc105cluster.setEnabled(false);
+        }
         mc105clusterNm = (TextView) findViewById(R.id.MC_105Name);
         mc106hhno = (EditText) findViewById(R.id.MC_106);
         mcExt = (Spinner) findViewById(R.id.MC_Ext);
@@ -268,6 +276,7 @@ public class FillFormActivity extends AppCompatActivity {
             return false;
         }*/
 
+
         if (mc105cluster.getText().toString().isEmpty() || mc105cluster.getText().toString() == null) {
             mc105cluster.setError("Cluster Number not given!");
 
@@ -279,18 +288,21 @@ public class FillFormActivity extends AppCompatActivity {
 
             for (ClustersContract UC : clusterList) {
                 Log.i(TAG, UC.getClusterName());
-                if (UC.getClusterCode().equals(mc105cluster.getText().toString())) {
-                    Log.i(TAG, "Match:" + UC.getClusterName());
-                    mc105clusterNm.setText(UC.getClusterName());
-                    break;
-                } else {
+
+                if (!UC.getClusterCode().equals(mc105cluster.getText().toString())) {
                     mc105clusterNm.setText("Invalid Cluster Number!");
-                    mc105cluster.setError("Invalid Cluster Number!");
-                    return false;
                 }
             }
         }
-
+        if (mcExt.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mcExt.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an option");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select HouseHold Type.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 106Ext mismatch");
+            return false;
+        }
         if (mc106hhno.getText().toString().isEmpty() || mc106hhno.getText().toString() == null) {
             mc106hhno.setError("Household Number not given!");
             Log.d(TAG, "Error Type: 106");
@@ -341,6 +353,7 @@ public class FillFormActivity extends AppCompatActivity {
         return mcFrmNo;
 
     }
+
     private void StoreTempValues(){
 
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
@@ -370,6 +383,7 @@ public class FillFormActivity extends AppCompatActivity {
         editor.putString("sp104", mc104uc.getText().toString());
 */
         editor.putString("sp105", mc105cluster.getText().toString());
+        Cluster = mc105cluster.getText().toString();
         editor.putString("sp106", mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString());
         editor.putString("spDeviceID", Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
@@ -434,8 +448,8 @@ public class FillFormActivity extends AppCompatActivity {
 
             Log.d(TAG, "JSON for Section 1: " + s1.toString());
 
-            /*FormsContract formContract = new FormsContract(s1);
-            FormsDbHelper db = new FormsDbHelper(this);
+            FormsContract.getInstance().setS1(s1);
+            /*FormsDbHelper db = new FormsDbHelper(this);
             try {
                 Log.d(TAG, "Adding Form to DB...");
                 rowId = db.addForm(formContract);

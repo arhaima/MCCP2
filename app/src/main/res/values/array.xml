@@ -3,6 +3,7 @@
 
 
     <string-array name="MC_103_list">
+        <item> ... </item>
         <item> بلدیہ </item>
         <item> اورنگی </item>
         <item> سائٹ  </item>
@@ -10,6 +11,7 @@
         <item> لانڈھی </item>
     </string-array>
     <string-array name="MC_103_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -18,6 +20,7 @@
     </string-array>
 
     <string-array name="MC_106_list">
+        <item> ... </item>
         <item>X</item>
         <item>A</item>
         <item>B</item>
@@ -48,18 +51,21 @@
     </string-array>
 
     <string-array name="MC_109_list">
+        <item> ... </item>
         <item> مکمل </item>
         <item> نامکمل </item>
         <item> سوالنامہ نہیں بھراگیا  </item>
 
     </string-array>
     <string-array name="MC_109_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
     </string-array>
 
     <string-array name="MC_110_list">
+        <item> ... </item>
         <item> انٹرویو کے دوران منع کر دیا  </item>
         <item> گهر بند تھا </item>
         <item> بالغ جوابدہندہ موجود نہیں تھا  </item>
@@ -67,6 +73,7 @@
         <item> دیگر </item>
     </string-array>
     <string-array name="MC_110_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -75,6 +82,7 @@
     </string-array>
 
     <string-array name="MC_OCU_list">
+        <item> ... </item>
         <item> گھریلو خاتون </item>
         <item> ریٹائرڈ </item>
         <item> بے روزگار </item>
@@ -84,6 +92,7 @@
         <item>پروفیشنل</item>
     </string-array>
     <string-array name="MC_OCU_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -94,62 +103,74 @@
     </string-array>
 
     <string-array name="MC_GNDR_list">
+        <item> ... </item>
         <item>Male</item>
         <item>Female</item>
     </string-array>
 
     <string-array name="MC_201TYPE_list">
+        <item> ... </item>
         <item>Mother</item>
         <item>CareTaker</item>
     </string-array>
 
     <string-array name="IM_B_list">
+        <item> ... </item>
         <item> .لڑکا   </item>
         <item> .لڑکی </item>
     </string-array>
     <string-array name="IM_B_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
     <string-array name="IM_H_list">
+        <item> ... </item>
         <item> ہا ں  </item>
         <item> نہیں </item>
         <item> .بچہ موجود نہیں</item>
     </string-array>
     <string-array name="IM_H_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
     </string-array>
 
     <string-array name="MC_YN_list">
+        <item> ... </item>
         <item> ہا ں  </item>
         <item> نہیں </item>
 
     </string-array>
     <string-array name="MC_YN_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
 
     </string-array>
 
     <string-array name="IM_JB_list">
+        <item> ... </item>
         <item> حفاظتی ٹیکوں کا  کارڈ </item>
         <item> جواب دہندہ  </item>
     </string-array>
     <string-array name="IM_JB_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
     <string-array name="IM_K_list">
+        <item> ... </item>
         <item> سرکاری ہیلتھ کیمپ. </item>
         <item> کیمپ.1 TVI ہیلتھ کیمپ </item>
         <item> ای پی آئی ہیلتھ سنیٹر  </item>
         <item> کوئی اور این </item>
     </string-array>
     <string-array name="IM_K_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -157,20 +178,24 @@
     </string-array>
 
     <string-array name="IM_I_Source_list">
+        <item> ... </item>
         <item> حفاظتی ٹیکوںکا کارڈ </item>
         <item>  جواب دہندہ </item>
     </string-array>
     <string-array name="IM_I_Source_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
 
     <string-array name="IM_I_Scar_list">
+        <item> ... </item>
         <item> .ہاں </item>
         <item>  نہیں </item>
         <item>  بچہ موجودہ نہیں  </item>
     </string-array>
     <string-array name="IM_I_Scar_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -180,12 +205,14 @@
     <!--  START: Hussain Kalimuddin -->
 
     <string-array name="MC_401_list">
+        <item> ... </item>
         <item> ہاں </item>
         <item> نہیں </item>
         <item> معلوم نہیں </item>
 
     </string-array>
     <string-array name="MC_401_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>99</item>
@@ -193,6 +220,7 @@
 
 
     <string-array name="MC_402_list">
+        <item> ... </item>
         <item> ٹی-وی </item>
         <item> ریڈیو </item>
         <item> اخبارات </item>
@@ -207,6 +235,7 @@
 
     </string-array>
     <string-array name="MC_402_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -222,6 +251,7 @@
 
 
     <string-array name="MC_404_list">
+        <item> ... </item>
         <item> پو لیو </item>
         <item> ٹی-بی </item>
         <item> خناق </item>
@@ -236,6 +266,7 @@
 
     </string-array>
     <string-array name="MC_404_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -251,6 +282,7 @@
 
 
     <string-array name="MC_405_list">
+        <item> ... </item>
         <item> تعلیم کی کمی  </item>
         <item> پیسوں کی کمی  </item>
         <item> آگاہی کی کمی </item>
@@ -261,6 +293,7 @@
 
     </string-array>
     <string-array name="MC_405_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -272,6 +305,7 @@
     </string-array>
 
     <string-array name="MC_405A_list">
+        <item> ... </item>
         <item> گورنمنٹ ہسپتال  </item>
         <item> نجی ہسپتال </item>
         <item> ہیلتھ سینٹر </item>
@@ -280,6 +314,7 @@
         <item> (دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_405A_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -291,6 +326,7 @@
 
 
     <string-array name="MC_407_list">
+        <item> ... </item>
         <item> یہ ضروری  نہیں  </item>
         <item> مذہبی عقیدے کے خلاف ہے </item>
         <item> خاندان والے منع کرتے ہیں </item>
@@ -300,6 +336,7 @@
         <item> (دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_407_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -312,6 +349,7 @@
 
 
     <string-array name="MC_409_list">
+        <item> ... </item>
         <item> مکمل طور پر محفوظ  </item>
         <item> مناسب حدتک محفوظ </item>
         <item> غیر محفوظ  </item>
@@ -319,6 +357,7 @@
         <item> (دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_409_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -328,6 +367,7 @@
 
 
     <string-array name="MC_410_list">
+        <item> ... </item>
         <item> گورنمنٹ ہسپتال </item>
         <item> نجی ہسپتال  </item>
         <item> ہیلتھ سنٹر  </item>
@@ -338,6 +378,7 @@
         <item> (دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_410_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -350,6 +391,7 @@
 
 
     <string-array name="MC_410A_list">
+        <item> ... </item>
         <item> ہرپولیو مہم کے دوران </item>
         <item> زیادہ تر پولیو مہم کے دوران </item>
         <item> صرف چند بار  </item>
@@ -360,6 +402,7 @@
 
     </string-array>
     <string-array name="MC_410A_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -370,6 +413,7 @@
     </string-array>
 
     <string-array name="MC_410B_list">
+        <item> ... </item>
         <item> ہر پولیو مہم میں قطرے پلانے کی ضرورت نہیں ہے </item>
         <item> باربار پولیو کے قطرے پلانے سے ہونے والے منفی اثرات سے فکرمند ہوں </item>
         <item> ہر پولیو مہم کے دوران میں گھر پر موجود نہیں ہوسکتی/ہوسکتا  </item>
@@ -380,6 +424,7 @@
 
     </string-array>
     <string-array name="MC_410B_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -391,6 +436,7 @@
 
 
     <string-array name="MC_413_list">
+        <item> ... </item>
         <item> بچے کو پولیو کے قطرے  بہت دفعہ پلا چکے ہیں </item>
         <item> گھر والے اجازت نہیں دیتے ہیں </item>
         <item> حفاظتی ٹیکے حلال نہیں ہیں </item>
@@ -402,6 +448,7 @@
 
     </string-array>
     <string-array name="MC_413_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -414,12 +461,14 @@
 
 
     <string-array name="MC_414_list">
+        <item> ... </item>
         <item> ہاں </item>
         <item> نہیں </item>
         <item>  معلوم نہیں   </item>
 
     </string-array>
     <string-array name="MC_414_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>99</item>
@@ -428,12 +477,14 @@
 
 
     <string-array name="MC_415_list">
+        <item> ... </item>
         <item> پولیو کا ٹیکہ کافی ہےاور پولیو کے قطروں کی مزید ضرورت نہیں</item>
         <item> پولیو کے قطروں کا پلانا اضافی خوراک ہے اور یہ منفی اثرات پیدا کرےگا</item>
         <item>  (دیگر(وضاحت کریں  </item>
 
     </string-array>
     <string-array name="MC_415_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>88</item>
@@ -446,6 +497,7 @@
     <!-- START: Khurram Zubair-->
 
     <string-array name="MC_501_list">
+        <item> ... </item>
         <item> اردو </item>
         <item> سندھی </item>
         <item> پنجابی  </item>
@@ -455,6 +507,7 @@
         <item>(دیگر (وضاحت</item>
     </string-array>
     <string-array name="MC_501_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -464,6 +517,7 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_503_list">
+        <item> ... </item>
         <item> بچے اور ماں کی صحت کے متعلق معلومات دینے  </item>
         <item> مرکز صحت جانے کا مشورہ  دینے </item>
         <item> حفاظتی ٹیکے </item>
@@ -474,6 +528,7 @@
         <item>(دیگر (وضاحت کریں</item>
     </string-array>
     <string-array name="MC_503_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -484,6 +539,7 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_504W_list">
+        <item> ... </item>
         <item> کوئی دیوار نہیں  </item>
         <item> لکڑی کے تختے </item>
         <item> ٹینٹ </item>
@@ -494,6 +550,7 @@
         <item>(دیگر (وضاحت کریں</item>
     </string-array>
     <string-array name="MC_504W_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -504,6 +561,7 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_504R_list">
+        <item> ... </item>
         <item> کوئی چھت نہیں  </item>
         <item> ٹین کی چادر/ازبیسٹوز </item>
         <item> ٹیرگاڈر(اینٹوں کے )ساتھ </item>
@@ -515,6 +573,7 @@
         <item>(دیگر (وضاحت کریں</item>
     </string-array>
     <string-array name="MC_504R_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -526,6 +585,7 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_504F_list">
+        <item> ... </item>
         <item> زمین/ریت/مٹی  </item>
         <item> لکٹری کے تختے </item>
         <item> اینٹیں </item>
@@ -538,6 +598,7 @@
         <item>(دیگر (وضاحت کریں</item>
     </string-array>
     <string-array name="MC_504F_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -550,18 +611,21 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_505_list">
+        <item> ... </item>
         <item> اپنا ہے  </item>
         <item> کرائے کا ہے </item>
         <item> بغیر کرائے کے رہتے ہیں </item>
         <item> معلوم نہیں  </item>
     </string-array>
     <string-array name="MC_505_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
         <item>99</item>
     </string-array>
     <string-array name="MC_508_list">
+        <item> ... </item>
         <item> بجلی  </item>
         <item> ایل –پی-جی   سیلنڈر </item>
         <item> (سوئی گیس کنکشن(قدرتی گیس </item>
@@ -573,6 +637,7 @@
         <item>(دیگر (وضاحت کریں</item>
     </string-array>
     <string-array name="MC_508_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -584,6 +649,7 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_509_list">
+        <item> ... </item>
         <item> (سرکاری پانی کا نلکا(گھر میں   </item>
         <item>  عوامی  جگہوں میں لگا ہوا نلکا </item>
         <item> ٹیوب ویل /بورنگ کا پانی  </item>
@@ -601,6 +667,7 @@
         <item>(دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_509_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -618,6 +685,7 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_510_list">
+        <item> ... </item>
         <item> (سرکاری پانی کا نلکا(گھر میں   </item>
         <item>  عوامی  جگہوں میں لگا ہوا نلکا </item>
         <item> ٹیوب ویل /بورنگ کا پانی  </item>
@@ -634,6 +702,7 @@
         <item>(دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_510_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -650,6 +719,7 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_512_list">
+        <item> ... </item>
         <item> ابالتے ہیں   </item>
         <item> لیچ/کلوریں ملاتے ہیں </item>
         <item> کپڑے کے ذرئعے چھانتے ہیں  </item>
@@ -661,6 +731,7 @@
         <item>(دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_512_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -672,6 +743,7 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_513_list">
+        <item> ... </item>
         <item> فلش   سیوریح کے نظام سے ملا ہوا   </item>
         <item>  فلش سپٹک ٹینک سے جڑا ہوا </item>
         <item> فلش   گڑھےواے لیٹرین سے جڑاہوا </item>
@@ -682,6 +754,7 @@
         <item>(دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_513_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -692,34 +765,41 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_516_list">
+        <item> ... </item>
         <item> ہاں  </item>
         <item> نہیں </item>
         <item> معلوم نہیں </item>
     </string-array>
     <string-array name="MC_516_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>99</item>
     </string-array>
     <string-array name="MC_517_list">
+        <item> ... </item>
         <item> مشاہدہ کیا  </item>
         <item> احاطے میں نہیں ہے </item>
         <item> دیکھنے کی اجازت نہیں ملی </item>
     </string-array>
     <string-array name="MC_517_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
     </string-array>
     <string-array name="MC_518_list">
+        <item> ... </item>
         <item> پانی موجود ہے  </item>
         <item> پانی موجود نہیں  </item>
     </string-array>
     <string-array name="MC_518_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
     </string-array>
     <string-array name="MC_519_list">
+        <item> ... </item>
         <item> کچھ موجودنہیں </item>
         <item> مائع صابن  </item>
         <item> صابن  </item>
@@ -727,6 +807,7 @@
         <item> راکھ/مٹی/ریت  </item>
     </string-array>
     <string-array name="MC_519_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -734,6 +815,7 @@
         <item>5</item>
     </string-array>
     <string-array name="MC_521_list">
+        <item> ... </item>
         <item> صابن </item>
         <item> ڈٹرجنٹ /لکویڈ/پیسٹ  </item>
         <item> مائع صابن  </item>
@@ -741,6 +823,7 @@
         <item> کچھ نہیں  </item>
     </string-array>
     <string-array name="MC_521_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -748,6 +831,7 @@
         <item>5</item>
     </string-array>
     <string-array name="MC_522_list">
+        <item> ... </item>
         <item> کھاناپکانے سے پہلے   </item>
         <item> کھانا کھانے سے پہلے </item>
         <item> بچے کوکھانا کھلانے سے پہلے  </item>
@@ -760,6 +844,7 @@
         <item>(دیگر(وضاحت کریں</item>
     </string-array>
     <string-array name="MC_522_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -772,11 +857,13 @@
         <item>88</item>
     </string-array>
     <string-array name="MC_524_list">
+        <item> ... </item>
         <item> ایکڑ  </item>
         <item> کنال  </item>
         <item> معلوم نہیں  </item>
     </string-array>
     <string-array name="MC_524_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>99</item>
@@ -786,6 +873,7 @@
 
 
     <string-array name="MC_603_list">
+        <item> ... </item>
         <item> ماں اور بچہ بیمار نہیں تھے  </item>
         <item> کیمپ دور تھا </item>
         <item> گھروالوں کی طرف سے اجازت نہیں تھی </item>
@@ -794,6 +882,7 @@
 
     </string-array>
     <string-array name="MC_603_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -804,6 +893,7 @@
 
 
     <string-array name="MC_604_list">
+        <item> ... </item>
         <item> TVI ورکر   </item>
         <item> پولیو ورکر </item>
         <item> لیڈی ہیلتھ ورکرز(LHW) </item>
@@ -818,6 +908,7 @@
 
     </string-array>
     <string-array name="MC_604_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -833,6 +924,7 @@
 
 
     <string-array name="MC_605_list">
+        <item> ... </item>
         <item> بچے کےمعائنہ کے لیے   </item>
         <item> ماں کےمعائنہ کے لئے </item>
         <item> بچے کے حفاظتی ٹیکوں کے لیے </item>
@@ -842,6 +934,7 @@
 
     </string-array>
     <string-array name="MC_605_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -852,6 +945,7 @@
 
 
     <string-array name="MC_YNDK_list">
+        <item> ... </item>
         <item> ہاں  </item>
         <item> نہیں </item>
         <item> معلوم نہیں  </item>
@@ -859,6 +953,7 @@
 
     </string-array>
     <string-array name="MC_YNDK_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>99</item>
@@ -867,6 +962,7 @@
 
 
     <string-array name="MC_607_list">
+        <item> ... </item>
         <item> حفاظتی ٹیکے دستیاب نہیں تھے  </item>
         <item> ڈاکٹر نےمشورہ نہیں دیاتھا </item>
         <item> بچہ بیمار تھا  </item>
@@ -879,6 +975,7 @@
 
     </string-array>
     <string-array name="MC_607_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>
@@ -891,6 +988,7 @@
 
 
     <string-array name="MC_607A_list">
+        <item> ... </item>
         <item>  </item>
         <item> ہاں</item>
         <item> نہیں  </item>
@@ -899,6 +997,7 @@
 
     </string-array>
     <string-array name="MC_607A_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>99</item>
@@ -907,6 +1006,7 @@
 
 
     <string-array name="MC_607B_list">
+        <item> ... </item>
         <item>  </item>
         <item> پولیو کا ٹیکہ دستیاب نہیں تھا</item>
         <item> ڈاکٹر نے مشورہ نہیں دیا تھا  </item>
@@ -920,6 +1020,7 @@
 
     </string-array>
     <string-array name="MC_607B_value">
+        <item>0</item>
         <item>1</item>
         <item>2</item>
         <item>3</item>

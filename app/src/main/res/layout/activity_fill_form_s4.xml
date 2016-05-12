@@ -237,7 +237,8 @@
                 android:hint="@string/MC_404_88"
                 android:inputType="text"
                 android:maxLength="256"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:visibility="gone" />
 
             <EditText
                 android:id="@+id/MC_404_X2"
@@ -245,7 +246,8 @@
                 android:hint="@string/MC_404_88"
                 android:inputType="text"
                 android:maxLength="256"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:visibility="gone" />
 
 
             <EditText
@@ -254,7 +256,8 @@
                 android:hint="@string/MC_404_88"
                 android:inputType="text"
                 android:maxLength="256"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:visibility="gone" />
 
 
             <!--MC_405-->
@@ -307,7 +310,8 @@
                 android:hint="@string/MC_405_88"
                 android:inputType="text"
                 android:maxLength="256"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:visibility="gone" />
 
 
             <!--MC_405A-->
@@ -355,7 +359,8 @@
                 android:hint="@string/MC_405A88"
                 android:inputType="text"
                 android:maxLength="256"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:visibility="gone" />
 
 
             <!--MC_406-->
@@ -432,7 +437,8 @@
                     android:hint="@string/MC_407_88"
                     android:inputType="text"
                     android:maxLength="256"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>
 
@@ -487,7 +493,7 @@
             <EditText
                 android:id="@+id/MC_409_88"
                 style="@style/textInput"
-                android:hint="MC_409_88"
+                android:hint="@string/MC_405_88"
                 android:inputType="text"
                 android:maxLength="256"
                 android:singleLine="true" />
@@ -619,7 +625,8 @@
                     android:hint="@string/MC_410BX"
                     android:inputType="text"
                     android:maxLength="256"
-                    android:singleLine="true" />
+                    android:singleLine="true"
+                    android:visibility="gone" />
             </LinearLayout>
 
         </LinearLayout>
@@ -720,7 +727,8 @@
                 android:hint="@string/MC_413_88"
                 android:inputType="text"
                 android:maxLength="256"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:visibility="gone" />
         </LinearLayout>
 
         <!--MC_414-->
@@ -777,7 +785,8 @@
                 android:hint="@string/MC_415_88"
                 android:inputType="text"
                 android:maxLength="256"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:visibility="gone" />
         </LinearLayout>
 
 

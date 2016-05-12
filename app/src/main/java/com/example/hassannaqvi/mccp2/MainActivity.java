@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.Settings;
@@ -17,6 +19,9 @@ import android.widget.Toast;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.net.InetSocketAddress;
+import java.net.Socket;
+import java.net.SocketAddress;
 import java.nio.channels.FileChannel;
 import java.text.DateFormat;
 import java.util.Date;
@@ -51,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
                 new MyLocationListener()
         );
+        Log.d(TAG, String.valueOf(db.getFormCount()));
 
 
     }
@@ -94,10 +100,9 @@ public class MainActivity extends AppCompatActivity {
                     + ", MC_104: " + fc.get104()
                     + ", MC_105: " + fc.get105()
                     + ", MC_106: " + fc.get106()
-                    + ", MC_EXT: " + fc.getExt()
                     + ", MC_107: " + fc.get107()
+                    + ", MC_108: " + fc.get108()
                     + ", MC_S_2: " + fc.getS2()
-                    + ", MC_S_3: " + fc.getS3()
                     + ", MC_S_4: " + fc.getS4()
                     + ", MC_S_5: " + fc.getS5()
                     + ", MC_S_6: " + fc.getS6()
@@ -237,6 +242,79 @@ public class MainActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
 
+    }
+
+    private boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    private boolean isHostAvailable() {
+
+        if (isNetworkAvailable()) {
+            try {
+                SocketAddress sockaddr = new InetSocketAddress("192.168.1.10", 80);
+                // Create an unbound socket
+                Socket sock = new Socket();
+
+                // This method will block no more than timeoutMs.
+                // If the timeout occurs, SocketTimeoutException is thrown.
+                int timeoutMs = 2000;   // 2 seconds
+                sock.connect(sockaddr, timeoutMs);
+                return true;
+            } catch (Exception e) {
+                Toast.makeText(getApplicationContext(), "Server Not Available for Update", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Network not available for Update", Toast.LENGTH_SHORT).show();
+            return false;
+
+        }
+    }
+
+    public void updateUsers(View view) {
+
+        if (isNetworkAvailable()) {
+            // Syncing Towns Table from Server
+            getTowns towns = new getTowns(getApplicationContext());
+            Toast.makeText(getApplicationContext(), "Syncing Towns from Server...", Toast.LENGTH_SHORT).show();
+            towns.execute();
+
+            // Syncing Clusters Table from Server
+            getClusters clusters = new getClusters(getApplicationContext());
+            Toast.makeText(getApplicationContext(), "Syncing Clusters from Server...", Toast.LENGTH_SHORT).show();
+            clusters.execute();
+
+            // Syncing UCs Table from Server
+            getUC UC = new getUC(getApplicationContext());
+            Toast.makeText(getApplicationContext(), "Syncing UC from Server...", Toast.LENGTH_SHORT).show();
+            UC.execute();
+
+            GetUsers users = new GetUsers(getApplicationContext());
+            Toast.makeText(getApplicationContext(), "Syncing Users from Server...", Toast.LENGTH_SHORT).show();
+            users.execute();
+        } else {
+
+            Toast.makeText(MainActivity.this, "Network not available for update!", Toast.LENGTH_LONG).show();
+
+        }
+
+
+    }
+
+    public void syncFunction(View view) {
+        if (isNetworkAvailable()) {
+            syncForms ff = new syncForms(this);
+            Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
+            ff.execute();
+        } else {
+            Toast.makeText(getApplicationContext(), "Network Not Available", Toast.LENGTH_SHORT).show();
+
+        }
     }
 
     private class MyLocationListener implements LocationListener {
