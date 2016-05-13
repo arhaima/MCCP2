@@ -29,9 +29,9 @@ import java.util.List;
 public class FillFormS3Activity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_S3_ACTIVITY";
-
     public static String FORM_ID;
-    public List<String> chids = new ArrayList<String>();
+    public static List<String> chids = new ArrayList<String>();
+    private static boolean revMode;
     private String formId;
     private Integer girlCount;
     private Integer boyCount;
@@ -209,7 +209,7 @@ public class FillFormS3Activity extends AppCompatActivity {
         childName = (TextView) findViewById(R.id.child_name);
         childCount = (TextView) findViewById(R.id.child_count);
 
-        childCount.setText("Boy Remaining: " + boyCount + " Girl Remaining: " + girlCount);
+        childCount.setText("Remaining: Boy - " + boyCount + "|| Girl - " + girlCount);
 
 
         ima.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -292,12 +292,12 @@ public class FillFormS3Activity extends AppCompatActivity {
         bcgsrcselected = getResources().getStringArray(R.array.IM_I_Source_value)[bcgsrc.getSelectedItemPosition()];
         opv_0selected = getResources().getStringArray(R.array.MC_YN_value)[opv_0.getSelectedItemPosition()];
         opv_0srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_0src.getSelectedItemPosition()];
-        opv_1selected = getResources().getStringArray(R.array.MC_YN_value)[opv_0.getSelectedItemPosition()];
-        opv_1srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_0src.getSelectedItemPosition()];
-        opv_2selected = getResources().getStringArray(R.array.MC_YN_value)[opv_0.getSelectedItemPosition()];
-        opv_2srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_0src.getSelectedItemPosition()];
-        opv_3selected = getResources().getStringArray(R.array.MC_YN_value)[opv_0.getSelectedItemPosition()];
-        opv_3srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_0src.getSelectedItemPosition()];
+        opv_1selected = getResources().getStringArray(R.array.MC_YN_value)[opv_1.getSelectedItemPosition()];
+        opv_1srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_1src.getSelectedItemPosition()];
+        opv_2selected = getResources().getStringArray(R.array.MC_YN_value)[opv_2.getSelectedItemPosition()];
+        opv_2srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_2src.getSelectedItemPosition()];
+        opv_3selected = getResources().getStringArray(R.array.MC_YN_value)[opv_3.getSelectedItemPosition()];
+        opv_3srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[opv_3src.getSelectedItemPosition()];
         p_1selected = getResources().getStringArray(R.array.MC_YN_value)[p_1.getSelectedItemPosition()];
         p_1srcselected = getResources().getStringArray(R.array.IM_I_Source_value)[p_1src.getSelectedItemPosition()];
         p_2selected = getResources().getStringArray(R.array.MC_YN_value)[p_2.getSelectedItemPosition()];
@@ -353,7 +353,7 @@ public class FillFormS3Activity extends AppCompatActivity {
         Integer chid = boyCount + girlCount;
         imchid = formId + String.format("%02d", chid);
         chids.add(imchid);
-        SharedPreferences sharedPref = getSharedPreferences(imchid, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("IM_" + imchid, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         if (FillFormS2Activity.gndrChk == true) {
@@ -403,12 +403,12 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.putString("spopv_2", opv_2selected.toString());
         editor.putString("spopv_2src", opv_2srcselected.toString());
         editor.putString("spopv_3", opv_3selected.toString());
-        editor.putString("spopv_4src", opv_3srcselected.toString());
-        editor.putString("spp_1src", p_1selected.toString());
+        editor.putString("spopv_3src", opv_3srcselected.toString());
+        editor.putString("spp_1", p_1selected.toString());
         editor.putString("spp_1src", p_1srcselected.toString());
-        editor.putString("spp_2src", p_2selected.toString());
+        editor.putString("spp_2", p_2selected.toString());
         editor.putString("spp_2src", p_2srcselected.toString());
-        editor.putString("spp_3src", p_3selected.toString());
+        editor.putString("spp_3", p_3selected.toString());
         editor.putString("spp_3src", p_3srcselected.toString());
         editor.putString("sppcv_1", pcv_1selected.toString());
         editor.putString("sppcv_1src", pcv_1srcselected.toString());
@@ -544,7 +544,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             return false;
         }
 
-        if (imbselected.toString().equals("1") && boyCount < 1) {
+        if (imb.getSelectedItemPosition() == 1 && boyCount < 1) {
             Toast.makeText(getApplicationContext(), "Boy Count Completed!", Toast.LENGTH_SHORT).show();
             TextView errorText = (TextView) imb.getSelectedView();
             errorText.setError(" ");
@@ -553,7 +553,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imb - Boy Count: " + boyCount);
             return false;
         }
-        if (imbselected.toString().equals("2") && girlCount < 1) {
+        if (imb.getSelectedItemPosition() == 2 && girlCount < 1) {
             Toast.makeText(getApplicationContext(), "Girl Count Completed!", Toast.LENGTH_SHORT).show();
             TextView errorText = (TextView) imb.getSelectedView();
             errorText.setError(" ");
@@ -1094,10 +1094,11 @@ public class FillFormS3Activity extends AppCompatActivity {
         return true;
     }
 
-    @Override
+    /*@Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "Back Button NOT Allowed!", Toast.LENGTH_SHORT).show();
 
-    }
 
+    }
+*/
 }

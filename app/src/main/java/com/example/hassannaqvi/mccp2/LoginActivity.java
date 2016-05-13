@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Map;
@@ -26,7 +29,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public ArrayList<String> lables;
     public ArrayList<String> values;
     Spinner spSP;
-    String listText1;
+    JSONObject listText;
     private Spinner spUC;
 
     @Override
@@ -36,7 +39,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         setContentView(R.layout.activity_login);
 
         spSP = (Spinner) findViewById(R.id.spinner1);
-        listText1 = "";
 
 
         File prefsdir = new File(getApplicationInfo().dataDir, "shared_prefs");
@@ -59,13 +61,20 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
                 SharedPreferences sp2 = getSharedPreferences(preffile, MODE_PRIVATE);
                 Map<String, ?> map = sp2.getAll();
+                listText = new JSONObject();
 
-                for (Map.Entry<String, ?> entry : map.entrySet()) {
-                    Log.d("SOut ", entry.getKey() + " -|- " + entry.getValue());
-                    listText1.concat("\r\n");
-                    listText1.concat(entry.getKey() + " : " + entry.getValue());
+
+                try {
+                    for (Map.Entry<String, ?> entry : map.entrySet()) {
+                        Log.d("SOut ", entry.getKey() + " -|- " + entry.getValue());
+                        listText.put(entry.getKey(), entry.getValue());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
-                Log.d("TAG: ", listText1);
+
+
+                Log.d("TAG: ", listText.toString());
                 Log.d("TAG: ", "End");
 
 
@@ -116,7 +125,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     public void viewForm(View view) {
         Intent vF_intent = new Intent(getApplicationContext(), FormView.class);
-        vF_intent.putExtra("listText", listText1);
+        //vF_intent.putExtra("listText", listText);
 
         startActivity(vF_intent);
 

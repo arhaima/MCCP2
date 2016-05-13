@@ -167,10 +167,11 @@ public class FillFormActivity extends AppCompatActivity {
                             Log.i(TAG, "Match:" + UC.getClusterName());
 
                             mc105clusterNm.setText(UC.getClusterName());
+                            mc105cluster.setError(null);
                             break;
                         } else {
                             mc105clusterNm.setText("Invalid Cluster Number!");
-
+                            mc105cluster.setError("Invalid Cluster Number!");
                         }
                     }
                     mc105clusterNm.setVisibility(View.VISIBLE);
@@ -282,18 +283,14 @@ public class FillFormActivity extends AppCompatActivity {
 
             Log.d(TAG, "Error Type: 105");
             return false;
-        }
-        if (!mc105clusterNm.getText().toString().isEmpty()) {
-            clusterList = db.getClustersByUC(LoginActivity.UC_ID);
+        } else
 
-            for (ClustersContract UC : clusterList) {
-                Log.i(TAG, UC.getClusterName());
-
-                if (!UC.getClusterCode().equals(mc105cluster.getText().toString())) {
-                    mc105clusterNm.setText("Invalid Cluster Number!");
-                }
-            }
+        {
+            if (mc105cluster.getError() != null) {
+                return false;
         }
+        }
+
         if (mcExt.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mcExt.getSelectedView();
             errorText.setError("anything here, just to add the icon");

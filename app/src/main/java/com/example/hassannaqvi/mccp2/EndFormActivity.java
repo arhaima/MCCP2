@@ -118,7 +118,7 @@ public class EndFormActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
 
             Log.d(TAG, "Error Type: 109");
-            return true;
+            return false;
         }
 
         if (mc110Selected == -1) {
@@ -127,7 +127,7 @@ public class EndFormActivity extends AppCompatActivity {
 
 
             Log.d(TAG, "Error Type: 110");
-            return true;
+            return false;
         }
 
 
@@ -136,7 +136,7 @@ public class EndFormActivity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Specify other reason!", Toast.LENGTH_SHORT).show();
 
             Log.d(TAG, "Error Type: 110x");
-            return true;
+            return false;
         }
         return true;
     }
@@ -175,6 +175,9 @@ public class EndFormActivity extends AppCompatActivity {
             case R.id.MC_110_88:
                 editor.putString("sp110", "88");
                 break;
+            default:
+                editor.putString("sp110", "00");
+                break;
 
         }
         editor.putString("sp110x", mc110x.getText().toString());
@@ -200,6 +203,8 @@ public class EndFormActivity extends AppCompatActivity {
 
             try {
                 Log.d(TAG, "Updating DataBase...");
+                Toast.makeText(this, "Updating DataBase...", Toast.LENGTH_SHORT).show();
+
                 db.addForm(FormsContract.getInstance());
             } catch (SQLiteException e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();

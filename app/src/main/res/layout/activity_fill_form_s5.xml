@@ -324,6 +324,12 @@
             style="@style/textInput"
             android:hint="@string/MC_503_X" />
 
+        <EditText
+            android:id="@+id/MC_503_G_X_X"
+            style="@style/textInput"
+            android:hint="@string/MC_503"
+            android:lines="2" />
+
 </LinearLayout>
             </ScrollView>
         <!--MC_504W-->
@@ -603,9 +609,10 @@
 
 
         <CheckBox
-            android:id="@+id/MC_512_8"
+            android:id="@+id/MC_512_99"
             style="@style/checkbox"
-            android:text="@string/MC_512_8" />
+            android:text="@string/MC_512_99" />
+
 
         <CheckBox
             android:id="@+id/MC_512_88"

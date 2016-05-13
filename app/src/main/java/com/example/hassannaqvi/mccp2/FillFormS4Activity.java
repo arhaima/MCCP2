@@ -326,7 +326,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         fldGrp414 = (LinearLayout) findViewById(R.id.fldGrp414);
 
 
-        mc401.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+       /* mc401.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == mc401_no.getId()) {
@@ -335,7 +335,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                     fldGrp401.setVisibility(View.VISIBLE);
                 }
             }
-        });
+        });*/
         mc402_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
                                                 @Override
@@ -529,7 +529,7 @@ public class FillFormS4Activity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 // your code here
-                if (mc415.getSelectedItemPosition() == 2) {
+                if (mc415.getSelectedItemPosition() == 3) {
                     mc415x.setVisibility(View.VISIBLE);
                 } else {
                     mc415x.setVisibility(View.GONE);
@@ -677,61 +677,63 @@ public class FillFormS4Activity extends AppCompatActivity {
 
 
         // Putting values of CheckBoxes
-        editor.putString("sp402_1", (mc402_1.isChecked() ? "1" : ""));
-        editor.putString("sp402_2", (mc402_2.isChecked() ? "2" : ""));
-        editor.putString("sp402_3", (mc402_3.isChecked() ? "3" : ""));
-        editor.putString("sp402_4", (mc402_4.isChecked() ? "4" : ""));
-        editor.putString("sp402_5", (mc402_5.isChecked() ? "5" : ""));
-        editor.putString("sp402_6", (mc402_6.isChecked() ? "6" : ""));
-        editor.putString("sp402_7", (mc402_7.isChecked() ? "7" : ""));
-        editor.putString("sp402_8", (mc402_8.isChecked() ? "8" : ""));
-        editor.putString("sp402_9", (mc402_9.isChecked() ? "9" : ""));
-        editor.putString("sp402_10", (mc402_10.isChecked() ? "10" : ""));
-        editor.putString("sp402_88", (mc402_88.isChecked() ? "88" : ""));
-        editor.putString("sp404_1", (mc404_1.isChecked() ? "1" : ""));
-        editor.putString("sp404_2", (mc404_2.isChecked() ? "2" : ""));
-        editor.putString("sp404_3", (mc404_3.isChecked() ? "3" : ""));
-        editor.putString("sp404_4", (mc404_4.isChecked() ? "4" : ""));
-        editor.putString("sp404_5", (mc404_5.isChecked() ? "5" : ""));
-        editor.putString("sp404_6", (mc404_6.isChecked() ? "6" : ""));
-        editor.putString("sp404_7", (mc404_7.isChecked() ? "7" : ""));
-        editor.putString("sp404_8", (mc404_8.isChecked() ? "8" : ""));
-        editor.putString("sp404_9", (mc404_9.isChecked() ? "9" : ""));
-        editor.putString("sp404_88", (mc404_88.isChecked() ? "88" : ""));
-        editor.putString("sp404_99", (mc404_99.isChecked() ? "99" : ""));
-        editor.putString("sp405_1", (mc405_1.isChecked() ? "1" : ""));
-        editor.putString("sp405_2", (mc405_2.isChecked() ? "2" : ""));
-        editor.putString("sp405_3", (mc405_3.isChecked() ? "3" : ""));
-        editor.putString("sp405_4", (mc405_4.isChecked() ? "4" : ""));
-        editor.putString("sp405_5", (mc405_5.isChecked() ? "5" : ""));
-        editor.putString("sp405_88", (mc405_88.isChecked() ? "88" : ""));
-        editor.putString("sp405_99", (mc405_99.isChecked() ? "99" : ""));
-        editor.putString("sp405a1", (mc405a1.isChecked() ? "1" : ""));
-        editor.putString("sp405a2", (mc405a2.isChecked() ? "2" : ""));
-        editor.putString("sp405a3", (mc405a3.isChecked() ? "3" : ""));
-        editor.putString("sp405a4", (mc405a4.isChecked() ? "4" : ""));
-        editor.putString("sp405a88", (mc405a88.isChecked() ? "88" : ""));
-        editor.putString("sp405a99", (mc405a99.isChecked() ? "99" : ""));
-        editor.putString("sp407_1", (mc407_1.isChecked() ? "1" : ""));
-        editor.putString("sp407_2", (mc407_2.isChecked() ? "2" : ""));
-        editor.putString("sp407_3", (mc407_3.isChecked() ? "3" : ""));
-        editor.putString("sp407_4", (mc407_4.isChecked() ? "4" : ""));
-        editor.putString("sp407_5", (mc407_5.isChecked() ? "5" : ""));
-        editor.putString("sp407_6", (mc407_6.isChecked() ? "6" : ""));
-        editor.putString("sp407_88", (mc407_88.isChecked() ? "88" : ""));
-        editor.putString("sp410B_1", (mc410B_1.isChecked() ? "1" : ""));
-        editor.putString("sp410B_2", (mc410B_2.isChecked() ? "2" : ""));
-        editor.putString("sp410B_3", (mc410B_3.isChecked() ? "3" : ""));
-        editor.putString("sp410B_4", (mc410B_4.isChecked() ? "4" : ""));
-        editor.putString("sp410B_5", (mc410B_5.isChecked() ? "5" : ""));
-        editor.putString("sp410B_88", (mc410B_88.isChecked() ? "88" : ""));
-        editor.putString("sp410B_99", (mc410B_99.isChecked() ? "99" : ""));
-        editor.putString("sp413_1", (mc413_1.isChecked() ? "1" : ""));
-        editor.putString("sp413_2", (mc413_2.isChecked() ? "2" : ""));
-        editor.putString("sp413_3", (mc413_3.isChecked() ? "3" : ""));
-        editor.putString("sp413_4", (mc413_4.isChecked() ? "4" : ""));
-        editor.putString("sp413_5", (mc413_5.isChecked() ? "5" : ""));
-        editor.putString("sp413_88", (mc413_88.isChecked() ? "88" : ""));
+        editor.putString("sp402_1", (mc402_1.isChecked() ? "1" : "00"));
+        editor.putString("sp402_2", (mc402_2.isChecked() ? "2" : "00"));
+        editor.putString("sp402_3", (mc402_3.isChecked() ? "3" : "00"));
+        editor.putString("sp402_4", (mc402_4.isChecked() ? "4" : "00"));
+        editor.putString("sp402_5", (mc402_5.isChecked() ? "5" : "00"));
+        editor.putString("sp402_6", (mc402_6.isChecked() ? "6" : "00"));
+        editor.putString("sp402_7", (mc402_7.isChecked() ? "7" : "00"));
+        editor.putString("sp402_8", (mc402_8.isChecked() ? "8" : "00"));
+        editor.putString("sp402_9", (mc402_9.isChecked() ? "9" : "00"));
+        editor.putString("sp402_10", (mc402_10.isChecked() ? "10" : "00"));
+        editor.putString("sp402_88", (mc402_88.isChecked() ? "88" : "00"));
+        editor.putString("sp404_1", (mc404_1.isChecked() ? "1" : "00"));
+        editor.putString("sp404_2", (mc404_2.isChecked() ? "2" : "00"));
+        editor.putString("sp404_3", (mc404_3.isChecked() ? "3" : "00"));
+        editor.putString("sp404_4", (mc404_4.isChecked() ? "4" : "00"));
+        editor.putString("sp404_5", (mc404_5.isChecked() ? "5" : "00"));
+        editor.putString("sp404_6", (mc404_6.isChecked() ? "6" : "00"));
+        editor.putString("sp404_7", (mc404_7.isChecked() ? "7" : "00"));
+        editor.putString("sp404_8", (mc404_8.isChecked() ? "8" : "00"));
+        editor.putString("sp404_9", (mc404_9.isChecked() ? "9" : "00"));
+        editor.putString("sp404_88", (mc404_88.isChecked() ? "88" : "00"));
+        editor.putString("sp404_99", (mc404_99.isChecked() ? "99" : "00"));
+        editor.putString("sp405_1", (mc405_1.isChecked() ? "1" : "00"));
+        editor.putString("sp405_2", (mc405_2.isChecked() ? "2" : "00"));
+        editor.putString("sp405_3", (mc405_3.isChecked() ? "3" : "00"));
+        editor.putString("sp405_4", (mc405_4.isChecked() ? "4" : "00"));
+        editor.putString("sp405_5", (mc405_5.isChecked() ? "5" : "00"));
+        editor.putString("sp405_88", (mc405_88.isChecked() ? "88" : "00"));
+        editor.putString("sp405_99", (mc405_99.isChecked() ? "99" : "00"));
+        editor.putString("sp405a1", (mc405a1.isChecked() ? "1" : "00"));
+        editor.putString("sp405a2", (mc405a2.isChecked() ? "2" : "00"));
+        editor.putString("sp405a3", (mc405a3.isChecked() ? "3" : "00"));
+        editor.putString("sp405a4", (mc405a4.isChecked() ? "4" : "00"));
+        editor.putString("sp405a88", (mc405a88.isChecked() ? "88" : "00"));
+        editor.putString("sp405a99", (mc405a99.isChecked() ? "99" : "00"));
+        editor.putString("sp407_1", (mc407_1.isChecked() ? "1" : "00"));
+        editor.putString("sp407_2", (mc407_2.isChecked() ? "2" : "00"));
+        editor.putString("sp407_3", (mc407_3.isChecked() ? "3" : "00"));
+        editor.putString("sp407_4", (mc407_4.isChecked() ? "4" : "00"));
+        editor.putString("sp407_5", (mc407_5.isChecked() ? "5" : "00"));
+        editor.putString("sp407_6", (mc407_6.isChecked() ? "6" : "00"));
+        editor.putString("sp407_88", (mc407_88.isChecked() ? "88" : "00"));
+        editor.putString("sp410B_1", (mc410B_1.isChecked() ? "1" : "00"));
+        editor.putString("sp410B_2", (mc410B_2.isChecked() ? "2" : "00"));
+        editor.putString("sp410B_3", (mc410B_3.isChecked() ? "3" : "00"));
+        editor.putString("sp410B_4", (mc410B_4.isChecked() ? "4" : "00"));
+        editor.putString("sp410B_5", (mc410B_5.isChecked() ? "5" : "00"));
+        editor.putString("sp410B_88", (mc410B_88.isChecked() ? "88" : "00"));
+        editor.putString("sp410B_99", (mc410B_99.isChecked() ? "99" : "00"));
+        editor.putString("sp413_1", (mc413_1.isChecked() ? "1" : "00"));
+        editor.putString("sp413_2", (mc413_2.isChecked() ? "2" : "00"));
+        editor.putString("sp413_3", (mc413_3.isChecked() ? "3" : "00"));
+        editor.putString("sp413_4", (mc413_4.isChecked() ? "4" : "00"));
+        editor.putString("sp413_5", (mc413_5.isChecked() ? "5" : "00"));
+        editor.putString("sp413_6", (mc413_6.isChecked() ? "6" : "00"));
+        editor.putString("sp413_7", (mc413_7.isChecked() ? "7" : "00"));
+        editor.putString("sp413_88", (mc413_88.isChecked() ? "88" : "00"));
 
 
         // Putting values of Radiobuttons
@@ -836,6 +838,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         editor.putString("sp404x_2", mc404x_2.getText().toString());
         editor.putString("sp404x_3", mc404x_3.getText().toString());
         editor.putString("sp405x", mc405x.getText().toString());
+        editor.putString("sp405ax", mc405ax.getText().toString());
         editor.putString("sp407x", mc407x.getText().toString());
         editor.putString("sp409x", mc409x.getText().toString());
         editor.putString("sp410x", mc410x.getText().toString());
@@ -1006,7 +1009,7 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 410A not selected");
             return false;
         }
-        if (mc409.getSelectedItemPosition() == 0) {
+        if (mc408_yes.isChecked() && mc409.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc409.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -1047,7 +1050,7 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 414 not selected");
             return false;
         }
-        if (mc415.getSelectedItemPosition() == 0) {
+        if (mc414_no.isChecked() && mc415.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc415.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -1061,9 +1064,9 @@ public class FillFormS4Activity extends AppCompatActivity {
         return true;
     }
 
-    @Override
+   /* @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "Back Button NOT Allowed!", Toast.LENGTH_SHORT).show();
 
-    }
+    }*/
 }

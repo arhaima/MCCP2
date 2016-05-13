@@ -261,9 +261,10 @@ public class FillFormS6Activity extends AppCompatActivity {
 
 
         // Initializing All Spinner Selected values from Form-Fields-Arrays _value (NOT _list).
-        mc601selected = getResources().getStringArray(R.array.MC_YN_value)[mc609.getSelectedItemPosition()];
+        mc601selected = getResources().getStringArray(R.array.MC_YN_value)[mc601.getSelectedItemPosition()];
         mc607Bselected = getResources().getStringArray(R.array.MC_607B_value)[mc607B.getSelectedItemPosition()];
         mc609selected = getResources().getStringArray(R.array.MC_YN_value)[mc609.getSelectedItemPosition()];
+        mc610selected = getResources().getStringArray(R.array.MC_YN_value)[mc610.getSelectedItemPosition()];
 
         // Initializing All RadioButton Selected values from Form-Fields-Arrays _value (NOT _list).
         mc602selected = mc602.getCheckedRadioButtonId();
@@ -324,13 +325,12 @@ public class FillFormS6Activity extends AppCompatActivity {
         editor.putString("sp604_8", (mc604_8.isChecked() ? "8" : ""));
         editor.putString("sp604_9", (mc604_9.isChecked() ? "9" : ""));
         editor.putString("sp604_88", (mc604_88.isChecked() ? "88" : ""));
-        editor.putString("sp604x", (mc604x.getText().toString()));
 
         editor.putString("sp605_1", (mc605_1.isChecked() ? "1" : ""));
         editor.putString("sp605_2", (mc605_2.isChecked() ? "2" : ""));
         editor.putString("sp605_3", (mc605_3.isChecked() ? "3" : ""));
         editor.putString("sp605_4", (mc605_4.isChecked() ? "4" : ""));
-        editor.putString("sp605_5", (mc605_4.isChecked() ? "5" : ""));
+        editor.putString("sp605_5", (mc605_5.isChecked() ? "5" : ""));
 
         editor.putString("sp607_1", (mc607_1.isChecked() ? "1" : ""));
         editor.putString("sp607_2", (mc607_2.isChecked() ? "2" : ""));
@@ -339,7 +339,7 @@ public class FillFormS6Activity extends AppCompatActivity {
         editor.putString("sp607_5", (mc607_5.isChecked() ? "5" : ""));
         editor.putString("sp607_6", (mc607_6.isChecked() ? "6" : ""));
         editor.putString("sp607_7", (mc607_7.isChecked() ? "7" : ""));
-        editor.putString("sp607_8", (mc607_7.isChecked() ? "8" : ""));
+        editor.putString("sp607_88", (mc607_88.isChecked() ? "88" : ""));
 
         editor.putString("sp608_m1", (mc608M1.isChecked() ? "1" : ""));
         editor.putString("sp608_m2", (mc608M2.isChecked() ? "2" : ""));
@@ -385,28 +385,28 @@ public class FillFormS6Activity extends AppCompatActivity {
                 editor.putString("sp607a", "2");
                 break;
             case R.id.MC_607A_Yes:
-                editor.putString("sp606", "1");
+                editor.putString("sp607a", "1");
                 break;
             case R.id.MC_607A_Dontknow:
-                editor.putString("sp606", "99");
+                editor.putString("sp607a", "99");
                 break;
             default:
-                editor.putString("sp606", "00");
+                editor.putString("sp607a", "00");
                 break;
         }
 
-        editor.putString("sp609", mc609selected.toString()); // Spinner Respondent's Occupation
 
 
         //Putting values for spinner
         editor.putString("sp601", mc601selected.toString());
         editor.putString("sp607b", mc607Bselected.toString());
-        editor.putString("sp610", mc607Bselected.toString());
+        editor.putString("sp609", mc609selected.toString());
+        editor.putString("sp610", mc610selected.toString());
 
         //Putting values for EditText
 
         editor.putString("sp603x1", mc603_X1.getText().toString());
-        editor.putString("sp604_12x", mc604x.getText().toString());
+        editor.putString("sp604x", mc604x.getText().toString());
         editor.putString("sp605x", mc605x.getText().toString());
         editor.putString("sp607x", mc607x.getText().toString());
         editor.putString("sp607bx", mc607Bx.getText().toString());
@@ -440,7 +440,7 @@ public class FillFormS6Activity extends AppCompatActivity {
             S6.put("mc604_10", sharedPref.getString("sp604_10", "00"));
             S6.put("mc604_11", sharedPref.getString("sp604_11", "00"));
             S6.put("mc604_12", sharedPref.getString("sp604_12", "00"));
-            S6.put("mc604_12x", sharedPref.getString("sp604_12x", "00"));
+            S6.put("mc604x", sharedPref.getString("sp604x", "00"));
             S6.put("mc605_1", sharedPref.getString("sp605_1", "00"));
             S6.put("mc605_2", sharedPref.getString("sp605_2", "00"));
             S6.put("mc605_3", sharedPref.getString("sp605_3", "00"));
@@ -456,7 +456,7 @@ public class FillFormS6Activity extends AppCompatActivity {
             S6.put("mc607_5", sharedPref.getString("sp607_5", "00"));
             S6.put("mc607_6", sharedPref.getString("sp607_6", "00"));
             S6.put("mc607_7", sharedPref.getString("sp607_7", "00"));
-            S6.put("mc607_8", sharedPref.getString("sp607_8", "00"));
+            S6.put("mc607_88", sharedPref.getString("sp607_88", "00"));
             S6.put("mc607x", sharedPref.getString("sp607x", "00"));
             S6.put("mc607a", sharedPref.getString("sp607a", "00"));
             S6.put("mc607b", sharedPref.getString("sp607b", "00"));
@@ -560,6 +560,7 @@ public class FillFormS6Activity extends AppCompatActivity {
                 Log.d(TAG, "Error Type: 610 empty");
                 return false;
             }
+            return true;
         }
 
 

@@ -59,7 +59,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, String.valueOf(db.getFormCount()));
 
 
+
     }
+
 
     public void fillSurveyForm(View view) {
         Toast.makeText(getApplicationContext(), "Fill Survey Form", Toast.LENGTH_SHORT).show();
@@ -238,8 +240,8 @@ public class MainActivity extends AppCompatActivity {
                     "Current Location \n Longitude: %1$s \n Latitude: %2$s",
                     location.getLongitude(), location.getLatitude()
             );
-            Toast.makeText(getApplicationContext(), message,
-                    Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), message,
+            //Toast.LENGTH_SHORT).show();
         }
 
     }
@@ -326,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
 
             editor.putString("Longitude", String.valueOf(location.getLongitude()));
             editor.putString("Latitude", String.valueOf(location.getLatitude()));
-            Toast.makeText(getApplicationContext(), "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) + " LNG: " + String.valueOf(location.getLatitude()), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) + " LNG: " + String.valueOf(location.getLatitude()), Toast.LENGTH_SHORT).show();
 
             editor.commit();
 

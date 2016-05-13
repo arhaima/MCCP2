@@ -15,17 +15,19 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class FillFormS6CFActivity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_CF_ACTIVITY";
-
-
+    public static List<String> CF_chids = new ArrayList<String>();
+    private static Integer CF_CHID;
+    public Integer CF_chid_no;
+    public String cfchid;
     private String formId;
     private String CF_FRMNO = FillFormActivity.FORM_ID;
-    private Integer CF_CHID;
     private String CF_COMPID;
-
-
     private CheckBox CF_Q1;
     private CheckBox CF_Q2;
     private CheckBox CF_Q2_1;
@@ -43,12 +45,24 @@ public class FillFormS6CFActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fill_form_s6_cf);
+        if (getIntent().getStringExtra("formId") == null) {
+            formId = "NNNNNNN";
 
-        if (CF_CHID == null) {
-            CF_CHID = 1;
         } else {
-            CF_CHID++;
+            formId = getIntent().getStringExtra("formId");
         }
+
+        if (FillFormS6CFActivity.CF_CHID == null) {
+            FillFormS6CFActivity.CF_CHID = 1;
+        } else {
+            FillFormS6CFActivity.CF_CHID++;
+        }
+        /*if (getIntent().getStringExtra("CF_CHID").isEmpty()) {
+            FillFormS6CFActivity.CF_CHID = 1;
+        } else {
+            FillFormS6CFActivity.CF_CHID = Integer.valueOf(getIntent().getStringExtra("CF_CHID"))+1;
+        }*/
+        Log.d(TAG, String.valueOf(FillFormS6CFActivity.CF_CHID));
         CF_Q1 = (CheckBox) findViewById(R.id.CF_Q1);
         CF_Q2 = (CheckBox) findViewById(R.id.CF_Q2);
         CF_Q2_1 = (CheckBox) findViewById(R.id.CF_Q2_1);
@@ -89,7 +103,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
 
             StoreTempValues();
 
-            // Make Changes acording to Section.
+            // Make Changes according to Section.
             Intent end_form_intent = new Intent(getApplicationContext(), EndFormActivity.class);
             end_form_intent.putExtra("formId", formId);
 
@@ -98,10 +112,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
             startActivity(end_form_intent);
         } else {
             Toast.makeText(getApplicationContext(), "Form Validation Failed!", Toast.LENGTH_SHORT).show();
-
-
         }
-
     }
 
     public void openSection6(View view) {
@@ -118,6 +129,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
                 // Make Changes acording to Section.
                 Intent end_form_intent = new Intent(getApplicationContext(), FillFormS6CFActivity.class);
                 end_form_intent.putExtra("formId", formId);
+                end_form_intent.putExtra("CF_CHID", FillFormS6CFActivity.CF_CHID);
 
                 // Additional Variables For Next Section (if any)
                 // Start Next Section
@@ -172,9 +184,11 @@ public class FillFormS6CFActivity extends AppCompatActivity {
     private void StoreTempValues() {
 
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
+        cfchid = formId + String.format("%02d", CF_CHID);
 
+        CF_chids.add(cfchid);
 
-        SharedPreferences sharedPref = getSharedPreferences("CF_" + CF_FRMNO + CF_CHID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("CF_" + cfchid, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         // Value Selection for Spinners

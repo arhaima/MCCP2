@@ -70,6 +70,7 @@ public class FillFormS5Activity extends AppCompatActivity {
     private CheckBox mc503Xlhs;
     private CheckBox mc503Xngo;
     private EditText mc503Xx;
+    private EditText mc503GXx;
     private Spinner mc504W;
     private EditText mc504Wx;
     private Spinner mc504R;
@@ -95,7 +96,7 @@ public class FillFormS5Activity extends AppCompatActivity {
     private CheckBox mc512_5;
     private CheckBox mc512_6;
     private CheckBox mc512_7;
-    private CheckBox mc512_8;
+    private CheckBox mc512_99;
     private CheckBox mc512_88;
     private EditText mc512x;
     private RadioGroup mc513;
@@ -257,6 +258,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         mc503Xlhs = (CheckBox) findViewById(R.id.MC_503_X_LHS);
         mc503Xngo = (CheckBox) findViewById(R.id.MC_503_X_NGO);
         mc503Xx = (EditText) findViewById(R.id.MC_503_X_X);
+        mc503GXx = (EditText) findViewById(R.id.MC_503_G_X_X);
         mc504W = (Spinner) findViewById(R.id.MC_504W);
         mc504Wx = (EditText) findViewById(R.id.MC_504_W88);
         mc504R = (Spinner) findViewById(R.id.MC_504R);
@@ -282,7 +284,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         mc512_5 = (CheckBox) findViewById(R.id.MC_512_5);
         mc512_6 = (CheckBox) findViewById(R.id.MC_512_6);
         mc512_7 = (CheckBox) findViewById(R.id.MC_512_7);
-        mc512_8 = (CheckBox) findViewById(R.id.MC_512_8);
+        mc512_99 = (CheckBox) findViewById(R.id.MC_512_99);
         mc512_88 = (CheckBox) findViewById(R.id.MC_512_88);
         mc512x = (EditText) findViewById(R.id.MC_512X);
         mc513 = (RadioGroup) findViewById(R.id.MC_513);
@@ -727,6 +729,10 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp512_3", (mc512_3.isChecked() ? "3" : ""));
         editor.putString("sp512_4", (mc512_4.isChecked() ? "4" : ""));
         editor.putString("sp512_5", (mc512_5.isChecked() ? "5" : ""));
+        editor.putString("sp512_6", (mc512_6.isChecked() ? "5" : ""));
+        editor.putString("sp512_7", (mc512_7.isChecked() ? "5" : ""));
+        editor.putString("sp512_99", (mc512_99.isChecked() ? "5" : ""));
+        editor.putString("sp512_88", (mc512_88.isChecked() ? "5" : ""));
 
         editor.putString("sp522_1", (mc522_1.isChecked() ? "1" : ""));
         editor.putString("sp522_2", (mc522_2.isChecked() ? "2" : ""));
@@ -738,6 +744,20 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp522_8", (mc522_8.isChecked() ? "8" : ""));
         editor.putString("sp522_9", (mc522_9.isChecked() ? "9" : ""));
         editor.putString("sp522_88", (mc522_88.isChecked() ? "88" : ""));
+
+        //Putting values for Spinners
+        editor.putString("sp501", mc501selected.toString());
+        editor.putString("sp504W", mc504Wselected.toString());
+        editor.putString("sp504R", mc504Rselected.toString());
+        editor.putString("sp504F", mc504Fselected.toString());
+        editor.putString("sp505", mc505selected.toString());
+        editor.putString("sp507", mc507selected.toString());
+        editor.putString("sp508", mc508selected.toString());
+        editor.putString("sp509", mc509selected.toString());
+        editor.putString("sp510", mc510selected.toString());
+        editor.putString("sp516", mc516selected.toString());
+        editor.putString("sp518", mc518selected.toString());
+        editor.putString("sp521", mc521selected.toString());
 
 
         // Putting values of Radiobuttons
@@ -868,6 +888,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         }
 
         //Putting values for EditText
+        editor.putString("sp501_88", mc501_88.getText().toString());
         editor.putString("sp503Ax", mc503Ax.getText().toString());
         editor.putString("sp503Bx", mc503Bx.getText().toString());
         editor.putString("sp503Cx", mc503Cx.getText().toString());
@@ -876,6 +897,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp503Fx", mc503Fx.getText().toString());
         editor.putString("sp503Gx", mc503Gx.getText().toString());
         editor.putString("sp503Xx", mc503Xx.getText().toString());
+        editor.putString("sp503GXx", mc503GXx.getText().toString());
         editor.putString("sp504Wx", mc504Wx.getText().toString());
         editor.putString("sp504Rx", mc504Rx.getText().toString());
         editor.putString("sp504Fx", mc504Fx.getText().toString());
@@ -887,8 +909,8 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp512x", mc512x.getText().toString());
         editor.putString("sp513x", mc513x.getText().toString());
         editor.putString("sp515", mc515.getText().toString());
-        editor.putString("sp52acr", mc524ACR.getText().toString());
-        editor.putString("sp52can", mc524CAN.getText().toString());
+        editor.putString("sp524acr", mc524ACR.getText().toString());
+        editor.putString("sp524can", mc524CAN.getText().toString());
         editor.putString("sp525_1", mc525_1.getText().toString());
         editor.putString("sp525_2", mc525_2.getText().toString());
         editor.putString("sp525_3", mc525_3.getText().toString());
@@ -955,16 +977,16 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc503Flhs", sharedPref.getString("sp503Flhs", "00"));
             S5.put("mc503Fngo", sharedPref.getString("sp503Fngo", "00"));
             S5.put("mc503Fx", sharedPref.getString("sp503Fx", "00"));
-            S5.put("mc503Glhw", sharedPref.getString("sp503Clhw", "00"));
-            S5.put("mc503Cfcv", sharedPref.getString("sp503Cfcv", "00"));
-            S5.put("mc503Clhs", sharedPref.getString("sp503Clhs", "00"));
-            S5.put("mc503Cngo", sharedPref.getString("sp503Cngo", "00"));
-            S5.put("mc503Cx", sharedPref.getString("sp503Cx", "00"));
-            S5.put("mc503Xlhw", sharedPref.getString("sp503Clhw", "00"));
-            S5.put("mc503Cfcv", sharedPref.getString("sp503Cfcv", "00"));
-            S5.put("mc503Clhs", sharedPref.getString("sp503Clhs", "00"));
-            S5.put("mc503Cngo", sharedPref.getString("sp503Cngo", "00"));
-            S5.put("mc503Cx", sharedPref.getString("sp503Cx", "00"));
+            S5.put("mc503Glhw", sharedPref.getString("sp503Glhw", "00"));
+            S5.put("mc503Cfcv", sharedPref.getString("sp503Gfcv", "00"));
+            S5.put("mc503Clhs", sharedPref.getString("sp503Glhs", "00"));
+            S5.put("mc503Cngo", sharedPref.getString("sp503Gngo", "00"));
+            S5.put("mc503Cx", sharedPref.getString("sp503Gx", "00"));
+            S5.put("mc503Xlhw", sharedPref.getString("sp503Xlhw", "00"));
+            S5.put("mc503Cfcv", sharedPref.getString("sp503Xfcv", "00"));
+            S5.put("mc503Clhs", sharedPref.getString("sp503Xlhs", "00"));
+            S5.put("mc503Cngo", sharedPref.getString("sp503Xngo", "00"));
+            S5.put("mc503Cx", sharedPref.getString("sp503Xx", "00"));
             S5.put("mc503GXx", sharedPref.getString("sp503GXx", "00"));
             S5.put("mc504W", sharedPref.getString("sp504W", "00"));
             S5.put("mc504Wx", sharedPref.getString("sp504Wx", "00"));
@@ -1016,6 +1038,11 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc512_3", sharedPref.getString("sp512_3", "00"));
             S5.put("mc512_4", sharedPref.getString("sp512_4", "00"));
             S5.put("mc512_5", sharedPref.getString("sp512_5", "00"));
+            S5.put("mc512_6", sharedPref.getString("sp512_6", "00"));
+            S5.put("mc512_7", sharedPref.getString("sp512_7", "00"));
+            S5.put("mc512_88", sharedPref.getString("sp512_99", "00"));
+            S5.put("mc512_99", sharedPref.getString("sp512_88", "00"));
+            S5.put("mc512x", sharedPref.getString("sp512x", "00"));
             S5.put("mc522_1", sharedPref.getString("sp522_1", "00"));
             S5.put("mc522_2", sharedPref.getString("sp522_2", "00"));
             S5.put("mc522_3", sharedPref.getString("sp522_3", "00"));
@@ -1034,6 +1061,29 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc519", sharedPref.getString("sp519", "00"));
             S5.put("mc520", sharedPref.getString("sp520", "00"));
             S5.put("mc523", sharedPref.getString("sp523", "00"));
+            S5.put("mc524acr", sharedPref.getString("sp524acr", "00"));
+            S5.put("mc524can", sharedPref.getString("sp524can", "00"));
+            S5.put("mc525_1", sharedPref.getString("sp525_1", "00"));
+            S5.put("mc525_2", sharedPref.getString("sp525_2", "00"));
+            S5.put("mc525_3", sharedPref.getString("sp525_3", "00"));
+            S5.put("mc525_4", sharedPref.getString("sp525_4", "00"));
+            S5.put("mc525_5", sharedPref.getString("sp525_5", "00"));
+            S5.put("mc525_6", sharedPref.getString("sp525_6", "00"));
+            S5.put("mc525_7", sharedPref.getString("sp525_7", "00"));
+            S5.put("mc525_7x", sharedPref.getString("sp525_7x", "00"));
+            S5.put("mc525_8", sharedPref.getString("sp525_8", "00"));
+            S5.put("mc525_9", sharedPref.getString("sp525_9", "00"));
+            S5.put("mc525_10", sharedPref.getString("sp525_10", "00"));
+            S5.put("mc525_11", sharedPref.getString("sp525_11", "00"));
+            S5.put("mc525_12", sharedPref.getString("sp525_12", "00"));
+            S5.put("mc525_13", sharedPref.getString("sp525_13", "00"));
+            S5.put("mc525_14", sharedPref.getString("sp525_14", "00"));
+            S5.put("mc525_15", sharedPref.getString("sp525_15", "00"));
+            S5.put("mc525_16", sharedPref.getString("sp525_16", "00"));
+            S5.put("mc525_17", sharedPref.getString("sp525_17", "00"));
+            S5.put("mc525_18", sharedPref.getString("sp525_18", "00"));
+            S5.put("mc525_19", sharedPref.getString("sp525_19", "00"));
+            S5.put("mc525_20", sharedPref.getString("sp525_20", "00"));
 
             FormsContract.getInstance().setS5(S5.toString());
 
