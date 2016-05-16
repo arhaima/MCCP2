@@ -123,7 +123,18 @@
         style="@style/errors"
         android:labelFor="@+id/MC_105"
         android:text="@string/MC_105" />
+    <TextView
+        style="@style/labels"
+        android:text="@string/MC_105TVI" />
 
+    <EditText
+        android:id="@+id/MC_105TVI"
+        style="@style/textInput"
+        android:hint="@string/MC_105TVI"
+        android:inputType="number"
+        android:maxLength="6"
+        android:singleLine="true"
+        />
     <!-- MC_106 - Household No. (with Family type) -->
     <TextView
         style="@style/labels"

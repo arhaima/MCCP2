@@ -18,12 +18,12 @@ import java.util.List;
 /**
  * Created by hassan.naqvi on 5/5/2016.
  */
-public class syncForms extends AsyncTask<Void, Void, Void> {
+public class syncFormsBK extends AsyncTask<Void, Void, Void> {
 
     private static final String TAG = "syncForms";
     private Context mContext;
 
-    public syncForms(Context context) {
+    public syncFormsBK(Context context) {
         mContext = context;
     }
 
@@ -52,8 +52,24 @@ public class syncForms extends AsyncTask<Void, Void, Void> {
 
 
             JSONArray jsonSync = new JSONArray();
+            //int i = 1;
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+            /*for (int i = 0; i < 10; i++) {
+                JSONObject jsonParam = new JSONObject();
+                jsonParam.put("townid", "2" + i);
+                jsonParam.put("ucid", i + "04033");
+                jsonParam.put("ucname", "Whats in the name");
+                jsonSync.put(jsonParam);
+            }
+            wr.writeBytes(jsonSync.toString());
+            longInfo(jsonSync.toString());
+
+
+            wr.flush();*/
+
+
+            // wr.close();
             FormsDbHelper db = new FormsDbHelper(mContext);
             List<FormsContract> forms = db.getAllFormstoSync();
             for (FormsContract fc : forms) {
@@ -72,7 +88,6 @@ public class syncForms extends AsyncTask<Void, Void, Void> {
                 jsonParam.put("mcGPSLat", fc.getGPSLat().replace("\\", ""));
                 jsonParam.put("mcGPSLng", fc.getGPSLng().replace("\\", ""));
                 jsonParam.put("DeviceID", fc.getDeviceId().replace("\\", ""));
-
                 if (fc.getS2() != null) {
                     jsonParam.put("s2", fc.getS2().replace("\\", ""));
                 } else {
@@ -97,29 +112,17 @@ public class syncForms extends AsyncTask<Void, Void, Void> {
                     jsonParam.put("s6", "");
                 }
 
-                jsonSync.put(jsonParam);
-            }
-            wr.writeBytes(jsonSync.toString());
-            longInfo(jsonSync.toString());
-            wr.flush();
-            jsonSync = new JSONArray();
 
-            List<ImsContract> ims = db.getAllIms();
-
-            for (ImsContract im : ims) {
-                JSONObject jsonParam = new JSONObject();
-                jsonParam.put("imFrmno", im.getFrmNo().replace("\\", ""));
-                jsonParam.put("imChid", im.getChid().replace("\\", ""));
-                jsonParam.put("im", im.getIM().replace("\\", ""));
                 jsonSync.put(jsonParam);
 
+                longInfo(jsonSync.toString());
+                wr.writeBytes(jsonSync.toString());
+
+                wr.flush();
+
+                // Writing Forms to MySQL
             }
-            wr.writeBytes(jsonSync.toString());
-            longInfo(jsonSync.toString());
-            wr.flush();
-
-
-
+            //longInfo(str);
             //Get Response
             InputStream is = connection.getInputStream();
             BufferedReader rd = new BufferedReader(new InputStreamReader(is));

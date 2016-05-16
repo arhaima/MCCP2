@@ -22,6 +22,7 @@
     <string name="MC_104_Code"> کوڈ </string>
 
     <string name="MC_105">کلسٹر</string>
+    <string name="MC_105TVI"> TVI کلسٹر </string>
     <string name="MC_105_Name">نام </string>
     <string name="MC_105_Code">کوڈ</string>
 
@@ -550,12 +551,12 @@
     <string name="CF_CHID">بچے کی آئ ڈی</string>
     <string name="CF_Q1">معائنہ</string>
     <string name="CF_Q2">حفاظتی ٹیکے </string>
-    <string name="CF_Q2_1">حفاظتی ٹیکے BCG -1</string>
-    <string name="CF_Q2_2">حفاظتی ٹیکے Pentavalent -2</string>
-    <string name="CF_Q2_3">حفاظتی ٹیکے PCV -3</string>
-    <string name="CF_Q2_4">حفاظتی ٹیکے  -4خسرہ</string>
-    <string name="CF_Q2_5">حفاظتی ٹیکے -5پولیو کے قطرے (OPV) </string>
-    <string name="CF_Q2_6">حفاظتی ٹیکے -6پولیو کا ٹیکہ (IPV)</string>
+    <string name="CF_Q2_1">BCG -1</string>
+    <string name="CF_Q2_2">Pentavalent -2</string>
+    <string name="CF_Q2_3">PCV -3</string>
+    <string name="CF_Q2_4">4خسرہ</string>
+    <string name="CF_Q2_5"> 5پولیو کے قطرے (OPV) </string>
+    <string name="CF_Q2_6"> -6پولیو کا ٹیکہ (IPV)</string>
     <string name="CF_Q3">دوائیوں کی فراہمی</string>
     <string name="CF_Q4">مزید علاج کے لیے دوسرے مرکز صحت جانے کا مشورہ دیا</string>
 

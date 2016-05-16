@@ -29,6 +29,8 @@ import java.util.List;
 public class FillFormS3Activity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_S3_ACTIVITY";
+    public static JSONObject S3;
+    public static JSONObject imJson;
     public static String FORM_ID;
     public static List<String> chids = new ArrayList<String>();
     private static boolean revMode;
@@ -420,8 +422,8 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.putString("spm_1src", m_1srcselected.toString());
         editor.putString("spm_2", m_2selected.toString());
         editor.putString("spm_2src", m_2srcselected.toString());
-        editor.putString("sp1mma", immaselected.toString());
-        editor.putString("sp1mmd", immdselected.toString());
+        editor.putString("spimma", immaselected.toString());
+        editor.putString("spimmd", immdselected.toString());
 
         switch (imjselected) {
 
@@ -441,56 +443,59 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.commit();
         Log.d(TAG, "Stored sharedValues!");
 
-        JSONObject S3 = new JSONObject();
+        S3 = new JSONObject();
 
         try {
 
             S3.put("imchid", sharedPref.getString("spimchid", "00"));
-            S3.put("ima", sharedPref.getString("spima", "00"));
-            S3.put("imaf", sharedPref.getString("spimaf", "00"));
-            S3.put("imb", sharedPref.getString("spimb", "00"));
-            S3.put("imc", sharedPref.getString("spimc", "00"));
-            S3.put("imd", sharedPref.getString("spimd", "00"));
-            S3.put("imddoc", sharedPref.getString("spimddoc", "00"));
-            S3.put("imey", sharedPref.getString("spimey", "00"));
-            S3.put("imem", sharedPref.getString("spimem", "00"));
-            S3.put("imed", sharedPref.getString("spimed", "00"));
-            S3.put("imf", sharedPref.getString("spimf", "00"));
-            S3.put("img", sharedPref.getString("spimg", "00"));
-            S3.put("imh", sharedPref.getString("spimh", "00"));
-            S3.put("imi", sharedPref.getString("spimi", "00"));
-            S3.put("imj", sharedPref.getString("spimj", "00"));
-            S3.put("imjb", sharedPref.getString("spimjb", "00"));
-            S3.put("imk", sharedPref.getString("spimk", "00"));
-            S3.put("bcg", sharedPref.getString("spbcg", "00"));
-            S3.put("bcgsrc", sharedPref.getString("spbcgsrc", "00"));
-            S3.put("bcgscar", sharedPref.getString("spbcgscar", "00"));
-            S3.put("opv_0", sharedPref.getString("spopv_0", "00"));
-            S3.put("opv_0src", sharedPref.getString("spopv_0src", "00"));
-            S3.put("opv_1", sharedPref.getString("spopv_1", "00"));
-            S3.put("opv_1src", sharedPref.getString("spopv_1src", "00"));
-            S3.put("opv_2", sharedPref.getString("spopv_2", "00"));
-            S3.put("opv_2src", sharedPref.getString("spopv_2src", "00"));
-            S3.put("opv_3", sharedPref.getString("spopv_3", "00"));
-            S3.put("opv_3src", sharedPref.getString("spopv_3src", "00"));
-            S3.put("p_1", sharedPref.getString("spp_1", "00"));
-            S3.put("p_1src", sharedPref.getString("spp_1src", "00"));
-            S3.put("p_2", sharedPref.getString("spp_2", "00"));
-            S3.put("p_2src", sharedPref.getString("spp_2src", "00"));
-            S3.put("p_3", sharedPref.getString("spp_3", "00"));
-            S3.put("p_3src", sharedPref.getString("spp_3src", "00"));
-            S3.put("pcv_3src", sharedPref.getString("sppcv_3src", "00"));
-            S3.put("pcv_3", sharedPref.getString("sppcv_3", "00"));
-            S3.put("pcv_2src", sharedPref.getString("sppcv_2src", "00"));
-            S3.put("pcv_2", sharedPref.getString("sppcv_2", "00"));
-            S3.put("pcv_1src", sharedPref.getString("sppcv_1src", "00"));
-            S3.put("pcv_1", sharedPref.getString("sppcv_1", "00"));
-            S3.put("m_1", sharedPref.getString("spm_1", "00"));
-            S3.put("m_1src", sharedPref.getString("spm_1src", "00"));
-            S3.put("m_2", sharedPref.getString("spm_2", "00"));
-            S3.put("m_2src", sharedPref.getString("spm_2src", "00"));
-            S3.put("immd", sharedPref.getString("immd", "00"));
-            S3.put("imma", sharedPref.getString("imma", "00"));
+            S3.put("FrmNo", formId);
+            imJson = new JSONObject();
+            imJson.put("ima", sharedPref.getString("spima", "00"));
+            imJson.put("imaf", sharedPref.getString("spimaf", "00"));
+            imJson.put("imb", sharedPref.getString("spimb", "00"));
+            imJson.put("imc", sharedPref.getString("spimc", "00"));
+            imJson.put("imd", sharedPref.getString("spimd", "00"));
+            imJson.put("imddoc", sharedPref.getString("spimddoc", "00"));
+            imJson.put("imey", sharedPref.getString("spimey", "00"));
+            imJson.put("imem", sharedPref.getString("spimem", "00"));
+            imJson.put("imed", sharedPref.getString("spimed", "00"));
+            imJson.put("imf", sharedPref.getString("spimf", "00"));
+            imJson.put("img", sharedPref.getString("spimg", "00"));
+            imJson.put("imh", sharedPref.getString("spimh", "00"));
+            imJson.put("imi", sharedPref.getString("spimi", "00"));
+            imJson.put("imj", sharedPref.getString("spimj", "00"));
+            imJson.put("imjb", sharedPref.getString("spimjb", "00"));
+            imJson.put("imk", sharedPref.getString("spimk", "00"));
+            imJson.put("bcg", sharedPref.getString("spbcg", "00"));
+            imJson.put("bcgsrc", sharedPref.getString("spbcgsrc", "00"));
+            imJson.put("bcgscar", sharedPref.getString("spbcgscar", "00"));
+            imJson.put("opv_0", sharedPref.getString("spopv_0", "00"));
+            imJson.put("opv_0src", sharedPref.getString("spopv_0src", "00"));
+            imJson.put("opv_1", sharedPref.getString("spopv_1", "00"));
+            imJson.put("opv_1src", sharedPref.getString("spopv_1src", "00"));
+            imJson.put("opv_2", sharedPref.getString("spopv_2", "00"));
+            imJson.put("opv_2src", sharedPref.getString("spopv_2src", "00"));
+            imJson.put("opv_3", sharedPref.getString("spopv_3", "00"));
+            imJson.put("opv_3src", sharedPref.getString("spopv_3src", "00"));
+            imJson.put("p_1", sharedPref.getString("spp_1", "00"));
+            imJson.put("p_1src", sharedPref.getString("spp_1src", "00"));
+            imJson.put("p_2", sharedPref.getString("spp_2", "00"));
+            imJson.put("p_2src", sharedPref.getString("spp_2src", "00"));
+            imJson.put("p_3", sharedPref.getString("spp_3", "00"));
+            imJson.put("p_3src", sharedPref.getString("spp_3src", "00"));
+            imJson.put("pcv_3src", sharedPref.getString("sppcv_3src", "00"));
+            imJson.put("pcv_3", sharedPref.getString("sppcv_3", "00"));
+            imJson.put("pcv_2src", sharedPref.getString("sppcv_2src", "00"));
+            imJson.put("pcv_2", sharedPref.getString("sppcv_2", "00"));
+            imJson.put("pcv_1src", sharedPref.getString("sppcv_1src", "00"));
+            imJson.put("pcv_1", sharedPref.getString("sppcv_1", "00"));
+            imJson.put("m_1", sharedPref.getString("spm_1", "00"));
+            imJson.put("m_1src", sharedPref.getString("spm_1src", "00"));
+            imJson.put("m_2", sharedPref.getString("spm_2", "00"));
+            imJson.put("m_2src", sharedPref.getString("spm_2src", "00"));
+            imJson.put("immd", sharedPref.getString("spimmd", "00"));
+            imJson.put("imma", sharedPref.getString("spimma", "00"));
+            S3.put("im", imJson);
 
 
             Log.d(TAG, "JSON for Section 1: " + S3.toString());
@@ -553,6 +558,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imb - Boy Count: " + boyCount);
             return false;
         }
+
         if (imb.getSelectedItemPosition() == 2 && girlCount < 1) {
             Toast.makeText(getApplicationContext(), "Girl Count Completed!", Toast.LENGTH_SHORT).show();
             TextView errorText = (TextView) imb.getSelectedView();
@@ -562,6 +568,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imb - Girl Count: " + girlCount);
             return false;
         }
+
         if (imc.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) imc.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -607,6 +614,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             errorText.setText("Please select an Answer");//changes the selected item text to this
             return false;
         }
+
         if (img.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) img.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -617,7 +625,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             return false;
         }
         
-        if (imgselected.toString().equals("2") && girlCount < 1) {
+        /*if (imgselected.toString().equals("2") && girlCount < 1) {
             Toast.makeText(getApplicationContext(), "Girl Count Completed!", Toast.LENGTH_SHORT).show();
             TextView errorText = (TextView) imb.getSelectedView();
             errorText.setError(" ");
@@ -625,7 +633,8 @@ public class FillFormS3Activity extends AppCompatActivity {
             errorText.setText("Girl Count Completed!");//changes the selected item text to this
             Log.d(TAG, "Error Type: imb - Girl Count: " + girlCount);
             return false;
-        }
+        }*/
+
         if (imh.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) imh.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -1094,11 +1103,11 @@ public class FillFormS3Activity extends AppCompatActivity {
         return true;
     }
 
-    /*@Override
+    @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "Back Button NOT Allowed!", Toast.LENGTH_SHORT).show();
 
 
     }
-*/
+
 }

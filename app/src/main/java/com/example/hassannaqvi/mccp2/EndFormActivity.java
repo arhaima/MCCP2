@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -17,11 +18,17 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Map;
 
 public class EndFormActivity extends AppCompatActivity {
 
     private static final String TAG = "End Form";
+    public static JSONObject ending;
+
+    private String mc101E;
+    private String mc101ETime;
     private RadioGroup mc109;
     private int mc109Selected;
     private RadioButton mc109_complete;
@@ -37,6 +44,9 @@ public class EndFormActivity extends AppCompatActivity {
     private RadioButton mc110_88;
     private TextView mc110x_txt;
     private EditText mc110x;
+    private Button btnEnd;
+
+
     private TextView formErrorTxt;
     private Boolean formError;
     private String formId;
@@ -63,6 +73,7 @@ public class EndFormActivity extends AppCompatActivity {
 
         mc110x_txt = (TextView) findViewById(R.id.MC_110x_txt);
         mc110x = (EditText) findViewById(R.id.MC_110x);
+        btnEnd = (Button) findViewById(R.id.btn_End);
 
 
         mc109.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -105,6 +116,7 @@ public class EndFormActivity extends AppCompatActivity {
             StoreTempValues();
             Log.i(TAG, "Form Values Stored! Starting Interview... (S2)");
             Intent main_intent = new Intent(getApplicationContext(), MainActivity.class);
+
             startActivity(main_intent);
 
         } else {
@@ -121,7 +133,7 @@ public class EndFormActivity extends AppCompatActivity {
             return false;
         }
 
-        if (mc110Selected == -1) {
+        if ((mc109_incomplete.isChecked() || mc109_noQ.isChecked()) && mc110Selected == -1) {
             mc110_88.setError("Please select an answer!");
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
 
@@ -131,7 +143,7 @@ public class EndFormActivity extends AppCompatActivity {
         }
 
 
-        if (mc110x.getText().toString().isEmpty() || mc110x.getText().toString() == null) {
+        if (mc110_88.isChecked() && mc110x.getText().toString().isEmpty()) {
             mc110x.setError("Specify other reason!");
             Toast.makeText(getApplicationContext(), "Specify other reason!", Toast.LENGTH_SHORT).show();
 
@@ -145,6 +157,7 @@ public class EndFormActivity extends AppCompatActivity {
 
         SharedPreferences sharedPref = getSharedPreferences(formId, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
+
 
 
         switch (mc109Selected) {
@@ -181,31 +194,121 @@ public class EndFormActivity extends AppCompatActivity {
 
         }
         editor.putString("sp110x", mc110x.getText().toString());
+        editor.putString("spEndDateTime", DateFormat.getDateInstance().format(Calendar.getInstance().getTime()));
 
         // Comit to storage
         editor.commit();
 
-        JSONObject ending = new JSONObject();
+        ending = new JSONObject();
         Long newFormId;
         try {
 
             // Initialize JSON Object For Section 6
             ending.put("mc109", sharedPref.getString("sp109", "00"));
             ending.put("mc110", sharedPref.getString("sp110", "00"));
+            ending.put("mc110x", sharedPref.getString("sp110x", "00"));
+            ending.put("mcEndDateTime", sharedPref.getString("spEndDateTime", "00"));
 
 
             Log.d(TAG, ending.toString());
 
-            FormsContract.getInstance().setEnding(ending.toString());
+            //FormsContract.getInstance().setEnding(ending.toString());
 
             //FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
+            FormsContract fc = new FormsContract(FillFormActivity.s1);
+            Log.d(TAG + "-S1-: ", FillFormActivity.s1.getString("mc101"));
+            fc.setS2(String.valueOf(FillFormS2Activity.S2));
+            fc.setS4(String.valueOf(FillFormS4Activity.S4));
+            fc.setS5(String.valueOf(FillFormS5Activity.S5));
+            fc.setS6(String.valueOf(FillFormS6Activity.S6));
+            fc.setEnding(String.valueOf(ending));
             FormsDbHelper db = new FormsDbHelper(this);
 
             try {
                 Log.d(TAG, "Updating DataBase...");
                 Toast.makeText(this, "Updating DataBase...", Toast.LENGTH_SHORT).show();
+                btnEnd.setEnabled(false);
+                db.addForm(fc);
 
-                db.addForm(FormsContract.getInstance());
+                for (String imchid : FillFormS3Activity.chids) {
+
+                    SharedPreferences imPref = getSharedPreferences("IM_" + imchid, Context.MODE_PRIVATE);
+                    ImsContract imc = new ImsContract();
+
+                    imc.setChid(imPref.getString("imchid", "00"));
+                    imc.setFrmNo(formId);
+                    JSONObject imJson = new JSONObject();
+                    imJson.put("ima", imPref.getString("spima", "00"));
+                    imJson.put("imaf", imPref.getString("spimaf", "00"));
+                    imJson.put("imb", imPref.getString("spimb", "00"));
+                    imJson.put("imc", imPref.getString("spimc", "00"));
+                    imJson.put("imd", imPref.getString("spimd", "00"));
+                    imJson.put("imddoc", imPref.getString("spimddoc", "00"));
+                    imJson.put("imey", imPref.getString("spimey", "00"));
+                    imJson.put("imem", imPref.getString("spimem", "00"));
+                    imJson.put("imed", imPref.getString("spimed", "00"));
+                    imJson.put("imf", imPref.getString("spimf", "00"));
+                    imJson.put("img", imPref.getString("spimg", "00"));
+                    imJson.put("imh", imPref.getString("spimh", "00"));
+                    imJson.put("imi", imPref.getString("spimi", "00"));
+                    imJson.put("imj", imPref.getString("spimj", "00"));
+                    imJson.put("imjb", imPref.getString("spimjb", "00"));
+                    imJson.put("imk", imPref.getString("spimk", "00"));
+                    imJson.put("bcg", imPref.getString("spbcg", "00"));
+                    imJson.put("bcgsrc", imPref.getString("spbcgsrc", "00"));
+                    imJson.put("bcgscar", imPref.getString("spbcgscar", "00"));
+                    imJson.put("opv_0", imPref.getString("spopv_0", "00"));
+                    imJson.put("opv_0src", imPref.getString("spopv_0src", "00"));
+                    imJson.put("opv_1", imPref.getString("spopv_1", "00"));
+                    imJson.put("opv_1src", imPref.getString("spopv_1src", "00"));
+                    imJson.put("opv_2", imPref.getString("spopv_2", "00"));
+                    imJson.put("opv_2src", imPref.getString("spopv_2src", "00"));
+                    imJson.put("opv_3", imPref.getString("spopv_3", "00"));
+                    imJson.put("opv_3src", imPref.getString("spopv_3src", "00"));
+                    imJson.put("p_1", imPref.getString("spp_1", "00"));
+                    imJson.put("p_1src", imPref.getString("spp_1src", "00"));
+                    imJson.put("p_2", imPref.getString("spp_2", "00"));
+                    imJson.put("p_2src", imPref.getString("spp_2src", "00"));
+                    imJson.put("p_3", imPref.getString("spp_3", "00"));
+                    imJson.put("p_3src", imPref.getString("spp_3src", "00"));
+                    imJson.put("pcv_3src", imPref.getString("sppcv_3src", "00"));
+                    imJson.put("pcv_3", imPref.getString("sppcv_3", "00"));
+                    imJson.put("pcv_2src", imPref.getString("sppcv_2src", "00"));
+                    imJson.put("pcv_2", imPref.getString("sppcv_2", "00"));
+                    imJson.put("pcv_1src", imPref.getString("sppcv_1src", "00"));
+                    imJson.put("pcv_1", imPref.getString("sppcv_1", "00"));
+                    imJson.put("m_1", imPref.getString("spm_1", "00"));
+                    imJson.put("m_1src", imPref.getString("spm_1src", "00"));
+                    imJson.put("m_2", imPref.getString("spm_2", "00"));
+                    imJson.put("m_2src", imPref.getString("spm_2src", "00"));
+                    imJson.put("immd", imPref.getString("spimmd", "00"));
+                    imJson.put("imma", imPref.getString("spimma", "00"));
+                    imc.setIM(imJson.toString());
+                    db.addIM(imc);
+                }
+
+                for (String cfchid : FillFormS6CFActivity.CF_chids) {
+
+                    SharedPreferences cfPref = getSharedPreferences("CF_" + cfchid, Context.MODE_PRIVATE);
+                    CfContract cf = new CfContract();
+
+                    cf.setChid(cfPref.getString("imchid", "00"));
+                    cf.setFrmNo(formId);
+                    JSONObject cfJson = new JSONObject();
+                    cfJson.put("mccf_Q1", cfPref.getString("spcf_Q1", "00"));
+                    cfJson.put("mccf_Q2", cfPref.getString("spcf_Q2", "00"));
+                    cfJson.put("mccf_Q2_1", cfPref.getString("spcf_Q2_1", "00"));
+                    cfJson.put("mccf_Q2_2", cfPref.getString("spcf_Q2_2", "00"));
+                    cfJson.put("mccf_Q2_3", cfPref.getString("spcf_Q2_3", "00"));
+                    cfJson.put("mccf_Q2_4", cfPref.getString("spcf_Q2_4", "00"));
+                    cfJson.put("mccf_Q2_5", cfPref.getString("spcf_Q2_5", "00"));
+                    cfJson.put("mccf_Q2_6", cfPref.getString("spcf_Q2_6", "00"));
+                    cfJson.put("mccf_Q1", cfPref.getString("spcf_Q1", "00"));
+                    cf.setCf(cfJson.toString());
+                    db.addCF(cf);
+
+                }
+                
             } catch (SQLiteException e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -216,7 +319,7 @@ public class EndFormActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         //Log.d(TAG, "Updated Form with Id: " + String.valueOf(newFormId));
-        FormsContract.getInstance().Clear();
+        //FormsContract.getInstance().Clear();
 
 
         JSONObject FormFull = new JSONObject();
@@ -231,7 +334,11 @@ public class EndFormActivity extends AppCompatActivity {
         }
 
 
+    }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "Back Button NOT Allowed!", Toast.LENGTH_SHORT).show();
 
 
     }

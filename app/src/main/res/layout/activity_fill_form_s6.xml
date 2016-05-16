@@ -265,7 +265,7 @@
         <RadioGroup
 
             android:id="@+id/MC_606"
-            style="@style/radiobutton"
+            style="@style/radiogroup"
             android:text="@string/MC_606">
 
             <RadioButton
@@ -359,7 +359,7 @@
         <RadioGroup
 
             android:id="@+id/MC_607A"
-            style="@style/radiobutton"
+            style="@style/radiogroup"
             android:text="@string/MC_607A">
 
             <RadioButton
@@ -395,8 +395,8 @@
             <Spinner
                 android:id="@+id/MC_607B"
                 style="@style/spinner"
-                android:entries="@array/MC_607_list"
-                android:prompt="@string/MC_607"
+                android:entries="@array/MC_607B_list"
+                android:prompt="@string/MC_607B"
                 android:textSize="24sp"> <!-- Todo: Increase textSize  -->
 
             </Spinner>
@@ -498,13 +498,6 @@
             android:orientation="horizontal">
 
 
-            <Button
-                android:id="@+id/btn_End"
-                style="@style/buttons"
-                android:layout_weight="1"
-                android:onClick="endInterview"
-                android:text="@string/end_interview"
-                android:textColor="#ff1e1e" />
             <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
             <Button

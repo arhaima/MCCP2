@@ -770,13 +770,13 @@
             android:orientation="horizontal">
 
 
-            <Button
+            <!--<Button
                 android:id="@+id/btn_End"
                 style="@style/buttons"
                 android:layout_weight="1"
                 android:onClick="endInterview"
                 android:text="@string/end_interview"
-                android:textColor="#ff1e1e" />
+                android:textColor="#ff1e1e" />-->
             <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
             <Button

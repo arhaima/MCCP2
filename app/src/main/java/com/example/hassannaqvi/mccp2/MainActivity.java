@@ -37,6 +37,14 @@ public class MainActivity extends AppCompatActivity {
 
     protected LocationManager locationManager;
 
+    public static void longInfo(String str) {
+        if (str.length() > 4000) {
+            Log.i("TAG: ", str.substring(0, 4000));
+            longInfo(str.substring(4000));
+        } else
+            Log.i("TAG: ", str);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
     public void fillSurveyForm(View view) {
         Toast.makeText(getApplicationContext(), "Fill Survey Form", Toast.LENGTH_SHORT).show();
@@ -89,12 +96,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void syncForms(View view) {
-
+        String str = "";
         FormsDbHelper db = new FormsDbHelper(this);
         List<FormsContract> forms = db.getAllForms();
 
         for (FormsContract fc : forms) {
-            Log.d(TAG, "Id: " + fc.getId()
+            str = "Id: " + fc.getId()
                     + ", MC_101: " + fc.get101()
                     + ", MC_101TIME: " + fc.get101Time()
                     + ", MC_102: " + fc.get102()
@@ -107,12 +114,12 @@ public class MainActivity extends AppCompatActivity {
                     + ", MC_S_2: " + fc.getS2()
                     + ", MC_S_4: " + fc.getS4()
                     + ", MC_S_5: " + fc.getS5()
-                    + ", MC_S_6: " + fc.getS6()
+                    + ", MC_S_6: " + fc.getS6();
 
-            );
+
             // Writing Contacts to log
         }
-
+        longInfo(str);
 
 
     }
@@ -193,8 +200,8 @@ public class MainActivity extends AppCompatActivity {
 
 
             if (sd.canWrite()) {
-                String currentDBPath = "/data/" + getPackageName() + "/databases/" + DBName;
-                String backupDBPath = "TVI_MCCP2_" + DBName + "_" + curDateTime + ".db";
+                String currentDBPath = "//data//" + getPackageName() + "//databases//" + DBName;
+                String backupDBPath = "TVI_MCCP2_" + DBName + "_" + curDateTime;
                 File currentDB = new File(currentDBPath);
                 File backupDB = new File(sd, backupDBPath);
 

@@ -25,13 +25,12 @@ public class FillFormS2Activity extends AppCompatActivity {
     // Section 2 Field Variables
     public static String FORM_ID;
     public static boolean gndrChk;
-
+    public static JSONObject S2;
     // Activity Variables
     private final String TAG = "FILL_FORM_S2_ACTIVITY";
     private final Integer AGE_LIMIT = 16;
     private final Integer MONTH_LIMIT = 10;
     private final Integer WEEK_LIMIT = 42;
-    public JSONObject S2;
     private String mcFrmNo;
     private EditText mc201nm;
     private Spinner mc201gndr;
@@ -331,7 +330,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("MC_" + formId, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         // Value Selection for Spinners
@@ -421,7 +420,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
             Log.d(TAG, S2.toString());
 
-            FormsContract.getInstance().setS2(S2.toString());
+            //FormsContract.getInstance().setS2(S2.toString());
 
             /*FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
             FormsDbHelper db = new FormsDbHelper(this);

@@ -32,6 +32,14 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     JSONObject listText;
     private Spinner spUC;
 
+    public static void longInfo(String str) {
+        if (str.length() > 4000) {
+            Log.i("TAG: ", str.substring(0, 4000));
+            longInfo(str.substring(4000));
+        } else
+            Log.i("TAG: ", str);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -73,8 +81,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     e.printStackTrace();
                 }
 
-
-                Log.d("TAG: ", listText.toString());
+                String str = listText.toString();
+                longInfo(str);
                 Log.d("TAG: ", "End");
 
 
@@ -153,7 +161,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     startActivity(login_intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid Username/Password", Toast.LENGTH_LONG).show();
-                    if (username.equals("dmu@admin") && password.equals("admin@dmu")) {
+                    if (username.equals("@") && password.equals("dmu")) {
                         Intent login_intent = new Intent(getApplicationContext(), MainActivity.class);
 
                         startActivity(login_intent);

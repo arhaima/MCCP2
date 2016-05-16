@@ -23,13 +23,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
 public class FillFormActivity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_ACTIVITY";
+    public static JSONObject s1;
     public static String Cluster;
+    public static String ClusterTVI;
     public static String FORM_ID;
     public static long rowId = 0;
     static FillFormActivity fillformactivity;
@@ -44,6 +47,7 @@ public class FillFormActivity extends AppCompatActivity {
     private EditText mc104uc;
     private TextView mc104ucNm;*/
     private EditText mc105cluster;
+    private EditText mc105clusterTVI;
     private TextView mc105clusterNm;
     private EditText mc106hhno;
     private Spinner mcExt;
@@ -84,9 +88,14 @@ public class FillFormActivity extends AppCompatActivity {
         mc104ucNm = (TextView) findViewById(R.id.MC_104UCName);
 */
         mc105cluster = (EditText) findViewById(R.id.MC_105);
+        mc105clusterTVI = (EditText) findViewById(R.id.MC_105TVI);
         if (Cluster != null) {
             mc105cluster.setText(Cluster);
             mc105cluster.setEnabled(false);
+        }
+        if (ClusterTVI != null) {
+            mc105clusterTVI.setText(ClusterTVI);
+            mc105clusterTVI.setEnabled(false);
         }
         mc105clusterNm = (TextView) findViewById(R.id.MC_105Name);
         mc106hhno = (EditText) findViewById(R.id.MC_106);
@@ -238,7 +247,7 @@ public class FillFormActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Starting End of Form Section... ", Toast.LENGTH_SHORT).show();
 
         FORM_ID = mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString();
-        spDateT = DateFormat.getDateInstance().format(mc101date.getCalendarView().getDate());
+        spDateT = new SimpleDateFormat("dd-MM-yy").format(mc101date.getCalendarView().getDate());
         spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
 
         // Form Validation - Section 1
@@ -355,7 +364,7 @@ public class FillFormActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences(FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("MC_" + GenerateFormId(), Context.MODE_PRIVATE);
         SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -379,8 +388,9 @@ public class FillFormActivity extends AppCompatActivity {
 /*
         editor.putString("sp104", mc104uc.getText().toString());
 */
-        editor.putString("sp105", mc105cluster.getText().toString());
+        editor.putString("sp105", mc105cluster.getText().toString() + "-" + mc105clusterTVI.getText().toString());
         Cluster = mc105cluster.getText().toString();
+        ClusterTVI = mc105clusterTVI.getText().toString();
         editor.putString("sp106", mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString());
         editor.putString("spDeviceID", Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));
@@ -423,7 +433,7 @@ public class FillFormActivity extends AppCompatActivity {
         editor.commit();
         Log.d(TAG, "Stored sharedValues.");
 
-        JSONObject s1 = new JSONObject();
+        s1 = new JSONObject();
 
         try {
 
@@ -431,6 +441,11 @@ public class FillFormActivity extends AppCompatActivity {
             s1.put("mcDeviceId", Settings.Secure.getString(getApplicationContext().getContentResolver(),
                     Settings.Secure.ANDROID_ID));
             s1.put("mc101", sharedPref.getString("sp101", "00"));
+            if (s1.get("mc101") == null) {
+                Log.d(TAG, "MC is null");
+            } else {
+                Log.d(TAG, s1.getString("mc101"));
+            }
             s1.put("mc101Time", sharedPref.getString("sp101Time", "00"));
             s1.put("mcCity", sharedPref.getString("spCity", "00"));
             s1.put("mc102", sharedPref.getString("sp102", "00"));
@@ -445,7 +460,7 @@ public class FillFormActivity extends AppCompatActivity {
 
             Log.d(TAG, "JSON for Section 1: " + s1.toString());
 
-            FormsContract.getInstance().setS1(s1);
+            //FormsContract.getInstance().setS1(s1);
             /*FormsDbHelper db = new FormsDbHelper(this);
             try {
                 Log.d(TAG, "Adding Form to DB...");

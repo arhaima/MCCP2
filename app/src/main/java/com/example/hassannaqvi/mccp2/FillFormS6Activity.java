@@ -24,6 +24,7 @@ import org.json.JSONObject;
 public class FillFormS6Activity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_S6_ACTIVITY";
+    public static JSONObject S6;
 
 
     private String formId;
@@ -298,7 +299,7 @@ public class FillFormS6Activity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
 
-        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("MC_" + formId, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         // Value Selection for Spinners
@@ -415,7 +416,7 @@ public class FillFormS6Activity extends AppCompatActivity {
         editor.apply();
         Log.d(TAG, "Stored sharedValues.");
 
-        JSONObject S6 = new JSONObject();
+        S6 = new JSONObject();
         long newFormId = 0;
         try {
 
@@ -471,7 +472,7 @@ public class FillFormS6Activity extends AppCompatActivity {
 
             Log.d(TAG, S6.toString());
 
-            FormsContract.getInstance().setS6(S6.toString());
+            //FormsContract.getInstance().setS6(S6.toString());
 
             /*FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
             FormsDbHelper db = new FormsDbHelper(this);

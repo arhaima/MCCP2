@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -24,6 +25,8 @@ import org.json.JSONObject;
 public class FillFormS5Activity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_S5_ACTIVITY";
+    public static JSONObject S5;
+
     private String formId;
     private Spinner mc501;
     private EditText mc501_88;
@@ -205,6 +208,7 @@ public class FillFormS5Activity extends AppCompatActivity {
     private LinearLayout fldGrp519;
     private LinearLayout fldGrp520;
     private LinearLayout fldGrp523;
+    private LinearLayout fldGrp524;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -364,6 +368,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         fldGrp519 = (LinearLayout) findViewById(R.id.fldGrp519);
         fldGrp520 = (LinearLayout) findViewById(R.id.fldGrp520);
         fldGrp523 = (LinearLayout) findViewById(R.id.fldGrp523);
+        fldGrp524 = (LinearLayout) findViewById(R.id.fldGrp524);
 
 
         mc502.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -447,6 +452,21 @@ public class FillFormS5Activity extends AppCompatActivity {
                 }
             }
         });
+        mc524_99.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                                                @Override
+                                                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                                                    if (!mc524_99.isChecked()) {
+                                                        fldGrp524.setVisibility(View.VISIBLE);
+                                                    } else {
+                                                        fldGrp524.setVisibility(View.GONE);
+                                                        mc524ACR.setText("");
+                                                        mc524CAN.setText("");
+
+                                                    }
+                                                }
+                                            }
+        );
 
 
     }
@@ -624,7 +644,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             return false;
         }
 
-        if (mc516.getSelectedItemPosition() == 0) {
+        if (mc514_yes.isChecked() && mc516.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc516.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -633,7 +653,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 516 empty");
             return false;
         }
-        if (mc518.getSelectedItemPosition() == 0) {
+        if (mc517_1.isChecked() && mc518.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc518.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -671,6 +691,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         }
 
 
+
         return true;
     }
 
@@ -678,7 +699,7 @@ public class FillFormS5Activity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("MC_" + formId, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
 
@@ -729,10 +750,10 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp512_3", (mc512_3.isChecked() ? "3" : ""));
         editor.putString("sp512_4", (mc512_4.isChecked() ? "4" : ""));
         editor.putString("sp512_5", (mc512_5.isChecked() ? "5" : ""));
-        editor.putString("sp512_6", (mc512_6.isChecked() ? "5" : ""));
-        editor.putString("sp512_7", (mc512_7.isChecked() ? "5" : ""));
-        editor.putString("sp512_99", (mc512_99.isChecked() ? "5" : ""));
-        editor.putString("sp512_88", (mc512_88.isChecked() ? "5" : ""));
+        editor.putString("sp512_6", (mc512_6.isChecked() ? "6" : ""));
+        editor.putString("sp512_7", (mc512_7.isChecked() ? "7" : ""));
+        editor.putString("sp512_99", (mc512_99.isChecked() ? "99" : ""));
+        editor.putString("sp512_88", (mc512_88.isChecked() ? "88" : ""));
 
         editor.putString("sp522_1", (mc522_1.isChecked() ? "1" : ""));
         editor.putString("sp522_2", (mc522_2.isChecked() ? "2" : ""));
@@ -936,7 +957,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.apply();
         Log.d(TAG, "Stored sharedValues.");
 
-        JSONObject S5 = new JSONObject();
+        S5 = new JSONObject();
         long newFormId = 0;
         try {
             S5.put("mc501", sharedPref.getString("sp501", "00"));
@@ -1085,7 +1106,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc525_19", sharedPref.getString("sp525_19", "00"));
             S5.put("mc525_20", sharedPref.getString("sp525_20", "00"));
 
-            FormsContract.getInstance().setS5(S5.toString());
+            //FormsContract.getInstance().setS5(S5.toString());
 
 
         } catch (JSONException e) {

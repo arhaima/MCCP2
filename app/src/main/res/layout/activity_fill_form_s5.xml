@@ -710,7 +710,7 @@
         <RadioGroup
 
             android:id="@+id/MC_514"
-            style="@style/radiobutton"
+            style="@style/radiogroup"
             android:text="@string/MC_514"
 
             >
@@ -777,7 +777,7 @@
         <RadioGroup
 
             android:id="@+id/MC_517"
-            style="@style/radiobutton"
+            style="@style/radiogroup"
             android:text="@string/MC_517"
 
             >
@@ -884,7 +884,7 @@
         <RadioGroup
 
             android:id="@+id/MC_520"
-            style="@style/radiobutton"
+            style="@style/radiogroup"
             android:text="@string/MC_520">
 
 
@@ -1006,7 +1006,7 @@
         <RadioGroup
 
             android:id="@+id/MC_523"
-            style="@style/radiobutton"
+            style="@style/radiogroup"
             android:text="@string/MC_523">
 
             <RadioButton
@@ -1033,7 +1033,17 @@
             android:labelFor="@+id/MC_524"
             android:text="@string/MC_524" />
 
+            <CheckBox
+                android:id="@+id/MC_524_99"
+                style="@style/checkbox"
+                android:text="@string/MC_524_99" />
 
+            <LinearLayout
+                android:id="@+id/fldGrp524"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
 
         <!--MC_524ACR-->
 
@@ -1067,10 +1077,7 @@
             android:maxLength="4"
             android:singleLine="true" />
 
-            <CheckBox
-                android:id="@+id/MC_524_99"
-                style="@style/checkbox"
-                android:text="@string/MC_524_99" />
+            </LinearLayout>
     </LinearLayout>
         <!--MC_525_1-->
 
@@ -1451,14 +1458,7 @@
             android:orientation="horizontal">
 
 
-            <Button
-                android:id="@+id/btn_End"
-                style="@style/buttons"
-                android:layout_weight="1"
-                android:onClick="endInterview"
-                android:text="@string/end_interview"
-                android:textColor="#ff1e1e" />
-            <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
+                <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
             <Button
                 android:id="@+id/btn_Continue"

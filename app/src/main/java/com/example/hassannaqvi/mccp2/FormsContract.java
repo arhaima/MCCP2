@@ -9,9 +9,9 @@ import org.json.JSONObject;
 /**
  * Created by hassan.naqvi on 4/15/2016.
  */
-public final class FormsContract {
+public class FormsContract {
     private static final String TAG = "FORM_CONTRACT";
-    private static FormsContract fcInstance = null;
+    //private static FormsContract fcInstance = null;
     private Long _ID;
     private String DEVICE_ID;
     private String ROW_MC_FrmNo;
@@ -34,7 +34,7 @@ public final class FormsContract {
     private String ROW_S_6;
     private String ROW_Ending;
 
-    private FormsContract() {
+    public FormsContract() {
         // Default Constructor
     }
 
@@ -48,22 +48,16 @@ public final class FormsContract {
 
     }
 
-    public static FormsContract getInstance() {
-        if (fcInstance == null) {
-            fcInstance = new FormsContract();
-        }
-        return fcInstance;
-    }
-
-    public void Clear() {
-        fcInstance = null;
-    }
-
-    public void setS1(JSONObject mc1) throws JSONException {
+    public FormsContract(JSONObject mc1) throws JSONException {
         Log.d(TAG, "Constructor: String+JSON");
         this.ROW_MC_FrmNo = mc1.getString("mcFrmNo");
-        this.DEVICE_ID = mc1.getString("deviceId");
+        this.DEVICE_ID = mc1.getString("mcDeviceId");
         this.ROW_MC_101 = mc1.getString("mc101");
+        if (this.ROW_MC_101 == null) {
+            Log.d(TAG, "MC is 000");
+        } else {
+            Log.d(TAG, get101().toString());
+        }
         this.ROW_MC_101TIME = mc1.getString("mc101Time");
         this.ROW_MC_102 = mc1.getString("mc102");
         this.ROW_MC_103 = mc1.getString("mc103");
@@ -101,7 +95,10 @@ public final class FormsContract {
     }
 
     public void set101(String mc101) {
+        Log.d(TAG + "-Set101: ", mc101);
         this.ROW_MC_101 = mc101;
+        Log.d(TAG + "-Get101: ", get101());
+
     }
 
     public String get101Time() {

@@ -22,6 +22,8 @@ public class FillFormS6CFActivity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_CF_ACTIVITY";
     public static List<String> CF_chids = new ArrayList<String>();
+    public static JSONObject CF;
+    public static JSONObject JsonCF;
     private static Integer CF_CHID;
     public Integer CF_chid_no;
     public String cfchid;
@@ -199,6 +201,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
 
         // Putting values of CheckBoxes
 
+        editor.putString("spcf_FrmNo", cfchid);
         editor.putString("spcf_Q1", (CF_Q1.isChecked() ? "1" : ""));
         editor.putString("spcf_Q2", (CF_Q2.isChecked() ? "2" : ""));
         editor.putString("spcf_Q2_1", (CF_Q2_1.isChecked() ? "1" : ""));
@@ -214,9 +217,12 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         editor.apply();
         Log.d(TAG, "Stored sharedValues.");
 
-        JSONObject JsonCF = new JSONObject();
+        CF = new JSONObject();
+        JsonCF = new JSONObject();
         long newFormId = 0;
         try {
+            CF.put("chid", cfchid);
+            CF.put("FrmNo", formId);
 
             // Initialize JSON Object For Section 6
             JsonCF.put("mccf_Q1", sharedPref.getString("spcf_Q1", "00"));
@@ -228,9 +234,9 @@ public class FillFormS6CFActivity extends AppCompatActivity {
             JsonCF.put("mccf_Q2_5", sharedPref.getString("spcf_Q2_5", "00"));
             JsonCF.put("mccf_Q2_6", sharedPref.getString("spcf_Q2_6", "00"));
             JsonCF.put("mccf_Q1", sharedPref.getString("spcf_Q1", "00"));
+            CF.put("cf", JsonCF);
 
-
-            Log.d(TAG, JsonCF.toString());
+            Log.d(TAG, CF.toString());
             /*FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
             FormsDbHelper db = new FormsDbHelper(this);
 
@@ -270,5 +276,9 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        Toast.makeText(getApplicationContext(), "Back Button NOT Allowed!", Toast.LENGTH_SHORT).show();
+    }
 
 }

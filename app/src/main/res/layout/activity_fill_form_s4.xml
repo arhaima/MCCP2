@@ -345,7 +345,7 @@
             <CheckBox
                 android:id="@+id/MC_405A99"
                 style="@style/checkbox"
-                android:text="Text Not Match" />
+                android:text="@string/MC_404_99" />
 
 
             <CheckBox
@@ -800,13 +800,6 @@
             android:orientation="horizontal">
 
 
-            <Button
-                android:id="@+id/btn_End"
-                style="@style/buttons"
-                android:layout_weight="1"
-                android:onClick="endInterview"
-                android:text="@string/end_interview"
-                android:textColor="#ff1e1e" />
             <!--'onClick' for btn_End will NOT change and always call 'endInterview'-->
 
             <Button

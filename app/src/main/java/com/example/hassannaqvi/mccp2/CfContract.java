@@ -5,22 +5,22 @@ import android.provider.BaseColumns;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ImsContract {
+public class CfContract {
 
     private static final String TAG = "IM_CONTRACT";
 
     private Long _ID;
     private String row_FrmNo;
     private String row_chid;
-    private String row_im;
+    private String row_cf;
 
-    public ImsContract() {
+    public CfContract() {
     }
 
-    public ImsContract(JSONObject S3) throws JSONException {
-        this.row_chid = S3.getString("imchid");
-        this.row_FrmNo = S3.getString("FrmNo");
-        this.row_im = S3.getString("im");
+    public CfContract(JSONObject cf) throws JSONException {
+        this.row_chid = cf.getString("cfchid");
+        this.row_FrmNo = cf.getString("FrmNo");
+        this.row_cf = cf.getString("cf");
 
 
     }
@@ -33,12 +33,12 @@ public class ImsContract {
         this._ID = Long.valueOf(id);
     }
 
-    public String getIM() {
-        return this.row_im;
+    public String getCf() {
+        return this.row_cf;
     }
 
-    public void setIM(String im) {
-        this.row_im = im;
+    public void setCf(String cf) {
+        this.row_cf = cf;
     }
 
     public String getChid() {
@@ -58,13 +58,13 @@ public class ImsContract {
     }
 
 
-    public static abstract class singleIms implements BaseColumns {
+    public static abstract class singleCfs implements BaseColumns {
 
-        public static final String TABLE_NAME = "Ims";
+        public static final String TABLE_NAME = "CFS";
         public static final String _ID = "_ID";
         public static final String ROW_CHID = "CHID";
         public static final String ROW_FrmNo = "FRMNO";
-        public static final String ROW_IM = "IM";
+        public static final String ROW_CF = "CF";
 
     }
 

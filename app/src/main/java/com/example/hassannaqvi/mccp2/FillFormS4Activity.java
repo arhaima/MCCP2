@@ -25,7 +25,7 @@ import org.json.JSONObject;
 public class FillFormS4Activity extends AppCompatActivity {
 
     private static final String TAG = "FILL_FORM_S3_ACTIVITY";
-
+    public static JSONObject S4;
     public static String FORM_ID;
     private String formId;
     private Integer girlCount;
@@ -309,6 +309,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         mc413_4 = (CheckBox) findViewById(R.id.MC_413_4);
         mc413_5 = (CheckBox) findViewById(R.id.MC_413_5);
         mc413_6 = (CheckBox) findViewById(R.id.MC_413_6);
+        mc413_7 = (CheckBox) findViewById(R.id.MC_413_7);
         mc413_88 = (CheckBox) findViewById(R.id.MC_413_88);
         mc413x = (EditText) findViewById(R.id.MC_413X);
         mc414 = (RadioGroup) findViewById(R.id.MC_414);
@@ -600,7 +601,7 @@ public class FillFormS4Activity extends AppCompatActivity {
     private void StoreTempValues() {
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
-        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("MC_" + formId, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         //RadioButton Selected for switches in putString()
@@ -850,7 +851,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         Log.d(TAG, "Stored sharedValues.");
 
 
-        JSONObject S4 = new JSONObject();
+        S4 = new JSONObject();
         long newFormId = 0;
         try {
             S4.put("mc401", sharedPref.getString("sp401", "00"));
@@ -943,7 +944,7 @@ public class FillFormS4Activity extends AppCompatActivity {
 
             Log.d(TAG, S4.toString());
 
-            FormsContract.getInstance().setS4(S4.toString());
+            //FormsContract.getInstance().setS4(S4.toString());
 
             /*FormsContract formContractS4 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, S4.toString());
             FormsDbHelper db = new FormsDbHelper(this);
@@ -972,7 +973,7 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 401 not selected");
             return false;
         }
-        if (mc403.getSelectedItemPosition() == 0) {
+        if ((mc401_yes.isChecked() || mc401_dontknow.isChecked()) && mc403.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc403.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -1019,7 +1020,7 @@ public class FillFormS4Activity extends AppCompatActivity {
             return false;
         }
 
-        if (mc410.getSelectedItemPosition() == 0) {
+        if (mc408_yes.isChecked() && mc410.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc410.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -1064,9 +1065,9 @@ public class FillFormS4Activity extends AppCompatActivity {
         return true;
     }
 
-   /* @Override
+    @Override
     public void onBackPressed() {
         Toast.makeText(getApplicationContext(), "Back Button NOT Allowed!", Toast.LENGTH_SHORT).show();
 
-    }*/
+    }
 }
