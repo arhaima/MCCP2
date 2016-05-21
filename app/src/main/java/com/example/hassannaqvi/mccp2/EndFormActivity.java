@@ -18,7 +18,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Map;
 
@@ -155,7 +155,8 @@ public class EndFormActivity extends AppCompatActivity {
 
     private void StoreTempValues() throws JSONException {
 
-        SharedPreferences sharedPref = getSharedPreferences(formId, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("MC_" + FillFormActivity.mcFrmNo, Context.MODE_PRIVATE);
+
         SharedPreferences.Editor editor = sharedPref.edit();
 
 
@@ -193,8 +194,9 @@ public class EndFormActivity extends AppCompatActivity {
                 break;
 
         }
+        String spEndDateTime = new SimpleDateFormat("dd-MM-yyyy HH:mm").format(Calendar.getInstance().getTime());
         editor.putString("sp110x", mc110x.getText().toString());
-        editor.putString("spEndDateTime", DateFormat.getDateInstance().format(Calendar.getInstance().getTime()));
+        editor.putString("spEndDateTime", spEndDateTime);
 
         // Comit to storage
         editor.commit();
@@ -216,7 +218,6 @@ public class EndFormActivity extends AppCompatActivity {
 
             //FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
             FormsContract fc = new FormsContract(FillFormActivity.s1);
-            Log.d(TAG + "-S1-: ", FillFormActivity.s1.getString("mc101"));
             fc.setS2(String.valueOf(FillFormS2Activity.S2));
             fc.setS4(String.valueOf(FillFormS4Activity.S4));
             fc.setS5(String.valueOf(FillFormS5Activity.S5));
@@ -290,7 +291,7 @@ public class EndFormActivity extends AppCompatActivity {
                 for (String cfchid : FillFormS6CFActivity.CF_chids) {
 
                     SharedPreferences cfPref = getSharedPreferences("CF_" + cfchid, Context.MODE_PRIVATE);
-                    CfContract cf = new CfContract();
+                    CfsContract cf = new CfsContract();
 
                     cf.setChid(cfPref.getString("imchid", "00"));
                     cf.setFrmNo(formId);

@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.hassannaqvi.mccp2.CfContract.singleCfs;
+import com.example.hassannaqvi.mccp2.CfsContract.singleCfs;
 import com.example.hassannaqvi.mccp2.ClustersContract.singleCluster;
 import com.example.hassannaqvi.mccp2.FormsContract.singleForm;
 import com.example.hassannaqvi.mccp2.ImsContract.singleIms;
@@ -134,7 +134,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         Log.d(TAG, "Add Form ROW_ID: " + formscontract.getId()); // TODO: Check why form ID is 'null'
         values.put(singleForm.ROW_MC_FrmNo, formscontract.getFrmNo());
-        values.put(singleForm.DEVICE_ID, formscontract.getFrmNo());
+        values.put(singleForm.DEVICE_ID, formscontract.getDeviceId());
         values.put(singleForm.ROW_GPS_LAT, formscontract.getGPSLat());
         values.put(singleForm.ROW_GPS_LNG, formscontract.getGPSLng());
         values.put(singleForm.ROW_SYNC, formscontract.getSync());
@@ -151,6 +151,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         values.put(singleForm.ROW_S_4, formscontract.getS4());
         values.put(singleForm.ROW_S_5, formscontract.getS5());
         values.put(singleForm.ROW_S_6, formscontract.getS6());
+        values.put(singleForm.ROW_Ending, formscontract.getEnding());
 
 
         // Inserting Row
@@ -176,7 +177,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         return rowId;
     }
 
-    public long addCF(CfContract cfscontract) {
+    public long addCF(CfsContract cfscontract) {
         SQLiteDatabase db = this.getWritableDatabase();
 
 
@@ -238,7 +239,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.setS4(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_4)));
                 form.setS5(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_5)));
                 form.setS6(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_6)));
-                form.setS6(cursor.getString(cursor.getColumnIndex(singleForm.ROW_Ending)));
+                form.setEnding(cursor.getString(cursor.getColumnIndex(singleForm.ROW_Ending)));
 
                 // Adding contact to list
                 formList.add(form);
@@ -280,7 +281,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.setS4(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_4)));
                 form.setS5(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_5)));
                 form.setS6(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_6)));
-                form.setS6(cursor.getString(cursor.getColumnIndex(singleForm.ROW_Ending)));
+                form.setEnding(cursor.getString(cursor.getColumnIndex(singleForm.ROW_Ending)));
 
                 // Adding contact to list
                 formList.add(form);
@@ -289,6 +290,37 @@ public class FormsDbHelper extends SQLiteOpenHelper {
 
         // return contact list
         return formList;
+    }
+
+    public List<FormsContract> getAllGPS() {
+        List<FormsContract> gpsList = new ArrayList<FormsContract>();
+        // Select All Query
+        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+
+            do {
+                FormsContract gps = new FormsContract();
+                gps.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
+                gps.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
+                gps.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
+
+
+                // Adding contact to list
+                gpsList.add(gps);
+
+
+                // Adding contact to list
+                gpsList.add(gps);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return gpsList;
     }
 
     public List<ImsContract> getAllIms() {
@@ -316,6 +348,33 @@ public class FormsDbHelper extends SQLiteOpenHelper {
 
         // return contact list
         return imsList;
+    }
+
+    public List<CfsContract> getAllCfs() {
+        List<CfsContract> cfsList = new ArrayList<CfsContract>();
+        // Select All Query
+        String selectQuery = "SELECT  * FROM " + singleCfs.TABLE_NAME;
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                CfsContract cfs = new CfsContract();
+                cfs.setId(cursor.getString(cursor.getColumnIndex(singleForm._ID)));
+                cfs.setFrmNo(cursor.getString(cursor.getColumnIndex(singleCfs.ROW_FrmNo)));
+                cfs.setChid(cursor.getString(cursor.getColumnIndex(singleCfs.ROW_CHID)));
+                cfs.setCf(cursor.getString(cursor.getColumnIndex(singleCfs.ROW_CF)));
+
+
+                // Adding contact to list
+                cfsList.add(cfs);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return cfsList;
     }
 
 

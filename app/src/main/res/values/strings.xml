@@ -1,614 +1,574 @@
 <resources>
+     
     <string name="app_name">MCCP2</string>
-    <string name="splash_header">MCCP - Phase 2</string>
+     
+    <string name="splash_header">MCCP-Phase 2</string>
+     
     <string name="fill_form">Fill Survey Form</string>
+     
     <string name="edit_forms">Edit Stored Form</string>
+     
     <string name="sync_forms">Sync Stored Forms</string>
+     
     <string name="delete_forms">Delete Stored Forms</string>
+     
     <string name="MCCP2_label">MCCP2</string>
-
-    <string name="MC_101TIME"> انٹرویو کا وقت </string>
-    <string name="MC_101"> انٹرویو کی تاریخ </string>
-    <string name="MC_102"> انٹرویو کرنے والے کا نام اور کوڈ نمبر </string>
-    <string name="MC_102_Name"> نام </string>
-    <string name="MC_102_Code"> کوڈ </string>
-
-
-    <string name="MC_103"> ٹا وُن - تحصیل  کا نام اور کوڈ </string>
-
-
-    <string name="MC_104">یونین کونسل کا نام اور کوڈ</string>
-    <string name="MC_104_Name"> نام </string>
-    <string name="MC_104_Code"> کوڈ </string>
-
-    <string name="MC_105">کلسٹر</string>
-    <string name="MC_105TVI"> TVI کلسٹر </string>
-    <string name="MC_105_Name">نام </string>
-    <string name="MC_105_Code">کوڈ</string>
-
-    <string name="MC_106">گھرانہ نمبر  لسٹنگ شیٹ سے لکھیں</string>
-    <string name="MC_Yes">ہاں</string>
-    <string name="MC_No">نہیں</string>
-    <string name="MC_DontKnow">معلوم نہیں</string>
-    <string name="MC_107">کیادروازے پرِای -پی-آئی کا مخصوص نشان موجود ہے؟</string>
-    <string name="MC_108inst">ہدایت: اپنا تعارف کرو ائیں اور اپنے آنے کا مقصد بیان کر  یں۔ انٹر ویو شروع کر نے سے پہلے زبانی اجازت لیں۔  اگر اجازت نہ ملے تو  انٹرویو   نہ لیں  اور  ہدايات کے مطابق اگلے گھر جائیں۔</string>
-    <string name="MC_108">کیا اجازت مل گئی؟</string>
-    <string name="MC_108_Close">گھر بند ہے - اجازت دینے والا موجود نہیں ہیں</string>
-    <string name="MC_Unclear">واضح  نہیں</string>
-    <string name="end_interview">اختتام</string>
-    <string name="start_interview">انٹرویو شروع کریں</string>
-
-    <string name="MC_109">انٹرویو کا نتیجہ </string>
-    <string name="MC_109_complete"> مکمل </string>
-    <string name="MC_109_incomplete"> نامکمل </string>
-    <string name="MC_109_noQ"> سوالنامہ نہیں بھراگیا </string>
-    <string name="MC_110">اگر انٹرویو نامکمل ہو تو وجہ بیان کریں</string>
-    <string name="MC_110_1"> انٹرویو کے دوران منع کر دیا  </string>
-    <string name="MC_110_2"> گهر بند تھا </string>
-    <string name="MC_110_3"> بالغ جوابدہندہ موجود نہیں تھا  </string>
-    <string name="MC_110_4"> اجازت دینے والا موجود نہیں ہے </string>
-    <string name="MC_110_88"> دیگر </string>
-    <string name="MC_110X">انٹرویو نامکمل ہونے کی دیگر وضاحت کریں</string>
-
-
-    <string name="MC_201NM">جوابدہندہ کا  نام </string>
-    <string name="MC_201GNDR">جوابدہندہ کی جنس</string>
-    <string name="MC_201TYPE">جوابدہندہ کا رشتہ </string>
-    <string name="MC_201AGE">جوابدہندہ کی عمر </string>
-    <string name="MC_201EDU">جوابدہندہ کی تعلیم </string>
-    <string name="MC_201OCU">جوابدہندہ کا پیشہ</string>
-    <string name="MC_202NM">گھرانے کے سر براہ کا نام</string>
-    <string name="MC_202GNDR">گھرانے کے سر براہ کی جنس</string>
-    <string name="MC_202AGE">گھرانے کے سر براہ کی عمر </string>
-    <string name="MC_202EDU">گھرانے کے سر براہ کی تعلیم </string>
-    <string name="MC_202OCU">گھرانے کے سر براہ کا پیشہ</string>
-
-    <string name="MC_203"> اس گھر میں آپ کے ساتھ اور کتنے افراد رہتے ہیں؟ </string>
-    <string name="MC_203TOT">ٹوٹل</string>
-    <string name="MC_203_Info">(بچوں کو شامل کر کے تعداد بتائیں)</string>
-
-    <string name="MC_203M">اس گھر میں ٹوٹل مرد</string>
-    <string name="MC_203F">اس گھر میں ٹوٹل عورتیں</string>
-
-    <string name="MC_204">اس گھر میں پانچ سال سے کم عمر کے کتنے بچے ہیں؟</string>
-
-    <string name="MC_204T">ٹوٹل</string>
-    <string name="MC_204M">بچے</string>
-    <string name="MC_204F">بچیاں</string>
-
-    <string name="MC_205"> یہاں کتنے عرصے سے رہائش پزیر ہیں؟ </string>
-    <string name="MC_205_Info"> (ایک سال سے کم ہوتو مہینوں میں لکھیں) </string>
-    <string name="MC_205YY"> سال </string>
-    <string name="MC_205MM">مہینے</string>
-    <string name="MC_206">کیا اس گھر میں کوئی حاملہ خاتون ہے؟</string>
-
-    <string name="MC_207_W"> مدت ہفتوں میں</string>
-    <string name="MC_207"> اگر ہاں تو حمل کی مدت  </string>
-    <string name="MC_207_Info"> ہفتوں اورمہینوں میں لکھیں  </string>
-    <string name="MC_207_M">مدت مہینوں میں </string>
-
-    <string name="IM_FRMNO">فارم کا سیریل نمبر</string>
-    <string name="IM_CHID">بچے کی آئ ڈی</string>
-    <string name="IM_RESP">اگر جوابدہندہ بچے کی ماں ہے تو سرکل کریں</string>
-    <string name="IM_A">بچے کا نام </string>
-    <string name="IM_AF">بچے کے والد کا نام</string>
-    <string name="IM_B">بچے کی جنس</string>
-    <string name="IM_C">کارڈ موجود ہے یا نہیں  حفاظتی ٹیکوں کا</string>
-    <string name="IM_D">بچے کی تاریخ پیدائش</string>
-    <string name="IM_EY">عمر سال</string>
-    <string name="IM_EM">عمر مہینے</string>
-    <string name="IM_ED">عمر دن</string>
-    <string name="IM_F">کیا  بچے کوپچھلے 6 ماہ کے دوران وٹامن اے کے قطرےپلا ئے گئے؟ </string>
-    <string name="IM_G">کیا پچھلی مہم کے دوران بچے کو پولیو کے قطرے پلا ئےگئے؟</string>
-    <string name="IM_H">کیا انگلی پر  EPI کا نشان موجود ہے؟   </string>
-    <string name="IM_I">کیا بچے نے کبھی بھی پولیو کے قطرے پیئے ہیں</string>
-    <string name="IM_J">کیاپچھلے 6 مہینے کے دوران آپ کے بچے کو پولیو    کاٹیکہ لگا ہے؟ </string>
-    <string name="IM_JB">پولیو  کے ٹیکے کی sourceلکھیں</string>
-    <string name="IM_K">بچے کو پولیو  کا ٹیکہ کہاں سے لگوایا ہے</string>
+    <string name="MC_101TIME">Date and time of interview (Time)</string>
+    <string name="MC_101">Date and time of interview (Date)</string>
+    <string name="MC_102">Name &amp; Code of interviewer</string>
+    <string name="MC_102_Name">Name of interviewer</string>
+    <string name="MC_102_Code">Code of interviewer</string>
+    <string name="MC_103">Name or code of the Town</string>
+    <string name="MC_104">Name or code of the Union Council/ Tehsil</string>
+    <string name="MC_104_Name">Name of the Union Council/ Tehsil</string>
+    <string name="MC_104_Code">Code of the Union Council/ Tehsil</string>
+    <string name="MC_105">Cluster</string>
+    <string name="MC_105TVI">TVI Cluster</string>
+    <string name="MC_105_Name">Name of Cluster</string>
+    <string name="MC_105_Code">Code of Cluster</string>
+    <string name="MC_106">Household Number (Assign HH number)</string>
+    <string name="MC_Yes">Yes</string>
+    <string name="MC_No">No</string>
+    <string name="MC_DontKnow">Don\'t Know</string>
+    <string name="MC_107">Is there any EPI Mark present on the door of house?</string>
+    <string name="MC_108inst">Introduce yourself and inform about the purpose of your visit. </string>
+    <string name="MC_108">Did you get the permission?</string>
+    <string name="MC_108_Close">Locked / Eligible respondent was not present</string>
+    <string name="MC_Unclear">Mark is unclear</string>
+    <string name="end_interview">End Interview</string>
+    <string name="start_interview">Start Interview</string>
+    <string name="MC_109">Interview status</string>
+    <string name="MC_109_complete">Complete</string>
+    <string name="MC_109_incomplete">Partially filled</string>
+    <string name="MC_109_noQ">Not filled</string>
+    <string name="MC_110">Mention reason if interview has not been completed</string>
+    <string name="MC_110_1">Refused during the interview</string>
+    <string name="MC_110_2">Locked</string>
+    <string name="MC_110_3">Eligible respondent was not present</string>
+    <string name="MC_110_4">Consent giver not present</string>
+    <string name="MC_110_88">Other Specify </string>
+    <string name="MC_110X">Other Specify</string>
+    <string name="MC_201NM">Respondent\'s Profile Name</string>
+    <string name="MC_201GNDR">Respondent Gender</string>
+    <string name="MC_201TYPE">Type  Mother/Care Taker</string>
+    <string name="MC_201AGE">Age of Respondent</string>
+    <string name="MC_201EDU">Respondent Education</string>
+    <string name="MC_201OCU">Respondent Occupation</string>
+    <string name="MC_202NM">Household Head\'s Profile: Name</string>
+    <string name="MC_202GNDR">Household Head\'s Profile: Gender</string>
+    <string name="MC_202AGE">Household Head\'s Profile: Age</string>
+    <string name="MC_202EDU">Household Head\'s Profile: Education</string>
+    <string name="MC_202OCU">Household Head\'s Profile: Occupation</string>
+    <string name="MC_203">How many members usually live in this household including you?</string>
+    <string name="MC_203TOT">Total</string>
+    <string name="MC_203_Info">How many members including child\'s</string>
+    <string name="MC_203M">Male</string>
+    <string name="MC_203F">Female</string>
+    <string name="MC_204">In this Household, how many children are under 5 years of age? Total</string>
+    <string name="MC_204T">Total</string>
+    <string name="MC_204M">Male</string>
+    <string name="MC_204F">Female</string>
+    <string name="MC_205">From how long you have been living in this area?</string>
+    <string name="MC_205_Info">Write either the year or months</string>
+    <string name="MC_205YY">From how long you have been living in this area? Year</string>
+    <string name="MC_205MM">From how long you have been living in this area? Month</string>
+    <string name="MC_206">Is there any pregnant female in the household?</string>
+    <string name="MC_207_W">Weeks</string>
+    <string name="MC_207">What is their gestational age?</string>
+    <string name="MC_207_Info">write either the weeks or months</string>
+    <string name="MC_207_M">Months</string>
+    <string name="IM_FRMNO">DMU_Serial</string>
+    <string name="IM_CHID">Child ID</string>
+    <string name="IM_RESP">Respondent Child Must Circle</string>
+    <string name="IM_A">Name of child &amp; his/her Father</string>
+    <string name="IM_AF">Name of child Father</string>
+    <string name="IM_B">Gender</string>
+    <string name="IM_C">Vaccination Card Present?</string>
+    <string name="IM_D">Date of Birth</string>
+    <string name="IM_EY">Age In Year</string>
+    <string name="IM_EM">Age In Months</string>
+    <string name="IM_ED">Age In Days</string>
+    <string name="IM_F">Vitamin A drops given in last 6 months?</string>
+    <string name="IM_G">Has the child ever received OPV during national immunization campaigns?</string>
+    <string name="IM_H">EPI mark present on finger?</string>
+    <string name="IM_I">OPV given in last campaign?</string>
+    <string name="IM_J">Did your child received IPV during the last 6/3 months?</string>
+    <string name="IM_JB">If yes, than what is the source</string>
+    <string name="IM_K">From where child received IPV.</string>
     <string name="BCG">BCG</string>
-    <string name="BCG_SRC">BCG Source</string>
-    <string name="BCG_SCAR">BCG Scar</string>
-    <string name="OPV0">OPV 0</string>
-    <string name="OPV0_SRC">OPV Source</string>
+    <string name="BCG_SRC">Source</string>
+    <string name="BCG_SCAR">Scar</string>
+    <string name="OPV0">OPV0</string>
+    <string name="OPV0_SRC">Source</string>
     <string name="P1">Penta 1</string>
-    <string name="P1_SRC">Penta 1 Source</string>
-    <string name="PCV1">PCV 1</string>
-    <string name="PCV1_SRC">PCV 1 Source</string>
-    <string name="OPV1">OPV 1</string>
-    <string name="OPV1_SRC">OPV 1 Source</string>
+    <string name="P1_SRC">Scar</string>
+    <string name="PCV1">PCV1</string>
+    <string name="PCV1_SRC">Source</string>
+    <string name="OPV1">OPV1</string>
+    <string name="OPV1_SRC">Source</string>
     <string name="P2">Penta 2</string>
-    <string name="P2_SRC">Penta 2 Source</string>
-    <string name="PCV2">PCV 2</string>
-    <string name="PCV2_SRC">PCV 2 Source</string>
-    <string name="OPV2">OPV 2</string>
-    <string name="OPV2_SRC">OPV 2 Source</string>
+    <string name="P2_SRC">Source</string>
+    <string name="PCV2">PCV2</string>
+    <string name="PCV2_SRC">Source</string>
+    <string name="OPV2">OPV2</string>
+    <string name="OPV2_SRC">Source</string>
     <string name="P3">Penta 3</string>
-    <string name="P3_SRC">Penta 3 Source</string>
-    <string name="PCV3">PCV 3</string>
-    <string name="PCV3_SRC">PCV 3 Source</string>
-    <string name="OPV3">OPV 3</string>
-    <string name="OPV3_SRC">OPV 3 Source</string>
-    <string name="M1">Measles 1</string>
-    <string name="M1_SRC">Measles 1 Source</string>
-    <string name="M2">Measles 2</string>
-    <string name="M2_SRC">Measles 2 Source</string>
+    <string name="P3_SRC">Source</string>
+    <string name="PCV3">PCV3</string>
+    <string name="PCV3_SRC">Source</string>
+    <string name="OPV3">OPV3</string>
+    <string name="OPV3_SRC">Source</string>
+    <string name="M1">Measels 1</string>
+    <string name="M1_SRC">Source</string>
+    <string name="M2">Measels 2</string>
+    <string name="M2_SRC">Source</string>
     <string name="IM_M_D">Diarrhea</string>
     <string name="IM_M_A">ARI</string>
-
-
-    <string name="MC_401">کیا آپ نے کبھی حفاظتی ٹیکوں کے بارے میں سنا ہے ؟</string>
-    <string name="MC_401_Yes">ہاں</string>
-    <string name="MC_401_No"> نہیں</string>
-    <string name="MC_401_Dontknow"> معلوم نہیں </string>
-
-
-    <string name="MC_402">آپ نے کن ذرائع سے حفاظتی ٹیکوں  کے بارے میں سنا ہے؟</string>
-    <string name="MC_402_1"> ٹی-وی  </string>
-    <string name="MC_402_2"> ریڈیو  </string>
-    <string name="MC_402_3"> اخبارات </string>
-    <string name="MC_402_4"> پوسٹر/بینر </string>
-    <string name="MC_402_5"> محکمہ صحت کے افراد </string>
-    <string name="MC_402_6"> امام مسجد </string>
-    <string name="MC_402_7"> مقامی لیڈر </string>
-    <string name="MC_402_8"> گھر والوں سے </string>
-    <string name="MC_402_9"> دوست/ہمسائے/رشتہ دار  </string>
-    <string name="MC_402_10"> NGO ورکر  </string>
-    <string name="MC_402_88">  (دیگر(وضاحت کریں </string>
-
-
-    <string name="MC_403">کیا آپ سمجھتے ہیں کہ حفاظتی ٹیکے بیماریوں سے بچاتے ہیں؟</string>
-    <string name="MC_403_Yes">کیا آپ سمجھتے ہیں کہ حفاظتی ٹیکے بیماریوں سے بچاتے ہیں؟</string>
-    <string name="MC_403_No">کیا آپ سمجھتے ہیں کہ حفاظتی ٹیکے بیماریوں سے بچاتے ہیں؟</string>
-
-    <string name="MC_404"> کیا آپ کسی ایسی بیماری کے بارے میں جانتے ہیں جس کے لئے حفاظتی ٹیکے لگائے جاتے ہیں؟ </string>
-    <string name="MC_404_Info">(جوابات دینے میں کسی قسم کی کوئی مدد نہ کریں  اور ایک سے زیادہ جوابات   آسکتے ہیں-)</string>
-    <string name="MC_404_1"> پو لیو </string>
-    <string name="MC_404_2"> ٹی-بی  </string>
-    <string name="MC_404_3"> خناق </string>
-    <string name="MC_404_4"> کالی کھانسی </string>
-    <string name="MC_404_5"> خسرہ </string>
-    <string name="MC_404_6"> یرقان </string>
-    <string name="MC_404_7"> تشنج </string>
-    <string name="MC_404_8"> حمل کے دوران تشنج  </string>
-    <string name="MC_404_9"> چیچک </string>
-    <string name="MC_404_99"> معلوم نہیں  </string>
-    <string name="MC_404_88"> (دیگر(وضاحت کریں   </string>
-
-
-<string name="MC_405">آپ کے خیال میں  حفاظتی ٹیکے لگوانے میں عام طورپر کیا رکاوٹیں
-  ہوتی ہیں؟
-</string>
-
-    <string name="MC_405_Info">ایک سے زیادہ جوابات آسکتے ہیں</string>
-    <string name="MC_405_1"> تعلیم کی کمی  </string>
-    <string name="MC_405_2"> پیسوں کی کمی   </string>
-    <string name="MC_405_3"> آگاہی کی کمی   </string>
-    <string name="MC_405_4"> سہولیات کی کمی  </string>
-    <string name="MC_405_5"> ٹیکوں  کے منفی اثرات کا خوف  </string>
-    <string name="MC_405_99"> معلوم نہیں   </string>
-    <string name="MC_405_88"> (دیگر(وضاحت کریں  </string>
-
-
-    <string name="MC_405A">آپ  اپنے بچے کو  عام طور پرحفاظتی ٹیکے کہاں سے لگواتے ہیں ؟</string>
-    <string name="MC_405A1"> گورنمنٹ ہسپتال  </string>
-    <string name="MC_405A2"> نجی ہسپتال  </string>
-    <string name="MC_405A3"> ہیلتھ سینٹر  </string>
-    <string name="MC_405A4"> ہیلتھ کیمپ  </string>
-    <string name="MC_405A5"> معلوم نہیں   </string>
-    <string name="MC_405A88"> (دیگر(وضاحت کریں   </string>
-
-
-    <string name="MC_406">کیا آپ دوسروں کو بھی  حفاظتی ٹیکے لگوانے کا مشورہ دیں گے؟</string>
-    <string name="MC_406_Yes">ہاں</string>
-    <string name="MC_406_No">نہیں</string>
-
-
-    <string name="MC_407">آپ دوسروں کو حفاظتی ٹیکے لگوانے کا مشورہ کیوں نہیں دیں گے ؟</string>
-    <string name="MC_407_1"> یہ ضروری  نہیں  </string>
-    <string name="MC_407_2"> مذہبی عقیدے کے خلاف ہے  </string>
-    <string name="MC_407_3"> خاندان والے منع کرتے ہیں </string>
-    <string name="MC_407_4"> صحت کے لیے مضر  ہے </string>
-    <string name="MC_407_5"> حلال نہیں ہیں </string>
-    <string name="MC_407_6"> تولیدی نظام کو متاثر کرتے ہیں </string>
-    <string name="MC_407_88"> (دیگر(وضاحت کریں </string>
-
-    <string name="MC_408">کیا آپ نے پولیو کے قطروں کے بارے میں سنا ہے؟</string>
-    <string name="MC_408_Yes">ہاں</string>
-    <string name="MC_408_No">نہیں</string>
-    <string name="MC_409">آپ کے خیال میں پولیو کے قطرےکتنے محفوظ ہیں؟</string>
-
-    <string name="MC_410">عام طور پر آپ اپنے بچوں کو پولیو کےقطرے کہاں سے پلواتے ہیں؟</string>
-    <string name="MC_410_88">دیگر (وضاحت کریں)</string>
-
-    <string name="MC_410A">کیا آپ کو معلوم ہے کہ پانچ  سال تک کے بچے کو پولیو کے قطرے کتنی دفعہ دینے کی ضرورت ہوتی ہے ؟</string>
-    <string name="MC_410A_1"> ہرپولیو مہم کے دوران </string>
-    <string name="MC_410A_2"> زیادہ تر پولیو مہم کے دوران </string>
-    <string name="MC_410A_3"> صرف چند بار </string>
-    <string name="MC_410A_4"> صرف ایک بار </string>
-    <string name="MC_410A_5"> میں قطرے پلوانا نہیں چاہتی  </string>
-    <string name="MC_410A_99"> معلوم نہیں   </string>
-
-    <string name="MC_410B">کیا وجہ ہے کے آپ ہر بار پولیو کے قطرے نہیں پلواتے؟</string>
-    <string name="MC_410B1"> ہر پولیو مہم میں قطرے پلانے کی ضرورت نہیں ہے  </string>
-    <string name="MC_410B2"> باربار پولیو کے قطرے پلانے سے ہونے والے منفی اثرات سے فکرمند ہوں  </string>
-    <string name="MC_410B3"> ہر پولیو مہم کے دوران میں گھر پر موجود نہیں ہوسکتی/ہوسکتا  </string>
-    <string name="MC_410B4"> پولیوکے قطرے فائدہ مند نہیں ہیں </string>
-    <string name="MC_410B5"> مجھے پولیو ورکر کابار بار گھر آنا پسند نہیں ہیں  </string>
-    <string name="MC_410B99"> معلوم نہیں  </string>
-    <string name="MC_410B88"> (دیگر(وضاحت کریں  </string>
-    <string name="MC_410BX"> وضاحت کریں </string>
-
-
-    <string name="MC_411"> کیا آپ کو معلوم ہے کہ پولیو سے بچاؤ کے ٹیکے بھی موجود ہیں؟ </string>
-    <string name="MC_411_Yes">ہاں</string>
-    <string name="MC_411_No">نہیں</string>
-
-    <string name="MC_412">اگر پولیو سے بچاؤ     کےلیےٹیکےموجود ہوں تو کیا آپ اپنے بچے کو لگوائیں گے؟ </string>
-    <string name="MC_412_Yes">ہاں</string>
-    <string name="MC_412_No">نہیں</string>
-
-    <string name="MC_413"> پولیو سے بچاؤ کے  ٹیکے نہ لگوانے کی  وجوہات بیان کریں۔ </string>
-    <string name="MC_413_Info">ایک سے زیادہ جوابات آسکتے ہیں</string>
-
-    <string name="MC_413_1"> بچے کو پولیو کے قطرے  بہت دفعہ پلا چکے ہیں  </string>
-    <string name="MC_413_2"> گھر والے اجازت نہیں دیتے ہیں </string>
-    <string name="MC_413_3"> حفاظتی ٹیکے حلال نہیں ہیں </string>
-    <string name="MC_413_4"> حفاظتی ٹیکے تولیدی نظام کو متاثر کرتے ہیں </string>
-    <string name="MC_413_5"> حفاظتی ٹیکے محفوظ نہیں ہیں </string>
-    <string name="MC_413_6"> مقامی لیڈر منع کرتے ہیں </string>
-    <string name="MC_413_7"> مذہبی عقائد کے خلاف ہے </string>
-    <string name="MC_413_88">(دیگر(وضاحت کریں </string>
-
-    <string name="MC_414">کیا آپ سمجھتے /سمجھتی ہیں کہ آپ کےبچے کو پولیو کا ٹیکہ لگنے کے بعد بھی پولیو کے قطروں کی ضروت ہے ؟ </string>
-    <string name="MC_414_Yes"> ہاں</string>
-    <string name="MC_414_No"> نہیں</string>
-    <string name="MC_414_Dontknow"> معلوم نہیں</string>
-
-
-    <string name="MC_415"> اگر نہیں تو کیا جوہات ہیں ؟ </string>
-    <string name="MC_415_88"> (دیگر(وضاحت کریں </string>
-
-    <!--MC_501-->
-    <string name="MC_501"> آپ اپنے گھر میں عام طور پر کونسی زبان بولتے ہیں؟  </string>
-    <string name="MC_501_88">(دیگر (وضاحت  </string>
-
-    <!--MC_502-->
-    <string name="MC_502"> کیاپچھلے ایک مہینے میں محکمہ صحت کا کوئی کارکن آپ کے گھر آیا ؟</string>
-
-
-    <!--MC_503-->
-    <string name="MC_503">کون آیا تھا اور آنے کا مقصد کیا تھا؟</string>
-    <string name="MC_503_LHW">(LHW)لیڈی ہیلتھ ورکر </string>
-    <string name="MC_503_FCV">پولیو ورکر</string>
-    <string name="MC_503_LHS">(LHS)لیڈی ہیلتھ سپروائزر</string>
-    <string name="MC_503_NGO">(NGO)فلاحی ادارے کے کارکن</string>
-    <string name="MC_503_1Others">(دیگر (وضاحت کریں</string>
-    <string name="MC_503_A_X">وضاحت کریں</string>
-    <string name="MC_503_A">بچے اور ماں کی صحت کے متعلق معلومات دینے </string>
-    <string name="MC_503_B">مرکز صحت جانے کا مشورہ  دینے</string>
-    <string name="MC_503_C">حفاظتی ٹیکے</string>
-    <string name="MC_503_D">پولیو کے قطرے پلانے</string>
-    <string name="MC_503_E">ماں کا علاج</string>
-    <string name="MC_503_F">بچے کا علا ج</string>
-    <string name="MC_503_G">(visit)معمول کا دورہ</string>
-    <string name="MC_503_X">(دیگر (وضاحت کریں </string>
-    <string name="MC_503_X_X">وضاحت کریں </string>
-
-
-    <!-- MC_504 -->
-    <string name="MC_504">(گھر کی تعمیر کے لئے کونسا بنیادی میٹریل استعمال کیا گیا ہے؟ (مشاہدہ کریں ۔جومواد سب سے زیادہ استعمال ہوا ہے وہ مارک کریں </string>
-    <string name="MC_504_W">دیواروں کی تعمیر </string>
-    <string name="MC_504_WX">(دیگر (وضاحت کریں </string>
-    <string name="MC_504_R">چھت کی تعمیر </string>
-    <string name="MC_504_RX">(دیگر (وضاحت کریں </string>
-    <string name="MC_504_F">فرش  کی تعمیر </string>
-    <string name="MC_504_FX">(دیگر (وضاحت کریں </string>
-
-    <!-- MC_505-->
-
-    <string name="MC_505">[آپ کے مکان کی مالکانہ حیثیت کیا ہے؟[جوابات کو پڑھیں </string>
-
-    <!-- MC_506 -->
-
-    <string name="MC_506">آپ کےگھر میں سونے کے لئے کتنے کمرے استعمال ہوتے ہیں؟</string>
-    <string name="MC_506_room">کمرے</string>
-
-    <!-- MC_507-->
-
-    <string name="MC_507">کیا  آپ کے  گھر میں بجلی ہے؟</string>
-
-
-    <!-- MC_508-->
-
-    <string name="MC_508">آپ کے گھر میں کھانا پکانے کے لئے زیادہ تر کونسا ایندھن استعمال ہوتا ہے؟</string>
-    <string name="MC_508_88">(دیگر (وضاحت کریں</string>
-
-    <!-- MC_509-->
-    <string name="MC_509_ah1">لائن /پائپ کا پانی </string>
-    <string name="MC_509_ah2">کنوے کا پانی </string>
-    <string name="MC_509_ah3">چشمے کا پانی </string>
-    <string name="MC_509_ah4">دیگرذرئع </string>
-
-    <string name="MC_509">آپ کےگھر میں پینے کے پانی کا سب سے اہم  ذریعہ کیا ہے؟</string>
-    <string name="MC_509_88">(دیگر (وضاحت کریں</string>
-
-    <!-- MC_510-->
-    <string name="MC_510_ah1">لائن /پائپ کا پانی </string>
-    <string name="MC_510_ah2">کنوے کا پانی </string>
-    <string name="MC_510_ah3">چشمے کا پانی</string>
-    <string name="MC_510_ah4">دیگر ذرئع</string>
-
-    <string name="MC_510">آپ کےگھر میں  کھانا  پکانے اور ہاتھ دھونے کے پانی کا سب سے اہم  ذریعہ کیا ہے؟</string>
-    <string name="MC_510_88">(دیگر (وضاحت کریں</string>
-
-    <!-- MC_511-->
-
-    <string name="MC_511">کیا آپ پینے کے پانی کو صا ف   کر نے  کے   لئے کوئی طریقہ استعمال کر تے ہیں؟</string>
-
-
-    <!-- MC_512-->
-
-<string name="MC_512">اگر ہاں تو  عام طو رپرپینے کے پانی کو  صا ف کر نے کے لئے کونسا طریقہ استعمال کرتےہیں؟
-[ایک سے زیادہ جوابات آسکتے ہیں]
-</string>
-    <string name="MC_512_1">ابالتے ہیں</string>
-    <string name="MC_512_2">بلیچ/کلوریں ملاتے ہیں</string>
-    <string name="MC_512_3">کپڑے کے ذرئعے چھانتے ہیں </string>
-    <string name="MC_512_4">پھٹکری استعمال کرتے ہیں </string>
-    <string name="MC_512_5">فلٹر استعمال کرتے ہیں </string>
-    <string name="MC_512_6">سورج کی شعاعوں سے محفوظ کیا ہوا پانی </string>
-    <string name="MC_512_7">برتن میں پانی ڈال کر ٹہرنے کا انتظار کرتے ہیں </string>
-    <string name="MC_512_99">معلوم نہیں</string>
-    <string name="MC_512_88">(دیگر (وضاحت کریں </string>
-    <string name="MC_512X">وضاحت کریں </string>
-
-    <!-- MC_513-->
-    <string name="MC_513_ah1"> فلش یا انڈیل کر پانی ڈالنے والا</string>
-    <string name="MC_513_ah2"> گڑھے والا  لیٹرین </string>
-    <string name="MC_513_ah3"> دیگر </string>
-
-    <string name="MC_513">گھر کے افراد عام طور پر کس قسم کا لیٹرین استعمال کرتے ہیں؟</string>
-    <string name="MC_513_0"> ابالتے ہیں </string>
-    <string name="MC_513_1">فلش   سیوریح کے نظام سے ملا ہوا </string>
-    <string name="MC_513_3"> فلش   گڑھےواے لیٹرین سے جڑاہوا</string>
-    <string name="MC_513_4"> فلش معلوم نہیں کہاں</string>
-    <string name="MC_513_5"> گڑھے والا لیٹرین ڈھکا ہوا </string>
-    <string name="MC_513_6"> گڑھے والا کھلا  لیٹرین </string>
-    <string name="MC_513_7"> کوئی سہولت نہیں /جھاڑیوں میں جاتے ہیں </string>
-    <string name="MC_513_88"> (دیگر(وضاحت کریں   </string>
-    <string name="MC_513X">  وضاحت کریں </string>
-
-    <!-- MC_514-->
-
-    <string name="MC_514">کیا  لیٹرین کی اس سہولت کو دوسرے  گھرانوں کے افراد بھی استعمال کرتے ہیں؟ </string>
-
-
-    <!-- MC_515-->
-
-    <string name="MC_515">کتنے دوسرے گھرانے یہ سہولت استعمال کرتے ہیں؟ </string>
-    <string name="MC_515_count">تعداد</string>
-
-    <!-- MC_516-->
-
-    <string name="MC_516">کیا کوئی غیر متعلقہ افراد( عام پبلک) یہ سہولت استعمال کر سکتا ہے؟ </string>
-
-    <!-- MC_517-->
-
-    <string name="MC_517">برائے مہربانی وہ جگہ دیکھائیں جہاں آپ اور آپکے گھر والے ہاتھ دھوتے ہیں؟ </string>
-    <string name="MC_517_1">  مشاہدہ کیا  </string>
-    <string name="MC_517_2">  احاطے میں نہیں ہے    </string>
-    <string name="MC_517_3">  دیکھنے کی اجازت نہیں ملی  </string>
-
-    <!-- MC_518-->
-
-    <string name="MC_518">ہاتھ دھونے کی جگہ پر پانی کی موجود گی کا مشاہدہ کریں </string>
-
-    <!-- MC_519-->
-
-    <string name="MC_519">ہاتھ دھونے کی جگہ پر صابن یا ڈٹرجنٹ کی موجودگی کا مشاہدہ کریں </string>
-    <string name="MC_519_1">کچھ موجود نہیں </string>
-    <string name="MC_519_2">مائع صابن </string>
-    <string name="MC_519_3">صابن </string>
-    <string name="MC_519_4">ڈٹرجنٹ  </string>
-    <string name="MC_519_5">راکھ/مٹی/ریت </string>
-
-    <!-- MC_520 -->
-    <string name="MC_520">کیا آپ کے گھر میں ہاتھ دھونے کے لیے کوئی صابن یا ڈیٹرجنٹ موجود ہے ؟ </string>
-
-
-    <!-- MC_521 -->
-    <string name="MC_521">اگر ہا ں ،کیا آپ ہمیں دکھا سکتے ہیں ؟ </string>
-    <string name="MC_521_1">صابن </string>
-    <string name="MC_521_2">ڈٹرجنٹ /لکویڈ/پیسٹ </string>
-    <string name="MC_521_3">مائع صابن </string>
-    <string name="MC_521_4">راکھ/مٹی/ریت  </string>
-    <string name="MC_521_5">کچھ نہیں </string>
-
-
-    <!-- MC_522 -->
-<string name="MC_522">آپ کن حالات میں اپنے ہاتھ صابن سے دھوتے ہیں؟
-[یہ ایک لامحدود سوال ہے ، آپ کوئی اوپشن نہ دیں ۔تب تک جوابدہندہ سے پوچھیں  جب تک اس کے مطابق ہاتھ دھونے کے اوقات کار کی فہرست ختم نہ ہوجائے]
- </string>
-    <string name="MC_522_1">کھاناپکانے سے پہلے </string>
-    <string name="MC_522_2">کھانا کھانے سے پہلے </string>
-    <string name="MC_522_3">بچے کوکھانا کھلانے سے پہلے </string>
-    <string name="MC_522_4">دودھ پلانے سے پہلے </string>
-    <string name="MC_522_5">بچے کا پاخانہ صاف کرنے کے بعد </string>
-    <string name="MC_522_6">بچے کا ڈائپر بدلنے کے بعد </string>
-    <string name="MC_522_7">بچے کا پاخانہ ٹھکانے لگانے کے بعد </string>
-    <string name="MC_522_8">بیت الخلاء سے آنے کے بعد </string>
-    <string name="MC_522_9">بیت الخلاء کو کسی بھی مقصد کے لیے استعمال کرنے کے بعد </string>
-    <string name="MC_522_18">(دیگر (وضاحت کریں</string>
-    <string name="MC_522X">وضاحت کریں</string>
-
-    <!-- MC_523 -->
-    <string name="MC_523">کیا اس گھر میں رہنے والا کوئی فرد زرعی زمین کا مالک ہے؟ </string>
-
-
-    <!-- MC_524 -->
-    <string name="MC_524">اگر ہا ں تو رقبہ بتائیں؟</string>
-    <string name="MC_524_1">زمین کی پیمائش ایکڑ میں</string>
-    <string name="MC_524_2">زمین کی پیمائش کنال میں</string>
-    <string name="MC_524_99">معلوم نہیں</string>
-    <string name="MC_524ACR">ایکڑ</string>
-    <string name="MC_524CAN">کنال</string>
-
-    <!-- MC_525 -->
-    <string name="MC_525_ah1">تعداد </string>
-    <string name="MC_525_ah2">اثاثے </string>
-
-    <string name="MC_525">-جواب دہندہ سے پوچھیں کہ وہ  ان میں سے کون کونسے اثاثے کے مالک ہیں-ان کی تعداد لکھیں-اگر ان میں سے کوئی چیز نہیں ہے تو    زیرو (۰)لکھیں</string>
-    <string name="MC_525_1">(مال مویشی (گائے اور بھینسیں</string>
-    <string name="MC_525_2">بھیڑ اور بکریاں </string>
-    <string name="MC_525_3">گھوڑے اور گدھے </string>
-    <string name="MC_525_4">سائیکل </string>
-    <string name="MC_525_5">موٹر سائیکل </string>
-    <string name="MC_525_6">کار/مو ٹر سائیکل  </string>
-    <string name="MC_525_7">کوئی اور گاڑی </string>
-    <string name="MC_525_7X">(وضاحت کریں)</string>
-    <string name="MC_525_8">ٹی-وی </string>
-    <string name="MC_525_9">وی-سی-آر/وی-سی-ڈی/ڈی-وی-ڈی </string>
-    <string name="MC_525_10">صوفہ سیٹ</string>
-    <string name="MC_525_11">ٹیلی فون </string>
-    <string name="MC_525_12">موبائل فون </string>
-    <string name="MC_525_13">مائیکروویو اوون  </string>
-    <string name="MC_525_14">سلائی مشین </string>
-    <string name="MC_525_15">واشنگ مشین </string>
-    <string name="MC_525_16">بجلی کے پنکھے </string>
-    <string name="MC_525_17">فرج </string>
-    <string name="MC_525_18"> گیزر </string>
-    <string name="MC_525_19">ائیر کنڈیشن/ائیر کولر </string>
-    <string name="MC_525_20">کمپیوٹر </string>
-
-<string name="MC_601"> کیا آپ جانتے ہیں کہ آپ کے علاقے میں ماں اور بچوں کی بہتر صحت کے لیے TVI کی جانب سے مفت کیمپ لگائے جارہے ہیں؟
-</string>
-    <string name="MC_601_Yes"> ہا ں</string>
-    <string name="MC_601_No"> نہیں </string>
-
-    <string name="MC_602">کیاآپ اپنے علاقے میں لگنے والے  TVI  کیمپ میں گئے تھے ؟</string>
-    <string name="MC_602_Yes"> ہا ں</string>
-    <string name="MC_602_No"> نہیں </string>
-
-    <string name="MC_603"> آپ  TVIکیمپ کیوں نہیں گئے تھے؟ وجہ بیان کریں  </string>
-    <string name="MC_603_1">ماں اور بچہ بیمار نہیں تھے  </string>
-    <string name="MC_603_2"> کیمپ دور تھا</string>
-    <string name="MC_603_3"> گھروالوں کی طرف سے اجازت نہیں تھی</string>
-    <string name="MC_603_4">ہمارے پاس صحت کے حصول کے لیے موزوں انتظام موجود ہے </string>
-    <string name="MC_603_5"> دیگر (وضاحت کریں) </string>
-    <string name="MC_603_X1"> وضاحت کریں </string>
-
-    <string name="MC_604">آپ کو  TVIکیمپ کے بارے میں کہا ں سے معلوم ہوا؟</string>
-    <string name="MC_604_1"> TVI ورکر </string>
-    <string name="MC_604_2">  پولیو ورکر   </string>
-    <string name="MC_604_3"> لیڈی ہیلتھ ورکرز(LHW)</string>
-    <string name="MC_604_4">لیڈی  ہیلتھ وزیٹرز(LHV)</string>
-    <string name="MC_604_5">ڈاکٹر</string>
-    <string name="MC_604_6">نرس</string>
-    <string name="MC_604_7">مسجد /علاقے میں اعلان سے </string>
-    <string name="MC_604_8"> پڑوس سے </string>
-    <string name="MC_604_9"> دوست اور رشتے داروں سے </string>
-    <string name="MC_604_88"> دیگر (وضاحت کریں) </string>
-
-    <!-- <string name="MC_604_10">آپ کو  TVIکیمپ کے بارے میں کہا ں سے معلوم ہوا؟  پڑوس سے</string>
-     <string name="MC_604_11">آپ کو  TVIکیمپ کے بارے میں کہا ں سے معلوم ہوا؟  دوست اور رشتے داروں سے</string>
-     <string name="MC_604_12">آپ کو  TVIکیمپ کے بارے میں کہا ں سے معلوم ہوا؟  دیگر (وضاحت کریں)</string> -->
-
-    <string name="MC_605">آپTVI کیمپ کس مقصد کے لیے گئے تھے؟</string>
-    <string name="MC_605_info">ایک سے زیادہ جوابات آسکتے ہیں</string>
-
-    <string name="MC_605_1"> بچے کےمعائنہ کے لیے </string>
-    <string name="MC_605_2">ماں کےمعائنہ کے لئے </string>
-    <string name="MC_605_3"> بچے کے حفاظتی ٹیکوں کے لیے</string>
-    <string name="MC_605_4"> علاقے میں مرکز صحت نہ ہونے کی وجہ سے </string>
-    <string name="MC_605_5"> دیگر (وضاحت کریں) </string>
-    <string name="MC_606">کیا آپ کے بچے کو  TVI کیمپ میں حفاظتی ٹیکے لگے تھے؟</string>
-    <string name="MC_606_Yes"> ہاں  </string>
-    <string name="MC_606_No"> نہیں   </string>
-    <string name="MC_606_Dntknow">معلوم نہیں</string>
-    <string name="MC_607">آپ کے بچے کو  TVI کیمپ میں حفاظتی ٹیکے نہ لگنے کی کیا وجوہات تھی؟</string>
-    <string name="MC_607_1"> حفاظتی ٹیکے دستیاب نہیں تھے </string>
-    <string name="MC_607_2"> ڈاکٹر نےمشورہ نہیں دیاتھا  </string>
-    <string name="MC_607_3"> بچہ بیمار تھا        </string>
-    <string name="MC_607_4">بچے کو ہیلتھ کیمپ نہیں لے کر گئے تھے</string>
-    <string name="MC_607_5">ٹیکہ لگانے سے انکار کردیا</string>
-    <string name="MC_607_6">بہت زیادہ انتظار کرنا پڑا تھا  </string>
-    <string name="MC_607_7">حفاظتی ٹیکوں کا کورس مکمل تھا</string>
-    <string name="MC_607_8"> دیگر (وضاحت کریں)</string>
-    <string name="MC_607A">کیا آپ کے کسی بھی بچے کو TVI  کیمپ میں پولیو کا ٹیکہ لگا تھا؟</string>
-    <string name="MC_607A_Yes"> ہاں </string>
-    <string name="MC_607A_No"> نہیں </string>
-    <string name="MC_607A_Dontknow"> معلوم نہیں </string>
-    <string name="MC_607B">پولیو کا ٹیکہ نہ لگنےکی کیا وجوہات تھیں؟ </string>
-    <string name="MC_607BX"> دیگر (وضاحت کریں) </string>
-
-    <string name="MC_608">آپ اور آپ کے بچے نے TVI کیمپ میں کون کون سی سہولتیں حاصل کیں؟</string>
-    <string name="MC_608_M1">معائنہ</string>
-    <string name="MC_608_M2">دوران حمل معائنہ</string>
-    <string name="MC_608_M3"> دوائیوں کی فراہمی </string>
-    <string name="MC_608_M4"> تشنج کا ٹیکہ </string>
-    <string name="MC_608_M5">مزید علاج کے لیے دوسرے مرکز صحت جانے کا مشورہ دیا  </string>
-
-    <string name="CF_CHID">بچے کی آئ ڈی</string>
-    <string name="CF_Q1">معائنہ</string>
-    <string name="CF_Q2">حفاظتی ٹیکے </string>
-    <string name="CF_Q2_1">BCG -1</string>
-    <string name="CF_Q2_2">Pentavalent -2</string>
-    <string name="CF_Q2_3">PCV -3</string>
-    <string name="CF_Q2_4">4خسرہ</string>
-    <string name="CF_Q2_5"> 5پولیو کے قطرے (OPV) </string>
-    <string name="CF_Q2_6"> -6پولیو کا ٹیکہ (IPV)</string>
-    <string name="CF_Q3">دوائیوں کی فراہمی</string>
-    <string name="CF_Q4">مزید علاج کے لیے دوسرے مرکز صحت جانے کا مشورہ دیا</string>
-
-    <string name="MC_609">کیا آپ کے پاس TVI کے ہیلتھ کیمپ میں دیے جانے والا کارڈ موجود ہے؟</string>
-    <string name="MC_609_Yes"> ہا ں </string>
-    <string name="MC_609_No"> نہیں  </string>
-
-
-    <string name="MC_610">اگر ہاں  تو جوابدہندہ سے کارڈ دکھانے کے لئے کہیں، مشاہدہ کریں، کیا آپ  نے کارڈ دیکھا؟</string>
-    <string name="MC_610_Yes"> ہا ں </string>
-    <string name="MC_610_No"> نہیں  </string>
-
-    <string name="MC_DC">ڈیٹا کلیکٹر  </string>
-    <string name="MC_DCDT">ڈیٹا کلیکشن کی تاریخ</string>
-    <string name="MC_TL">ٹیم لیڈر </string>
-    <string name="MC_TLDT">ٹیم لیڈر دستخظ کی تاریخ</string>
-    <string name="MC_SP">مانیٹرنگ سپروازئزر</string>
-    <string name="MC_SPDT">مانیٹرنگ سپروازئزر  دستخظ کی تاریخ</string>
+    <string name="MC_401">Have you ever heard about Vaccination?</string>
+    <string name="MC_401_Yes">Yes</string>
+    <string name="MC_401_No">No</string>
+    <string name="MC_401_Dontknow">Don\'t Know</string>
+    <string name="MC_402">From where have you heard/ received information about vaccination?</string>
+    <string name="MC_402_1">TV</string>
+    <string name="MC_402_2">Radio</string>
+    <string name="MC_402_3">Newspaper</string>
+    <string name="MC_402_4">Posters</string>
+    <string name="MC_402_5">Health care providers</string>
+    <string name="MC_402_6">Masjid Imam</string>
+    <string name="MC_402_7">Local Leaders </string>
+    <string name="MC_402_8">Family </string>
+    <string name="MC_402_9">Friends, Neighbour &amp; Relatives</string>
+    <string name="MC_402_10">NGO worker </string>
+    <string name="MC_402_88">Others (specify)</string>
+    <string name="MC_403">Do you think vaccination prevent diseases?</string>
+    <string name="MC_403_Yes">Yes</string>
+    <string name="MC_403_No">No</string>
+    <string name="MC_404">Do you know in Pakistan, vaccination has been carried out for which diseases?</string>
+    <string name="MC_404_Info">Do not give any assistance in replying and Multiple answers allowed</string>
+    <string name="MC_404_1">Polio</string>
+    <string name="MC_404_2">Tuberculosis</string>
+    <string name="MC_404_3">Diphtheria</string>
+    <string name="MC_404_4">Whooping cough</string>
+    <string name="MC_404_5">Measles</string>
+    <string name="MC_404_6">Hepatitis B</string>
+    <string name="MC_404_7">Tetanus</string>
+    <string name="MC_404_8">Tetanus Toxoid during  Pregnancy</string>
+    <string name="MC_404_9">Small pox</string>
+    <string name="MC_404_99">Don’t know</string>
+    <string name="MC_404_88">Others (specify)</string>
+    <string name="MC_405">In your opinion, what are the obstacles faced against effective immunization?</string>
+    <string name="MC_405_Info">Multiple answers allowed</string>
+    <string name="MC_405_1">Lack of education</string>
+    <string name="MC_405_2">Lack of funds</string>
+    <string name="MC_405_3">Lack of awareness</string>
+    <string name="MC_405_4">Lack of facilities</string>
+    <string name="MC_405_5">Fear of adverse effects of vaccines</string>
+    <string name="MC_405_99">Don’t know</string>
+    <string name="MC_405_88">Others (specify)</string>
+    <string name="MC_405A">From where do you vaccinate(EPI Vaccines) your child?</string>
+    <string name="MC_405A1">Government Hospital</string>
+    <string name="MC_405A2">Private Hospital</string>
+    <string name="MC_405A3">Health centre</string>
+    <string name="MC_405A4">Health camp</string>
+    <string name="MC_405A5">Don’t know</string>
+    <string name="MC_405A88">Others (specify)</string>
+    <string name="MC_406">Will you recommend vaccination to others?</string>
+    <string name="MC_406_Yes">Yes</string>
+    <string name="MC_406_No">No</string>
+    <string name="MC_407">Why you will not recommend vaccination to others?</string>
+    <string name="MC_407_1">It is not necessary</string>
+    <string name="MC_407_2">Against religious beliefs</string>
+    <string name="MC_407_3">Refusal from family</string>
+    <string name="MC_407_4">Vaccine is not safe </string>
+    <string name="MC_407_5">Vaccine is not halal</string>
+    <string name="MC_407_6">Vaccinations can affect the reproductive system</string>
+    <string name="MC_407_88">Others (specify)</string>
+    <string name="MC_408">Have you heard of Oral polio vaccine (OPV)?</string>
+    <string name="MC_408_Yes">Yes</string>
+    <string name="MC_408_No">No</string>
+    <string name="MC_409">In your opinion how safe are polio vaccine drops?</string>
+    <string name="MC_410">What is the preferred first health care facility that you bring your child for EPI Vaccine?</string>
+    <string name="MC_410_88">Others (specify)</string>
+    <string name="MC_410A">How many doses of polio drops does a child need by the age of 5 years?</string>
+    <string name="MC_410A_1">Every time polio drops are offered</string>
+    <string name="MC_410A_2">Most of the times polio drops are offered</string>
+    <string name="MC_410A_3">Just a few times</string>
+    <string name="MC_410A_4">Only once</string>
+    <string name="MC_410A_5">I don\'t intend to give drops</string>
+    <string name="MC_410A_99">Don\'t know</string>
+    <string name="MC_410B">What are the reasons why you don\'t intend to give polio drops every time it is offered? </string>
+    <string name="MC_410B1">Polio drops are not needed every time it is offered</string>
+    <string name="MC_410B2">I am worried about side effects from polio being taken so ma</string>
+    <string name="MC_410B3">I might not be at home every time it is offered</string>
+    <string name="MC_410B4">Polio drops are not effective</string>
+    <string name="MC_410B5">I don\'t like frequent visits</string>
+    <string name="MC_410B99">Don\'t know</string>
+    <string name="MC_410B88">Others (specify)</string>
+    <string name="MC_410BX">Specify</string>
+    <string name="MC_411">Do you know that Injectable Polio Vaccine (IPV) is also available for vaccinating children against polio?</string>
+    <string name="MC_411_Yes">Yes</string>
+    <string name="MC_411_No">No</string>
+    <string name="MC_412">If IPV is made available, would you vaccinate your child with IPV?</string>
+    <string name="MC_412_Yes">Yes</string>
+    <string name="MC_412_No">No</string>
+    <string name="MC_413">Mention reason why you would not vaccinate your child with IPV?</string>
+    <string name="MC_413_Info">Multiple answers allowed</string>
+    <string name="MC_413_1">Child has received polio drops too many times</string>
+    <string name="MC_413_2">Family does not allow for vaccine</string>
+    <string name="MC_413_3">Vaccine is not halal</string>
+    <string name="MC_413_4">Vaccine can cause sterility</string>
+    <string name="MC_413_5">Vaccine is not safe</string>
+    <string name="MC_413_6">Community/local leader prohibited</string>
+    <string name="MC_413_7">Against my religious belief</string>
+    <string name="MC_413_88">Others (Specify)</string>
+    <string name="MC_414">DO you think your child requires OPV after receiving IPV</string>
+    <string name="MC_414_Yes">Yes</string>
+    <string name="MC_414_No">No</string>
+    <string name="MC_414_Dontknow">Don\'t know</string>
+    <string name="MC_415">If No, Why?</string>
+    <string name="MC_415_88">Others (Specify)</string>
+    <!--
+ MC_501
+   -->
+    <string name="MC_501">What language do you usually speak in your household?</string>
+    <string name="MC_501_88">Others (Specify)</string>
+    <!--
+ MC_502
+   -->
+    <string name="MC_502">During the last month, did any HCP visit your house?</string>
+    <!--
+ MC_503
+   -->
+    <string name="MC_503">f yes who visited your house?</string>
+    <string name="MC_503_LHW">LHW</string>
+    <string name="MC_503_FCV">FCV</string>
+    <string name="MC_503_LHS">LHS</string>
+    <string name="MC_503_NGO">NGO Worker</string>
+    <string name="MC_503_1Others">Others (Specify)</string>
+    <string name="MC_503_A_X">Please Specify</string>
+    <string name="MC_503_A">Information on mother and child health</string>
+    <string name="MC_503_B">Referred to health facility</string>
+    <string name="MC_503_C">Vaccination</string>
+    <string name="MC_503_D">Polio drops</string>
+    <string name="MC_503_E">Treatment for mother </string>
+    <string name="MC_503_F">Treatment for child</string>
+    <string name="MC_503_G">Routine visit </string>
+    <string name="MC_503_X">Others (Specify)</string>
+    <string name="MC_503_X_X">Please Specify</string>
+    <!--
+  MC_504
+   -->
+    <string name="MC_504">What is the primary? Construction material used to build the house? (By observation) (mark the one mostly Used material) </string>
+    <string name="MC_504_W">Walls</string>
+    <string name="MC_504_WX">Others (Specify)</string>
+    <string name="MC_504_R">Roof</string>
+    <string name="MC_504_RX">Others (Specify)</string>
+    <string name="MC_504_F">Floor</string>
+    <string name="MC_504_FX">Others (Specify)</string>
+    <!--
+  MC_505
+   -->
+    <string name="MC_505">What is the ownership status of your house?</string>
+    <!--
+  MC_506
+   -->
+    <string name="MC_506">How many rooms in this HH are used for sleeping?</string>
+    <string name="MC_506_room">Room</string>
+    <!--
+  MC_507
+   -->
+    <string name="MC_507">Does your household have electricity?</string>
+    <!--
+  MC_508
+   -->
+    <string name="MC_508">What type of fuel does your household mainly use for cooking?</string>
+    <string name="MC_508_88">Other Specify</string>
+    <!--
+  MC_509
+   -->
+    <string name="MC_509_ah1">Piped water</string>
+    <string name="MC_509_ah2">Dug well</string>
+    <string name="MC_509_ah3">Water from spring</string>
+    <string name="MC_509_ah4">Other Sources</string>
+    <string name="MC_509">What is the main source of Drinking-water for members of your household?</string>
+    <string name="MC_509_88">What is the main source of Drinking-water for members of your household?  Other Specify</string>
+    <!--
+  MC_510
+   -->
+    <string name="MC_510_ah1">Piped water</string>
+    <string name="MC_510_ah2">Dug well</string>
+    <string name="MC_510_ah3">Water from spring</string>
+    <string name="MC_510_ah4">Other Sources</string>
+    <string name="MC_510">What is the main source of water used by your household for other purposes, such as cooking and hand washing?</string>
+    <string name="MC_510_88">What is the main source of water used by your household for other purposes, such as cooking and hand washing?  Other Specify</string>
+    <!--
+  MC_511
+   -->
+    <string name="MC_511">Do you use any method to clean the drinking water?</string>
+    <!--
+  MC_512
+   -->
+    <string name="MC_512">What do you usually do to the water to make it safer to drink?</string>
+    <string name="MC_512_1">Boil</string>
+    <string name="MC_512_2">Add bleach/chlorine</string>
+    <string name="MC_512_3">Strain it through a cloth</string>
+    <string name="MC_512_4">Use Alum</string>
+    <string name="MC_512_5">Use water filter (ceramic, sand, composite, etc.)</string>
+    <string name="MC_512_6">Solar disinfection</string>
+    <string name="MC_512_7">Let it stand and settle</string>
+    <string name="MC_512_99">Don\'t Know</string>
+    <string name="MC_512_88">Other (specify)</string>
+    <string name="MC_512X">Please specify</string>
+    <!--
+  MC_513
+   -->
+    <string name="MC_513_ah1">Flush</string>
+    <string name="MC_513_ah2">Pit latrine</string>
+    <string name="MC_513_ah3">Others</string>
+    <string name="MC_513">What kind of toilet facility do members of your household usually use? If "flush" or "pour flush" probe: Where does it flush to?</string>
+    <string name="MC_513_0">Boil</string>
+    <string name="MC_513_1">Flush to piped sewer system  </string>
+    <string name="MC_513_3">Flush to pit latrine </string>
+    <string name="MC_513_4">Flush, don\'t know where   </string>
+    <string name="MC_513_5">Bucket toilet </string>
+    <string name="MC_513_6">Hanging toilet/hanging Latrine</string>
+    <string name="MC_513_7">No facility/bush/field</string>
+    <string name="MC_513_88">Other (specify)</string>
+    <string name="MC_513X">Please specify</string>
+    <!--
+  MC_514
+   -->
+    <string name="MC_514">Do you share this facility with other households?</string>
+    <!--
+  MC_515
+   -->
+    <string name="MC_515">How many other households use this toilet facility?</string>
+    <string name="MC_515_count">Count how many use the toilet</string>
+    <!--
+ MC_516
+  -->
+    <string name="MC_516">Can any member of the public use this toilet?</string>
+    <!--
+MC_517
+  -->
+    <string name="MC_517">Please show us where you and members of your household most often wash their hands.</string>
+    <string name="MC_517_1">Observed</string>
+    <string name="MC_517_2">Not in dwelling/plot/yard</string>
+    <string name="MC_517_3">No permission to see</string>
+    <!--
+MC_518
+  -->
+    <string name="MC_518">Observe presence of water at the specific place for hand washing.</string>
+    <!--
+  MC_519
+   -->
+    <string name="MC_519">Record if soap or detergent is present at the specific place for hand washing.</string>
+    <string name="MC_519_1">None</string>
+    <string name="MC_519_2">Liquid soap </string>
+    <string name="MC_519_3">Bar soap</string>
+    <string name="MC_519_4">Detergent (powder/liquid/paste)</string>
+    <string name="MC_519_5">Ash/mud/sand  </string>
+    <!--
+  MC_520
+   -->
+    <string name="MC_520">Do you have any soap or detergent in your household for hand washing?</string>
+    <!--
+ MC_521
+  -->
+    <string name="MC_521">If yes, can you please show it to me?</string>
+    <string name="MC_521_1">Bar soap</string>
+    <string name="MC_521_2">Detergent (powder/liquid/paste)</string>
+    <string name="MC_521_3">Liquid soap</string>
+    <string name="MC_521_4">Ash/mud/sand  </string>
+    <string name="MC_521_5">None</string>
+    <!--
+MC_522
+  -->
+    <string name="MC_522">In what situations do you wash your hands with soap?</string>
+    <string name="MC_522_1">Before preparing food</string>
+    <string name="MC_522_2">Before eating  </string>
+    <string name="MC_522_3">Before feeding a child</string>
+    <string name="MC_522_4">Before breastfeeding</string>
+    <string name="MC_522_5">After cleaning a child’s anus</string>
+    <string name="MC_522_6">After changing a baby’s nappy</string>
+    <string name="MC_522_7">After disposing of children’s feces</string>
+    <string name="MC_522_8">After you defecate</string>
+    <string name="MC_522_9">After using the latrine for any purpose</string>
+    <string name="MC_522_18">Other (specify)</string>
+    <string name="MC_522X">Please specify</string>
+    <!--
+ MC_523
+  -->
+    <string name="MC_523">Does any member of this household own any agricultural land?</string>
+    <!--
+MC_524
+  -->
+    <string name="MC_524">How many acres or kanals of agricultural land do members of this household own?</string>
+    <string name="MC_524_1">Measurements in acres</string>
+    <string name="MC_524_2">Measurements in kanals</string>
+    <string name="MC_524_99">Don’t know</string>
+    <string name="MC_524ACR">Acres </string>
+    <string name="MC_524CAN">Kanals</string>
+    <!--
+MC_525
+  -->
+    <string name="MC_525_ah1">Count</string>
+    <string name="MC_525_ah2">Assets</string>
+    <string name="MC_525">Ask the respondent regarding the quantity of the following asset owned</string>
+    <string name="MC_525_1">Cattles, buffalos and cows</string>
+    <string name="MC_525_2">Sheep and goats</string>
+    <string name="MC_525_3">Horses and donkeys</string>
+    <string name="MC_525_4">Bicycles</string>
+    <string name="MC_525_5">Motorcycles</string>
+    <string name="MC_525_6">Cars/Taxi/Jeep</string>
+    <string name="MC_525_7">Other vehicles, specify</string>
+    <string name="MC_525_7X">Other Specify Name</string>
+    <string name="MC_525_8">Television</string>
+    <string name="MC_525_9">VCR / VCP / DVD</string>
+    <string name="MC_525_10">Sofa sets</string>
+    <string name="MC_525_11">Land Line Telephone</string>
+    <string name="MC_525_12">Mobile phones</string>
+    <string name="MC_525_13">Microwave ovens</string>
+    <string name="MC_525_14">Sewing Machines</string>
+    <string name="MC_525_15">Washing Machines</string>
+    <string name="MC_525_16">Electric Fans</string>
+    <string name="MC_525_17">Refrigerators</string>
+    <string name="MC_525_18">Geysers/boiler</string>
+    <string name="MC_525_19">Air conditioners / Air coolers</string>
+    <string name="MC_525_20">Computers</string>
+    <string name="MC_601">Are you aware that health camps for free medical care for mothers and children are being organized in your locality by TVI?</string>
+    <string name="MC_601_Yes">Yes</string>
+    <string name="MC_601_No">No</string>
+    <string name="MC_602">Did you visit any of these health camps in your locality?</string>
+    <string name="MC_602_Yes">Yes</string>
+    <string name="MC_602_No">No</string>
+    <string name="MC_603">Why did you not visit the health camp?</string>
+    <string name="MC_603_1">Medical care was not needed as child or mother was not ill</string>
+    <string name="MC_603_2">It was far away</string>
+    <string name="MC_603_3">Family didn\'t allow</string>
+    <string name="MC_603_4">We have our own arrangement for healthcare</string>
+    <string name="MC_603_5">Other (specify)</string>
+    <string name="MC_603_X1">Please specify</string>
+    <string name="MC_604">From where did you get information about the health camp?</string>
+    <string name="MC_604_1">Community Mobilizers of TVI</string>
+    <string name="MC_604_2">Polio workers</string>
+    <string name="MC_604_3">LHWs</string>
+    <string name="MC_604_4">LHVs</string>
+    <string name="MC_604_5">Doctors</string>
+    <string name="MC_604_6">Nurses</string>
+    <string name="MC_604_7">Announcements at the mosque/ community</string>
+    <string name="MC_604_8">Neighbors</string>
+    <string name="MC_604_9">Friends and relatives</string>
+    <string name="MC_604_88">Other (specify)</string>
+    <!--
+<string name="MC_604_10">?? ??  TVI???? ?? ???? ??? ??? ? ?? ????? ????  ???? ??</string>
+    <string name="MC_604_11">?? ??  TVI???? ?? ???? ??? ??? ? ?? ????? ????  ???? ??? ???? ????? ??</string>
+    <string name="MC_604_12">?? ??  TVI???? ?? ???? ??? ??? ? ?? ????? ????  ???? (????? ????)</string>
+  -->
+    <string name="MC_605">For which specific purpose you visited the health camp?</string>
+    <string name="MC_605_info">Multiple answers allowed</string>
+    <string name="MC_605_1">Seeking care for child</string>
+    <string name="MC_605_2">Seeking care for mother</string>
+    <string name="MC_605_3">Immunization of the child</string>
+    <string name="MC_605_4">Unavailability of health services in the area</string>
+    <string name="MC_605_5">Other (specify)</string>
+    <string name="MC_606">Did your child receive vaccination in the health camp?</string>
+    <string name="MC_606_Yes">Yes</string>
+    <string name="MC_606_No">No</string>
+    <string name="MC_606_Dntknow">Don\'t Know</string>
+    <string name="MC_607">Mention reason why your child didn\'t receive vaccination in the health camp?</string>
+    <string name="MC_607_1">Vaccines were not available at health camp</string>
+    <string name="MC_607_2">Camp staff/ physician did not recommend</string>
+    <string name="MC_607_3">Child was not well</string>
+    <string name="MC_607_4">Child did not visit the health camp</string>
+    <string name="MC_607_5">Refused for vaccination</string>
+    <string name="MC_607_6">Long waiting time</string>
+    <string name="MC_607_7">Vaccination already completed</string>
+    <string name="MC_607_8">Other (specify)</string>
+    <string name="MC_607A">Did any of your children receive IPV in TVI Camp</string>
+    <string name="MC_607A_Yes">Yes</string>
+    <string name="MC_607A_No">No</string>
+    <string name="MC_607A_Dontknow">Don\'t Know</string>
+    <string name="MC_607B">Why your child didn\'t receive IPV in TVI Camp?</string>
+    <string name="MC_607BX">Why your child didn\'t receive IPV in TVI Camp?</string>
+    <string name="MC_608">Services/facilities were availed by mother</string>
+    <string name="MC_608_M1">Examination</string>
+    <string name="MC_608_M2">ANC</string>
+    <string name="MC_608_M3">Provision of medicine</string>
+    <string name="MC_608_M4">Vaccine (TT)</string>
+    <string name="MC_608_M5">Referral</string>
+    <string name="CF_CHID">Child Number</string>
+    <string name="CF_Q1">Examination</string>
+    <string name="CF_Q2">Vaccination</string>
+    <string name="CF_Q2_1">BCG</string>
+    <string name="CF_Q2_2">Pentavalent</string>
+    <string name="CF_Q2_3">PCV</string>
+    <string name="CF_Q2_4">Measles</string>
+    <string name="CF_Q2_5">OPV</string>
+    <string name="CF_Q2_6">IPV</string>
+    <string name="CF_Q3">Provision of medicines</string>
+    <string name="CF_Q4">Referral</string>
+    <string name="MC_609">Do you have the card which was given to you in TVI Health Camp?</string>
+    <string name="MC_609_Yes">Yes</string>
+    <string name="MC_609_No">No</string>
+    <string name="MC_610">If card is present, ask the respondent to show you the card Did you see the card?</string>
+    <string name="MC_610_Yes">Yes</string>
+    <string name="MC_610_No">No</string>
+    <string name="MC_DC">Data Collector </string>
+    <string name="MC_DCDT">Date of Data Collector </string>
+    <string name="MC_TL">Team Leader  </string>
+    <string name="MC_TLDT">Date of Team Leader  </string>
+    <string name="MC_SP">Monitoring Supervisor</string>
+    <string name="MC_SPDT">Date of Monitoring Supervisor</string>
+     
     <string name="title_activity_login">Sign in</string>
-
-    <!--  - Strings related to login - -->
+    <!--
+Strings related to login -
+  -->
+     
     <string name="prompt_email">Email</string>
+     
     <string name="prompt_password">Password (optional)</string>
+     
     <string name="action_sign_in">Sign in or register</string>
+     
     <string name="action_sign_in_short">Sign in</string>
+     
     <string name="error_invalid_email">This email address is invalid</string>
+     
     <string name="error_invalid_password">This password is too short</string>
+     
     <string name="error_incorrect_password">This password is incorrect</string>
+     
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="start_next_section">اگلا سیکشن</string>
+     
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
+    <string name="start_next_section">Next Section</string>
+     
     <string name="IM_COMPID">Child_Id</string>
-    <string name="MC_202inst">باقاعدہ تعلیم کتنے سال حاصل کی ؟  (کسی بھی تعلیمی ادارے ،اسکول،کالج ، یونیورسٹی وغیرہ)  انپڑھ کے لیے 77 کا کوڈ استعمال کریں</string>
-    <string name="MC_608_M">ماں</string>
+    <string name="MC_202inst">Education</string>
+    <string name="MC_608_M">Mother</string>
+     
     <string name="title_activity_http">HttpActivity</string>
-    <string name="MC_205_SUB">(ایک سال سے کم ہوتو مہینوں میں لکھیں)</string>
+    <string name="MC_205_SUB">Write either the years or months</string>
+     
     <string name="username">Username</string>
-    <string name="MC_607_88">دیگر (وضاحت  کریں)</string>
-    <string name="MC_513_2">فلش سپٹک ٹینک سے جڑا ہوا</string>
-    <string name="MC_606_2">حفاظتی ٹیکے</string>
+    <string name="MC_607_88">Other (specify)</string>
+    <string name="MC_513_2">Flush to septic tank </string>
+    <string name="MC_606_2">Vaccination</string>
+     
     <string name="title_activity_maps">Map</string>
+     
     <string name="google_app_id">MCCP2</string>
-    <string name="IM_D_Doc">مستند دستاویزی ثبوت</string>
-
+    <string name="IM_D_Doc">Authentic Document\'s</string>
+     
     <string name="title_activity_fullscreen">FullscreenActivity</string>
+     
     <string name="dummy_button">Dummy Button</string>
+     
     <string name="dummy_content">DUMMY\nCONTENT</string>
-
-
-    <!--ADDITIONAL CHANGES-->
-
-
+    <!--
+ADDITIONAL CHANGES
+  -->
+     
 </resources>

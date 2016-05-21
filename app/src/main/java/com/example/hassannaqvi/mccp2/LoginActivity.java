@@ -1,6 +1,7 @@
 
 package com.example.hassannaqvi.mccp2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,6 +18,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Map;
 
@@ -82,10 +85,21 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 }
 
                 String str = listText.toString();
+
                 longInfo(str);
                 Log.d("TAG: ", "End");
+                str.concat("\r\n\r\n");
+                writeToFile(str, preffile);
+            }
 
-
+            private void writeToFile(String data, String fileNm) {
+                try {
+                    OutputStreamWriter outputStreamWriter = new OutputStreamWriter(getApplicationContext().openFileOutput(fileNm + ".txt", Context.MODE_PRIVATE));
+                    outputStreamWriter.write(data);
+                    outputStreamWriter.close();
+                } catch (IOException e) {
+                    Log.e("Exception", "File write failed: " + e.toString());
+                }
             }
 
             @Override

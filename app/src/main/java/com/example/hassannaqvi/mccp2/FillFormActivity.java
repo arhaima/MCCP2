@@ -22,7 +22,6 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -35,10 +34,10 @@ public class FillFormActivity extends AppCompatActivity {
     public static String ClusterTVI;
     public static String FORM_ID;
     public static long rowId = 0;
+    public static String mcFrmNo;
     static FillFormActivity fillformactivity;
     public FormsDbHelper db;
     public ArrayList<ClustersContract> clusterList;
-    private String mcFrmNo;
     private DatePicker mc101date;
     private String spDateT;
     private String spTimeT;
@@ -216,7 +215,7 @@ public class FillFormActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Starting Interview...", Toast.LENGTH_SHORT).show();
         FORM_ID = mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString();
 
-        spDateT = DateFormat.getDateInstance().format(mc101date.getCalendarView().getDate());
+        spDateT = new SimpleDateFormat("dd-MM-yy").format(mc101date.getCalendarView().getDate());
         spTimeT = mc101time.getCurrentHour() + ":" + mc101time.getCurrentMinute();
         // Form Validation - Section 1
 
@@ -350,9 +349,10 @@ public class FillFormActivity extends AppCompatActivity {
         } else {
             hhCode = mc106hhno.getText().toString();
         }
+        String posS = String.format("%02d", pos);
         Log.d(TAG, "mcFrmNo hhCode: " + hhCode);
-        Log.d(TAG, "mcFrmNo pos: " + pos);
-        mcFrmNo = mc105cluster.getText().toString()+ hhCode + pos;
+        Log.d(TAG, "mcFrmNo pos: " + posS);
+        mcFrmNo = mc105cluster.getText().toString() + hhCode + posS;
         Toast.makeText(getApplicationContext(), "Form ID... " + mcFrmNo, Toast.LENGTH_SHORT).show();
         Log.d(TAG, "mcFrmNo: " + mcFrmNo);
 
@@ -457,6 +457,7 @@ public class FillFormActivity extends AppCompatActivity {
             s1.put("mc108", sharedPref.getString("sp108", "00"));
             s1.put("mcGPSLat", sharedPref.getString("spGPSLat", "0"));
             s1.put("mcGPSLng", sharedPref.getString("spGPSLng", "0"));
+            s1.put("mcDeviceID", sharedPref.getString("spDeviceID", "0"));
 
             Log.d(TAG, "JSON for Section 1: " + s1.toString());
 

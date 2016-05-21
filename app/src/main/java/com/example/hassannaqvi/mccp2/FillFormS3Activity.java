@@ -447,7 +447,7 @@ public class FillFormS3Activity extends AppCompatActivity {
 
         try {
 
-            S3.put("imchid", sharedPref.getString("spimchid", "00"));
+            S3.put("imchid", imchid);
             S3.put("FrmNo", formId);
             imJson = new JSONObject();
             imJson.put("ima", sharedPref.getString("spima", "00"));

@@ -989,7 +989,6 @@
 
     <string-array name="MC_607A_list">
         <item> ... </item>
-        <item>  </item>
         <item> ہاں</item>
         <item> نہیں  </item>
         <item>معلوم نہیں  </item>
@@ -1007,7 +1006,6 @@
 
     <string-array name="MC_607B_list">
         <item> ... </item>
-        <item>  </item>
         <item> پولیو کا ٹیکہ دستیاب نہیں تھا</item>
         <item> ڈاکٹر نے مشورہ نہیں دیا تھا  </item>
         <item>بچے کو ہیلتھ کیمپ نہیں لے کر گئے تھے  </item>

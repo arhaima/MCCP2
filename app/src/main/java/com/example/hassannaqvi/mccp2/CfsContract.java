@@ -5,7 +5,7 @@ import android.provider.BaseColumns;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class CfContract {
+public class CfsContract {
 
     private static final String TAG = "IM_CONTRACT";
 
@@ -14,12 +14,12 @@ public class CfContract {
     private String row_chid;
     private String row_cf;
 
-    public CfContract() {
+    public CfsContract() {
     }
 
-    public CfContract(JSONObject cf) throws JSONException {
+    public CfsContract(JSONObject cf) throws JSONException {
         this.row_chid = cf.getString("cfchid");
-        this.row_FrmNo = cf.getString("FrmNo");
+        this.row_FrmNo = cf.getString("formId");
         this.row_cf = cf.getString("cf");
 
 

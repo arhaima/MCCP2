@@ -68,7 +68,7 @@ public class FormsContract {
         this.ROW_MC_108 = mc1.getString("mc108");
         this.ROW_GPS_LAT = mc1.getString("mcGPSLat");
         this.ROW_GPS_LNG = mc1.getString("mcGPSLng");
-        this.DEVICE_ID = mc1.getString("mcGPSLng");
+        this.DEVICE_ID = mc1.getString("mcDeviceID");
         this.ROW_SYNC = "1";
 
 
@@ -146,7 +146,7 @@ public class FormsContract {
     }
 
     public void setSync(String Sync) {
-        this.ROW_GPS_LNG = Sync;
+        this.ROW_SYNC = Sync;
     }
 
     public String get103() {

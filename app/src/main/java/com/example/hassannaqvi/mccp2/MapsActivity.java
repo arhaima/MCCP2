@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -11,6 +12,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
@@ -39,12 +43,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        FormsDbHelper db = new FormsDbHelper(this);
+        List<FormsContract> gpsList = new ArrayList<FormsContract>();
+        gpsList = db.getAllGPS();
         SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
         Double mLat = Double.valueOf(sharedPref.getString("spGPSLat", "0"));
         Double mLong = Double.valueOf(sharedPref.getString("spGPSLng", "0"));
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(mLat, mLong);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Last Form Submission was here! LAT:" + mLat + " LNG: " + mLong));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        for (FormsContract gps : gpsList) {
+
+            LatLng karachi = new LatLng(Double.valueOf(gps.getGPSLat()), Double.valueOf(gps.getGPSLng()));
+            mMap.addMarker(new MarkerOptions().position(karachi).title("Form Submission for HH:" + gps.get106() + " at (LAT:" + gps.getGPSLat() + " LNG: " + gps.getGPSLng()));
+            Log.d("MAP", "Form Submission here! LAT:" + gps.getGPSLat() + " LNG: " + gps.getGPSLng());
+            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(karachi, 15));
+        }
     }
 }

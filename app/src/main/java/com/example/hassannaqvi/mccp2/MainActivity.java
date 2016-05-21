@@ -70,6 +70,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+   /* public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }*/
+
     public void fillSurveyForm(View view) {
         Toast.makeText(getApplicationContext(), "Fill Survey Form", Toast.LENGTH_SHORT).show();
 
@@ -320,6 +326,10 @@ public class MainActivity extends AppCompatActivity {
             syncForms ff = new syncForms(this);
             Toast.makeText(getApplicationContext(), "Syncing Forms", Toast.LENGTH_SHORT).show();
             ff.execute();
+            syncIms im = new syncIms(this);
+            im.execute();
+            syncCfs cf = new syncCfs(this);
+            cf.execute();
         } else {
             Toast.makeText(getApplicationContext(), "Network Not Available", Toast.LENGTH_SHORT).show();
 

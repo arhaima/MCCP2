@@ -461,6 +461,7 @@ public class FillFormS6Activity extends AppCompatActivity {
             S6.put("mc607x", sharedPref.getString("sp607x", "00"));
             S6.put("mc607a", sharedPref.getString("sp607a", "00"));
             S6.put("mc607b", sharedPref.getString("sp607b", "00"));
+            S6.put("mc607bx", sharedPref.getString("sp607bx", "00"));
             S6.put("mc608_m1", sharedPref.getString("sp608_m1", "00"));
             S6.put("mc608_m2", sharedPref.getString("sp608_m2", "00"));
             S6.put("mc608_m3", sharedPref.getString("sp608_m3", "00"));
