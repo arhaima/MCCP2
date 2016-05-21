@@ -323,6 +323,37 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         return gpsList;
     }
 
+    public List<FormsContract> getTodaysGPS() {
+        List<FormsContract> gpsList = new ArrayList<FormsContract>();
+        // Select All Query
+        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + "Where " + singleForm.ROW_MC_101 + "=DATE(now)";
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+
+            do {
+                FormsContract gps = new FormsContract();
+                gps.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
+                gps.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
+                gps.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
+
+
+                // Adding contact to list
+                gpsList.add(gps);
+
+
+                // Adding contact to list
+                gpsList.add(gps);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return gpsList;
+    }
+
     public List<ImsContract> getAllIms() {
         List<ImsContract> imsList = new ArrayList<ImsContract>();
         // Select All Query

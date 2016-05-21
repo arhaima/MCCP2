@@ -4,11 +4,11 @@
 
     <string-array name="MC_103_list">
         <item> ... </item>
-        <item> بلدیہ </item>
-        <item> اورنگی </item>
-        <item> سائٹ  </item>
-        <item> گڈاپ </item>
-        <item> لانڈھی </item>
+        <item> Baldia </item>
+        <item> Orangi </item>
+        <item> SITE </item>
+        <item> GADAP </item>
+        <item> LANDHI </item>
     </string-array>
     <string-array name="MC_103_value">
         <item>0</item>
@@ -52,9 +52,9 @@
 
     <string-array name="MC_109_list">
         <item> ... </item>
-        <item> مکمل </item>
-        <item> نامکمل </item>
-        <item> سوالنامہ نہیں بھراگیا  </item>
+        <item> Complete </item>
+        <item> Partially filled </item>
+        <item> Not filled  </item>
 
     </string-array>
     <string-array name="MC_109_value">
@@ -66,11 +66,11 @@
 
     <string-array name="MC_110_list">
         <item> ... </item>
-        <item> انٹرویو کے دوران منع کر دیا  </item>
-        <item> گهر بند تھا </item>
-        <item> بالغ جوابدہندہ موجود نہیں تھا  </item>
-        <item> اجازت دینے والا موجود نہیں ہے </item>
-        <item> دیگر </item>
+        <item> Refused during the interview  </item>
+        <item> Locked </item>
+        <item> Eligible respondent was not present  </item>
+        <item> Consent giver not present </item>
+        <item> Other </item>
     </string-array>
     <string-array name="MC_110_value">
         <item>0</item>
@@ -83,13 +83,13 @@
 
     <string-array name="MC_OCU_list">
         <item> ... </item>
-        <item> گھریلو خاتون </item>
-        <item> ریٹائرڈ </item>
-        <item> بے روزگار </item>
-        <item> غیر ہنرمند مزدور </item>
-        <item> ہنر مند مزدور </item>
-        <item> کاروبار </item>
-        <item>پروفیشنل</item>
+        <item> Housewife </item>
+        <item> Retired </item>
+        <item> Unemployed </item>
+        <item> Unskilled worker </item>
+        <item> Skilled worker </item>
+        <item> Business </item>
+        <item>Professional</item>
     </string-array>
     <string-array name="MC_OCU_value">
         <item>0</item>
@@ -116,8 +116,8 @@
 
     <string-array name="IM_B_list">
         <item> ... </item>
-        <item> .لڑکا   </item>
-        <item> .لڑکی </item>
+        <item> Male   </item>
+        <item> Female </item>
     </string-array>
     <string-array name="IM_B_value">
         <item>0</item>
@@ -127,9 +127,9 @@
 
     <string-array name="IM_H_list">
         <item> ... </item>
-        <item> ہا ں  </item>
-        <item> نہیں </item>
-        <item> .بچہ موجود نہیں</item>
+        <item> Yes  </item>
+        <item> No </item>
+        <item> Child Not present </item>
     </string-array>
     <string-array name="IM_H_value">
         <item>0</item>
@@ -140,8 +140,8 @@
 
     <string-array name="MC_YN_list">
         <item> ... </item>
-        <item> ہا ں  </item>
-        <item> نہیں </item>
+        <item>Yes  </item>
+        <item> No </item>
 
     </string-array>
     <string-array name="MC_YN_value">
@@ -153,8 +153,8 @@
 
     <string-array name="IM_JB_list">
         <item> ... </item>
-        <item> حفاظتی ٹیکوں کا  کارڈ </item>
-        <item> جواب دہندہ  </item>
+        <item> Vaccination card </item>
+        <item> Reported by respondent  </item>
     </string-array>
     <string-array name="IM_JB_value">
         <item>0</item>
@@ -164,10 +164,10 @@
 
     <string-array name="IM_K_list">
         <item> ... </item>
-        <item> سرکاری ہیلتھ کیمپ. </item>
-        <item> کیمپ.1 TVI ہیلتھ کیمپ </item>
-        <item> ای پی آئی ہیلتھ سنیٹر  </item>
-        <item> کوئی اور این </item>
+        <item> Government Health Care. </item>
+        <item> TVI Health Care</item>
+        <item> EPI Health Centre  </item>
+        <item> Any Other NGO </item>
     </string-array>
     <string-array name="IM_K_value">
         <item>0</item>
@@ -179,8 +179,8 @@
 
     <string-array name="IM_I_Source_list">
         <item> ... </item>
-        <item> حفاظتی ٹیکوںکا کارڈ </item>
-        <item>  جواب دہندہ </item>
+        <item> Vaccination card </item>
+        <item> Reported by respondent </item>
     </string-array>
     <string-array name="IM_I_Source_value">
         <item>0</item>
@@ -190,10 +190,11 @@
 
     <string-array name="IM_I_Scar_list">
         <item> ... </item>
-        <item> .ہاں </item>
-        <item>  نہیں </item>
-        <item>  بچہ موجودہ نہیں  </item>
+        <item> Yes </item>
+        <item>  No </item>
+        <item> Child Not present  </item>
     </string-array>
+
     <string-array name="IM_I_Scar_value">
         <item>0</item>
         <item>1</item>
@@ -206,9 +207,9 @@
 
     <string-array name="MC_401_list">
         <item> ... </item>
-        <item> ہاں </item>
-        <item> نہیں </item>
-        <item> معلوم نہیں </item>
+        <item> Yes </item>
+        <item> No </item>
+        <item> Don\'t know </item>
 
     </string-array>
     <string-array name="MC_401_value">
@@ -221,17 +222,17 @@
 
     <string-array name="MC_402_list">
         <item> ... </item>
-        <item> ٹی-وی </item>
-        <item> ریڈیو </item>
-        <item> اخبارات </item>
-        <item> پوسٹر/بینر </item>
-        <item> محکمہ صحت کے افراد </item>
-        <item> امام مسجد </item>
-        <item> مقامی لیڈر </item>
-        <item> گھر والوں سے </item>
-        <item> دوست/ہمسائے/رشتہ دار  </item>
-        <item> NGO ورکر </item>
-        <item>(دیگر(وضاحت کریں </item>
+        <item> TV </item>
+        <item> Radio </item>
+        <item> Newspaper </item>
+        <item> Posters </item>
+        <item> Health care provider </item>
+        <item> Masjid Imam </item>
+        <item> Local Leaders </item>
+        <item> Family </item>
+        <item> Friends, Neighbour &amp; Relatives  </item>
+        <item> NGO worker </item>
+        <item>Don’t know  </item>
 
     </string-array>
     <string-array name="MC_402_value">
@@ -252,17 +253,17 @@
 
     <string-array name="MC_404_list">
         <item> ... </item>
-        <item> پو لیو </item>
-        <item> ٹی-بی </item>
-        <item> خناق </item>
-        <item> کالی کھانسی </item>
-        <item> خسرہ </item>
-        <item> یرقان </item>
-        <item> تشنج </item>
-        <item> حمل کے دوران تشنج  </item>
-        <item> چیچک  </item>
-        <item> معلوم نہیں  </item>
-        <item> (دیگر(وضاحت کریں</item>
+        <item> Polio </item>
+        <item> Tuberculosis </item>
+        <item> Diphtheria </item>
+        <item> Whooping cough </item>
+        <item> Measles </item>
+        <item> Hepatitis B </item>
+        <item> Tetanus </item>
+        <item>Tetanus Toxoid during  Pregnancy  </item>
+        <item> Small pox  </item>
+        <item> Don’t know </item>
+        <item> Other Specify</item>
 
     </string-array>
     <string-array name="MC_404_value">
@@ -283,13 +284,13 @@
 
     <string-array name="MC_405_list">
         <item> ... </item>
-        <item> تعلیم کی کمی  </item>
-        <item> پیسوں کی کمی  </item>
-        <item> آگاہی کی کمی </item>
-        <item> سہولیات کی کمی  </item>
-        <item> ٹیکوں  کے منفی اثرات کا خوف   </item>
-        <item> معلوم نہیں  </item>
-        <item> (دیگر(وضاحت کریں</item>
+        <item>Lack of education  </item>
+        <item>Lack of funds  </item>
+        <item> Lack of awareness </item>
+        <item> Lack of facilities  </item>
+        <item> Fear of adverse effects of vaccines   </item>
+        <item> Don\'t know  </item>
+        <item> Other Specify</item>
 
     </string-array>
     <string-array name="MC_405_value">
@@ -306,12 +307,12 @@
 
     <string-array name="MC_405A_list">
         <item> ... </item>
-        <item> گورنمنٹ ہسپتال  </item>
-        <item> نجی ہسپتال </item>
-        <item> ہیلتھ سینٹر </item>
-        <item> ہیلتھ کیمپ  </item>
-        <item> معلوم نہیں  </item>
-        <item> (دیگر(وضاحت کریں</item>
+        <item> Government Hospital  </item>
+        <item> Private Hospital </item>
+        <item> Health centre </item>
+        <item> Health Camp  </item>
+        <item> Don’t Know  </item>
+        <item> Other specify</item>
     </string-array>
     <string-array name="MC_405A_value">
         <item>0</item>
@@ -327,13 +328,13 @@
 
     <string-array name="MC_407_list">
         <item> ... </item>
-        <item> یہ ضروری  نہیں  </item>
-        <item> مذہبی عقیدے کے خلاف ہے </item>
-        <item> خاندان والے منع کرتے ہیں </item>
-        <item> صحت کے لیے مضر  ہے  </item>
-        <item> حلال نہیں ہیں  </item>
-        <item> تولیدی نظام کو متاثر کرتے ہیں </item>
-        <item> (دیگر(وضاحت کریں</item>
+        <item> It is not necessary </item>
+        <item> Against religious beliefs </item>
+        <item> Refusal from family</item>
+        <item> Vaccine is not safe  </item>
+        <item>Vaccine is not halal  </item>
+        <item> Vaccinations can affect the reproductive system </item>
+        <item> Other Specify</item>
     </string-array>
     <string-array name="MC_407_value">
         <item>0</item>
@@ -350,11 +351,11 @@
 
     <string-array name="MC_409_list">
         <item> ... </item>
-        <item> مکمل طور پر محفوظ  </item>
-        <item> مناسب حدتک محفوظ </item>
-        <item> غیر محفوظ  </item>
-        <item> معلوم نہیں  </item>
-        <item> (دیگر(وضاحت کریں</item>
+        <item>Completely safe  </item>
+        <item> Reasonably safe </item>
+        <item> Not safe at all  </item>
+        <item> Dont know  </item>
+        <item> Other Specify</item>
     </string-array>
     <string-array name="MC_409_value">
         <item>0</item>
@@ -368,14 +369,14 @@
 
     <string-array name="MC_410_list">
         <item> ... </item>
-        <item> گورنمنٹ ہسپتال </item>
-        <item> نجی ہسپتال  </item>
-        <item> ہیلتھ سنٹر  </item>
-        <item> ہیلتھ ورکر   </item>
-        <item> ہیلتھ کیمپ  </item>
-        <item> گھر پر  </item>
-        <item> معلوم نہیں  </item>
-        <item> (دیگر(وضاحت کریں</item>
+        <item> Government Hospital </item>
+        <item> Private Hospital </item>
+        <item> Health centre  </item>
+        <item> Lady Health Workers  </item>
+        <item> Health camp  </item>
+        <item> At Home </item>
+        <item> Don\'t know  </item>
+        <item> Other Specify</item>
     </string-array>
     <string-array name="MC_410_value">
         <item>0</item>
@@ -392,12 +393,12 @@
 
     <string-array name="MC_410A_list">
         <item> ... </item>
-        <item> ہرپولیو مہم کے دوران </item>
-        <item> زیادہ تر پولیو مہم کے دوران </item>
-        <item> صرف چند بار  </item>
-        <item> صرف ایک بار  </item>
-        <item> میں قطرے پلوانا نہیں چاہتی  </item>
-        <item> معلوم نہیں  </item>
+        <item> Every time polio drops are offered </item>
+        <item> Most of the times polio drops are offered </item>
+        <item> Just a few times  </item>
+        <item> Only once </item>
+        <item> I don\'t intend to give drops </item>
+        <item> Don\'t know </item>
 
 
     </string-array>
@@ -414,13 +415,13 @@
 
     <string-array name="MC_410B_list">
         <item> ... </item>
-        <item> ہر پولیو مہم میں قطرے پلانے کی ضرورت نہیں ہے </item>
-        <item> باربار پولیو کے قطرے پلانے سے ہونے والے منفی اثرات سے فکرمند ہوں </item>
-        <item> ہر پولیو مہم کے دوران میں گھر پر موجود نہیں ہوسکتی/ہوسکتا  </item>
-        <item> پولیوکے قطرے فائدہ مند نہیں ہیں  </item>
-        <item> مجھے پولیو ورکر کابار بار گھر آنا پسند نہیں ہیں   </item>
-        <item> معلوم نہیں  </item>
-        <item> (دیگر(وضاحت کریں</item>
+        <item> Polio drops are not needed every time it is offered </item>
+        <item> I am worried about side effects from polio being taken so many times </item>
+        <item> I might not be at home every time it is offered  </item>
+        <item> Polio drops are not effective </item>
+        <item> I don\'t like frequent visits  </item>
+        <item> Don\'t know </item>
+        <item> Other Specify</item>
 
     </string-array>
     <string-array name="MC_410B_value">
@@ -437,14 +438,14 @@
 
     <string-array name="MC_413_list">
         <item> ... </item>
-        <item> بچے کو پولیو کے قطرے  بہت دفعہ پلا چکے ہیں </item>
-        <item> گھر والے اجازت نہیں دیتے ہیں </item>
-        <item> حفاظتی ٹیکے حلال نہیں ہیں </item>
-        <item> حفاظتی ٹیکے تولیدی نظام کو متاثر کرتے ہیں</item>
-        <item> حفاظتی ٹیکے محفوظ نہیں ہیں    </item>
-        <item> مقامی لیڈر منع کرتے ہیں  </item>
-        <item> مذہبی عقائد کے خلاف ہے </item>
-        <item> (دیگر(وضاحت کریں</item>
+        <item> Child has received polio drops too many times </item>
+        <item> Family does not allow for vaccine</item>
+        <item> Vaccine is not halal </item>
+        <item> Vaccine can cause sterility</item>
+        <item>Vaccine is not safe </item>
+        <item> Community/local leader prohibited  </item>
+        <item> Against my religious belief </item>
+        <item> Other Specify</item>
 
     </string-array>
     <string-array name="MC_413_value">
@@ -462,9 +463,9 @@
 
     <string-array name="MC_414_list">
         <item> ... </item>
-        <item> ہاں </item>
-        <item> نہیں </item>
-        <item>  معلوم نہیں   </item>
+        <item> Yes </item>
+        <item> No </item>
+        <item> Don\'t know   </item>
 
     </string-array>
     <string-array name="MC_414_value">
@@ -478,9 +479,9 @@
 
     <string-array name="MC_415_list">
         <item> ... </item>
-        <item> پولیو کا ٹیکہ کافی ہےاور پولیو کے قطروں کی مزید ضرورت نہیں</item>
-        <item> پولیو کے قطروں کا پلانا اضافی خوراک ہے اور یہ منفی اثرات پیدا کرےگا</item>
-        <item>  (دیگر(وضاحت کریں  </item>
+        <item> Injections (IPV) is enough, Polio drops (OPV) is no longer needed</item>
+        <item> Polio drops will cause over dose and have side effects</item>
+        <item> Other Specify  </item>
 
     </string-array>
     <string-array name="MC_415_value">
@@ -498,13 +499,13 @@
 
     <string-array name="MC_501_list">
         <item> ... </item>
-        <item> اردو </item>
-        <item> سندھی </item>
-        <item> پنجابی  </item>
-        <item> پشتو </item>
-        <item> بلوچی </item>
-        <item> سرائیکی </item>
-        <item>(دیگر (وضاحت</item>
+        <item> Urdu </item>
+        <item> Sindhi </item>
+        <item> Punjabi </item>
+        <item> Pashto </item>
+        <item> Balochi </item>
+        <item> Seraiki </item>
+        <item>Others Specify</item>
     </string-array>
     <string-array name="MC_501_value">
         <item>0</item>
@@ -518,14 +519,14 @@
     </string-array>
     <string-array name="MC_503_list">
         <item> ... </item>
-        <item> بچے اور ماں کی صحت کے متعلق معلومات دینے  </item>
-        <item> مرکز صحت جانے کا مشورہ  دینے </item>
-        <item> حفاظتی ٹیکے </item>
-        <item> پولیو کے قطرے پلانے  </item>
-        <item> ماں کا علاج </item>
-        <item> بچے کا علا ج </item>
-        <item>(visit) معمول کا دورہ  </item>
-        <item>(دیگر (وضاحت کریں</item>
+        <item> Information on mother and child health </item>
+        <item> Referred to health facility </item>
+        <item> Vaccination </item>
+        <item> Polio drops  </item>
+        <item> Treatment for mother </item>
+        <item> Treatment for child </item>
+        <item>Routine visit  </item>
+        <item>Others Specify</item>
     </string-array>
     <string-array name="MC_503_value">
         <item>0</item>
@@ -540,13 +541,13 @@
     </string-array>
     <string-array name="MC_504W_list">
         <item> ... </item>
-        <item> کوئی دیوار نہیں  </item>
-        <item> لکڑی کے تختے </item>
-        <item> ٹینٹ </item>
-        <item> کچی اینٹیں/مٹی  </item>
-        <item> پتھر/پکی اینٹیں اور مٹی </item>
-        <item> (سیمنٹ بلاک/ پکی اینٹیں (بغیر پلا سٹر </item>
-        <item>(سیمنٹ(پلاسٹر  </item>
+        <item> No walls </item>
+        <item> Wood planks </item>
+        <item> Tent </item>
+        <item> Unbaked bricks/mud  </item>
+        <item> Stone/Baked bricks with mud</item>
+        <item> Cement blocks Baked bricks / Stone with cement (not plaster) </item>
+        <item>Cemented (plastered)  </item>
         <item>(دیگر (وضاحت کریں</item>
     </string-array>
     <string-array name="MC_504W_value">
@@ -562,15 +563,15 @@
     </string-array>
     <string-array name="MC_504R_list">
         <item> ... </item>
-        <item> کوئی چھت نہیں  </item>
-        <item> ٹین کی چادر/ازبیسٹوز </item>
-        <item> ٹیرگاڈر(اینٹوں کے )ساتھ </item>
-        <item> (آر -سی –سی(پکی چھت  </item>
-        <item> گھاس پھوس/کھجو ر کے پتے </item>
-        <item> کھجور /بانس اور مٹی </item>
-        <item>تنکے کی  چٹائی </item>
-        <item>لکڑی کے تختے </item>
-        <item>(دیگر (وضاحت کریں</item>
+        <item> No roof  </item>
+        <item> Tin sheets/asbestos </item>
+        <item>Roofing tiles </item>
+        <item> RCC  </item>
+        <item> Thatch/palm leaf </item>
+        <item> Palm/bamboo with mud </item>
+        <item>Rustic mat</item>
+        <item>Wood planks</item>
+        <item>Others (Specify)</item>
     </string-array>
     <string-array name="MC_504R_value">
         <item>0</item>
@@ -586,16 +587,16 @@
     </string-array>
     <string-array name="MC_504F_list">
         <item> ... </item>
-        <item> زمین/ریت/مٹی  </item>
-        <item> لکٹری کے تختے </item>
-        <item> اینٹیں </item>
-        <item> سیمنٹ  </item>
-        <item> چپس/موزیک </item>
-        <item> سرامک ٹائلیں </item>
-        <item>سنگ مر مر </item>
-        <item>قالین </item>
-        <item>دری </item>
-        <item>(دیگر (وضاحت کریں</item>
+        <item> Earth/sand/mud  </item>
+        <item> Wood planks </item>
+        <item> Bricks </item>
+        <item> Cement  </item>
+        <item>Chips/terrazzo </item>
+        <item> Ceramic tiles </item>
+        <item>Marble </item>
+        <item>Carpet </item>
+        <item>Mats </item>
+        <item>Other (Specify)</item>
     </string-array>
     <string-array name="MC_504F_value">
         <item>0</item>
@@ -612,10 +613,10 @@
     </string-array>
     <string-array name="MC_505_list">
         <item> ... </item>
-        <item> اپنا ہے  </item>
-        <item> کرائے کا ہے </item>
-        <item> بغیر کرائے کے رہتے ہیں </item>
-        <item> معلوم نہیں  </item>
+        <item> Owned </item>
+        <item> Rented </item>
+        <item> Living without paying rent </item>
+        <item> Dont know  </item>
     </string-array>
     <string-array name="MC_505_value">
         <item>0</item>
@@ -626,15 +627,15 @@
     </string-array>
     <string-array name="MC_508_list">
         <item> ... </item>
-        <item> بجلی  </item>
-        <item> ایل –پی-جی   سیلنڈر </item>
-        <item> (سوئی گیس کنکشن(قدرتی گیس </item>
-        <item> مٹی کا تیل  </item>
-        <item> کوئلہ </item>
-        <item> لکڑی </item>
-        <item>تنکے/جھاڑیاں/گھاس پھونس </item>
-        <item>(جانوروں کا گوبر(اوپلے </item>
-        <item>(دیگر (وضاحت کریں</item>
+        <item> Electricity  </item>
+        <item> LPG </item>
+        <item> Natural gas </item>
+        <item> Kerosene  </item>
+        <item> Coal, lignite </item>
+        <item>Wood </item>
+        <item>Straw/shrubs/grass </item>
+        <item>Animal dung </item>
+        <item>Others Specify</item>
     </string-array>
     <string-array name="MC_508_value">
         <item>0</item>
@@ -650,21 +651,21 @@
     </string-array>
     <string-array name="MC_509_list">
         <item> ... </item>
-        <item> (سرکاری پانی کا نلکا(گھر میں   </item>
-        <item>  عوامی  جگہوں میں لگا ہوا نلکا </item>
-        <item> ٹیوب ویل /بورنگ کا پانی  </item>
-        <item> ہینڈ پمپ   </item>
-        <item> محفوظ کنواں </item>
-        <item> غیر محفوظ کنواں </item>
-        <item>محفوظ چشمہ </item>
-        <item>غیر محفوظ چشمہ </item>
-        <item>بارش کا پانی</item>
-        <item>ٹینکر کا پانی</item>
-        <item>فلٹر پلانٹ کا پانی</item>
-        <item>سوزکی یا گدھا گاڑی</item>
-        <item>(سطح والا پانی(دریا،جھیل ،ڈیم،تالاب/ ندی/نہر/ابپاشی کا پانی</item>
-        <item>(پانی  کی بوتل (منرل واٹر</item>
-        <item>(دیگر(وضاحت کریں</item>
+        <item> Piped into dwelling   </item>
+        <item>  Public tap/standpipe</item>
+        <item> Tube well or borehole  </item>
+        <item> Hand pump  </item>
+        <item> Protected well </item>
+        <item> Unprotected well </item>
+        <item>Protected spring </item>
+        <item>Unprotected spring </item>
+        <item>Rainwater</item>
+        <item>Tanker truck</item>
+        <item>Filtration plant</item>
+        <item>Cart with small tank</item>
+        <item>River,Dam,ponds</item>
+        <item>Mineral water</item>
+        <item>Others specify</item>
     </string-array>
     <string-array name="MC_509_value">
         <item>0</item>
@@ -686,20 +687,20 @@
     </string-array>
     <string-array name="MC_510_list">
         <item> ... </item>
-        <item> (سرکاری پانی کا نلکا(گھر میں   </item>
-        <item>  عوامی  جگہوں میں لگا ہوا نلکا </item>
-        <item> ٹیوب ویل /بورنگ کا پانی  </item>
-        <item> ہینڈ پمپ   </item>
-        <item> محفوظ کنواں </item>
-        <item> غیر محفوظ کنواں </item>
-        <item>محفوظ چشمہ </item>
-        <item>غیر محفوظ چشمہ </item>
-        <item>بارش کا پانی</item>
-        <item>ٹینکر کا پانی/سوزکی یا گدھا گاڑی کے ذریعہ فراہم کیا جانے ولا پانی</item>
-        <item>فلٹر پلانٹ کا پانی</item>
-        <item>(سطح والا پانی(دریا،جھیل ،ڈیم،تالاب/ ندی/نہر/ابپاشی کا پانی</item>
-        <item>(پانی  کی بوتل (منرل واٹر</item>
-        <item>(دیگر(وضاحت کریں</item>
+        <item> Piped into dwelling  </item>
+        <item>  "Public tap/standpipe </item>
+        <item> Tube well or borehole  </item>
+        <item> Hand pump  </item>
+        <item>Protected well</item>
+        <item> Unprotected well</item>
+        <item>Protected spring </item>
+        <item>Unprotected spring </item>
+        <item>Rainwater</item>
+        <item>Tanker truck</item>
+        <item>Filtration plant</item>
+        <item>River,Dam,ponds</item>
+        <item>Mineral Water</item>
+        <item>Other Specify</item>
     </string-array>
     <string-array name="MC_510_value">
         <item>0</item>
@@ -720,15 +721,15 @@
     </string-array>
     <string-array name="MC_512_list">
         <item> ... </item>
-        <item> ابالتے ہیں   </item>
-        <item> لیچ/کلوریں ملاتے ہیں </item>
-        <item> کپڑے کے ذرئعے چھانتے ہیں  </item>
-        <item> پھٹکری استعمال کرتے ہیں   </item>
-        <item> فلٹر استعمال کرتے ہیں </item>
-        <item> سورج کی شعاعوں سے محفوظ کیا ہوا پانی </item>
-        <item>برتن میں پانی ڈال کر ٹہرنے کا انتظار کرتے ہیں </item>
-        <item>معلوم نہیں</item>
-        <item>(دیگر(وضاحت کریں</item>
+        <item>Boil   </item>
+        <item> Add bleach/chlorine </item>
+        <item> Strain it through a cloth </item>
+        <item>Use Alum   </item>
+        <item> Use water filter (ceramic, sand, composite, etc.) </item>
+        <item> Solar disinfection </item>
+        <item>Let it stand and settle </item>
+        <item>Don\'t know</item>
+        <item>Other Specify</item>
     </string-array>
     <string-array name="MC_512_value">
         <item>0</item>
@@ -744,14 +745,14 @@
     </string-array>
     <string-array name="MC_513_list">
         <item> ... </item>
-        <item> فلش   سیوریح کے نظام سے ملا ہوا   </item>
-        <item>  فلش سپٹک ٹینک سے جڑا ہوا </item>
-        <item> فلش   گڑھےواے لیٹرین سے جڑاہوا </item>
-        <item> فلش معلوم نہیں کہاں  </item>
-        <item> گڑھے والا لیٹرین ڈھکا ہوا </item>
-        <item>گڑھے والا کھلا  لیٹرین</item>
-        <item>کوئی سہولت نہیں /جھاڑیوں میں جاتے ہیں</item>
-        <item>(دیگر(وضاحت کریں</item>
+        <item> Flush to piped sewer system   </item>
+        <item>  Flush to septic tank </item>
+        <item>Flush to pit latrine</item>
+        <item> Flush, don\'t know where  </item>
+        <item> Bucket toilet </item>
+        <item>Hanging toilet/hanging Latrine</item>
+        <item>No facility/bush/field</item>
+        <item>Other (specify)</item>
     </string-array>
     <string-array name="MC_513_value">
         <item>0</item>
@@ -766,9 +767,9 @@
     </string-array>
     <string-array name="MC_516_list">
         <item> ... </item>
-        <item> ہاں  </item>
-        <item> نہیں </item>
-        <item> معلوم نہیں </item>
+        <item> Yes  </item>
+        <item> No </item>
+        <item> Don\'t know </item>
     </string-array>
     <string-array name="MC_516_value">
         <item>0</item>
@@ -778,9 +779,9 @@
     </string-array>
     <string-array name="MC_517_list">
         <item> ... </item>
-        <item> مشاہدہ کیا  </item>
-        <item> احاطے میں نہیں ہے </item>
-        <item> دیکھنے کی اجازت نہیں ملی </item>
+        <item> Observed </item>
+        <item> Not in dwelling/plot/yard </item>
+        <item> No permission to see </item>
     </string-array>
     <string-array name="MC_517_value">
         <item>0</item>
@@ -790,8 +791,8 @@
     </string-array>
     <string-array name="MC_518_list">
         <item> ... </item>
-        <item> پانی موجود ہے  </item>
-        <item> پانی موجود نہیں  </item>
+        <item> Water is available </item>
+        <item> Water is not available  </item>
     </string-array>
     <string-array name="MC_518_value">
         <item>0</item>
@@ -800,11 +801,11 @@
     </string-array>
     <string-array name="MC_519_list">
         <item> ... </item>
-        <item> کچھ موجودنہیں </item>
-        <item> مائع صابن  </item>
-        <item> صابن  </item>
-        <item> ڈٹرجنٹ  </item>
-        <item> راکھ/مٹی/ریت  </item>
+        <item> None </item>
+        <item> Liquid soap  </item>
+        <item> Bar soap </item>
+        <item> Detergent (powder/liquid/paste)  </item>
+        <item>Ash/mud/sand  </item>
     </string-array>
     <string-array name="MC_519_value">
         <item>0</item>
@@ -816,11 +817,11 @@
     </string-array>
     <string-array name="MC_521_list">
         <item> ... </item>
-        <item> صابن </item>
-        <item> ڈٹرجنٹ /لکویڈ/پیسٹ  </item>
-        <item> مائع صابن  </item>
-        <item> راکھ/مٹی/ریت  </item>
-        <item> کچھ نہیں  </item>
+        <item> Bar soap </item>
+        <item> Detergent (powder/liquid/paste)  </item>
+        <item> Liquid soap </item>
+        <item>Ash/mud/sand  </item>
+        <item> None </item>
     </string-array>
     <string-array name="MC_521_value">
         <item>0</item>
@@ -832,16 +833,16 @@
     </string-array>
     <string-array name="MC_522_list">
         <item> ... </item>
-        <item> کھاناپکانے سے پہلے   </item>
-        <item> کھانا کھانے سے پہلے </item>
-        <item> بچے کوکھانا کھلانے سے پہلے  </item>
-        <item> دودھ پلانے سے پہلے   </item>
-        <item> بچے کا پاخانہ صاف کرنے کے بعد </item>
-        <item> بچے کا ڈائپر بدلنے کے بعد </item>
-        <item>بچے کا پاخانہ ٹھکانے لگانے کے بعد</item>
-        <item>بیت الخلاء سے آنے کے بعد</item>
-        <item>بیت الخلاء کو کسی بھی مقصد کے لیے استعمال کرنے کے بعد</item>
-        <item>(دیگر(وضاحت کریں</item>
+        <item> Before preparing food   </item>
+        <item> Before eating </item>
+        <item> Before feeding a child  </item>
+        <item> Before breastfeeding  </item>
+        <item> After cleaning a child’s anus </item>
+        <item> After changing a baby’s nappy </item>
+        <item>After disposing of children’s feces</item>
+        <item>After you defecate</item>
+        <item>After using the latrine for any purpose</item>
+        <item>Others(Specify)</item>
     </string-array>
     <string-array name="MC_522_value">
         <item>0</item>
@@ -858,9 +859,9 @@
     </string-array>
     <string-array name="MC_524_list">
         <item> ... </item>
-        <item> ایکڑ  </item>
-        <item> کنال  </item>
-        <item> معلوم نہیں  </item>
+        <item>Acre  </item>
+        <item> Canal  </item>
+        <item> Don\'t know  </item>
     </string-array>
     <string-array name="MC_524_value">
         <item>0</item>
@@ -874,11 +875,11 @@
 
     <string-array name="MC_603_list">
         <item> ... </item>
-        <item> ماں اور بچہ بیمار نہیں تھے  </item>
-        <item> کیمپ دور تھا </item>
-        <item> گھروالوں کی طرف سے اجازت نہیں تھی </item>
-        <item> ہمارے پاس صحت کے حصول کے لیے موزوں انتظام موجود ہے </item>
-        <item>(دیگر(وضاحت کریں </item>
+        <item> Medical care was not needed as child or mother was not ill </item>
+        <item> It was far away </item>
+        <item> Family didn’t allow </item>
+        <item> We have our own arrangement for healthcare</item>
+        <item>Others (Specify) </item>
 
     </string-array>
     <string-array name="MC_603_value">
@@ -894,16 +895,16 @@
 
     <string-array name="MC_604_list">
         <item> ... </item>
-        <item> TVI ورکر   </item>
-        <item> پولیو ورکر </item>
-        <item> لیڈی ہیلتھ ورکرز(LHW) </item>
-        <item> لیڈی  ہیلتھ وزیٹرز(LHV) </item>
-        <item> ڈاکٹر </item>
-        <item> نرس </item>
-        <item> مسجد /علاقے میں اعلان سے  </item>
-        <item> پڑوس سے  </item>
-        <item> دوست اور رشتے داروں سے </item>
-        <item>(دیگر(وضاحت کریں  </item>
+        <item> Community Mobilizers of TVI   </item>
+        <item> Polio workers</item>
+        <item> LHW </item>
+        <item> LHV </item>
+        <item> Doctors </item>
+        <item>Nurses </item>
+        <item> Announcements at the mosque/ community  </item>
+        <item> Neighbors </item>
+        <item> Friends and relatives </item>
+        <item>Others(Specify)  </item>
 
 
     </string-array>
@@ -925,11 +926,11 @@
 
     <string-array name="MC_605_list">
         <item> ... </item>
-        <item> بچے کےمعائنہ کے لیے   </item>
-        <item> ماں کےمعائنہ کے لئے </item>
-        <item> بچے کے حفاظتی ٹیکوں کے لیے </item>
-        <item> علاقے میں مرکز صحت نہ ہونے کی وجہ سے  </item>
-        <item>(دیگر(وضاحت کریں  </item>
+        <item> Seeking care for child  </item>
+        <item> Seeking care for mother </item>
+        <item> Immunization of the child </item>
+        <item> Unavailability of health services in the area  </item>
+        <item>Others(Specify)  </item>
 
 
     </string-array>
@@ -946,9 +947,9 @@
 
     <string-array name="MC_YNDK_list">
         <item> ... </item>
-        <item> ہاں  </item>
-        <item> نہیں </item>
-        <item> معلوم نہیں  </item>
+        <item> Yes </item>
+        <item> No </item>
+        <item> Don\'t know </item>
 
 
     </string-array>
@@ -963,14 +964,14 @@
 
     <string-array name="MC_607_list">
         <item> ... </item>
-        <item> حفاظتی ٹیکے دستیاب نہیں تھے  </item>
-        <item> ڈاکٹر نےمشورہ نہیں دیاتھا </item>
-        <item> بچہ بیمار تھا  </item>
-        <item> بچے کو ہیلتھ کیمپ نہیں لے کر گئے تھے  </item>
-        <item> ٹیکہ لگانے سے انکار کردیا  </item>
-        <item> بہت زیادہ انتظار کرنا پڑا تھا </item>
-        <item> حفاظتی ٹیکوں کا کورس مکمل تھا </item>
-        <item>(دیگر(وضاحت کریں  </item>
+        <item> Vaccines were not available at health camp  </item>
+        <item> Camp staff/ physician did not recommend </item>
+        <item> Child was not well  </item>
+        <item> Child did not visit the health camp  </item>
+        <item> Refused for vaccination  </item>
+        <item> Long waiting time</item>
+        <item> Vaccination already completed </item>
+        <item>Others(Specify)  </item>
 
 
     </string-array>
@@ -989,9 +990,9 @@
 
     <string-array name="MC_607A_list">
         <item> ... </item>
-        <item> ہاں</item>
-        <item> نہیں  </item>
-        <item>معلوم نہیں  </item>
+        <item> Yes</item>
+        <item> No  </item>
+        <item>Don\'t know </item>
 
 
     </string-array>
@@ -1006,14 +1007,14 @@
 
     <string-array name="MC_607B_list">
         <item> ... </item>
-        <item> پولیو کا ٹیکہ دستیاب نہیں تھا</item>
-        <item> ڈاکٹر نے مشورہ نہیں دیا تھا  </item>
-        <item>بچے کو ہیلتھ کیمپ نہیں لے کر گئے تھے  </item>
-        <item>پولیو کا ٹیکہ لگوانے سے انکار کردیا  </item>
-        <item>پولیو کا ٹیکہ غیر محفوظ ہے  </item>
-        <item>پچھلے ایک مہینے میں بچے کو پولیو کا ٹیکہ لگ چکا تھا </item>
-        <item>پچھلے ایک مہینے میں بچے کو پولیو کےقطرے پلائے جاچکے تھے </item>
-        <item>(دیگر(وضاحت کریں  </item>
+        <item> IPV was not available</item>
+        <item> Doctor didn’t advice </item>
+        <item>Child was not taken to TVI camp </item>
+        <item>We refused to vaccinate </item>
+        <item>IPV is not safe  </item>
+        <item>Child has already revived IPV in last month</item>
+        <item>PV has already been given to the child in last month </item>
+        <item>Other (specify) </item>
 
 
     </string-array>

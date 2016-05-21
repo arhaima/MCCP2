@@ -296,15 +296,15 @@ public class EndFormActivity extends AppCompatActivity {
                     cf.setChid(cfPref.getString("imchid", "00"));
                     cf.setFrmNo(formId);
                     JSONObject cfJson = new JSONObject();
-                    cfJson.put("mccf_Q1", cfPref.getString("spcf_Q1", "00"));
-                    cfJson.put("mccf_Q2", cfPref.getString("spcf_Q2", "00"));
-                    cfJson.put("mccf_Q2_1", cfPref.getString("spcf_Q2_1", "00"));
-                    cfJson.put("mccf_Q2_2", cfPref.getString("spcf_Q2_2", "00"));
-                    cfJson.put("mccf_Q2_3", cfPref.getString("spcf_Q2_3", "00"));
-                    cfJson.put("mccf_Q2_4", cfPref.getString("spcf_Q2_4", "00"));
-                    cfJson.put("mccf_Q2_5", cfPref.getString("spcf_Q2_5", "00"));
-                    cfJson.put("mccf_Q2_6", cfPref.getString("spcf_Q2_6", "00"));
-                    cfJson.put("mccf_Q1", cfPref.getString("spcf_Q1", "00"));
+                    cfJson.put("cf_Q1", cfPref.getString("spcf_Q1", "00"));
+                    cfJson.put("cf_Q2", cfPref.getString("spcf_Q2", "00"));
+                    cfJson.put("cf_Q2_1", cfPref.getString("spcf_Q2_1", "00"));
+                    cfJson.put("cf_Q2_2", cfPref.getString("spcf_Q2_2", "00"));
+                    cfJson.put("cf_Q2_3", cfPref.getString("spcf_Q2_3", "00"));
+                    cfJson.put("cf_Q2_4", cfPref.getString("spcf_Q2_4", "00"));
+                    cfJson.put("cf_Q2_5", cfPref.getString("spcf_Q2_5", "00"));
+                    cfJson.put("cf_Q2_6", cfPref.getString("spcf_Q2_6", "00"));
+                    cfJson.put("cf_Q1", cfPref.getString("spcf_Q1", "00"));
                     cf.setCf(cfJson.toString());
                     db.addCF(cf);
 

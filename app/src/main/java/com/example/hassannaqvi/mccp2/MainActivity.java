@@ -336,6 +336,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void openMap(View view) {
+        Intent map_intent = new Intent(getApplicationContext(), MapsActivity.class);
+        map_intent.putExtra("today", "true");
+        startActivity(map_intent);
+    }
+
     private class MyLocationListener implements LocationListener {
 
         public void onLocationChanged(Location location) {

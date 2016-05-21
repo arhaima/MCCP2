@@ -19,10 +19,14 @@ import java.util.List;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
+    private boolean Todays;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        boolean Todays = getIntent().getStringExtra("today").equals("true");
+        
         setContentView(R.layout.activity_maps);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -46,11 +50,15 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         FormsDbHelper db = new FormsDbHelper(this);
         List<FormsContract> gpsList = new ArrayList<FormsContract>();
-        gpsList = db.getAllGPS();
+        if (Todays) {
+            gpsList = db.getTodaysGPS();
+        } else {
+            gpsList = db.getAllGPS();
+        }
         SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
         Double mLat = Double.valueOf(sharedPref.getString("spGPSLat", "0"));
         Double mLong = Double.valueOf(sharedPref.getString("spGPSLng", "0"));
-        // Add a marker in Sydney and move the camera
+        // Add a marker in Karachi and move the camera
         for (FormsContract gps : gpsList) {
 
             LatLng karachi = new LatLng(Double.valueOf(gps.getGPSLat()), Double.valueOf(gps.getGPSLng()));
