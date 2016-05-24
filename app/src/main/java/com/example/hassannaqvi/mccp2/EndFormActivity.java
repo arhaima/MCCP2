@@ -237,7 +237,8 @@ public class EndFormActivity extends AppCompatActivity {
                     ImsContract imc = new ImsContract();
 
                     imc.setChid(imPref.getString("imchid", "00"));
-                    imc.setFrmNo(formId);
+                    imc.setFrmNo(imchid);
+
                     JSONObject imJson = new JSONObject();
                     imJson.put("ima", imPref.getString("spima", "00"));
                     imJson.put("imaf", imPref.getString("spimaf", "00"));
@@ -294,7 +295,7 @@ public class EndFormActivity extends AppCompatActivity {
                     CfsContract cf = new CfsContract();
 
                     cf.setChid(cfPref.getString("imchid", "00"));
-                    cf.setFrmNo(formId);
+                    cf.setFrmNo(cfchid);
                     JSONObject cfJson = new JSONObject();
                     cfJson.put("cf_Q1", cfPref.getString("spcf_Q1", "00"));
                     cfJson.put("cf_Q2", cfPref.getString("spcf_Q2", "00"));

@@ -180,6 +180,26 @@
                 android:text="Show GPS Coordinates"
                 android:textSize="24sp" />
 
+            <Button
+                android:id="@+id/GetRawData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="5dp"
+                android:onClick="GetRawData"
+                android:text="Get Files Data"
+                android:textSize="24sp" />
+
+            <Button
+                android:id="@+id/DumpFiles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_marginTop="5dp"
+                android:onClick="DumpFiles2DB"
+                android:text="Sync Server with XML"
+                android:textSize="24sp" />
+
 
         </LinearLayout>
 </LinearLayout>

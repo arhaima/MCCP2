@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -213,6 +214,8 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         editor.putString("spcf_Q2_6", (CF_Q2_6.isChecked() ? "6" : ""));
         editor.putString("spcf_Q3", (CF_Q3.isChecked() ? "3" : ""));
         editor.putString("spcf_Q4", (CF_Q4.isChecked() ? "4" : ""));
+        editor.putString("spcfDeviceID", Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID));
 
 
         editor.apply();
@@ -236,6 +239,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
             JsonCF.put("cf_Q2_6", sharedPref.getString("spcf_Q2_6", "00"));
             JsonCF.put("cf_Q3", sharedPref.getString("spcf_Q3", "00"));
             JsonCF.put("cf_Q4", sharedPref.getString("spcf_Q4", "00"));
+            JsonCF.put("cfDeviceID", sharedPref.getString("spcfDeviceID", "00"));
             CF.put("cf", JsonCF);
 
             Log.d(TAG, CF.toString());

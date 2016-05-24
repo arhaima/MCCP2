@@ -16,6 +16,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -26,6 +29,7 @@ import java.nio.channels.FileChannel;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
@@ -36,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MAIN_ACTIVITY";
 
     protected LocationManager locationManager;
+    private JSONObject listBKText;
 
     public static void longInfo(String str) {
         if (str.length() > 4000) {
@@ -49,6 +54,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ShareDBHelper sdb = new ShareDBHelper(this);
+        List<String> forms = sdb.getAllForms();
+        Log.d(TAG, forms.toString());
+
         if (LoginActivity.appAdmin) {
             findViewById(R.id.adminOptions).setVisibility(View.VISIBLE);
         }
@@ -340,6 +350,56 @@ public class MainActivity extends AppCompatActivity {
         Intent map_intent = new Intent(getApplicationContext(), MapsActivity.class);
         map_intent.putExtra("today", "true");
         startActivity(map_intent);
+    }
+
+    public void GetRawData(View view) {
+
+        File prefsBKdir = new File(getApplicationInfo().dataDir, "shared_prefs");
+
+        if (prefsBKdir.exists() && prefsBKdir.isDirectory()) {
+            String[] list = prefsBKdir.list();
+            for (String item : list) {
+                String prefBKfile = item.substring(0, item.length() - 4);
+                SharedPreferences spForm = getSharedPreferences(prefBKfile, MODE_PRIVATE);
+                Map<String, ?> map = spForm.getAll();
+                listBKText = new JSONObject();
+
+                try {
+                    for (Map.Entry<String, ?> entry : map.entrySet()) {
+                        listBKText.put(entry.getKey(), entry.getValue());
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                ShareDBHelper db = new ShareDBHelper(this);
+
+                db.addForm(prefBKfile, listBKText.toString());
+                Toast.makeText(getApplicationContext(), "Syncing XML Files to SQLite", Toast.LENGTH_SHORT).show();
+
+
+            }
+        }
+    }
+
+    public void DumpFiles2DB(View view) {
+        Toast.makeText(getApplicationContext(), "Sync Initiated", Toast.LENGTH_SHORT).show();
+
+        if (isNetworkAvailable()) {
+            SyncFilesData sf = new SyncFilesData(this);
+            Toast.makeText(getApplicationContext(), "Syncing MYSQL from SQLite", Toast.LENGTH_SHORT).show();
+            sf.execute();
+        } else {
+            Toast.makeText(getApplicationContext(), "No Network Available", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+    }
+
+    public void onBackPressed() {
+        Intent back_intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(back_intent);
+
     }
 
     private class MyLocationListener implements LocationListener {

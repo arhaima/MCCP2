@@ -34,6 +34,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     Spinner spSP;
     JSONObject listText;
     private Spinner spUC;
+    private JSONObject listBKText;
 
     public static void longInfo(String str) {
         if (str.length() > 4000) {
@@ -152,8 +153,6 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         startActivity(vF_intent);
 
     }
-
-
 
 
     public void loginUser(View view) {

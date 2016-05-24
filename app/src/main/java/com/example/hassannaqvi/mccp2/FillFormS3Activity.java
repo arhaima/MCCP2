@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -377,7 +378,9 @@ public class FillFormS3Activity extends AppCompatActivity {
         String spDateOB = "";
         if (imagen.isChecked()) {
             spDateOB = DateFormat.getDateInstance().format(imd.getCalendarView().getDate());
+
         }
+        Log.d(TAG, spDateOB);
         editor.putString("spimchid", imchid);
         editor.putString("spima", ima.getText().toString());
         editor.putString("spimaf", imaf.getText().toString());
@@ -424,6 +427,8 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.putString("spm_2src", m_2srcselected.toString());
         editor.putString("spimma", immaselected.toString());
         editor.putString("spimmd", immdselected.toString());
+        editor.putString("spimDeviceID", Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID));
 
         switch (imjselected) {
 
@@ -495,6 +500,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             imJson.put("m_2src", sharedPref.getString("spm_2src", "00"));
             imJson.put("immd", sharedPref.getString("spimmd", "00"));
             imJson.put("imma", sharedPref.getString("spimma", "00"));
+            imJson.put("imDeviceID", sharedPref.getString("spimDeviceID", "00"));
             S3.put("im", imJson);
 
 
