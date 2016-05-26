@@ -353,6 +353,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void GetRawData(View view) {
+        ShareDBHelper db = new ShareDBHelper(this);
 
         File prefsBKdir = new File(getApplicationInfo().dataDir, "shared_prefs");
 
@@ -371,7 +372,7 @@ public class MainActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                ShareDBHelper db = new ShareDBHelper(this);
+
 
                 db.addForm(prefBKfile, listBKText.toString());
                 Toast.makeText(getApplicationContext(), "Syncing XML Files to SQLite", Toast.LENGTH_SHORT).show();
