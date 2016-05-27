@@ -203,6 +203,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         // Putting values of CheckBoxes
 
         editor.putString("spcf_FrmNo", cfchid);
+        editor.putString("spFrmNo", FillFormActivity.mcFrmNo);
         editor.putString("spcf_Chid", String.valueOf(CF_CHID));
         editor.putString("spcf_Q1", (CF_Q1.isChecked() ? "1" : ""));
         editor.putString("spcf_Q2", (CF_Q2.isChecked() ? "2" : ""));
@@ -229,6 +230,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
             CF.put("cfFrmNo", sharedPref.getString("spcf_FrmNo", "00"));
 
             // Initialize JSON Object For Section 6
+            JsonCF.put("mcFrmNo", sharedPref.getString("spFrmNo", "00"));
             JsonCF.put("cf_Q1", sharedPref.getString("spcf_Q1", "00"));
             JsonCF.put("cf_Q2", sharedPref.getString("spcf_Q2", "00"));
             JsonCF.put("cf_Q2_1", sharedPref.getString("spcf_Q2_1", "00"));

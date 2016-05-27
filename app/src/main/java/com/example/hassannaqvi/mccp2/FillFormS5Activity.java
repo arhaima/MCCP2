@@ -798,7 +798,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             case R.id.MC_511_Yes:
                 editor.putString("sp511", "1");
                 break;
-            case R.id.MC_502_No:
+            case R.id.MC_511_No:
                 editor.putString("sp511", "2");
                 break;
             default:
