@@ -355,7 +355,7 @@ public class FillFormActivity extends AppCompatActivity {
         mcFrmNo = mc105cluster.getText().toString() + hhCode + posS;
         Toast.makeText(getApplicationContext(), "Form ID... " + mcFrmNo, Toast.LENGTH_SHORT).show();
         Log.d(TAG, "mcFrmNo: " + mcFrmNo);
-
+        FORM_ID = mcFrmNo;
         return mcFrmNo;
 
     }
@@ -446,6 +446,8 @@ public class FillFormActivity extends AppCompatActivity {
             } else {
                 Log.d(TAG, s1.getString("mc101"));
             }
+
+
             s1.put("mc101Time", sharedPref.getString("sp101Time", "00"));
             s1.put("mcCity", sharedPref.getString("spCity", "00"));
             s1.put("mc102", sharedPref.getString("sp102", "00"));

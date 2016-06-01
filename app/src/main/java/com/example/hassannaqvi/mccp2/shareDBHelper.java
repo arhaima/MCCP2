@@ -15,13 +15,15 @@ import java.util.List;
  */
 public class ShareDBHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 2;
+    public static final int DATABASE_VERSION = 3;
     //public String todayDate = DateFormat.getDateInstance().format(Calendar.getInstance());
     public static final String DATABASE_NAME = "mccp2-dump";
     public static final String SQL_CREATE_FORMS = "CREATE TABLE forms ("
             + "_ID INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + "FormID TEXT,"
-            + "Data TEXT );";
+            + " FormID TEXT,"
+            + " Data TEXT,"
+            + " DeviceID TEXT"
+            + " );";
     public static final String SQL_CREATE_IMS = "CREATE TABLE ims ("
             + "_ID INTEGER PRIMARY KEY AUTOINCREMENT,"
             + "ImsID TEXT,"
@@ -64,14 +66,14 @@ public class ShareDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void addForm(String id, String json) {
+    public void addForm(String id, String json, String deviceid) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
 
         values.put("FormID", id);
-
         values.put("Data", json);
+        values.put("DeviceID", deviceid);
         Log.d(TAG+" "+ id,json);
         db.insert("forms", null, values);
         db.close(); // Closing database connection
@@ -102,6 +104,15 @@ public class ShareDBHelper extends SQLiteOpenHelper {
 
     }
 
+    public void deleteAllForms(){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        String deleteQuery = "DELETE FROM forms";
+        int dCount = db.delete("forms", "1", null);
+
+
+    }
+
     public List<String> getAllForms() {
         List<String> formList = new ArrayList<String>();
         // Select All Unsynced Query
@@ -117,14 +128,12 @@ public class ShareDBHelper extends SQLiteOpenHelper {
             do {
                 String form1 = "";
                 form1 = cursor.getString(0);
-
-
                 form1 += "::";
                 form1 += cursor.getString(1);
-
-
                 form1 += "::";
                 form1 += cursor.getString(2);
+                form1 += "::";
+                form1 += cursor.getString(3);
 
 
 

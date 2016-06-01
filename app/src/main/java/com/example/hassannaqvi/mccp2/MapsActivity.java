@@ -55,7 +55,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         } else {
             gpsList = db.getAllGPS();
         }
-        SharedPreferences sharedPref = getSharedPreferences(FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences("MC_" + FillFormActivity.FORM_ID, Context.MODE_PRIVATE);
         Double mLat = Double.valueOf(sharedPref.getString("spGPSLat", "0"));
         Double mLong = Double.valueOf(sharedPref.getString("spGPSLng", "0"));
         // Add a marker in Karachi and move the camera

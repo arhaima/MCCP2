@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -18,10 +19,11 @@ import java.util.List;
 /**
  * Created by hassan.naqvi on 5/5/2016.
  */
-public class SyncFilesData extends AsyncTask<Void, Void, Void> {
+public class SyncFilesData extends AsyncTask<Void, Void, Boolean> {
 
     private static final String TAG = "syncFiles";
     private Context mContext;
+    private String mText;
 
     public SyncFilesData(Context context) {
         mContext = context;
@@ -36,7 +38,7 @@ public class SyncFilesData extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected Boolean doInBackground(Void... params) {
         try {
             String request = "http://192.168.1.10/appdata/syncFiles.php";
 
@@ -52,7 +54,7 @@ public class SyncFilesData extends AsyncTask<Void, Void, Void> {
 
 
             JSONArray jsonSync = new JSONArray();
-
+            //connection.setConnectTimeout(60000);
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             ShareDBHelper db = new ShareDBHelper(mContext);
             List<String> forms = db.getAllForms();
@@ -61,12 +63,9 @@ public class SyncFilesData extends AsyncTask<Void, Void, Void> {
                 String[] Fcs = fc.split("::");
                 JSONObject jsonParam = new JSONObject();
                 jsonParam.put("ID", Fcs[0]);
-                Log.d(TAG + "0", Fcs[0]);
                 jsonParam.put("FormNo", Fcs[1]);
-                Log.d(TAG + "1", Fcs[1]);
                 jsonParam.put("Data", Fcs[2]);
-                Log.d(TAG + "2", Fcs[2]);
-
+                jsonParam.put("DeviceID", Fcs[3]);
 
                 jsonSync.put(jsonParam);
             }
@@ -118,9 +117,17 @@ public class SyncFilesData extends AsyncTask<Void, Void, Void> {
             }
             rd.close();
             Log.d("SERVER_RESPONSE", response.toString());
+        } catch (IllegalArgumentException e) { //Replace this with the more specific exception
+            return false;
         } catch (Exception e) {
+            mText = e.getLocalizedMessage();
             e.printStackTrace();
+            return false;
         }
         return null;
+    }
+
+    protected void onPostExecute(Long result) {
+        Toast.makeText(mContext, mText, Toast.LENGTH_SHORT).show();
     }
 }

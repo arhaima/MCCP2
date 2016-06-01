@@ -19,7 +19,9 @@ import com.example.hassannaqvi.mccp2.UsersContract.singleUser;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FormsDbHelper extends SQLiteOpenHelper {
@@ -282,6 +284,36 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.setS5(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_5)));
                 form.setS6(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_6)));
                 form.setEnding(cursor.getString(cursor.getColumnIndex(singleForm.ROW_Ending)));
+
+                // Adding contact to list
+                formList.add(form);
+            } while (cursor.moveToNext());
+        }
+
+        // return contact list
+        return formList;
+    }
+
+    public List<FormsContract> getTodayForms() {
+        List<FormsContract> formList = new ArrayList<FormsContract>();
+
+        String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
+        Log.d(TAG, spDateT);
+
+        // Select All Query
+        String selectQuery = "SELECT " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + " WHERE " + singleForm.ROW_MC_101 + "='" + spDateT + "';";
+
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(selectQuery, null);
+
+        // looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                FormsContract form = new FormsContract();
+
+                form.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
+                form.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
 
                 // Adding contact to list
                 formList.add(form);

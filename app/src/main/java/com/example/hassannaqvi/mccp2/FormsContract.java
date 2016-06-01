@@ -71,7 +71,6 @@ public class FormsContract {
         this.DEVICE_ID = mc1.getString("mcDeviceID");
         this.ROW_SYNC = "1";
 
-
     }
 
     public Long getId() {

@@ -14,6 +14,8 @@ import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -27,6 +29,8 @@ import java.net.Socket;
 import java.net.SocketAddress;
 import java.nio.channels.FileChannel;
 import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -35,11 +39,16 @@ public class MainActivity extends AppCompatActivity {
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
 
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
-
-
+    private static final int PROGRESS = 0x1;
     private static final String TAG = "MAIN_ACTIVITY";
-
+    private static String ipAddress = "10.1.42.37";
+    private static String port = "80";
     protected LocationManager locationManager;
+    String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
+    private TextView RecordSummary;
+    private ProgressBar mProgress;
+    private int mProgressStatus = 0;
+    private String rSumText = "";
     private JSONObject listBKText;
 
     public static void longInfo(String str) {
@@ -55,15 +64,47 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mProgress = (ProgressBar) findViewById(R.id.progressBar);
+        RecordSummary = (TextView) findViewById(R.id.recordSummary);
+
+
         ShareDBHelper sdb = new ShareDBHelper(this);
         List<String> forms = sdb.getAllForms();
         Log.d(TAG, forms.toString());
 
-        if (LoginActivity.appAdmin) {
-            findViewById(R.id.adminOptions).setVisibility(View.VISIBLE);
-        }
 
         FormsDbHelper db = new FormsDbHelper(this);
+        List<FormsContract> todaysForms = new ArrayList<FormsContract>();
+
+        todaysForms = db.getTodayForms();
+
+        /*rSumText += "TODAY'S RECORDS SUMMARY\r\n";
+        rSumText += "=======================";
+        rSumText += "\r\n\r\n";
+        rSumText += "Total Forms Today: "+todaysForms.size();
+        rSumText += "\r\n";
+        rSumText += "    Forms List: \r\n";
+
+
+        for(FormsContract fc : todaysForms){
+
+            rSumText += fc.get105()+" "+fc.get106();
+            rSumText += "\r\n";
+
+        }
+
+        rSumText+="--------------------------------------------------\r\n";*/
+        if (LoginActivity.appAdmin) {
+            findViewById(R.id.adminOptions).setVisibility(View.VISIBLE);
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            rSumText += "Last Update: " + syncPref.getString("LastUpdate", "Never Updated");
+            rSumText += "\r\n";
+            rSumText += "Last Synced(DB): " + syncPref.getString("LastSyncDB", "Never Synced");
+            rSumText += "\r\n    Database Version: " + FormsDbHelper.DATABASE_VERSION;
+            rSumText += "\r\nLast Synced(Files): " + syncPref.getString("LastSyncF", "Never Synced");
+            rSumText += "\r\n";
+        }
+        RecordSummary.setText(rSumText);
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
@@ -92,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
         Intent fill_form_intent = new Intent(getApplicationContext(), FillFormActivity.class);
         startActivity(fill_form_intent);
     }
+
 
     public void editStoredForm(View view) {
         Toast.makeText(getApplicationContext(), "Edit Stored From.", Toast.LENGTH_SHORT).show();
@@ -280,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (isNetworkAvailable()) {
             try {
-                SocketAddress sockaddr = new InetSocketAddress("192.168.1.10", 80);
+                SocketAddress sockaddr = new InetSocketAddress(ipAddress, 80);
                 // Create an unbound socket
                 Socket sock = new Socket();
 
@@ -322,11 +364,20 @@ public class MainActivity extends AppCompatActivity {
             GetUsers users = new GetUsers(getApplicationContext());
             Toast.makeText(getApplicationContext(), "Syncing Users from Server...", Toast.LENGTH_SHORT).show();
             users.execute();
-        } else {
+
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = syncPref.edit();
+
+            editor.putString("LastUpdate", dtToday);
+
+            editor.commit();
+
+
+        } /*else {
 
             Toast.makeText(MainActivity.this, "Network not available for update!", Toast.LENGTH_LONG).show();
 
-        }
+        }*/
 
 
     }
@@ -340,10 +391,18 @@ public class MainActivity extends AppCompatActivity {
             im.execute();
             syncCfs cf = new syncCfs(this);
             cf.execute();
-        } else {
+
+
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = syncPref.edit();
+
+            editor.putString("LastSyncDB", dtToday);
+
+            editor.commit();
+        } /*else {
             Toast.makeText(getApplicationContext(), "Network Not Available", Toast.LENGTH_SHORT).show();
 
-        }
+        }*/
     }
 
     public void openMap(View view) {
@@ -354,12 +413,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void GetRawData(View view) {
         ShareDBHelper db = new ShareDBHelper(this);
-
         File prefsBKdir = new File(getApplicationInfo().dataDir, "shared_prefs");
 
         if (prefsBKdir.exists() && prefsBKdir.isDirectory()) {
             String[] list = prefsBKdir.list();
+            int listLen = list.length;
+            int itemCount = 0;
+            int progress;
+            db.deleteAllForms();
+
+            Toast.makeText(getApplicationContext(), "Syncing XML Files to SQLite...     ", Toast.LENGTH_SHORT).show();
+
             for (String item : list) {
+
                 String prefBKfile = item.substring(0, item.length() - 4);
                 SharedPreferences spForm = getSharedPreferences(prefBKfile, MODE_PRIVATE);
                 Map<String, ?> map = spForm.getAll();
@@ -372,30 +438,43 @@ public class MainActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+                itemCount++;
+                progress = (itemCount / listLen) * 100;
+                mProgress.setProgress(progress);
+                String deviceid = Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                        Settings.Secure.ANDROID_ID);
 
-
-                db.addForm(prefBKfile, listBKText.toString());
-                Toast.makeText(getApplicationContext(), "Syncing XML Files to SQLite", Toast.LENGTH_SHORT).show();
-
+                db.addForm(prefBKfile, listBKText.toString(), deviceid);
 
             }
+            Toast.makeText(getApplicationContext(), "Syncing XML Files to SQLite... DONE!", Toast.LENGTH_SHORT).show();
+            DumpFiles2DB();
         }
     }
 
-    public void DumpFiles2DB(View view) {
+
+    public void DumpFiles2DB() {
         Toast.makeText(getApplicationContext(), "Sync Initiated", Toast.LENGTH_SHORT).show();
 
         if (isNetworkAvailable()) {
             SyncFilesData sf = new SyncFilesData(this);
-            Toast.makeText(getApplicationContext(), "Syncing MYSQL from SQLite", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Syncing MYSQL from SQLite...     ", Toast.LENGTH_SHORT).show();
             sf.execute();
-        } else {
+
+            SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = syncPref.edit();
+
+            editor.putString("LastSyncF", dtToday);
+
+            editor.commit();
+        } /*else {
             Toast.makeText(getApplicationContext(), "No Network Available", Toast.LENGTH_SHORT).show();
 
         }
-
+*/
 
     }
+
 
     public void onBackPressed() {
         Intent back_intent = new Intent(getApplicationContext(), LoginActivity.class);

@@ -230,7 +230,7 @@ public class FillFormS6CFActivity extends AppCompatActivity {
             CF.put("cfFrmNo", sharedPref.getString("spcf_FrmNo", "00"));
 
             // Initialize JSON Object For Section 6
-            JsonCF.put("mcFrmNo", sharedPref.getString("spFrmNo", "00"));
+            JsonCF.put("cfChid", sharedPref.getString("spcf_Chid", "00"));
             JsonCF.put("cf_Q1", sharedPref.getString("spcf_Q1", "00"));
             JsonCF.put("cf_Q2", sharedPref.getString("spcf_Q2", "00"));
             JsonCF.put("cf_Q2_1", sharedPref.getString("spcf_Q2_1", "00"));

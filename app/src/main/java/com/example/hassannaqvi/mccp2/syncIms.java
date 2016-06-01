@@ -2,6 +2,7 @@ package com.example.hassannaqvi.mccp2;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.provider.Settings;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -55,7 +56,8 @@ public class syncIms extends AsyncTask<Void, Void, Void> {
 
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
             FormsDbHelper db = new FormsDbHelper(mContext);
-
+            String android_id = Settings.Secure.getString(mContext.getContentResolver(),
+                    Settings.Secure.ANDROID_ID);
 
             List<ImsContract> ims = db.getAllIms();
 
@@ -64,6 +66,7 @@ public class syncIms extends AsyncTask<Void, Void, Void> {
                 jsonParam.put("imFrmno", im.getFrmNo());
                 jsonParam.put("imChid", im.getChid());
                 jsonParam.put("im", im.getIM());
+                jsonParam.put("DeviceId", android_id);
                 jsonSync.put(jsonParam);
 
             }
