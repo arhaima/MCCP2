@@ -318,7 +318,7 @@
 
             <TextView
                 style="@style/labels"
-                android:text="@string/MC_405A"></TextView>
+                android:text="@string/MC_405A" />
 
 
             <CheckBox
@@ -366,7 +366,7 @@
             <!--MC_406-->
             <TextView
                 style="@style/labels"
-                android:text="@string/MC_406"></TextView>
+                android:text="@string/MC_406" />
 
             <RadioGroup
                 android:id="@+id/MC_406"
@@ -394,7 +394,7 @@
 
                 <TextView
                     style="@style/labels"
-                    android:text="@string/MC_407"></TextView>
+                    android:text="@string/MC_407" />
 
                 <CheckBox
                     android:id="@+id/MC_407_1"
@@ -446,7 +446,7 @@
 
         <TextView
             style="@style/labels"
-            android:text="@string/MC_408"></TextView>
+            android:text="@string/MC_408" />
 
         <RadioGroup
             android:id="@+id/MC_408"
@@ -529,7 +529,7 @@
             <!--MC_410A-->
             <TextView
                 style="@style/labels"
-                android:text="@string/MC_410A"></TextView>
+                android:text="@string/MC_410A" />
 
             <RadioGroup
                 android:id="@+id/MC_410A"
@@ -580,7 +580,7 @@
 
                 <TextView
                     style="@style/labels"
-                    android:text="@string/MC_410B"></TextView>
+                    android:text="@string/MC_410B" />
 
                 <CheckBox
                     android:id="@+id/MC_410B1"
@@ -634,7 +634,7 @@
 
         <TextView
             style="@style/labels"
-            android:text="@string/MC_411"></TextView>
+            android:text="@string/MC_411" />
 
         <Spinner
             android:id="@+id/MC_411"
@@ -649,7 +649,7 @@
         <!--MC_412-->
         <TextView
             style="@style/labels"
-            android:text="@string/MC_412"></TextView>
+            android:text="@string/MC_412" />
 
         <RadioGroup
             android:id="@+id/MC_412"
@@ -677,7 +677,7 @@
 
             <TextView
                 style="@style/labels"
-                android:text="@string/MC_413"></TextView>
+                android:text="@string/MC_413" />
 
             <CheckBox
                 android:id="@+id/MC_413_1"
@@ -734,7 +734,7 @@
         <!--MC_414-->
         <TextView
             style="@style/labels"
-            android:text="@string/MC_414"></TextView>
+            android:text="@string/MC_414" />
 
         <RadioGroup
             android:id="@+id/MC_414"
@@ -768,7 +768,7 @@
 
             <TextView
                 style="@style/labels"
-                android:text="@string/MC_415"></TextView>
+                android:text="@string/MC_415" />
 
             <Spinner
                 android:id="@+id/MC_415"

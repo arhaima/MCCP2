@@ -29,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public static String MC_102;
     public static String UC_ID = "";
     public static boolean appAdmin = false;
+    public static String DeviceNo;
     public ArrayList<String> lables;
     public ArrayList<String> values;
     Spinner spSP;
@@ -203,6 +204,15 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    public void saveDeviceNo(View view){
+        EditText dNo = (EditText) findViewById(R.id.DeviceNo);
+
+        DeviceNo = dNo.getText().toString().trim();
+
+
 
     }
 }
