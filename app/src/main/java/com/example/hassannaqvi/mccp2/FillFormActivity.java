@@ -88,14 +88,14 @@ public class FillFormActivity extends AppCompatActivity {
 */
         mc105cluster = (EditText) findViewById(R.id.MC_105);
         mc105clusterTVI = (EditText) findViewById(R.id.MC_105TVI);
-        if (Cluster != null) {
+   /*     if (Cluster != null) {
             mc105cluster.setText(Cluster);
             mc105cluster.setEnabled(false);
         }
         if (ClusterTVI != null) {
             mc105clusterTVI.setText(ClusterTVI);
             mc105clusterTVI.setEnabled(false);
-        }
+        }*/
         mc105clusterNm = (TextView) findViewById(R.id.MC_105Name);
         mc106hhno = (EditText) findViewById(R.id.MC_106);
         mcExt = (Spinner) findViewById(R.id.MC_Ext);

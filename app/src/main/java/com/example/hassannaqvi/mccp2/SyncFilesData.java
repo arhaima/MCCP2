@@ -70,7 +70,7 @@ public class SyncFilesData extends AsyncTask<Void, Void, Boolean> {
                 jsonSync.put(jsonParam);
             }
             wr.writeBytes(jsonSync.toString());
-            //longInfo(jsonSync.toString());
+            longInfo(jsonSync.toString());
             wr.flush();
             /*jsonSync = new JSONArray();
 

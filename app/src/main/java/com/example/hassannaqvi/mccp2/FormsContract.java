@@ -239,11 +239,13 @@ public class FormsContract {
     }
 
     public String getEnding() {
+//        Log.d(TAG+" getEnding", this.ROW_Ending);
         return this.ROW_Ending;
     }
 
     public void setEnding(String ending) {
         this.ROW_Ending = ending;
+//        Log.d(TAG+" setEnding", this.ROW_Ending);
     }
 
     public JSONObject toJSONObject() throws JSONException {

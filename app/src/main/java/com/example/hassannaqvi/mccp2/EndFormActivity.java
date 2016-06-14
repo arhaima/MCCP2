@@ -212,7 +212,7 @@ public class EndFormActivity extends AppCompatActivity {
             ending.put("mcEndDateTime", sharedPref.getString("spEndDateTime", "00"));
 
 
-            Log.d(TAG, ending.toString());
+            Log.d(TAG + " JSON:", ending.toString());
 
             //FormsContract.getInstance().setEnding(ending.toString());
 
@@ -221,7 +221,7 @@ public class EndFormActivity extends AppCompatActivity {
             fc.setS2(String.valueOf(FillFormS2Activity.S2));
             fc.setS4(String.valueOf(FillFormS4Activity.S4));
             fc.setS5(String.valueOf(FillFormS5Activity.S5));
-            fc.setS6(String.valueOf(FillFormS6Activity.S6));
+            fc.setS6(String.valueOf(FillFormS6Activity.S6) + String.valueOf(ending));
             fc.setEnding(String.valueOf(ending));
             FormsDbHelper db = new FormsDbHelper(this);
 
@@ -229,17 +229,23 @@ public class EndFormActivity extends AppCompatActivity {
                 Log.d(TAG, "Updating DataBase...");
                 Toast.makeText(this, "Updating DataBase...", Toast.LENGTH_SHORT).show();
                 btnEnd.setEnabled(false);
-                db.addForm(fc);
+                Long FormId = db.addForm(fc);
+                Toast.makeText(this, "Form ID: " + String.valueOf(FormId), Toast.LENGTH_SHORT).show();
 
                 for (String imchid : FillFormS3Activity.chids) {
 
                     SharedPreferences imPref = getSharedPreferences("IM_" + imchid, Context.MODE_PRIVATE);
                     ImsContract imc = new ImsContract();
 
-                    imc.setChid(imPref.getString("imchid", "00"));
+                    imc.setChid(imPref.getString("spimchid", "00"));
                     imc.setFrmNo(imchid);
 
                     JSONObject imJson = new JSONObject();
+                    imJson.put("FormId", String.valueOf(FormId) + fc.getDeviceId());
+                    imJson.put("FrmDT", fc.get101() + " " + fc.get101Time());
+                    imJson.put("DataC", fc.get102());
+                    imJson.put("FrmNo", imPref.getString("spFrmNo", "00"));
+                    imJson.put("ima", imPref.getString("spima", "00"));
                     imJson.put("ima", imPref.getString("spima", "00"));
                     imJson.put("imaf", imPref.getString("spimaf", "00"));
                     imJson.put("imb", imPref.getString("spimb", "00"));
@@ -297,6 +303,7 @@ public class EndFormActivity extends AppCompatActivity {
                     cf.setChid(cfPref.getString("imchid", "00"));
                     cf.setFrmNo(cfchid);
                     JSONObject cfJson = new JSONObject();
+                    cfJson.put("FormId", String.valueOf(FormId) + fc.getDeviceId());
                     cfJson.put("cf_Q1", cfPref.getString("spcf_Q1", "00"));
                     cfJson.put("cf_Q2", cfPref.getString("spcf_Q2", "00"));
                     cfJson.put("cf_Q2_1", cfPref.getString("spcf_Q2_1", "00"));
@@ -305,7 +312,8 @@ public class EndFormActivity extends AppCompatActivity {
                     cfJson.put("cf_Q2_4", cfPref.getString("spcf_Q2_4", "00"));
                     cfJson.put("cf_Q2_5", cfPref.getString("spcf_Q2_5", "00"));
                     cfJson.put("cf_Q2_6", cfPref.getString("spcf_Q2_6", "00"));
-                    cfJson.put("cf_Q1", cfPref.getString("spcf_Q1", "00"));
+                    cfJson.put("cf_Q3", cfPref.getString("spcf_Q3", "00"));
+                    cfJson.put("cf_Q4", cfPref.getString("spcf_Q4", "00"));
                     cf.setCf(cfJson.toString());
                     db.addCF(cf);
 

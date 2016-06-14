@@ -39,6 +39,7 @@ public class syncForms extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... params) {
         try {
             String request = "http://192.168.1.10/appdata/syncdb.php";
+            //String request = "http://10.1.42.25/appdata/syncdb.php";
 
             URL url = new URL(request);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
@@ -47,8 +48,6 @@ public class syncForms extends AsyncTask<Void, Void, Void> {
             connection.setInstanceFollowRedirects(false);
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            connection.setRequestProperty("charset", "utf-8");
-            connection.setUseCaches(false);
 
 
             JSONArray jsonSync = new JSONArray();

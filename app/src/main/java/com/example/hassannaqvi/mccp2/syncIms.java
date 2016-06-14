@@ -40,6 +40,7 @@ public class syncIms extends AsyncTask<Void, Void, Void> {
     protected Void doInBackground(Void... params) {
         try {
             String request = "http://192.168.1.10/appdata/syncim.php";
+            //String request = "http://10.1.42.25/appdata/syncim.php";
 
             URL url = new URL(request);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

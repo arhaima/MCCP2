@@ -38,11 +38,13 @@ public class syncCfs extends AsyncTask<Void, Void, Void> {
 
     @Override
     protected Void doInBackground(Void... params) {
+        HttpURLConnection connection = null;
         try {
             String request = "http://192.168.1.10/appdata/synccf.php";
+            //String request = "http://10.1.42.25/appdata/synccf.php";
 
             URL url = new URL(request);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
             connection.setInstanceFollowRedirects(false);
@@ -50,6 +52,7 @@ public class syncCfs extends AsyncTask<Void, Void, Void> {
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             connection.setRequestProperty("charset", "utf-8");
             connection.setUseCaches(false);
+
 
 
             JSONArray jsonSync = new JSONArray();
@@ -93,6 +96,7 @@ public class syncCfs extends AsyncTask<Void, Void, Void> {
 
 
             //Get Response
+            Log.d(TAG, "Getting Response");
             InputStream is = connection.getInputStream();
             BufferedReader rd = new BufferedReader(new InputStreamReader(is));
             String line;
@@ -105,7 +109,11 @@ public class syncCfs extends AsyncTask<Void, Void, Void> {
             Log.d("SERVER_RESPONSE", response.toString());
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            connection.disconnect();
         }
         return null;
     }
+
+
 }
