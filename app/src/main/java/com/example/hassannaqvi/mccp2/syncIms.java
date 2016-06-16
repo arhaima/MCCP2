@@ -1,28 +1,32 @@
 package com.example.hassannaqvi.mccp2;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.provider.Settings;
 import android.util.Log;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
 /**
  * Created by hassan.naqvi on 5/5/2016.
  */
-public class syncIms extends AsyncTask<Void, Void, Void> {
+public class syncIms extends AsyncTask<Void, Void, String> {
 
     private static final String TAG = "syncIms";
     private Context mContext;
+    private ProgressDialog pd;
 
     public syncIms(Context context) {
         mContext = context;
@@ -37,13 +41,25 @@ public class syncIms extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected void onPreExecute() {
+        super.onPreExecute();
+        pd = new ProgressDialog(mContext);
+        pd.setTitle("Please wait... Processing IMs");
+        pd.show();
+
+
+    }
+
+    @Override
+    protected String doInBackground(Void... params) {
+        HttpURLConnection connection = null;
+        String line = "no response";
         try {
             String request = "http://192.168.1.10/appdata/syncim.php";
             //String request = "http://10.1.42.25/appdata/syncim.php";
 
             URL url = new URL(request);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+            connection = (HttpURLConnection) url.openConnection();
             connection.setDoOutput(true);
             connection.setDoInput(true);
             connection.setInstanceFollowRedirects(false);
@@ -51,6 +67,7 @@ public class syncIms extends AsyncTask<Void, Void, Void> {
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             connection.setRequestProperty("charset", "utf-8");
             connection.setUseCaches(false);
+            connection.connect();
 
 
             JSONArray jsonSync = new JSONArray();
@@ -75,38 +92,52 @@ public class syncIms extends AsyncTask<Void, Void, Void> {
             longInfo(jsonSync.toString());
             wr.flush();
 
-            /*jsonSync = new JSONArray();
+            int HttpResult = connection.getResponseCode();
+            if (HttpResult == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(
+                        connection.getInputStream(), "utf-8"));
+                StringBuffer sb = new StringBuffer();
 
-            List<CfsContract> cfs = db.getAllCfs();
+                while ((line = br.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+                br.close();
 
-            for (ImsContract im : ims) {
-                JSONObject jsonParam = new JSONObject();
-                jsonParam.put("imFrmno", im.getFrmNo().replace("\\", ""));
-                jsonParam.put("imChid", im.getChid().replace("\\", ""));
-                jsonParam.put("im", im.getIM().replace("\\", ""));
-                jsonSync.put(jsonParam);
-
+                System.out.println("" + sb.toString());
+                return sb.toString();
+            } else {
+                System.out.println(connection.getResponseMessage());
+                return connection.getResponseMessage();
             }
-            wr.writeBytes(jsonSync.toString());
-            longInfo(jsonSync.toString());
-            wr.flush();
-*/
+        } catch (MalformedURLException e) {
 
-
-            //Get Response
-            InputStream is = connection.getInputStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-            String line;
-            StringBuffer response = new StringBuffer();
-            while ((line = rd.readLine()) != null) {
-                response.append(line);
-                response.append('\r');
-            }
-            rd.close();
-            Log.d("SERVER_RESPONSE", response.toString());
-        } catch (Exception e) {
             e.printStackTrace();
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } finally {
+            if (connection != null)
+                connection.disconnect();
         }
-        return null;
+        return line;
+    }
+
+    @Override
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
+
+        pd.setMessage("Server Response: " + result);
+        pd.setTitle("Please wait... Done IMs");
+        pd.show();
+            /*Handler h = new Handler();
+            h.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    pd.dismiss();
+                }
+            }, 3000);*/
     }
 }

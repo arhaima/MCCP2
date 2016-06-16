@@ -53,11 +53,6 @@ public class FormsContract {
         this.ROW_MC_FrmNo = mc1.getString("mcFrmNo");
         this.DEVICE_ID = mc1.getString("mcDeviceId");
         this.ROW_MC_101 = mc1.getString("mc101");
-        if (this.ROW_MC_101 == null) {
-            Log.d(TAG, "MC is 000");
-        } else {
-            Log.d(TAG, get101().toString());
-        }
         this.ROW_MC_101TIME = mc1.getString("mc101Time");
         this.ROW_MC_102 = mc1.getString("mc102");
         this.ROW_MC_103 = mc1.getString("mc103");

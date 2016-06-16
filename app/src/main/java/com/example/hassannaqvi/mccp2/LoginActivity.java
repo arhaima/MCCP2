@@ -207,14 +207,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     }
 
-    public void saveDeviceNo(View view){
-        EditText dNo = (EditText) findViewById(R.id.DeviceNo);
 
-        DeviceNo = dNo.getText().toString().trim();
-
-
-
-    }
 }
 
 

@@ -105,8 +105,6 @@
             android:id="@+id/CF_Q3"
             style="@style/checkbox"
             android:text="@string/CF_Q3" />
-
-
         <CheckBox
             android:id="@+id/CF_Q4"
             style="@style/checkbox"

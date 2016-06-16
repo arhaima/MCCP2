@@ -218,19 +218,30 @@ public class EndFormActivity extends AppCompatActivity {
 
             //FormsContract formContractS2 = new FormsContract(sharedPref.getString("spFrmNo", "00"), rowId, s2.toString());
             FormsContract fc = new FormsContract(FillFormActivity.s1);
+            FillFormActivity.s1 = null;
+
             fc.setS2(String.valueOf(FillFormS2Activity.S2));
+            FillFormS2Activity.S2 = null;
+
             fc.setS4(String.valueOf(FillFormS4Activity.S4));
+            FillFormS4Activity.S4 = null;
+
             fc.setS5(String.valueOf(FillFormS5Activity.S5));
-            fc.setS6(String.valueOf(FillFormS6Activity.S6) + String.valueOf(ending));
+            FillFormS5Activity.S5 = null;
+
+            fc.setS6(String.valueOf(FillFormS6Activity.S6));
+            FillFormS6Activity.S6 = null;
+
             fc.setEnding(String.valueOf(ending));
+            ending = null;
+
             FormsDbHelper db = new FormsDbHelper(this);
 
             try {
                 Log.d(TAG, "Updating DataBase...");
                 Toast.makeText(this, "Updating DataBase...", Toast.LENGTH_SHORT).show();
                 btnEnd.setEnabled(false);
-                Long FormId = db.addForm(fc);
-                Toast.makeText(this, "Form ID: " + String.valueOf(FormId), Toast.LENGTH_SHORT).show();
+                Long TabFormId = db.addForm(fc);
 
                 for (String imchid : FillFormS3Activity.chids) {
 
@@ -241,7 +252,7 @@ public class EndFormActivity extends AppCompatActivity {
                     imc.setFrmNo(imchid);
 
                     JSONObject imJson = new JSONObject();
-                    imJson.put("FormId", String.valueOf(FormId) + fc.getDeviceId());
+                    imJson.put("FormId", String.valueOf(TabFormId) + fc.getDeviceId());
                     imJson.put("FrmDT", fc.get101() + " " + fc.get101Time());
                     imJson.put("DataC", fc.get102());
                     imJson.put("FrmNo", imPref.getString("spFrmNo", "00"));
@@ -293,17 +304,21 @@ public class EndFormActivity extends AppCompatActivity {
                     imJson.put("imma", imPref.getString("spimma", "00"));
                     imc.setIM(imJson.toString());
                     db.addIM(imc);
+
                 }
+                FillFormS3Activity.chids.clear();
 
                 for (String cfchid : FillFormS6CFActivity.CF_chids) {
 
                     SharedPreferences cfPref = getSharedPreferences("CF_" + cfchid, Context.MODE_PRIVATE);
                     CfsContract cf = new CfsContract();
 
-                    cf.setChid(cfPref.getString("imchid", "00"));
-                    cf.setFrmNo(cfchid);
+                    cf.setChid(cfPref.getString("spcf_Chid", "00"));
+                    cf.setFrmNo(cfPref.getString("spFrmNo", "00"));
                     JSONObject cfJson = new JSONObject();
-                    cfJson.put("FormId", String.valueOf(FormId) + fc.getDeviceId());
+                    cfJson.put("FormId", String.valueOf(TabFormId) + fc.getDeviceId());
+                    cfJson.put("FrmDT", fc.get101() + " " + fc.get101Time());
+                    cfJson.put("DataC", fc.get102());
                     cfJson.put("cf_Q1", cfPref.getString("spcf_Q1", "00"));
                     cfJson.put("cf_Q2", cfPref.getString("spcf_Q2", "00"));
                     cfJson.put("cf_Q2_1", cfPref.getString("spcf_Q2_1", "00"));
@@ -315,10 +330,12 @@ public class EndFormActivity extends AppCompatActivity {
                     cfJson.put("cf_Q3", cfPref.getString("spcf_Q3", "00"));
                     cfJson.put("cf_Q4", cfPref.getString("spcf_Q4", "00"));
                     cf.setCf(cfJson.toString());
+
                     db.addCF(cf);
 
+
                 }
-                
+                FillFormS6CFActivity.CF_chids.clear();
             } catch (SQLiteException e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
@@ -334,15 +351,11 @@ public class EndFormActivity extends AppCompatActivity {
 
         JSONObject FormFull = new JSONObject();
         Map<String, ?> keys = sharedPref.getAll();
-
         for (Map.Entry<String, ?> entry : keys.entrySet()) {
-
 
             FormFull.put(entry.getKey(), entry.getValue().toString());
 
-
         }
-
 
     }
 

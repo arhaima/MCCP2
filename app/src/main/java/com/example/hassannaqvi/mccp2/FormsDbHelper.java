@@ -167,7 +167,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
 
 
         ContentValues values = new ContentValues();
-        Log.d(TAG, "Add Form ROW_ID: " + imscontract.getId()); // TODO: Check why form ID is 'null'
+        Log.d(TAG, "Add Form ROW_ID: " + imscontract.getId());
         values.put(singleIms.ROW_FrmNo, imscontract.getFrmNo());
         values.put(singleIms.ROW_CHID, imscontract.getChid());
         values.put(singleIms.ROW_IM, imscontract.getIM());
@@ -184,7 +184,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
 
 
         ContentValues values = new ContentValues();
-        Log.d(TAG, "Add Form ROW_ID: " + cfscontract.getId()); // TODO: Check why form ID is 'null'
+        Log.d(TAG, "Add Form ROW_ID: " + cfscontract.getId());
         values.put(singleCfs.ROW_FrmNo, cfscontract.getFrmNo());
         values.put(singleCfs.ROW_CHID, cfscontract.getChid());
         values.put(singleCfs.ROW_CF, cfscontract.getCf());

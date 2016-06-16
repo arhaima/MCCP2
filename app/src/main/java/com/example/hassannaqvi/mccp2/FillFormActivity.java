@@ -73,7 +73,12 @@ public class FillFormActivity extends AppCompatActivity {
 
         db = new FormsDbHelper(getApplicationContext());
         fillformactivity = this;
-
+        if (!FillFormS3Activity.chids.isEmpty()) {
+            FillFormS3Activity.chids.clear();
+        }
+        if (!FillFormS6CFActivity.CF_chids.isEmpty()) {
+            FillFormS6CFActivity.CF_chids.clear();
+        }
         formError = false;
         deviceId = Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID);

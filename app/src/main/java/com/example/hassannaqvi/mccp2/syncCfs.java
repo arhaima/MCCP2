@@ -1,28 +1,33 @@
 package com.example.hassannaqvi.mccp2;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.provider.Settings;
 import android.util.Log;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.InputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
 /**
  * Created by hassan.naqvi on 5/5/2016.
  */
-public class syncCfs extends AsyncTask<Void, Void, Void> {
+public class syncCfs extends AsyncTask<Void, Void, String> {
 
     private static final String TAG = "syncCfs";
     private Context mContext;
+    private ProgressDialog pd;
+
 
     public syncCfs(Context context) {
         mContext = context;
@@ -37,8 +42,18 @@ public class syncCfs extends AsyncTask<Void, Void, Void> {
     }
 
     @Override
-    protected Void doInBackground(Void... params) {
+    protected void onPreExecute() {
+        super.onPreExecute();
+        pd = new ProgressDialog(mContext);
+        pd.setTitle("Please wait... Processing CFs");
+        pd.show();
+
+    }
+
+    @Override
+    protected String doInBackground(Void... params) {
         HttpURLConnection connection = null;
+        String line = "No response from Server";
         try {
             String request = "http://192.168.1.10/appdata/synccf.php";
             //String request = "http://10.1.42.25/appdata/synccf.php";
@@ -77,43 +92,46 @@ public class syncCfs extends AsyncTask<Void, Void, Void> {
             longInfo(jsonSync.toString());
             wr.flush();
 
-            /*jsonSync = new JSONArray();
+            int HttpResult = connection.getResponseCode();
+            if (HttpResult == HttpURLConnection.HTTP_OK) {
+                BufferedReader br = new BufferedReader(new InputStreamReader(
+                        connection.getInputStream(), "utf-8"));
+                StringBuffer sb = new StringBuffer();
 
-            List<CfsContract> cfs = db.getAllCfs();
+                while ((line = br.readLine()) != null) {
+                    sb.append(line + "\n");
+                }
+                br.close();
 
-            for (ImsContract im : ims) {
-                JSONObject jsonParam = new JSONObject();
-                jsonParam.put("imFrmno", im.getFrmNo().replace("\\", ""));
-                jsonParam.put("imChid", im.getChid().replace("\\", ""));
-                jsonParam.put("im", im.getIM().replace("\\", ""));
-                jsonSync.put(jsonParam);
-
+                System.out.println("" + sb.toString());
+                return sb.toString();
+            } else {
+                System.out.println(connection.getResponseMessage());
+                return connection.getResponseMessage();
             }
-            wr.writeBytes(jsonSync.toString());
-            longInfo(jsonSync.toString());
-            wr.flush();
-*/
+        } catch (MalformedURLException e) {
 
+            e.printStackTrace();
+        } catch (IOException e) {
 
-            //Get Response
-            Log.d(TAG, "Getting Response");
-            InputStream is = connection.getInputStream();
-            BufferedReader rd = new BufferedReader(new InputStreamReader(is));
-            String line;
-            StringBuffer response = new StringBuffer();
-            while ((line = rd.readLine()) != null) {
-                response.append(line);
-                response.append('\r');
-            }
-            rd.close();
-            Log.d("SERVER_RESPONSE", response.toString());
-        } catch (Exception e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
             e.printStackTrace();
         } finally {
-            connection.disconnect();
+            if (connection != null)
+                connection.disconnect();
         }
-        return null;
+        return line;
     }
 
+    @Override
+    protected void onPostExecute(String result) {
+        super.onPostExecute(result);
 
+        pd.setMessage("Server Response: " + result);
+        pd.setTitle("Please wait... Done CFs");
+        pd.show();
+
+    }
 }

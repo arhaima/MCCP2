@@ -80,33 +80,6 @@
                 android:onClick="viewForm"
                 android:text="Select a Form" />
 
-            <android.support.design.internal.ForegroundLinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/DeviceNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:hint="@string/prompt_password"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:padding="10dp"
-                    android:singleLine="true" />
-
-                <Button
-                    android:id="@+id/saveDeviceNo"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:onClick="saveDeviceNo"
-                    android:text="Save Device No" />
-
-            </android.support.design.internal.ForegroundLinearLayout>
 
 
         </LinearLayout>

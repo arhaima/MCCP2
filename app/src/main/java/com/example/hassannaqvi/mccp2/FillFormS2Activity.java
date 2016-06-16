@@ -717,21 +717,21 @@ public class FillFormS2Activity extends AppCompatActivity {
         if (!mc2071m.getText().toString().isEmpty() && Integer.valueOf(mc2071m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
-            mc2071m.setError("Gestational age in weeks is over limit!");
+            mc2071m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2071m");
             return false;
         }
         if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2073m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
-            mc2073m.setError("Gestational age in weeks is over limit!");
+            mc2073m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2073m");
             return false;
         }
         if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2072m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
-            mc2072m.setError("Gestational age in weeks is over limit!");
+            mc2072m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2072m");
             return false;
         }

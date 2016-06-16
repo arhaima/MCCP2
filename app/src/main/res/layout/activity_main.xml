@@ -189,10 +189,6 @@
                 android:text="Sync Server with XML"
                 android:textSize="24sp" />-->
 
-            <EditText
-                android:id="@+id/TabNo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
 
             <Button
                 android:id="@+id/TabNoBtn"
