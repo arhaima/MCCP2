@@ -55,8 +55,8 @@ public class syncIms extends AsyncTask<Void, Void, String> {
         HttpURLConnection connection = null;
         String line = "no response";
         try {
-            String request = "http://192.168.1.10/appdata/syncim.php";
-            //String request = "http://10.1.42.25/appdata/syncim.php";
+            //String request = "http://192.168.1.10/appdata/syncim.php";
+            String request = "http://10.1.42.86/appdata/syncim.php";
 
             URL url = new URL(request);
             connection = (HttpURLConnection) url.openConnection();
@@ -80,7 +80,9 @@ public class syncIms extends AsyncTask<Void, Void, String> {
             List<ImsContract> ims = db.getAllIms();
 
             for (ImsContract im : ims) {
+
                 JSONObject jsonParam = new JSONObject();
+
                 jsonParam.put("imFrmno", im.getFrmNo());
                 jsonParam.put("imChid", im.getChid());
                 jsonParam.put("im", im.getIM());

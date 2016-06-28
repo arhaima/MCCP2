@@ -74,26 +74,25 @@ public class MainActivity extends AppCompatActivity {
 
 
         FormsDbHelper db = new FormsDbHelper(this);
-        List<FormsContract> todaysForms = new ArrayList<FormsContract>();
+        List<FormsContract> todaysForms = new ArrayList<>();
 
         todaysForms = db.getTodayForms();
 
-        /*rSumText += "TODAY'S RECORDS SUMMARY\r\n";
+        rSumText += "TODAY'S RECORDS SUMMARY\r\n";
         rSumText += "=======================";
         rSumText += "\r\n\r\n";
         rSumText += "Total Forms Today: "+todaysForms.size();
         rSumText += "\r\n";
         rSumText += "    Forms List: \r\n";
 
-
         for(FormsContract fc : todaysForms){
 
-            rSumText += fc.get105()+" "+fc.get106();
+            rSumText += fc.get105().substring(0, 5) + " " + fc.get106();
             rSumText += "\r\n";
 
         }
 
-        rSumText+="--------------------------------------------------\r\n";*/
+        rSumText += "--------------------------------------------------\r\n";
         if (LoginActivity.appAdmin) {
             findViewById(R.id.adminOptions).setVisibility(View.VISIBLE);
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);
@@ -108,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
                 MINIMUM_TIME_BETWEEN_UPDATES,
@@ -116,8 +114,6 @@ public class MainActivity extends AppCompatActivity {
                 new MyLocationListener()
         );
         Log.d(TAG, String.valueOf(db.getFormCount()));
-
-
 
     }
 
@@ -370,7 +366,7 @@ public class MainActivity extends AppCompatActivity {
 
             editor.putString("LastUpdate", dtToday);
 
-            editor.commit();
+            editor.apply();
 
 
         } /*else {
@@ -398,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
 
             editor.putString("LastSyncDB", dtToday);
 
-            editor.commit();
+            editor.apply();
         } /*else {
             Toast.makeText(getApplicationContext(), "Network Not Available", Toast.LENGTH_SHORT).show();
 
@@ -466,7 +462,7 @@ public class MainActivity extends AppCompatActivity {
 
             editor.putString("LastSyncF", dtToday);
 
-            editor.commit();
+            editor.apply();
         } /*else {
             Toast.makeText(getApplicationContext(), "No Network Available", Toast.LENGTH_SHORT).show();
 
@@ -493,7 +489,7 @@ public class MainActivity extends AppCompatActivity {
             editor.putString("Latitude", String.valueOf(location.getLatitude()));
             //Toast.makeText(getApplicationContext(), "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) + " LNG: " + String.valueOf(location.getLatitude()), Toast.LENGTH_SHORT).show();
 
-            editor.commit();
+            editor.apply();
 
         }
 

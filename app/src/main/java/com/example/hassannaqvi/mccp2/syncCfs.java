@@ -55,8 +55,8 @@ public class syncCfs extends AsyncTask<Void, Void, String> {
         HttpURLConnection connection = null;
         String line = "No response from Server";
         try {
-            String request = "http://192.168.1.10/appdata/synccf.php";
-            //String request = "http://10.1.42.25/appdata/synccf.php";
+            //String request = "http://192.168.1.10/appdata/synccf.php";
+            String request = "http://10.1.42.86/appdata/synccf.php";
 
             URL url = new URL(request);
             connection = (HttpURLConnection) url.openConnection();
@@ -88,7 +88,7 @@ public class syncCfs extends AsyncTask<Void, Void, String> {
                 jsonSync.put(jsonParam);
 
             }
-            wr.writeBytes(jsonSync.toString());
+            wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
             longInfo(jsonSync.toString());
             wr.flush();
 
