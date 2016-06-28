@@ -361,7 +361,6 @@ public class FillFormS2Activity extends AppCompatActivity {
         editor.putString("sp204f", mc204f.getText().toString()); // EditText Girls count
         editor.putString("sp205mm", mc205mm.getText().toString()); // EditText Living Duration
         editor.putString("sp205yy", mc205yy.getText().toString()); // EditText Living Duration
-        editor.putString("sp205yy", mc205yy.getText().toString()); // EditText Living Duration
         editor.putString("sp2071w", mc2071w.getText().toString()); // EditText Living Duration
         editor.putString("sp2071m", mc2071m.getText().toString()); // EditText Living Duration
         editor.putString("sp2072w", mc2072w.getText().toString()); // EditText Living Duration
@@ -718,21 +717,21 @@ public class FillFormS2Activity extends AppCompatActivity {
         if (!mc2071m.getText().toString().isEmpty() && Integer.valueOf(mc2071m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
-            mc2071m.setError("Gestational age in weeks is over limit!");
+            mc2071m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2071m");
             return false;
         }
         if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2073m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
-            mc2073m.setError("Gestational age in weeks is over limit!");
+            mc2073m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2073m");
             return false;
         }
         if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2072m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
-            mc2072m.setError("Gestational age in weeks is over limit!");
+            mc2072m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2072m");
             return false;
         }

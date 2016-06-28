@@ -437,6 +437,7 @@ public class FillFormS6Activity extends AppCompatActivity {
             S6.put("mc604_6", sharedPref.getString("sp604_6", "00"));
             S6.put("mc604_7", sharedPref.getString("sp604_7", "00"));
             S6.put("mc604_8", sharedPref.getString("sp604_8", "00"));
+            S6.put("mc604_88", sharedPref.getString("sp604_88", "00"));
             S6.put("mc604_9", sharedPref.getString("sp604_9", "00"));
             S6.put("mc604_10", sharedPref.getString("sp604_10", "00"));
             S6.put("mc604_11", sharedPref.getString("sp604_11", "00"));
@@ -461,6 +462,7 @@ public class FillFormS6Activity extends AppCompatActivity {
             S6.put("mc607x", sharedPref.getString("sp607x", "00"));
             S6.put("mc607a", sharedPref.getString("sp607a", "00"));
             S6.put("mc607b", sharedPref.getString("sp607b", "00"));
+            S6.put("mc607bx", sharedPref.getString("sp607bx", "00"));
             S6.put("mc608_m1", sharedPref.getString("sp608_m1", "00"));
             S6.put("mc608_m2", sharedPref.getString("sp608_m2", "00"));
             S6.put("mc608_m3", sharedPref.getString("sp608_m3", "00"));

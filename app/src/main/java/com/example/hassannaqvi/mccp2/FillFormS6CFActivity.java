@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -202,6 +203,8 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         // Putting values of CheckBoxes
 
         editor.putString("spcf_FrmNo", cfchid);
+        editor.putString("spFrmNo", FillFormActivity.mcFrmNo);
+        editor.putString("spcf_Chid", String.valueOf(CF_CHID));
         editor.putString("spcf_Q1", (CF_Q1.isChecked() ? "1" : ""));
         editor.putString("spcf_Q2", (CF_Q2.isChecked() ? "2" : ""));
         editor.putString("spcf_Q2_1", (CF_Q2_1.isChecked() ? "1" : ""));
@@ -212,6 +215,8 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         editor.putString("spcf_Q2_6", (CF_Q2_6.isChecked() ? "6" : ""));
         editor.putString("spcf_Q3", (CF_Q3.isChecked() ? "3" : ""));
         editor.putString("spcf_Q4", (CF_Q4.isChecked() ? "4" : ""));
+        editor.putString("spcfDeviceID", Settings.Secure.getString(getApplicationContext().getContentResolver(),
+                Settings.Secure.ANDROID_ID));
 
 
         editor.apply();
@@ -221,19 +226,22 @@ public class FillFormS6CFActivity extends AppCompatActivity {
         JsonCF = new JSONObject();
         long newFormId = 0;
         try {
-            CF.put("chid", cfchid);
-            CF.put("FrmNo", formId);
+            CF.put("chid", sharedPref.getString("spcf_Q1", "00"));
+            CF.put("cfFrmNo", sharedPref.getString("spcf_FrmNo", "00"));
 
             // Initialize JSON Object For Section 6
-            JsonCF.put("mccf_Q1", sharedPref.getString("spcf_Q1", "00"));
-            JsonCF.put("mccf_Q2", sharedPref.getString("spcf_Q2", "00"));
-            JsonCF.put("mccf_Q2_1", sharedPref.getString("spcf_Q2_1", "00"));
-            JsonCF.put("mccf_Q2_2", sharedPref.getString("spcf_Q2_2", "00"));
-            JsonCF.put("mccf_Q2_3", sharedPref.getString("spcf_Q2_3", "00"));
-            JsonCF.put("mccf_Q2_4", sharedPref.getString("spcf_Q2_4", "00"));
-            JsonCF.put("mccf_Q2_5", sharedPref.getString("spcf_Q2_5", "00"));
-            JsonCF.put("mccf_Q2_6", sharedPref.getString("spcf_Q2_6", "00"));
-            JsonCF.put("mccf_Q1", sharedPref.getString("spcf_Q1", "00"));
+            JsonCF.put("cfChid", sharedPref.getString("spcf_Chid", "00"));
+            JsonCF.put("cf_Q1", sharedPref.getString("spcf_Q1", "00"));
+            JsonCF.put("cf_Q2", sharedPref.getString("spcf_Q2", "00"));
+            JsonCF.put("cf_Q2_1", sharedPref.getString("spcf_Q2_1", "00"));
+            JsonCF.put("cf_Q2_2", sharedPref.getString("spcf_Q2_2", "00"));
+            JsonCF.put("cf_Q2_3", sharedPref.getString("spcf_Q2_3", "00"));
+            JsonCF.put("cf_Q2_4", sharedPref.getString("spcf_Q2_4", "00"));
+            JsonCF.put("cf_Q2_5", sharedPref.getString("spcf_Q2_5", "00"));
+            JsonCF.put("cf_Q2_6", sharedPref.getString("spcf_Q2_6", "00"));
+            JsonCF.put("cf_Q3", sharedPref.getString("spcf_Q3", "00"));
+            JsonCF.put("cf_Q4", sharedPref.getString("spcf_Q4", "00"));
+            JsonCF.put("cfDeviceID", sharedPref.getString("spcfDeviceID", "00"));
             CF.put("cf", JsonCF);
 
             Log.d(TAG, CF.toString());

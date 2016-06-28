@@ -99,13 +99,13 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_503"
-            android:text="@string/MC_503"></TextView>
+            android:text="@string/MC_503" />
         <TextView
             style="@style/labels"
             android:background="#d6d6d6"
             android:labelFor="@+id/MC_503"
             android:text="@string/MC_503_A"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:textColor="@color/colorPrimary" />
         <CheckBox
             android:id="@+id/MC_503_A_LHW"
             style="@style/checkbox"
@@ -133,7 +133,7 @@
             android:background="#d6d6d6"
             android:labelFor="@+id/MC_503"
             android:text="@string/MC_503_B"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:textColor="@color/colorPrimary" />
         <CheckBox
             android:id="@+id/MC_503_B_LHW"
             style="@style/checkbox"
@@ -161,7 +161,7 @@
             android:background="#d6d6d6"
             android:labelFor="@+id/MC_503"
             android:text="@string/MC_503_C"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:textColor="@color/colorPrimary" />
         <CheckBox
             android:id="@+id/MC_503_C_LHW"
             style="@style/checkbox"
@@ -189,7 +189,7 @@
             android:background="#d6d6d6"
             android:labelFor="@+id/MC_503"
             android:text="@string/MC_503_D"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:textColor="@color/colorPrimary" />
         <CheckBox
             android:id="@+id/MC_503_D_LHW"
             style="@style/checkbox"
@@ -217,7 +217,7 @@
             android:background="#d6d6d6"
             android:labelFor="@+id/MC_503"
             android:text="@string/MC_503_E"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:textColor="@color/colorPrimary" />
         <CheckBox
             android:id="@+id/MC_503_E_LHW"
             style="@style/checkbox"
@@ -245,7 +245,7 @@
             android:background="#d6d6d6"
             android:labelFor="@+id/MC_503"
             android:text="@string/MC_503_F"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:textColor="@color/colorPrimary" />
         <CheckBox
             android:id="@+id/MC_503_F_LHW"
             style="@style/checkbox"
@@ -273,7 +273,7 @@
             android:background="#d6d6d6"
             android:labelFor="@+id/MC_503"
             android:text="@string/MC_503_G"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:textColor="@color/colorPrimary" />
         <CheckBox
             android:id="@+id/MC_503_G_LHW"
             style="@style/checkbox"
@@ -301,7 +301,7 @@
             android:background="#d6d6d6"
             android:labelFor="@+id/MC_503"
             android:text="@string/MC_503_X"
-            android:textColor="@color/colorPrimary"></TextView>
+            android:textColor="@color/colorPrimary" />
         <CheckBox
             android:id="@+id/MC_503_X_LHW"
             style="@style/checkbox"
@@ -336,7 +336,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_504W"
-            android:text="@string/MC_504"></TextView>
+            android:text="@string/MC_504" />
 
         <Spinner
             android:id="@+id/MC_504W"
@@ -361,7 +361,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_504R"
-            android:text="@string/MC_504_R"></TextView>
+            android:text="@string/MC_504_R" />
 
         <Spinner
             android:id="@+id/MC_504R"
@@ -385,7 +385,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_504F"
-            android:text="@string/MC_504_F"></TextView>
+            android:text="@string/MC_504_F" />
 
 
         <Spinner
@@ -411,7 +411,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_505"
-            android:text="@string/MC_505"></TextView>
+            android:text="@string/MC_505" />
 
         <Spinner
             android:id="@+id/MC_505"
@@ -427,7 +427,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_506"
-            android:text="@string/MC_506"></TextView>
+            android:text="@string/MC_506" />
 
         <EditText
             android:id="@+id/MC_506"
@@ -443,7 +443,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_507"
-            android:text="@string/MC_507"></TextView>
+            android:text="@string/MC_507" />
 
 
         <Spinner
@@ -460,7 +460,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_508"
-            android:text="@string/MC_508"></TextView>
+            android:text="@string/MC_508" />
 
         <Spinner
             android:id="@+id/MC_508"
@@ -485,7 +485,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_509"
-            android:text="@string/MC_509"></TextView>
+            android:text="@string/MC_509" />
 
         <Spinner
             android:id="@+id/MC_509"
@@ -510,7 +510,7 @@
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_510"
-            android:text="@string/MC_510"></TextView>
+            android:text="@string/MC_510" />
 
 
         <Spinner
@@ -819,7 +819,7 @@
             android:layout_height="wrap_content"
             android:entries="@array/MC_518_list"
             android:prompt="@string/MC_518"
-            android:textSize="24sp"></Spinner>
+            android:textSize="24sp" />
 
 
         <!--MC_519-->
@@ -918,7 +918,7 @@
             android:id="@+id/MC_521"
             style="@style/spinner"
             android:entries="@array/MC_521_list"
-            android:textSize="24sp"></Spinner>
+            android:textSize="24sp" />
 
 
 </LinearLayout>

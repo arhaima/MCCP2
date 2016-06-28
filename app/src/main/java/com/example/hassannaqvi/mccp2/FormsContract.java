@@ -53,11 +53,6 @@ public class FormsContract {
         this.ROW_MC_FrmNo = mc1.getString("mcFrmNo");
         this.DEVICE_ID = mc1.getString("mcDeviceId");
         this.ROW_MC_101 = mc1.getString("mc101");
-        if (this.ROW_MC_101 == null) {
-            Log.d(TAG, "MC is 000");
-        } else {
-            Log.d(TAG, get101().toString());
-        }
         this.ROW_MC_101TIME = mc1.getString("mc101Time");
         this.ROW_MC_102 = mc1.getString("mc102");
         this.ROW_MC_103 = mc1.getString("mc103");
@@ -68,9 +63,8 @@ public class FormsContract {
         this.ROW_MC_108 = mc1.getString("mc108");
         this.ROW_GPS_LAT = mc1.getString("mcGPSLat");
         this.ROW_GPS_LNG = mc1.getString("mcGPSLng");
-        this.DEVICE_ID = mc1.getString("mcGPSLng");
+        this.DEVICE_ID = mc1.getString("mcDeviceID");
         this.ROW_SYNC = "1";
-
 
     }
 
@@ -146,7 +140,7 @@ public class FormsContract {
     }
 
     public void setSync(String Sync) {
-        this.ROW_GPS_LNG = Sync;
+        this.ROW_SYNC = Sync;
     }
 
     public String get103() {
@@ -240,11 +234,13 @@ public class FormsContract {
     }
 
     public String getEnding() {
+//        Log.d(TAG+" getEnding", this.ROW_Ending);
         return this.ROW_Ending;
     }
 
     public void setEnding(String ending) {
         this.ROW_Ending = ending;
+//        Log.d(TAG+" setEnding", this.ROW_Ending);
     }
 
     public JSONObject toJSONObject() throws JSONException {

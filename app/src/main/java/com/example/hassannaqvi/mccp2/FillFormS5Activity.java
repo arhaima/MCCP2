@@ -798,7 +798,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             case R.id.MC_511_Yes:
                 editor.putString("sp511", "1");
                 break;
-            case R.id.MC_502_No:
+            case R.id.MC_511_No:
                 editor.putString("sp511", "2");
                 break;
             default:
@@ -999,15 +999,15 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc503Fngo", sharedPref.getString("sp503Fngo", "00"));
             S5.put("mc503Fx", sharedPref.getString("sp503Fx", "00"));
             S5.put("mc503Glhw", sharedPref.getString("sp503Glhw", "00"));
-            S5.put("mc503Cfcv", sharedPref.getString("sp503Gfcv", "00"));
-            S5.put("mc503Clhs", sharedPref.getString("sp503Glhs", "00"));
-            S5.put("mc503Cngo", sharedPref.getString("sp503Gngo", "00"));
-            S5.put("mc503Cx", sharedPref.getString("sp503Gx", "00"));
+            S5.put("mc503Gfcv", sharedPref.getString("sp503Gfcv", "00"));
+            S5.put("mc503Glhs", sharedPref.getString("sp503Glhs", "00"));
+            S5.put("mc503Gngo", sharedPref.getString("sp503Gngo", "00"));
+            S5.put("mc503Gx", sharedPref.getString("sp503Gx", "00"));
             S5.put("mc503Xlhw", sharedPref.getString("sp503Xlhw", "00"));
-            S5.put("mc503Cfcv", sharedPref.getString("sp503Xfcv", "00"));
-            S5.put("mc503Clhs", sharedPref.getString("sp503Xlhs", "00"));
-            S5.put("mc503Cngo", sharedPref.getString("sp503Xngo", "00"));
-            S5.put("mc503Cx", sharedPref.getString("sp503Xx", "00"));
+            S5.put("mc503Xfcv", sharedPref.getString("sp503Xfcv", "00"));
+            S5.put("mc503Xlhs", sharedPref.getString("sp503Xlhs", "00"));
+            S5.put("mc503Xngo", sharedPref.getString("sp503Xngo", "00"));
+            S5.put("mc503Xx", sharedPref.getString("sp503Xx", "00"));
             S5.put("mc503GXx", sharedPref.getString("sp503GXx", "00"));
             S5.put("mc504W", sharedPref.getString("sp504W", "00"));
             S5.put("mc504Wx", sharedPref.getString("sp504Wx", "00"));
@@ -1050,8 +1050,13 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc503Ffcv", sharedPref.getString("sp503Ffcv", "00"));
             S5.put("mc503Flhs", sharedPref.getString("sp503Flhs", "00"));
             S5.put("mc503Fngo", sharedPref.getString("sp503Fngo", "00"));
+            S5.put("mc503Glhw", sharedPref.getString("sp503Glhw", "00"));
+            S5.put("mc503Gfcv", sharedPref.getString("sp503Gfcv", "00"));
             S5.put("mc503Glhs", sharedPref.getString("sp503Glhs", "00"));
             S5.put("mc503Gngo", sharedPref.getString("sp503Gngo", "00"));
+
+            S5.put("mc503Xlhw", sharedPref.getString("sp503Xlhw", "00"));
+            S5.put("mc503Xfcv", sharedPref.getString("sp503Xfcv", "00"));
             S5.put("mc503Xlhs", sharedPref.getString("sp503Xlhs", "00"));
             S5.put("mc503Xngo", sharedPref.getString("sp503Xngo", "00"));
             S5.put("mc512_1", sharedPref.getString("sp512_1", "00"));
@@ -1077,10 +1082,15 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc502", sharedPref.getString("sp502", "00"));
             S5.put("mc511", sharedPref.getString("sp511", "00"));
             S5.put("mc513", sharedPref.getString("sp513", "00"));
+            S5.put("mc513x", sharedPref.getString("sp513x", "00"));
             S5.put("mc514", sharedPref.getString("sp514", "00"));
+            S5.put("mc515", sharedPref.getString("sp515", "00"));
+            S5.put("mc516", sharedPref.getString("sp516", "00"));
             S5.put("mc517", sharedPref.getString("sp517", "00"));
+            S5.put("mc518", sharedPref.getString("sp518", "00"));
             S5.put("mc519", sharedPref.getString("sp519", "00"));
             S5.put("mc520", sharedPref.getString("sp520", "00"));
+            S5.put("mc521", sharedPref.getString("sp521", "00"));
             S5.put("mc523", sharedPref.getString("sp523", "00"));
             S5.put("mc524acr", sharedPref.getString("sp524acr", "00"));
             S5.put("mc524can", sharedPref.getString("sp524can", "00"));

@@ -912,12 +912,7 @@ public class FillFormS4Activity extends AppCompatActivity {
             S4.put("mc409x", sharedPref.getString("sp409x", "00"));
             S4.put("mc410", sharedPref.getString("sp410", "00"));
             S4.put("mc410x", sharedPref.getString("sp410x", "00"));
-            S4.put("mc410a_1", sharedPref.getString("sp410a_1", "00"));
-            S4.put("mc410a_2", sharedPref.getString("sp410a_2", "00"));
-            S4.put("mc410a_3", sharedPref.getString("sp410a_3", "00"));
-            S4.put("mc410a_4", sharedPref.getString("sp410a_4", "00"));
-            S4.put("mc410a_5", sharedPref.getString("sp410a_5", "00"));
-            S4.put("mc410a_99", sharedPref.getString("sp410a_99", "00"));
+            S4.put("mc410A", sharedPref.getString("sp410A", "00"));
             S4.put("mc410B_1", sharedPref.getString("sp410B_1", "00"));
             S4.put("mc410B_2", sharedPref.getString("sp410B_2", "00"));
             S4.put("mc410B_3", sharedPref.getString("sp410B_3", "00"));
