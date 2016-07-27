@@ -83,8 +83,8 @@ public class EndFormActivity extends AppCompatActivity {
                     mc110_txt.setVisibility(View.VISIBLE);
                     mc110.setVisibility(View.VISIBLE);
                 } else {
-                    mc110_txt.setVisibility(View.INVISIBLE);
-                    mc110.setVisibility(View.INVISIBLE);
+                    mc110_txt.setVisibility(View.GONE);
+                    mc110.setVisibility(View.GONE);
                 }
             }
         });
@@ -96,8 +96,9 @@ public class EndFormActivity extends AppCompatActivity {
                     mc110x_txt.setVisibility(View.VISIBLE);
                     mc110x.setVisibility(View.VISIBLE);
                 } else {
-                    mc110x_txt.setVisibility(View.INVISIBLE);
-                    mc110x.setVisibility(View.INVISIBLE);
+                    mc110x_txt.setVisibility(View.GONE);
+                    mc110x.setVisibility(View.GONE);
+                    mc110x.setText(null);
                 }
             }
         });
@@ -229,8 +230,8 @@ public class EndFormActivity extends AppCompatActivity {
             fc.setS5(String.valueOf(FillFormS5Activity.S5));
             FillFormS5Activity.S5 = null;
 
-            fc.setS6(String.valueOf(FillFormS6Activity.S6));
-            FillFormS6Activity.S6 = null;
+            fc.setS6("S6");
+            //FillFormS6Activity.S6 = null;
 
             fc.setEnding(String.valueOf(ending));
             ending = null;
@@ -308,7 +309,7 @@ public class EndFormActivity extends AppCompatActivity {
                 }
                 FillFormS3Activity.chids.clear();
 
-                for (String cfchid : FillFormS6CFActivity.CF_chids) {
+                /*for (String cfchid : FillFormS6CFActivity.CF_chids) {
 
                     SharedPreferences cfPref = getSharedPreferences("CF_" + cfchid, Context.MODE_PRIVATE);
                     CfsContract cf = new CfsContract();
@@ -335,7 +336,7 @@ public class EndFormActivity extends AppCompatActivity {
 
 
                 }
-                FillFormS6CFActivity.CF_chids.clear();
+                FillFormS6CFActivity.CF_chids.clear();*/
             } catch (SQLiteException e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 

@@ -277,6 +277,13 @@ public class FillFormS2Activity extends AppCompatActivity {
                     imm.hideSoftInputFromWindow(mc207.getWindowToken(), 0);
                 } else {
                     mc207.setVisibility(View.GONE);
+                    mc2071m.setText(null);
+                    mc2071w.setText(null);
+                    mc2072m.setText(null);
+                    mc2072w.setText(null);
+                    mc2073m.setText(null);
+                    mc2073w.setText(null);
+
                 }
             }
         });

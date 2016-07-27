@@ -378,6 +378,47 @@ public class FillFormS5Activity extends AppCompatActivity {
                     fldGrp502.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp502.setVisibility(View.GONE);
+                    mc503Alhs.setChecked(false);
+                    mc503Alhw.setChecked(false);
+                    mc503Afcv.setChecked(false);
+                    mc503Ango.setChecked(false);
+                    mc503Ax.setText(null);
+                    mc503Blhs.setChecked(false);
+                    mc503Blhw.setChecked(false);
+                    mc503Bfcv.setChecked(false);
+                    mc503Bngo.setChecked(false);
+                    mc503Bx.setText(null);
+                    mc503Clhs.setChecked(false);
+                    mc503Clhw.setChecked(false);
+                    mc503Cfcv.setChecked(false);
+                    mc503Cngo.setChecked(false);
+                    mc503Cx.setText(null);
+                    mc503Dlhs.setChecked(false);
+                    mc503Dlhw.setChecked(false);
+                    mc503Dfcv.setChecked(false);
+                    mc503Dngo.setChecked(false);
+                    mc503Dx.setText(null);
+                    mc503Elhs.setChecked(false);
+                    mc503Elhw.setChecked(false);
+                    mc503Efcv.setChecked(false);
+                    mc503Engo.setChecked(false);
+                    mc503Ex.setText(null);
+                    mc503Flhs.setChecked(false);
+                    mc503Flhw.setChecked(false);
+                    mc503Ffcv.setChecked(false);
+                    mc503Fngo.setChecked(false);
+                    mc503Fx.setText(null);
+                    mc503Glhs.setChecked(false);
+                    mc503Glhw.setChecked(false);
+                    mc503Gfcv.setChecked(false);
+                    mc503Gngo.setChecked(false);
+                    mc503Gx.setText(null);
+                    mc503GXx.setText(null);
+                    mc503Xlhs.setChecked(false);
+                    mc503Xlhw.setChecked(false);
+                    mc503Xfcv.setChecked(false);
+                    mc503Xngo.setChecked(false);
+                    mc503Xx.setText(null);
                 }
             }
         });
@@ -388,6 +429,16 @@ public class FillFormS5Activity extends AppCompatActivity {
                     fldGrp511.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp511.setVisibility(View.GONE);
+                    mc512_1.setChecked(false);
+                    mc512_2.setChecked(false);
+                    mc512_3.setChecked(false);
+                    mc512_4.setChecked(false);
+                    mc512_5.setChecked(false);
+                    mc512_6.setChecked(false);
+                    mc512_7.setChecked(false);
+                    mc512_88.setChecked(false);
+                    mc512_99.setChecked(false);
+                    mc512x.setText(null);
                 }
             }
         });
@@ -397,6 +448,9 @@ public class FillFormS5Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == mc513_7.getId()) {
                     fldGrp513.setVisibility(View.GONE);
+                    mc514.clearCheck();
+                    mc515.setText(null);
+                    mc516.setSelection(0);
                 } else {
                     fldGrp513.setVisibility(View.VISIBLE);
                 }
@@ -409,6 +463,8 @@ public class FillFormS5Activity extends AppCompatActivity {
                     fldGrp514.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp514.setVisibility(View.GONE);
+                    mc515.setText(null);
+
                 }
             }
         });
@@ -419,6 +475,8 @@ public class FillFormS5Activity extends AppCompatActivity {
                     fldGrp517.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp517.setVisibility(View.GONE);
+                    mc518.setSelection(0);
+                    mc519.clearCheck();
                 }
             }
         });
@@ -429,6 +487,8 @@ public class FillFormS5Activity extends AppCompatActivity {
                     fldGrp519.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp519.setVisibility(View.GONE);
+                    mc520.clearCheck();
+                    mc521.setSelection(0);
                 }
             }
         });
@@ -439,6 +499,8 @@ public class FillFormS5Activity extends AppCompatActivity {
                     fldGrp520.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp520.setVisibility(View.GONE);
+                    mc521.setSelection(0);
+
                 }
             }
         });
@@ -449,6 +511,9 @@ public class FillFormS5Activity extends AppCompatActivity {
                     fldGrp523.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp523.setVisibility(View.GONE);
+                    mc524CAN.setText(null);
+                    mc524CAN.setText(null);
+                    mc524_99.setChecked(false);
                 }
             }
         });
@@ -508,12 +573,12 @@ public class FillFormS5Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
 
             StoreTempValues();
+            Intent end_form_intent = new Intent(getApplicationContext(), EndFormActivity.class);
+            end_form_intent.putExtra("formId", formId);
 
-            Intent s6_form_intent = new Intent(getApplicationContext(), FillFormS6Activity.class);
-            s6_form_intent.putExtra("formId", formId);
             //s2_form_intent.putExtra("boyCount", mc204m.getText().toString());
             //s2_form_intent.putExtra("girlCount", mc204f.getText().toString());
-            startActivity(s6_form_intent);
+            startActivity(end_form_intent);
         } else {
 
 

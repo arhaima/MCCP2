@@ -343,6 +343,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                                                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                                                     if (!mc402_88.isChecked()) {
                                                         mc402x.setVisibility(View.GONE);
+                                                        mc402x.setText(null);
                                                     } else {
                                                         mc402x.setVisibility(View.VISIBLE);
 
@@ -489,6 +490,13 @@ public class FillFormS4Activity extends AppCompatActivity {
                     fldGrp406.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp406.setVisibility(View.GONE);
+                    mc407_1.setChecked(false);
+                    mc407_3.setChecked(false);
+                    mc407_4.setChecked(false);
+                    mc407_5.setChecked(false);
+                    mc407_6.setChecked(false);
+                    mc407_88.setChecked(false);
+                    mc407x.setText(null);
                 }
             }
         });
@@ -500,6 +508,8 @@ public class FillFormS4Activity extends AppCompatActivity {
                     fldGrp408.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp408.setVisibility(View.GONE);
+                    mc409.setSelection(0);
+                    mc410.setSelection(0);
                 }
             }
         });
@@ -509,6 +519,14 @@ public class FillFormS4Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == mc410A_1.getId()) {
                     fldGrp410A.setVisibility(View.GONE);
+                    mc410B_1.setChecked(false);
+                    mc410B_2.setChecked(false);
+                    mc410B_3.setChecked(false);
+                    mc410B_4.setChecked(false);
+                    mc410B_5.setChecked(false);
+                    mc410B_99.setChecked(false);
+                    mc410B_88.setChecked(false);
+                    mc410Bx.setText(null);
                 } else {
                     fldGrp410A.setVisibility(View.VISIBLE);
                 }
@@ -522,6 +540,15 @@ public class FillFormS4Activity extends AppCompatActivity {
                     fldGrp412.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp412.setVisibility(View.GONE);
+                    mc413_1.setChecked(false);
+                    mc413_2.setChecked(false);
+                    mc413_3.setChecked(false);
+                    mc413_4.setChecked(false);
+                    mc413_5.setChecked(false);
+                    mc413_6.setChecked(false);
+                    mc413_7.setChecked(false);
+                    mc413_88.setChecked(false);
+                    mc413x.setText(null);
                 }
             }
         });
@@ -552,6 +579,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                     fldGrp414.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp414.setVisibility(View.GONE);
+                    mc415.setSelection(0);
                 }
             }
         });
