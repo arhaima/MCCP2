@@ -27,7 +27,6 @@ import java.util.List;
 public class FormsDbHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 5;
-    //public String todayDate = DateFormat.getDateInstance().format(Calendar.getInstance());
     public static final String DATABASE_NAME = "mccp2";
     public static final String SQL_CREATE_FORMS = "CREATE TABLE " + singleForm.TABLE_NAME + "("
             + singleForm._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -59,13 +58,11 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             + singleIms.ROW_CHID + " TEXT,"
             + singleIms.ROW_FrmNo + " TEXT,"
             + singleIms.ROW_IM + " TEXT );";
-
     public static final String SQL_CREATE_CFS = "CREATE TABLE " + singleCfs.TABLE_NAME + "("
             + singleCfs._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + singleCfs.ROW_CHID + " TEXT,"
             + singleCfs.ROW_FrmNo + " TEXT,"
             + singleCfs.ROW_CF + " TEXT );";
-
     public static final String SQL_CREATE_TOWNS = "CREATE TABLE " + singleTown.TABLE_NAME + "("
             + singleTown._ID + " INTEGER PRIMARY KEY,"
             + singleTown.ROW_TOWN + " TEXT );";
@@ -97,6 +94,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS " + singleCluster.TABLE_NAME;
     private static final String SQL_DELETE_UC =
             "DROP TABLE IF EXISTS " + singleUC.TABLE_NAME;
+    public String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
 
     public FormsDbHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -297,11 +295,11 @@ public class FormsDbHelper extends SQLiteOpenHelper {
     public List<FormsContract> getTodayForms() {
         List<FormsContract> formList = new ArrayList<FormsContract>();
 
-        String spDateT = new SimpleDateFormat("dd-MM-yy").format(new Date().getTime());
         Log.d(TAG, spDateT);
 
         // Select All Query
         String selectQuery = "SELECT " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + " WHERE " + singleForm.ROW_MC_101 + "='" + spDateT + "';";
+        Log.d(TAG + "TFORMS", selectQuery);
 
 
         SQLiteDatabase db = this.getWritableDatabase();
@@ -327,7 +325,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
     public List<FormsContract> getAllGPS() {
         List<FormsContract> gpsList = new ArrayList<FormsContract>();
         // Select All Query
-        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME;
+        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -340,6 +338,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 gps.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
                 gps.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
                 gps.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
+                gps.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
 
 
                 // Adding contact to list
@@ -358,8 +357,8 @@ public class FormsDbHelper extends SQLiteOpenHelper {
     public List<FormsContract> getTodaysGPS() {
         List<FormsContract> gpsList = new ArrayList<FormsContract>();
         // Select All Query
-        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + "Where " + singleForm.ROW_MC_101 + "=DATE(now)";
-
+        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + " Where " + singleForm.ROW_MC_101 + "='" + spDateT + "';";
+        Log.d(TAG, selectQuery);
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
 
@@ -371,6 +370,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 gps.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
                 gps.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
                 gps.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
+                gps.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
 
 
                 // Adding contact to list

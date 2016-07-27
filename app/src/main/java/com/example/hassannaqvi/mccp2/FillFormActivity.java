@@ -386,6 +386,8 @@ public class FillFormActivity extends AppCompatActivity {
         editor.putString("sp104", mc105cluster.getText().toString().substring(1, 3));
         editor.putString("spGPSLat", GPSPref.getString("Latitude", "0"));
         editor.putString("spGPSLng", GPSPref.getString("Longitude", "0"));
+        editor.putString("spGPSTime", GPSPref.getString("Time", "0"));
+        editor.putString("spGPSAcc", GPSPref.getString("Accuracy", "0"));
 
         //To Retrieve: double latitude = Double.longBitsToDouble(prefs.getLong("Latitude", 0);
 

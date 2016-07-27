@@ -487,6 +487,8 @@ public class MainActivity extends AppCompatActivity {
 
             editor.putString("Longitude", String.valueOf(location.getLongitude()));
             editor.putString("Latitude", String.valueOf(location.getLatitude()));
+            editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
+            editor.putString("Time", String.valueOf(location.getTime()));
             //Toast.makeText(getApplicationContext(), "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) + " LNG: " + String.valueOf(location.getLatitude()), Toast.LENGTH_SHORT).show();
 
             editor.apply();

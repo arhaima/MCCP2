@@ -10,11 +10,11 @@ import android.os.Bundle;
  * Created by hassan.naqvi on 5/7/2016.
  */
 public class MyLocationListener implements LocationListener {
-    private Context mContext;
-    /*protected LocationManager locationManager;*/
-    SharedPreferences sharedPref = mContext.getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
-    SharedPreferences.Editor editor = sharedPref.edit();
 
+    SharedPreferences.Editor editor = sharedPref.edit();
+    private Context mContext;
+    SharedPreferences sharedPref = mContext.getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+    /*protected LocationManager locationManager;*/
     public MyLocationListener(Context context) {
         mContext = context;
     }
@@ -25,6 +25,8 @@ public class MyLocationListener implements LocationListener {
 
         editor.putString("Longitude", String.valueOf(Double.doubleToLongBits(location.getLongitude())));
         editor.putString("Latitude", String.valueOf(Double.doubleToLongBits(location.getLatitude())));
+        editor.putString("Time", String.valueOf(Double.doubleToLongBits(location.getTime())));
+        editor.putString("Accuracy", String.valueOf(Double.doubleToLongBits(location.getAccuracy())));
 
         editor.commit();
     }
