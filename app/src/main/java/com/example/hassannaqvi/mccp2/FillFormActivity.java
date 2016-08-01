@@ -466,6 +466,8 @@ public class FillFormActivity extends AppCompatActivity {
             s1.put("mc108", sharedPref.getString("sp108", "00"));
             s1.put("mcGPSLat", sharedPref.getString("spGPSLat", "0"));
             s1.put("mcGPSLng", sharedPref.getString("spGPSLng", "0"));
+            s1.put("mcGPSTime", sharedPref.getString("spGPSTime", "0"));
+            s1.put("mcGPSAcc", sharedPref.getString("spGPSAcc", "0"));
             s1.put("mcDeviceID", sharedPref.getString("spDeviceID", "0"));
 
             Log.d(TAG, "JSON for Section 1: " + s1.toString());

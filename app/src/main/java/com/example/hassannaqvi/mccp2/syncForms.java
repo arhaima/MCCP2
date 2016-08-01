@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.text.format.DateFormat;
 import android.util.Log;
 
 import org.json.JSONArray;
@@ -57,8 +58,8 @@ public class syncForms extends AsyncTask<Void, Void, String> {
 
         HttpURLConnection connection = null;
         try {
-            //String request = "http://192.168.1.10/appdata/syncdb.php";
-            String request = "http://10.1.42.86/appdata/syncdb.php";
+            String request = "http://192.168.1.10/appdata/syncdb.php";
+            //String request = "http://10.1.42.86/appdata/syncdb.php";
 
             URL url = new URL(request);
             connection = (HttpURLConnection) url.openConnection();
@@ -82,6 +83,8 @@ public class syncForms extends AsyncTask<Void, Void, String> {
                 JSONObject jsonParam = new JSONObject();
 
                 jsonParam.put("ID", fc.getId() + fc.getDeviceId());
+                jsonParam.put("PN", fc.getPN());
+                jsonParam.put("ST", fc.getST());
                 jsonParam.put("mcFrmno", fc.getFrmNo());
                 jsonParam.put("mc101", fc.get101());
                 jsonParam.put("mc101time", fc.get101Time());
@@ -92,8 +95,11 @@ public class syncForms extends AsyncTask<Void, Void, String> {
                 jsonParam.put("mc106", fc.get106());
                 jsonParam.put("mc107", fc.get107());
                 jsonParam.put("mc108", fc.get108());
+                jsonParam.put("mc109", fc.get109());
                 jsonParam.put("mcGPSLat", fc.getGPSLat());
                 jsonParam.put("mcGPSLng", fc.getGPSLng());
+                jsonParam.put("mcGPSAcc", fc.getGPSAcc());
+                jsonParam.put("mcGPSTime", DateFormat.format("dd-MM-yyyy HH:mm", Long.parseLong(fc.getGPSTime())));
                 jsonParam.put("DeviceID", fc.getDeviceId());
 
                 if (fc.getS2() != null) {

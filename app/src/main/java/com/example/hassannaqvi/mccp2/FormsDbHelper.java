@@ -3,6 +3,7 @@ package com.example.hassannaqvi.mccp2;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
+import android.database.MatrixCursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -26,11 +27,13 @@ import java.util.List;
 
 public class FormsDbHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 5;
-    public static final String DATABASE_NAME = "mccp2";
+    public static final int DATABASE_VERSION = 1;
+    public static final String DATABASE_NAME = "mccp2-gadap";
     public static final String SQL_CREATE_FORMS = "CREATE TABLE " + singleForm.TABLE_NAME + "("
             + singleForm._ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + singleForm.DEVICE_ID + " TEXT,"
+            + singleForm.PROJECT_NAME + " TEXT,"
+            + singleForm.SURVEY_TYPE + " TEXT,"
             + singleForm.ROW_MC_FrmNo + " TEXT,"
             + singleForm.ROW_MC_101 + " TEXT,"
             + singleForm.ROW_MC_101TIME + " TEXT,"
@@ -41,8 +44,11 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             + singleForm.ROW_MC_106 + " TEXT,"
             + singleForm.ROW_MC_107 + " TEXT,"
             + singleForm.ROW_MC_108 + " TEXT,"
+            + singleForm.ROW_MC_109 + " TEXT,"
             + singleForm.ROW_GPS_LAT + " TEXT,"
             + singleForm.ROW_GPS_LNG + " TEXT,"
+            + singleForm.ROW_GPS_ACC + " TEXT,"
+            + singleForm.ROW_GPS_TIME + " TEXT,"
             + singleForm.ROW_SYNC + " TEXT,"
             + singleForm.ROW_S_2 + " TEXT,"
             + singleForm.ROW_S_4 + " TEXT,"
@@ -135,8 +141,12 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         Log.d(TAG, "Add Form ROW_ID: " + formscontract.getId()); // TODO: Check why form ID is 'null'
         values.put(singleForm.ROW_MC_FrmNo, formscontract.getFrmNo());
         values.put(singleForm.DEVICE_ID, formscontract.getDeviceId());
+        values.put(singleForm.PROJECT_NAME, formscontract.getPN());
+        values.put(singleForm.SURVEY_TYPE, formscontract.getST());
         values.put(singleForm.ROW_GPS_LAT, formscontract.getGPSLat());
         values.put(singleForm.ROW_GPS_LNG, formscontract.getGPSLng());
+        values.put(singleForm.ROW_GPS_ACC, formscontract.getGPSAcc());
+        values.put(singleForm.ROW_GPS_TIME, formscontract.getGPSTime());
         values.put(singleForm.ROW_SYNC, formscontract.getSync());
         values.put(singleForm.ROW_MC_101, formscontract.get101());
         values.put(singleForm.ROW_MC_101TIME, formscontract.get101Time());
@@ -147,6 +157,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         values.put(singleForm.ROW_MC_106, formscontract.get106());
         values.put(singleForm.ROW_MC_107, formscontract.get107());
         values.put(singleForm.ROW_MC_108, formscontract.get108());
+        values.put(singleForm.ROW_MC_109, formscontract.get109());
         values.put(singleForm.ROW_S_2, formscontract.getS2());
         values.put(singleForm.ROW_S_4, formscontract.getS4());
         values.put(singleForm.ROW_S_5, formscontract.getS5());
@@ -225,6 +236,8 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.setDeviceId(cursor.getString(cursor.getColumnIndex(singleForm.DEVICE_ID)));
                 form.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
                 form.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
+                form.setGPSAcc(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_ACC)));
+                form.setGPSTime(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_TIME)));
                 form.setSync(cursor.getString(cursor.getColumnIndex(singleForm.ROW_SYNC)));
                 form.set101(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101)));
                 form.set101Time(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101TIME)));
@@ -235,6 +248,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
                 form.set107(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_107)));
                 form.set108(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_108)));
+                form.set109(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_109)));
                 form.setS2(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_2)));
                 form.setS4(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_4)));
                 form.setS5(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_5)));
@@ -267,6 +281,8 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.setDeviceId(cursor.getString(cursor.getColumnIndex(singleForm.DEVICE_ID)));
                 form.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
                 form.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
+                form.setGPSAcc(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_ACC)));
+                form.setGPSTime(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_TIME)));
                 form.setSync(cursor.getString(cursor.getColumnIndex(singleForm.ROW_SYNC)));
                 form.set101(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101)));
                 form.set101Time(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_101TIME)));
@@ -277,6 +293,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
                 form.set107(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_107)));
                 form.set108(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_108)));
+                form.set109(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_109)));
                 form.setS2(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_2)));
                 form.setS4(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_4)));
                 form.setS5(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_5)));
@@ -298,7 +315,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         Log.d(TAG, spDateT);
 
         // Select All Query
-        String selectQuery = "SELECT " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + " WHERE " + singleForm.ROW_MC_101 + "='" + spDateT + "';";
+        String selectQuery = "SELECT " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_109 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + " WHERE " + singleForm.ROW_MC_101 + "='" + spDateT + "';";
         Log.d(TAG + "TFORMS", selectQuery);
 
 
@@ -312,6 +329,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
 
                 form.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
                 form.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
+                form.set109(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_109)));
 
                 // Adding contact to list
                 formList.add(form);
@@ -325,7 +343,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
     public List<FormsContract> getAllGPS() {
         List<FormsContract> gpsList = new ArrayList<FormsContract>();
         // Select All Query
-        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME;
+        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_GPS_TIME + ", " + singleForm.ROW_GPS_ACC + ", " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME;
 
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -337,6 +355,8 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 FormsContract gps = new FormsContract();
                 gps.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
                 gps.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
+                gps.setGPSAcc(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_ACC)));
+                gps.setGPSTime(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_TIME)));
                 gps.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
                 gps.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
 
@@ -357,7 +377,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
     public List<FormsContract> getTodaysGPS() {
         List<FormsContract> gpsList = new ArrayList<FormsContract>();
         // Select All Query
-        String selectQuery = "SELECT " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + " Where " + singleForm.ROW_MC_101 + "='" + spDateT + "';";
+        String selectQuery = "SELECT " + singleForm.ROW_GPS_ACC + ", " + singleForm.ROW_GPS_TIME + ", " + singleForm.ROW_GPS_LAT + ", " + singleForm.ROW_GPS_LNG + ", " + singleForm.ROW_MC_105 + ", " + singleForm.ROW_MC_106 + " FROM " + singleForm.TABLE_NAME + " Where " + singleForm.ROW_MC_101 + "='" + spDateT + "';";
         Log.d(TAG, selectQuery);
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
@@ -369,6 +389,8 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 FormsContract gps = new FormsContract();
                 gps.setGPSLat(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LAT)));
                 gps.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_LNG)));
+                gps.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_ACC)));
+                gps.setGPSLng(cursor.getString(cursor.getColumnIndex(singleForm.ROW_GPS_TIME)));
                 gps.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
                 gps.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
 
@@ -751,5 +773,55 @@ public class FormsDbHelper extends SQLiteOpenHelper {
             }
         }
         return false;
+    }
+
+    public ArrayList<Cursor> getData(String Query) {
+        //get writable database
+        SQLiteDatabase sqlDB = this.getWritableDatabase();
+        String[] columns = new String[]{"mesage"};
+        //an array list of cursor to save two cursors one has results from the query
+        //other cursor stores error message if any errors are triggered
+        ArrayList<Cursor> alc = new ArrayList<Cursor>(2);
+        MatrixCursor Cursor2 = new MatrixCursor(columns);
+        alc.add(null);
+        alc.add(null);
+
+
+        try {
+            String maxQuery = Query;
+            //execute the query results will be save in Cursor c
+            Cursor c = sqlDB.rawQuery(maxQuery, null);
+
+
+            //add value to cursor2
+            Cursor2.addRow(new Object[]{"Success"});
+
+            alc.set(1, Cursor2);
+            if (null != c && c.getCount() > 0) {
+
+
+                alc.set(0, c);
+                c.moveToFirst();
+
+                return alc;
+            }
+            return alc;
+        } catch (SQLException sqlEx) {
+            Log.d("printing exception", sqlEx.getMessage());
+            //if any exceptions are triggered save the error message to cursor an return the arraylist
+            Cursor2.addRow(new Object[]{"" + sqlEx.getMessage()});
+            alc.set(1, Cursor2);
+            return alc;
+        } catch (Exception ex) {
+
+            Log.d("printing exception", ex.getMessage());
+
+            //if any exceptions are triggered save the error message to cursor an return the arraylist
+            Cursor2.addRow(new Object[]{"" + ex.getMessage()});
+            alc.set(1, Cursor2);
+            return alc;
+        }
+
+
     }
 }

@@ -3,9 +3,6 @@ package com.example.hassannaqvi.mccp2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -36,14 +33,10 @@ import java.util.List;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-    private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
 
-    private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
     private static final int PROGRESS = 0x1;
     private static final String TAG = "MAIN_ACTIVITY";
     private static String ipAddress = "10.1.42.37";
-    private static String port = "80";
-    protected LocationManager locationManager;
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     private TextView RecordSummary;
     private ProgressBar mProgress;
@@ -84,10 +77,22 @@ public class MainActivity extends AppCompatActivity {
         rSumText += "Total Forms Today: "+todaysForms.size();
         rSumText += "\r\n";
         rSumText += "    Forms List: \r\n";
-
+        String iStatus = "";
         for(FormsContract fc : todaysForms){
 
-            rSumText += fc.get105().substring(0, 5) + " " + fc.get106();
+            switch (fc.get109()) {
+                case "1":
+                    iStatus = "Complete";
+                    break;
+                case "2":
+                    iStatus = "Incomplete";
+                    break;
+                case "3":
+                    iStatus = "Form Incomplete";
+                    break;
+            }
+
+            rSumText += fc.get105().substring(0, 6) + " " + fc.get106() + " " + iStatus;
             rSumText += "\r\n";
 
         }
@@ -105,14 +110,7 @@ public class MainActivity extends AppCompatActivity {
         }
         RecordSummary.setText(rSumText);
 
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        locationManager.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER,
-                MINIMUM_TIME_BETWEEN_UPDATES,
-                MINIMUM_DISTANCE_CHANGE_FOR_UPDATES,
-                new MyLocationListener()
-        );
         Log.d(TAG, String.valueOf(db.getFormCount()));
 
     }
@@ -286,26 +284,9 @@ public class MainActivity extends AppCompatActivity {
 
 
     // getLocationButton is the name of your button.  Not the best name, I know.
-    public void showGPSCoordinates(View v) {
-        showCurrentLocation();
 
 
-    }
 
-    protected void showCurrentLocation() {
-
-        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-
-        if (location != null) {
-            String message = String.format(
-                    "Current Location \n Longitude: %1$s \n Latitude: %2$s",
-                    location.getLongitude(), location.getLatitude()
-            );
-            //Toast.makeText(getApplicationContext(), message,
-            //Toast.LENGTH_SHORT).show();
-        }
-
-    }
 
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
@@ -471,6 +452,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void openDBManager(View v) {
+        Intent dbmanager = new Intent(getApplicationContext(), AndroidDatabaseManager.class);
+        startActivity(dbmanager);
+    }
+
 
     public void onBackPressed() {
         Intent back_intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -478,36 +464,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private class MyLocationListener implements LocationListener {
 
-        public void onLocationChanged(Location location) {
-            SharedPreferences sharedPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
-
-
-            editor.putString("Longitude", String.valueOf(location.getLongitude()));
-            editor.putString("Latitude", String.valueOf(location.getLatitude()));
-            editor.putString("Accuracy", String.valueOf(location.getAccuracy()));
-            editor.putString("Time", String.valueOf(location.getTime()));
-            //Toast.makeText(getApplicationContext(), "GPS Commit! LAT: " + String.valueOf(location.getLongitude()) + " LNG: " + String.valueOf(location.getLatitude()), Toast.LENGTH_SHORT).show();
-
-            editor.apply();
-
-        }
-
-        public void onStatusChanged(String s, int i, Bundle b) {
-            showCurrentLocation();
-        }
-
-        public void onProviderDisabled(String s) {
-
-        }
-
-        public void onProviderEnabled(String s) {
-
-        }
-
-    }
 
 
 }

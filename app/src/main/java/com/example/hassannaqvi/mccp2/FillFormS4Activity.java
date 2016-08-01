@@ -996,7 +996,18 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 401 not selected");
             return false;
         }
-        if ((mc401_yes.isChecked() || mc401_dontknow.isChecked()) && mc403.getSelectedItemPosition() == 0) {
+        if (mc402_1.isChecked() || mc402_2.isChecked() || mc402_3.isChecked() || mc402_4.isChecked()
+                || mc402_5.isChecked() || mc402_6.isChecked() || mc402_7.isChecked() || mc402_8.isChecked()
+                || mc402_9.isChecked() || mc402_10.isChecked() || mc402_88.isChecked()) {
+
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc402_88.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 402 not selected");
+            return false;
+        }
+        if (mc403.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc403.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -1005,7 +1016,39 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 403 Empty");
             return false;
         }
+        if (mc404_1.isChecked() || mc404_2.isChecked() || mc404_3.isChecked() || mc404_4.isChecked()
+                || mc404_5.isChecked() || mc404_6.isChecked() || mc404_7.isChecked() || mc404_8.isChecked()
+                || mc404_9.isChecked() || mc404_99.isChecked() || mc404_88.isChecked()) {
 
+        } else {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc404_88.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 404 not selected");
+            return false;
+        }
+        if (mc405_1.isChecked() || mc405_2.isChecked() || mc405_3.isChecked() || mc405_4.isChecked()
+                || mc405_5.isChecked() || mc405_99.isChecked() || mc405_88.isChecked()) {
+
+        } else {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc405_88.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 405 not selected");
+            return false;
+        }
+        if (mc405a1.isChecked() || mc405a2.isChecked() || mc405a3.isChecked() || mc405a4.isChecked()
+                || mc405a99.isChecked() || mc405a88.isChecked()) {
+        } else {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc405_88.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 405 not selected");
+            return false;
+        }
+        if (mc406.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc406_no.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 406 not selected");
+            return false;
+        }
         if (mc406_no.isChecked() && !(mc407_1.isChecked()
                 || mc407_2.isChecked()
                 || mc407_5.isChecked()
@@ -1027,12 +1070,6 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 408 not selected");
             return false;
         }
-        if (mc408selected == 0 && mc410Aselected == -1) {
-            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc410A_99.setError("Please select an answer!");
-            Log.d(TAG, "Error Type: 410A not selected");
-            return false;
-        }
         if (mc408_yes.isChecked() && mc409.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc409.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -1042,7 +1079,6 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 409 Empty");
             return false;
         }
-
         if (mc408_yes.isChecked() && mc410.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc410.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -1052,6 +1088,23 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 410 Empty");
             return false;
         }
+
+        if (mc408_yes.isChecked() && mc410Aselected == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc410A_99.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 410A not selected");
+            return false;
+        }
+
+        if (mc408_yes.isChecked() && !mc410A_1.isChecked() && !(
+                mc410B_1.isChecked() || mc410B_2.isChecked() || mc410B_3.isChecked() || mc410B_4.isChecked()
+                        || mc410B_5.isChecked() || mc410B_99.isChecked() || mc410B_88.isChecked())) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc410B_88.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 410B not selected");
+            return false;
+        }
+
         if (mc411.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc411.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -1065,6 +1118,14 @@ public class FillFormS4Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc412_no.setError("Please select an answer!");
             Log.d(TAG, "Error Type: 412 not selected");
+            return false;
+        }
+        if (mc412_no.isChecked() && !(mc413_1.isChecked() || mc413_2.isChecked() || mc413_3.isChecked()
+                || mc413_4.isChecked() || mc413_5.isChecked() || mc413_6.isChecked() || mc413_7.isChecked()
+                || mc413_88.isChecked())) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc413_88.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 413 not selected");
             return false;
         }
 

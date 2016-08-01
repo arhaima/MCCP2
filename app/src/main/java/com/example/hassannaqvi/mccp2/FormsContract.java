@@ -11,6 +11,8 @@ import org.json.JSONObject;
  */
 public class FormsContract {
     private static final String TAG = "FORM_CONTRACT";
+    private static final String PROJECT_NAME = "MCCP2-Phase-I-Repeat-13-SHRUCs";
+    private static final String SURVEY_TYPE = "1";
     //private static FormsContract fcInstance = null;
     private Long _ID;
     private String DEVICE_ID;
@@ -24,8 +26,11 @@ public class FormsContract {
     private String ROW_MC_106;
     private String ROW_MC_107;
     private String ROW_MC_108;
+    private String ROW_MC_109;
     private String ROW_GPS_LAT;
     private String ROW_GPS_LNG;
+    private String ROW_GPS_ACC;
+    private String ROW_GPS_TIME;
     private String ROW_SYNC;
     private String ROW_S_2;
     private String ROW_S_3;
@@ -61,8 +66,11 @@ public class FormsContract {
         this.ROW_MC_106 = mc1.getString("mc106");
         this.ROW_MC_107 = mc1.getString("mc107");
         this.ROW_MC_108 = mc1.getString("mc108");
+        this.ROW_MC_109 = mc1.getString("mc109");
         this.ROW_GPS_LAT = mc1.getString("mcGPSLat");
         this.ROW_GPS_LNG = mc1.getString("mcGPSLng");
+        this.ROW_GPS_ACC = mc1.getString("mcGPSAcc");
+        this.ROW_GPS_TIME = mc1.getString("mcGPSTime");
         this.DEVICE_ID = mc1.getString("mcDeviceID");
         this.ROW_SYNC = "1";
 
@@ -74,6 +82,14 @@ public class FormsContract {
 
     public void setId(String id) {
         this._ID = Long.valueOf(id);
+    }
+
+    public String getPN() {
+        return PROJECT_NAME;
+    }
+
+    public String getST() {
+        return SURVEY_TYPE;
     }
 
     public String getFrmNo() {
@@ -135,6 +151,22 @@ public class FormsContract {
         this.ROW_GPS_LNG = GPSLng;
     }
 
+    public String getGPSAcc() {
+        return this.ROW_GPS_ACC;
+    }
+
+    public void setGPSAcc(String GPSAcc) {
+        this.ROW_GPS_ACC = GPSAcc;
+    }
+
+    public String getGPSTime() {
+        return this.ROW_GPS_TIME;
+    }
+
+    public void setGPSTime(String GPSTime) {
+        this.ROW_GPS_TIME = GPSTime;
+    }
+
     public String getSync() {
         return this.ROW_SYNC;
     }
@@ -192,6 +224,15 @@ public class FormsContract {
     }
 
 
+    public String get109() {
+        return this.ROW_MC_109;
+    }
+
+    public void set109(String mc109) {
+        this.ROW_MC_109 = mc109;
+    }
+
+
     //====================================================
     public String getS2() {
         return this.ROW_S_2;
@@ -240,6 +281,13 @@ public class FormsContract {
 
     public void setEnding(String ending) {
         this.ROW_Ending = ending;
+        try {
+            JSONObject JSONending = new JSONObject(ending);
+            this.ROW_MC_109 = String.valueOf(JSONending.getJSONObject("mc109"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
 //        Log.d(TAG+" setEnding", this.ROW_Ending);
     }
 
@@ -259,32 +307,20 @@ public class FormsContract {
         json.put("mc_108", this.ROW_MC_108);
 
 
-        //TODO: working for Section 2
-
-        //TODO: Working for Section 3
-
-        //TODO: Working for Section 4
-
-        //TODO: Working for Section 5
-
-        //TODO: Working for Section 6
-
-        //TODO: Working for Ending
-
         return json;
     }
-
-    //TODO: Move GenerateFormID method here
-    //TODO: Move StoreTempValues method here
-    //TODO: Move formValidation method here (possibly create new Class FormValidator extends TextValidator)
 
     public static abstract class singleForm implements BaseColumns {
 
         public static final String TABLE_NAME = "Forms";
         public static final String _ID = "_ID";
+        public static final String PROJECT_NAME = "PROJECT_NAME";
+        public static final String SURVEY_TYPE = "SURVEY_TYPE";
         public static final String DEVICE_ID = "DEVICE_ID";
         public static final String ROW_GPS_LAT = "GPS_LAT";
         public static final String ROW_GPS_LNG = "GPS_LNG";
+        public static final String ROW_GPS_ACC = "GPS_ACC";
+        public static final String ROW_GPS_TIME = "GPS_TIME";
         public static final String ROW_SYNC = "SYNC";
         public static final String ROW_MC_FrmNo = "MC_FRMNO";
         public static final String ROW_MC_101 = "MC_101";
@@ -296,18 +332,12 @@ public class FormsContract {
         public static final String ROW_MC_106 = "MC_106";
         public static final String ROW_MC_107 = "MC_107";
         public static final String ROW_MC_108 = "MC_108";
+        public static final String ROW_MC_109 = "MC_109";
         public static final String ROW_S_2 = "MC_S2";
         public static final String ROW_S_4 = "MC_S4";
         public static final String ROW_S_5 = "MC_S5";
         public static final String ROW_S_6 = "MC_S6";
         public static final String ROW_Ending = "MC_End";
     }
-
-
-
-
-
-
-
 
 }

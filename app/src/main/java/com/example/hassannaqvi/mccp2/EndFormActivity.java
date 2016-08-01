@@ -208,7 +208,9 @@ public class EndFormActivity extends AppCompatActivity {
 
             // Initialize JSON Object For Section 6
             ending.put("mc109", sharedPref.getString("sp109", "00"));
+            FillFormActivity.s1.put("mc109", sharedPref.getString("sp109", "00"));
             ending.put("mc110", sharedPref.getString("sp110", "00"));
+
             ending.put("mc110x", sharedPref.getString("sp110x", "00"));
             ending.put("mcEndDateTime", sharedPref.getString("spEndDateTime", "00"));
 

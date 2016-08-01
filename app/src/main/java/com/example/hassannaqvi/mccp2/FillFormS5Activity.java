@@ -132,12 +132,6 @@ public class FillFormS5Activity extends AppCompatActivity {
     private RadioButton mc520_yes;
     private RadioButton mc520_no;
     private Spinner mc521;
-    private RadioButton mc521_1;
-    private RadioButton mc521_2;
-    private RadioButton mc521_3;
-    private RadioButton mc521_4;
-    private RadioButton mc521_5;
-    private RadioGroup mc522;
     private CheckBox mc522_1;
     private CheckBox mc522_2;
     private CheckBox mc522_3;
@@ -586,6 +580,17 @@ public class FillFormS5Activity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
+
+        if (mc501.getSelectedItemPosition() == 0) {
+            TextView errorText = (TextView) mc501.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select an Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select an Answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: 501 empty");
+            return false;
+
+        }
         if (mc502selected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc502_no.setError("5.02: Please select an answer!");
@@ -613,6 +618,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             return false;
             }
         }
+
         if (mc504W.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc504W.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -647,6 +653,13 @@ public class FillFormS5Activity extends AppCompatActivity {
             errorText.setText("Please select Ownership status");//changes the selected item text to this
             Toast.makeText(getApplicationContext(), "Please select Ownership Status.", Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 505 empty");
+            return false;
+        }
+
+        if (mc506.getText().toString().isEmpty()) {
+            Toast.makeText(getApplicationContext(), "Please write an answer!", Toast.LENGTH_SHORT).show();
+            mc506.setError("5.06: Please write an answer!");
+            Log.d(TAG, "Error Type: 506 not selected");
             return false;
         }
 
@@ -686,14 +699,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 510 empty");
             return false;
         }
-        
 
-        if (mc506.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Please write an answer!", Toast.LENGTH_SHORT).show();
-            mc506.setError("5.06: Please write an answer!");
-            Log.d(TAG, "Error Type: 506 not selected");
-            return false;
-        }
 
         if (mc511selected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
@@ -702,6 +708,30 @@ public class FillFormS5Activity extends AppCompatActivity {
             return false;
 
         }
+
+        if (mc511_yes.isChecked() && !(mc512_1.isChecked() || mc512_2.isChecked() || mc512_3.isChecked() || mc512_4.isChecked()
+                || mc512_5.isChecked() || mc512_6.isChecked() || mc512_7.isChecked() || mc512_99.isChecked()
+                || mc512_88.isChecked())) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc512_88.setError("5.12: Please select an answer!");
+            Log.d(TAG, "Error Type: 512 not selected");
+            return false;
+
+        }
+
+        if (mc513.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc513_88.setError("5.13: Please select an answer!");
+            Log.d(TAG, "Error Type: 513 not selected");
+            return false;
+
+        }
+        if (!mc513_7.isChecked() && mc514.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc514_no.setError("5.14: Please select an answer!");
+            Log.d(TAG, "Error Type: 514 not selected");
+            return false;
+        }
         if (mc514_yes.isChecked() && mc515.getText().toString().isEmpty()) {
             Toast.makeText(getApplicationContext(), "Please write an answer!", Toast.LENGTH_SHORT).show();
             mc515.setError("5.15: Please select an answer!");
@@ -709,7 +739,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             return false;
         }
 
-        if (mc514_yes.isChecked() && mc516.getSelectedItemPosition() == 0) {
+        if (mc513_7.isChecked() && mc516.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc516.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -718,6 +748,14 @@ public class FillFormS5Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 516 empty");
             return false;
         }
+
+        if (mc517.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc517_3.setError("5.17: Please select an answer!");
+            Log.d(TAG, "Error Type: 517 not selected");
+            return false;
+        }
+
         if (mc517_1.isChecked() && mc518.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc518.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -727,6 +765,20 @@ public class FillFormS5Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 518 empty");
             return false;
         }
+
+        if (mc517_1.isChecked() && mc519.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc519_5.setError("5.19: Please select an answer!");
+            Log.d(TAG, "Error Type: 519 not selected");
+            return false;
+        }
+        if (mc519_1.isChecked() && mc520.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc520_no.setError("5.20: Please select an answer!");
+            Log.d(TAG, "Error Type: 520 not selected");
+            return false;
+        }
+
         if (mc520_yes.isChecked() && mc521.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc521.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -736,12 +788,21 @@ public class FillFormS5Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 521 empty");
             return false;
         }
-        
-        
-        if (mc520_yes.isChecked() && (mc521selected.equals("-1"))) {
+        if (mc522_1.isChecked() || mc522_2.isChecked() || mc522_3.isChecked() || mc522_4.isChecked()
+                || mc522_5.isChecked() || mc522_6.isChecked() || mc522_7.isChecked()
+                || mc522_8.isChecked() || mc522_9.isChecked() || mc522_88.isChecked()) {
+
+        } else {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc521_5.setError("5.21: Please Select an answer!");
-            Log.d(TAG, "Error Type: 521 not selected");
+            mc522_88.setError("5.22: Please select an answer!");
+            Log.d(TAG, "Error Type: 522 not selected");
+            return false;
+        }
+
+        if (mc523.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc523_no.setError("5.23: Please select an answer!");
+            Log.d(TAG, "Error Type: 523 not selected");
             return false;
         }
         if (mc523selected == -1
