@@ -36,6 +36,26 @@
             android:textColor="@color/colorTextWhite"
             android:textSize="24sp" />
 
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/clusterNo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Cluster No."
+                android:inputType="number" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="CheckCluster"
+                android:text="Check Cluster" />
+        </LinearLayout>
+
 
         <LinearLayout
             android:id="@+id/adminOptions"
@@ -210,7 +230,6 @@
                 android:text="Open DB Manager"
                 android:textSize="24sp" />
         </LinearLayout>
-
 
 </LinearLayout>
 

@@ -10,7 +10,11 @@ import android.os.Environment;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -32,11 +36,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private static final int PROGRESS = 0x1;
     private static final String TAG = "MAIN_ACTIVITY";
     private static String ipAddress = "10.1.42.37";
+    public EditText clusterNo;
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     private TextView RecordSummary;
     private ProgressBar mProgress;
@@ -115,11 +121,31 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.admin_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.Update_Device:
+                updateUsers();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
    /* public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
     }*/
+
 
     public void fillSurveyForm(View view) {
         Toast.makeText(getApplicationContext(), "Fill Survey Form", Toast.LENGTH_SHORT).show();
@@ -128,6 +154,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(fill_form_intent);
     }
 
+    public void CheckCluster(View v) {
+        clusterNo = (EditText) findViewById(R.id.clusterNo);
+
+        Intent cluster_list = new Intent(getApplicationContext(), FormsList.class);
+        cluster_list.putExtra("clusterno", clusterNo.getText().toString());
+        startActivity(cluster_list);
+
+    }
 
     public void editStoredForm(View view) {
         Toast.makeText(getApplicationContext(), "Edit Stored From.", Toast.LENGTH_SHORT).show();
@@ -252,7 +286,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             if (sd.canWrite()) {
-                String currentDBPath = "//data//" + getPackageName() + "//databases//" + DBName;
+                String currentDBPath = "//data//data//" + getPackageName() + "//databases//" + DBName;
                 String backupDBPath = "TVI_MCCP2_" + DBName + "_" + curDateTime;
                 File currentDB = new File(currentDBPath);
                 File backupDB = new File(sd, backupDBPath);
@@ -320,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void updateUsers(View view) {
+    public void updateUsers() {
 
         if (isNetworkAvailable()) {
             // Syncing Towns Table from Server
@@ -366,8 +400,12 @@ public class MainActivity extends AppCompatActivity {
             ff.execute();
             syncIms im = new syncIms(this);
             im.execute();
-            syncCfs cf = new syncCfs(this);
-            cf.execute();
+
+
+            //            Camps section commented out for GADAP
+
+            /*syncCfs cf = new syncCfs(this);
+            cf.execute();*/
 
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

@@ -49,6 +49,7 @@ public class FillFormActivity extends AppCompatActivity {
     private EditText mc105clusterTVI;
     private TextView mc105clusterNm;
     private EditText mc106hhno;
+    private EditText mcAdd;
     private Spinner mcExt;
     private RadioGroup mc107epimark;
     private RadioButton mc107epimark_yes;
@@ -60,6 +61,7 @@ public class FillFormActivity extends AppCompatActivity {
     private RadioButton mc108permission_no;
     private RadioButton mc108permission_close;
     private int mc108Selected;
+    private EditText mcrem1;
     private TextView formErrorTxt;
     private Boolean formError;
     private String deviceId;
@@ -103,6 +105,8 @@ public class FillFormActivity extends AppCompatActivity {
         }*/
         mc105clusterNm = (TextView) findViewById(R.id.MC_105Name);
         mc106hhno = (EditText) findViewById(R.id.MC_106);
+        mcAdd = (EditText) findViewById(R.id.MC_ADD);
+
         mcExt = (Spinner) findViewById(R.id.MC_Ext);
 
         mc107epimark = (RadioGroup) findViewById(R.id.MC_107);
@@ -117,6 +121,7 @@ public class FillFormActivity extends AppCompatActivity {
             mc108permission_close = (RadioButton) findViewById(R.id.MC_108_Close);
 
         formErrorTxt = (TextView) findViewById(R.id.fromError);
+        mcrem1 = (EditText) findViewById(R.id.MC_REM1);
 
         mc101date.setMaxDate(new Date().getTime());
         // mc101date.setMinDate(new Date().getTime()-TimeUnit.DAYS.toMillis(1));
@@ -205,7 +210,6 @@ public class FillFormActivity extends AppCompatActivity {
                 } else {
                     btnContinue.setEnabled(true);
                     Toast.makeText(FillFormActivity.this, "Continue Button ON", Toast.LENGTH_SHORT).show();
-
                 }
              }
         });
@@ -319,6 +323,12 @@ public class FillFormActivity extends AppCompatActivity {
             return false;
         }
 
+        if (mcAdd.getText().toString().isEmpty()) {
+            mcAdd.setError("Address not given!");
+            Log.d(TAG, "Error Type: Address");
+            return false;
+        }
+
         if (mc107Selected == -1) {
             mc107epimark_unclear.setError("Please select an answer!");
             Log.d(TAG, "Error Type: 107");
@@ -384,10 +394,12 @@ public class FillFormActivity extends AppCompatActivity {
         editor.putString("spCity", "Karachi");
         editor.putString("sp103", mc105cluster.getText().toString().substring(0, 1));
         editor.putString("sp104", mc105cluster.getText().toString().substring(1, 3));
+        editor.putString("spAdd", mcAdd.getText().toString());
         editor.putString("spGPSLat", GPSPref.getString("Latitude", "0"));
         editor.putString("spGPSLng", GPSPref.getString("Longitude", "0"));
         editor.putString("spGPSTime", GPSPref.getString("Time", "0"));
         editor.putString("spGPSAcc", GPSPref.getString("Accuracy", "0"));
+        editor.putString("spRem1", mcrem1.getText().toString());
 
         //To Retrieve: double latitude = Double.longBitsToDouble(prefs.getLong("Latitude", 0);
 
@@ -462,8 +474,10 @@ public class FillFormActivity extends AppCompatActivity {
             s1.put("mc104", sharedPref.getString("sp104", "00"));
             s1.put("mc105", sharedPref.getString("sp105", "00"));
             s1.put("mc106", sharedPref.getString("sp106", "00"));
+            s1.put("mcAdd", sharedPref.getString("spAdd", "00"));
             s1.put("mc107", sharedPref.getString("sp107", "00"));
             s1.put("mc108", sharedPref.getString("sp108", "00"));
+            s1.put("mcRem1", sharedPref.getString("spRem1", "00"));
             s1.put("mcGPSLat", sharedPref.getString("spGPSLat", "0"));
             s1.put("mcGPSLng", sharedPref.getString("spGPSLng", "0"));
             s1.put("mcGPSTime", sharedPref.getString("spGPSTime", "0"));

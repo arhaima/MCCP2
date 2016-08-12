@@ -82,6 +82,7 @@ public class FillFormS6Activity extends AppCompatActivity {
 
     private Spinner mc607B;
     private EditText mc607Bx;
+    private EditText mcRem6;
     private CheckBox mc608M1;
     private CheckBox mc608M2;
     private CheckBox mc608M3;
@@ -158,6 +159,7 @@ public class FillFormS6Activity extends AppCompatActivity {
         mc607A_dontknow = (RadioButton) findViewById(R.id.MC_607A_Dontknow);
         mc607B = (Spinner) findViewById(R.id.MC_607B);
         mc607Bx = (EditText) findViewById(R.id.MC_607BX);
+        mcRem6 = (EditText) findViewById(R.id.MC_REM6);
         mc608M1 = (CheckBox) findViewById(R.id.MC_608_M1);
         mc608M2 = (CheckBox) findViewById(R.id.MC_608_M2);
         mc608M3 = (CheckBox) findViewById(R.id.MC_608_M3);
@@ -411,6 +413,7 @@ public class FillFormS6Activity extends AppCompatActivity {
         editor.putString("sp605x", mc605x.getText().toString());
         editor.putString("sp607x", mc607x.getText().toString());
         editor.putString("sp607bx", mc607Bx.getText().toString());
+        editor.putString("spRem6", mcRem6.getText().toString());
 
 
         editor.apply();
@@ -470,6 +473,7 @@ public class FillFormS6Activity extends AppCompatActivity {
             S6.put("mc608_m5", sharedPref.getString("sp608_m5", "00"));
             S6.put("mc609", sharedPref.getString("sp609", "00"));
             S6.put("mc610", sharedPref.getString("sp610", "00"));
+            S6.put("mcRem6", sharedPref.getString("spRem6", "00"));
 
 
             Log.d(TAG, S6.toString());

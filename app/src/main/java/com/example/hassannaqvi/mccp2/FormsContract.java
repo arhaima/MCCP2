@@ -24,8 +24,10 @@ public class FormsContract {
     private String ROW_MC_104;
     private String ROW_MC_105;
     private String ROW_MC_106;
+    private String ROW_MC_ADD;
     private String ROW_MC_107;
     private String ROW_MC_108;
+    private String ROW_MC_REM1;
     private String ROW_MC_109;
     private String ROW_GPS_LAT;
     private String ROW_GPS_LNG;
@@ -64,8 +66,10 @@ public class FormsContract {
         this.ROW_MC_104 = mc1.getString("mc104");
         this.ROW_MC_105 = mc1.getString("mc105");
         this.ROW_MC_106 = mc1.getString("mc106");
+        this.ROW_MC_ADD = mc1.getString("mcAdd");
         this.ROW_MC_107 = mc1.getString("mc107");
         this.ROW_MC_108 = mc1.getString("mc108");
+        this.ROW_MC_REM1 = mc1.getString("mcRem1");
         this.ROW_MC_109 = mc1.getString("mc109");
         this.ROW_GPS_LAT = mc1.getString("mcGPSLat");
         this.ROW_GPS_LNG = mc1.getString("mcGPSLng");
@@ -207,6 +211,14 @@ public class FormsContract {
         this.ROW_MC_106 = mc106;
     }
 
+    public String getAdd() {
+        return this.ROW_MC_ADD;
+    }
+
+    public void setAdd(String mcAdd) {
+        this.ROW_MC_ADD = mcAdd;
+    }
+
     public String get107() {
         return this.ROW_MC_107;
     }
@@ -221,6 +233,15 @@ public class FormsContract {
 
     public void set108(String mc108) {
         this.ROW_MC_108 = mc108;
+    }
+
+
+    public String getRem1() {
+        return this.ROW_MC_REM1;
+    }
+
+    public void setRem1(String mcRem1) {
+        this.ROW_MC_REM1 = mcRem1;
     }
 
 
@@ -303,12 +324,15 @@ public class FormsContract {
         json.put("mc_104", this.ROW_MC_104);
         json.put("mc_105", this.ROW_MC_105);
         json.put("mc_106", this.ROW_MC_106);
+        json.put("mc_ADD", this.ROW_MC_ADD);
         json.put("mc_107", this.ROW_MC_107);
         json.put("mc_108", this.ROW_MC_108);
+        json.put("mc_108", this.ROW_MC_REM1);
 
 
         return json;
     }
+
 
     public static abstract class singleForm implements BaseColumns {
 
@@ -330,8 +354,10 @@ public class FormsContract {
         public static final String ROW_MC_104 = "MC_104";
         public static final String ROW_MC_105 = "MC_105";
         public static final String ROW_MC_106 = "MC_106";
+        public static final String ROW_MC_ADD = "MC_ADD";
         public static final String ROW_MC_107 = "MC_107";
         public static final String ROW_MC_108 = "MC_108";
+        public static final String ROW_MC_REM1 = "MC_REM1";
         public static final String ROW_MC_109 = "MC_109";
         public static final String ROW_S_2 = "MC_S2";
         public static final String ROW_S_4 = "MC_S4";

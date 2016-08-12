@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_grad"
+    tools:context="com.example.hassannaqvi.mccp2.FillFormActivity">
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:scrollbars="horizontal">
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#d6d6d6"
+        android:scrollbars="horizontal">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -143,3 +153,4 @@
 
     </LinearLayout>
 </ScrollView>
+</FrameLayout>

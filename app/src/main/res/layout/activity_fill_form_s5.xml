@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_grad"
+    tools:context="com.example.hassannaqvi.mccp2.FillFormActivity">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ScrollView01"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:scrollbars="horizontal">
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="#d6d6d6"
+            android:scrollbars="horizontal">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -748,9 +758,9 @@
             android:maxLength="2"
             android:singleLine="true" />
 
-        <!--MC_516-->
     </LinearLayout>
 
+        <!--MC_516-->
         <TextView
             style="@style/labels"
             android:labelFor="@+id/MC_516"
@@ -868,6 +878,7 @@
         </RadioGroup>
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/fldGrp519"
         android:layout_width="match_parent"
@@ -1446,7 +1457,103 @@
             android:inputType="number"
             android:maxLength="5"
             android:singleLine="true" />
+            <!--GADAP ADDITIONS -->
+            <TextView
+                style="@style/labels"
+                android:labelFor="@+id/MC_601"
+                android:text="@string/MC_601Gadap" />
 
+            <RadioGroup
+                android:id="@+id/MC_601"
+                style="@style/radiogroup"
+                android:text="@string/MC_601Gadap">
+
+                    <RadioButton
+                        android:id="@+id/MC_601_Yes"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_Yes" />
+
+                    <RadioButton
+                        android:id="@+id/MC_601_No"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_No" />
+
+                    <RadioButton
+                        android:id="@+id/MC_601_DNK"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_DontKnow" />
+
+            </RadioGroup>
+
+            <TextView
+                style="@style/labels"
+                android:labelFor="@+id/MC_602"
+                android:text="@string/MC_602Gadap" />
+
+            <RadioGroup
+                android:id="@+id/MC_602"
+                style="@style/radiogroup"
+                android:text="@string/MC_602Gadap">
+
+                    <RadioButton
+                        android:id="@+id/MC_602_Yes"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_Yes" />
+
+                    <RadioButton
+                        android:id="@+id/MC_602_No"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_No" />
+
+                    <RadioButton
+                        android:id="@+id/MC_602_DNK"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_DontKnow" />
+
+            </RadioGroup>
+
+            <TextView
+                style="@style/labels"
+                android:labelFor="@+id/MC_603"
+                android:text="@string/MC_603Gadap" />
+
+            <RadioGroup
+                android:id="@+id/MC_603"
+                style="@style/radiogroup"
+                android:text="@string/MC_603Gadap">
+
+                    <RadioButton
+                        android:id="@+id/MC_603_Yes"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_Yes" />
+
+                    <RadioButton
+                        android:id="@+id/MC_603_No"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_No" />
+
+                    <RadioButton
+                        android:id="@+id/MC_603_DNK"
+                        style="@style/radiobutton"
+                        android:text="@string/MC_DontKnow" />
+
+            </RadioGroup>
+
+            <!-- MC_REM5 - Remarks -->
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_REM1" />
+
+            <EditText
+                android:id="@+id/MC_REM5"
+                style="@style/textInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:digits="1234567890@#().-_,\n\r qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+                android:gravity="top"
+                android:hint="@string/MC_REM1"
+                android:lines="5"
+                android:singleLine="false" />
 
         <!-- = = = = =  END OF FORM FIELDS  = = = = = -->
 
@@ -1473,3 +1580,4 @@
 
     </LinearLayout>
 </ScrollView>
+</FrameLayout>

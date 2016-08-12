@@ -171,6 +171,21 @@ public class FillFormS5Activity extends AppCompatActivity {
     private EditText mc525_18;
     private EditText mc525_19;
     private EditText mc525_20;
+    private EditText mcRem5;
+
+    //    GADAP ADDITIONS
+    private RadioGroup mc601;
+    private RadioButton mc601_yes;
+    private RadioButton mc601_no;
+    private RadioButton mc601_dnk;
+    private RadioGroup mc602;
+    private RadioButton mc602_yes;
+    private RadioButton mc602_no;
+    private RadioButton mc602_dnk;
+    private RadioGroup mc603;
+    private RadioButton mc603_yes;
+    private RadioButton mc603_no;
+    private RadioButton mc603_dnk; 
 
     private String mc501selected; // Spinner option selected
     private Integer mc502selected;
@@ -353,6 +368,22 @@ public class FillFormS5Activity extends AppCompatActivity {
         mc525_18 = (EditText) findViewById(R.id.MC_525_18);
         mc525_19 = (EditText) findViewById(R.id.MC_525_19);
         mc525_20 = (EditText) findViewById(R.id.MC_525_20);
+        mcRem5 = (EditText) findViewById(R.id.MC_REM5);
+
+//        GADAP ADDITIONS
+        mc601 = (RadioGroup) findViewById(R.id.MC_601);
+        mc601_yes = (RadioButton) findViewById(R.id.MC_601_Yes);
+        mc601_no = (RadioButton) findViewById(R.id.MC_601_No);
+        mc601_dnk = (RadioButton) findViewById(R.id.MC_601_DNK);
+        mc602 = (RadioGroup) findViewById(R.id.MC_602);
+        mc602_yes = (RadioButton) findViewById(R.id.MC_602_Yes);
+        mc602_no = (RadioButton) findViewById(R.id.MC_602_No);
+        mc602_dnk = (RadioButton) findViewById(R.id.MC_602_DNK);
+        mc603 = (RadioGroup) findViewById(R.id.MC_603);
+        mc603_yes = (RadioButton) findViewById(R.id.MC_603_Yes);
+        mc603_no = (RadioButton) findViewById(R.id.MC_603_No);
+        mc603_dnk = (RadioButton) findViewById(R.id.MC_603_DNK);
+
 
         fldGrp502 = (ScrollView) findViewById(R.id.fldGrp502);
         fldGrp511 = (LinearLayout) findViewById(R.id.fldGrp511);
@@ -477,12 +508,13 @@ public class FillFormS5Activity extends AppCompatActivity {
         mc519.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == mc519_1.getId()) {
-                    fldGrp519.setVisibility(View.VISIBLE);
-                } else {
+                if (checkedId != -1 && checkedId != mc519_1.getId()) {
                     fldGrp519.setVisibility(View.GONE);
                     mc520.clearCheck();
                     mc521.setSelection(0);
+                } else {
+                    fldGrp519.setVisibility(View.VISIBLE);
+
                 }
             }
         });
@@ -506,7 +538,7 @@ public class FillFormS5Activity extends AppCompatActivity {
                 } else {
                     fldGrp523.setVisibility(View.GONE);
                     mc524CAN.setText(null);
-                    mc524CAN.setText(null);
+                    mc524ACR.setText(null);
                     mc524_99.setChecked(false);
                 }
             }
@@ -815,7 +847,24 @@ public class FillFormS5Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 524 not Answered");
             return false;
         }
-
+        if (mc601.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc601_dnk.setError("6.01: Please select an answer!");
+            Log.d(TAG, "Error Type: 601 not selected");
+            return false;
+        }
+        if (mc602.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc602_dnk.setError("6.02: Please select an answer!");
+            Log.d(TAG, "Error Type: 602 not selected");
+            return false;
+        }
+        if (mc603.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            mc603_dnk.setError("6.03: Please select an answer!");
+            Log.d(TAG, "Error Type: 603 not selected");
+            return false;
+        }
 
 
         return true;
@@ -1034,6 +1083,50 @@ public class FillFormS5Activity extends AppCompatActivity {
                 break;
         }
 
+        //      GADAP ADDITIONS
+
+        switch (mc601.getCheckedRadioButtonId()) {
+
+            case R.id.MC_601_Yes:
+                editor.putString("sp601", "1");
+                break;
+            case R.id.MC_601_No:
+                editor.putString("sp601", "2");
+                break;
+            case R.id.MC_601_DNK:
+                editor.putString("sp601", "99");
+                break;
+
+        }
+
+        switch (mc602.getCheckedRadioButtonId()) {
+
+            case R.id.MC_602_Yes:
+                editor.putString("sp602", "1");
+                break;
+            case R.id.MC_602_No:
+                editor.putString("sp602", "2");
+                break;
+            case R.id.MC_602_DNK:
+                editor.putString("sp602", "99");
+                break;
+
+        }
+
+        switch (mc603.getCheckedRadioButtonId()) {
+
+            case R.id.MC_603_Yes:
+                editor.putString("sp603", "1");
+                break;
+            case R.id.MC_603_No:
+                editor.putString("sp603", "2");
+                break;
+            case R.id.MC_603_DNK:
+                editor.putString("sp603", "99");
+                break;
+
+        }
+
         //Putting values for EditText
         editor.putString("sp501_88", mc501_88.getText().toString());
         editor.putString("sp503Ax", mc503Ax.getText().toString());
@@ -1079,6 +1172,8 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp525_18", mc525_18.getText().toString());
         editor.putString("sp525_19", mc525_19.getText().toString());
         editor.putString("sp525_20", mc525_20.getText().toString());
+        editor.putString("spRem5", mcRem5.getText().toString());
+
 
         editor.apply();
         Log.d(TAG, "Stored sharedValues.");
@@ -1241,6 +1336,10 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc525_18", sharedPref.getString("sp525_18", "00"));
             S5.put("mc525_19", sharedPref.getString("sp525_19", "00"));
             S5.put("mc525_20", sharedPref.getString("sp525_20", "00"));
+            S5.put("mc601", sharedPref.getString("sp601", "00"));
+            S5.put("mc602", sharedPref.getString("sp602", "00"));
+            S5.put("mc603", sharedPref.getString("sp603", "00"));
+            S5.put("mcRem5", sharedPref.getString("spRem5", "00"));
 
             //FormsContract.getInstance().setS5(S5.toString());
 

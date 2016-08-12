@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_grad"
+    tools:context="com.example.hassannaqvi.mccp2.FillFormActivity">
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:background="#d6d6d6"
     android:orientation="vertical">
 
     <TextView
@@ -758,8 +767,21 @@
         </Spinner>
 
 
-        <!-- TODIM_RESP is remaining-->
+        <!-- IM_REM - Remarks -->
+        <TextView
+            style="@style/labels"
+            android:text="@string/MC_REM1" />
 
+        <EditText
+            android:id="@+id/IM_REM"
+            style="@style/textInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:digits="1234567890@#().-_,\n\r qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+            android:gravity="top"
+            android:hint="@string/MC_REM1"
+            android:lines="5"
+            android:singleLine="false" />
         <!--  = = = = =  END OF FORM FIELDS  = = = = = -->
 
 
@@ -793,3 +815,4 @@
     </LinearLayout>
 </ScrollView>
 </LinearLayout>
+</FrameLayout>

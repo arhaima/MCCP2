@@ -62,6 +62,7 @@ public class FillFormS2Activity extends AppCompatActivity {
     private EditText mc2072m;
     private EditText mc2073w;
     private EditText mc2073m;
+    private EditText mcRem2;
     private LinearLayout mc207;
 
     // Variable declarations for All Spinner Selected Values
@@ -117,6 +118,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         mc2072m = (EditText) findViewById(R.id.MC_207_2M);
         mc2073w = (EditText) findViewById(R.id.MC_207_3W);
         mc2073m = (EditText) findViewById(R.id.MC_207_3M);
+        mcRem2 = (EditText) findViewById(R.id.MC_REM2);
         mc207 = (LinearLayout) findViewById(R.id.MC_207);
 
 
@@ -277,6 +279,8 @@ public class FillFormS2Activity extends AppCompatActivity {
                     imm.hideSoftInputFromWindow(mc207.getWindowToken(), 0);
                 } else {
                     mc207.setVisibility(View.GONE);
+
+
                     mc2071m.setText(null);
                     mc2071w.setText(null);
                     mc2072m.setText(null);
@@ -374,6 +378,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         editor.putString("sp2072m", mc2072m.getText().toString()); // EditText Living Duration
         editor.putString("sp2073w", mc2073w.getText().toString()); // EditText Living Duration
         editor.putString("sp2073m", mc2073m.getText().toString()); // EditText Living Duration
+        editor.putString("spRem2", mcRem2.getText().toString()); // EditText Living Duration
 
         // -- RadioGroups
         switch (mc206selected) {
@@ -423,6 +428,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             S2.put("mc2072m", sharedPref.getString("sp2072m", "00"));
             S2.put("mc2073w", sharedPref.getString("sp2073w", "00"));
             S2.put("mc2073m", sharedPref.getString("sp2073m", "00"));
+            S2.put("mcRem2", sharedPref.getString("spRem2", "00"));
 
             Log.d(TAG, S2.toString());
 
@@ -543,7 +549,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             return false;
         }
 
-        if (mc201edu.getText().toString().isEmpty() || mc201edu.getText().toString() == null) {
+        if (mc201edu.getText().toString().isEmpty() || mc201edu.getText().toString() == null || Integer.valueOf(mc201edu.getText().toString()) < 1) {
             Toast.makeText(getApplicationContext(), "Education not Given!", Toast.LENGTH_SHORT).show();
             mc201edu.setError("Education not Given!");
             Log.d(TAG, "Error Type: 201edu Empty");
@@ -573,7 +579,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             return false;
         }
 
-        if (mc202edu.getText().toString().isEmpty() || mc202edu.getText().toString() == null) {
+        if (mc202edu.getText().toString().isEmpty() || mc202edu.getText().toString() == null || Integer.valueOf(mc202edu.getText().toString()) < 1) {
             Toast.makeText(getApplicationContext(), "Education not Given!", Toast.LENGTH_SHORT).show();
             mc202edu.setError("Education not Given!");
             Log.d(TAG, "Error Type: 202edu Empty");
@@ -735,7 +741,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 2073m");
             return false;
         }
-        if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2072m.getText().toString()) > MONTH_LIMIT) {
+        if (!mc2072m.getText().toString().isEmpty() && Integer.valueOf(mc2072m.getText().toString()) > MONTH_LIMIT) {
 
             Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
             mc2072m.setError("Gestational age in months is over limit!");

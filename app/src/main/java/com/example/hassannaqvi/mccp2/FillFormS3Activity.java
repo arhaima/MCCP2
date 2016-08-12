@@ -56,6 +56,7 @@ public class FillFormS3Activity extends AppCompatActivity {
     private EditText imey;
     private EditText imem;
     private EditText imed;
+    private EditText imRem;
     private Spinner imf;
     private Spinner img;
     private Spinner imh;
@@ -166,6 +167,7 @@ public class FillFormS3Activity extends AppCompatActivity {
         imey = (EditText) findViewById(R.id.IM_EY);
         imem = (EditText) findViewById(R.id.IM_EM);
         imed = (EditText) findViewById(R.id.IM_ED);
+        imRem = (EditText) findViewById(R.id.IM_ED);
         imf = (Spinner) findViewById(R.id.IM_F);
         img = (Spinner) findViewById(R.id.IM_G);
         imh = (Spinner) findViewById(R.id.IM_H);
@@ -392,6 +394,7 @@ public class FillFormS3Activity extends AppCompatActivity {
         editor.putString("spimey", imey.getText().toString());
         editor.putString("spimem", imem.getText().toString());
         editor.putString("spimed", imed.getText().toString());
+        editor.putString("spimRem", imRem.getText().toString());
         editor.putString("spimf", imfselected.toString());
         editor.putString("spimg", imgselected.toString());
         editor.putString("spimh", imhselected.toString());
@@ -466,6 +469,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             imJson.put("imey", sharedPref.getString("spimey", "00"));
             imJson.put("imem", sharedPref.getString("spimem", "00"));
             imJson.put("imed", sharedPref.getString("spimed", "00"));
+            imJson.put("imRem", sharedPref.getString("spimRem", "00"));
             imJson.put("imf", sharedPref.getString("spimf", "00"));
             imJson.put("img", sharedPref.getString("spimg", "00"));
             imJson.put("imh", sharedPref.getString("spimh", "00"));

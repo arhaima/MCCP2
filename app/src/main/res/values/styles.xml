@@ -1,15 +1,29 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="@style/Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:textViewStyle">@style/UrduTextViewStyle</item>
         <item name="buttonStyle">@style/UrduButtonStyle</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="actionBarStyle">@style/ActionBarTheme</item>
 
+    </style>
 
+    <style name="SpinnerItem">
+        <item name="android:textAppearance">@style/SpinnerItemText</item>
+    </style>
+
+    <style name="SpinnerItemText">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="ActionBarTheme" parent="Widget.AppCompat.Light.ActionBar">
+        <item name="android:background">@drawable/background_grad</item>
+        <item name="background">@drawable/background_grad</item>
     </style>
 
 
@@ -29,7 +43,7 @@
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:textSize">24sp</item>
-        <item name="android:padding">12dp</item>
+        <item name="android:padding">16dp</item>
 
     </style>
 
@@ -42,6 +56,7 @@
         <item name="android:textColor">#ff1e1e</item>
         <item name="android:textSize">24sp</item>
         <item name="android:visibility">invisible</item>
+        <item name="android:padding">16dp</item>
     </style>
 
     <style name="sub">
@@ -53,22 +68,41 @@
         <item name="android:textColor">#6d6d6d</item>
         <item name="android:textSize">20sp</item>
         <item name="android:visibility">invisible</item>
+        <item name="android:padding">16dp</item>
+
     </style>
 
     <style name="textInput">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
         <item name="android:textSize">24sp</item>
+        <item name="android:background">#efefef</item>
+        <item name="android:padding">16dp</item>
     </style>
 
     <style name="spinner">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#ff0000</item>
+        <item name="android:background">#efefef</item>
+        <item name="android:padding">16dp</item>
 
+
+    </style>
+
+    <style name="spinnerItemStyle">
+        <item name="android:padding">10dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="spinnerDropDownItemStyle">
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">#FFFFFF</item>
     </style>
 
 
@@ -77,7 +111,9 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">right</item>
         <item name="android:orientation">vertical</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:background">#efefef</item>
+        <item name="android:padding">16dp</item>
 
     </style>
 
@@ -86,23 +122,27 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
         <item name="android:drawableRight">@android:drawable/btn_radio</item>
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:background">#efefef</item>
+        <item name="android:padding">16dp</item>
     </style>
 
     <style name="buttons">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">24dp</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:layout_width">wrap_content</item>
-
+        <item name="android:padding">16dp</item>
     </style>
 
     <style name="checkbox">
         <item name="android:layout_gravity">right</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
+        <item name="android:textSize">24sp</item>
         <item name="android:drawableRight">?android:attr/listChoiceIndicatorMultiple</item>
-        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:background">#efefef</item>
+        <item name="android:padding">16dp</item>
 
 
     </style>

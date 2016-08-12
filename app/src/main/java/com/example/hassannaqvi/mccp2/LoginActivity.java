@@ -6,10 +6,12 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -34,8 +36,11 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public ArrayList<String> values;
     Spinner spSP;
     JSONObject listText;
+    EditText txtUserName;
+    EditText txtPassword;
     private Spinner spUC;
     private JSONObject listBKText;
+    private Button showpassword;
 
     public static void longInfo(String str) {
         if (str.length() > 4000) {
@@ -47,11 +52,13 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // TODO Auto-generated method stub
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
         spSP = (Spinner) findViewById(R.id.spinner1);
+        txtUserName = (EditText) findViewById(R.id.email);
+        txtPassword = (EditText) findViewById(R.id.password);
+        showpassword = (Button) findViewById(R.id.ShowPassword);
 
 
         File prefsdir = new File(getApplicationInfo().dataDir, "shared_prefs");
@@ -92,6 +99,20 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 Log.d("TAG: ", "End");
                 str.concat("\r\n\r\n");
                 writeToFile(str, preffile);
+
+                showpassword.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (txtPassword.getTransformationMethod() != null) {
+                            txtPassword.setTransformationMethod(null);
+                            showpassword.setText("Hide Password");
+                        } else {
+                            txtPassword.setTransformationMethod(new PasswordTransformationMethod());
+                            showpassword.setText("Show Password");
+                        }
+                    }
+
+                });
             }
 
             private void writeToFile(String data, String fileNm) {
@@ -157,8 +178,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
 
     public void loginUser(View view) {
-        final EditText txtUserName = (EditText) findViewById(R.id.email);
-        final EditText txtPassword = (EditText) findViewById(R.id.password);
+
 
         String username = txtUserName.getText().toString();
         String password = txtPassword.getText().toString();

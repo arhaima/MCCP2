@@ -93,8 +93,11 @@ public class syncForms extends AsyncTask<Void, Void, String> {
                 jsonParam.put("mc104", fc.get104());
                 jsonParam.put("mc105", fc.get105());
                 jsonParam.put("mc106", fc.get106());
+                jsonParam.put("mc106", fc.get106());
+                jsonParam.put("mcAdd", fc.getAdd());
                 jsonParam.put("mc107", fc.get107());
                 jsonParam.put("mc108", fc.get108());
+                jsonParam.put("mcRem1", fc.getRem1());
                 jsonParam.put("mc109", fc.get109());
                 jsonParam.put("mcGPSLat", fc.getGPSLat());
                 jsonParam.put("mcGPSLng", fc.getGPSLng());

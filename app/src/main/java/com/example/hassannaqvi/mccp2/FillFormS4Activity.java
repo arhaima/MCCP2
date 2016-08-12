@@ -192,6 +192,7 @@ public class FillFormS4Activity extends AppCompatActivity {
     private Spinner mc415;
     private EditText mc415x;
     private EditText mc405ax;
+    private EditText mcRem4;
 
     private String mc403Selected;
     private String mc409Selected;
@@ -318,6 +319,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         mc414_yes = (RadioButton) findViewById(R.id.MC_414_Yes);
         mc415 = (Spinner) findViewById(R.id.MC_415);
         mc415x = (EditText) findViewById(R.id.MC_415X);
+        mcRem4 = (EditText) findViewById(R.id.MC_REM4);
 
         fldGrp401 = (LinearLayout) findViewById(R.id.fldGrp401);
         fldGrp406 = (LinearLayout) findViewById(R.id.fldGrp406);
@@ -491,6 +493,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                 } else {
                     fldGrp406.setVisibility(View.GONE);
                     mc407_1.setChecked(false);
+                    mc407_2.setChecked(false);
                     mc407_3.setChecked(false);
                     mc407_4.setChecked(false);
                     mc407_5.setChecked(false);
@@ -873,6 +876,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         editor.putString("sp410x", mc410x.getText().toString());
         editor.putString("sp410Bx", mc410Bx.getText().toString());
         editor.putString("sp415x", mc415x.getText().toString());
+        editor.putString("spRem4", mcRem4.getText().toString());
 
 
         editor.commit();
@@ -963,6 +967,7 @@ public class FillFormS4Activity extends AppCompatActivity {
             S4.put("mc414", sharedPref.getString("sp414", "00"));
             S4.put("mc415", sharedPref.getString("sp415", "00"));
             S4.put("mc415x", sharedPref.getString("sp415x", "00"));
+            S4.put("mcRem4", sharedPref.getString("spRem4", "00"));
 
 
             Log.d(TAG, S4.toString());
@@ -1039,8 +1044,8 @@ public class FillFormS4Activity extends AppCompatActivity {
                 || mc405a99.isChecked() || mc405a88.isChecked()) {
         } else {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc405_88.setError("Please select an answer!");
-            Log.d(TAG, "Error Type: 405 not selected");
+            mc405a88.setError("Please select an answer!");
+            Log.d(TAG, "Error Type: 405a not selected");
             return false;
         }
         if (mc406.getCheckedRadioButtonId() == -1) {

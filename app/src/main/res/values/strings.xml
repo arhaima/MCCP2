@@ -580,8 +580,8 @@
     <!--  - Strings related to login - -->
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_sign_in">Login</string>
+    <string name="action_sign_in_short">Login</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
@@ -607,6 +607,11 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="CF_Q5">تشنج کا ٹیکہ</string>
+    <string name="MC_ADD">پتہ</string>
+    <string name="MC_REM1">ریمارکس</string>
+    <string name="MC_601Gadap">کیا پچھلے 1 سال کے دوران محکمہ صحت کا کوئی کارکن کے گھر آیا تھا</string>
+    <string name="MC_602Gadap">کیا آپ کے بچے کو گزشتہ سال کے دوران گھر یا گھر کے آس پاس محکمہ صحت کی طرف سے IPV کا ٹیکہ لگا یا گیا تھا ۔</string>
+    <string name="MC_603Gadap">کیا آپ کے بچے کو محکمہ صحت کی طرف سے گھر یا گھر کے آس پاس گزشتہ 1 سال کے دوران کوئی بھی ٹیکہ لگا یا گیا ہے</string>
 
 
     <!--ADDITIONAL CHANGES-->
