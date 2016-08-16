@@ -46,7 +46,6 @@ public class FillFormActivity extends AppCompatActivity {
     private EditText mc104uc;
     private TextView mc104ucNm;*/
     private EditText mc105cluster;
-    private EditText mc105clusterTVI;
     private TextView mc105clusterNm;
     private EditText mc106hhno;
     private EditText mcAdd;
@@ -94,7 +93,6 @@ public class FillFormActivity extends AppCompatActivity {
         mc104ucNm = (TextView) findViewById(R.id.MC_104UCName);
 */
         mc105cluster = (EditText) findViewById(R.id.MC_105);
-        mc105clusterTVI = (EditText) findViewById(R.id.MC_105TVI);
    /*     if (Cluster != null) {
             mc105cluster.setText(Cluster);
             mc105cluster.setEnabled(false);
@@ -407,9 +405,8 @@ public class FillFormActivity extends AppCompatActivity {
 /*
         editor.putString("sp104", mc104uc.getText().toString());
 */
-        editor.putString("sp105", mc105cluster.getText().toString() + "-" + mc105clusterTVI.getText().toString());
+        editor.putString("sp105", mc105cluster.getText().toString());
         Cluster = mc105cluster.getText().toString();
-        ClusterTVI = mc105clusterTVI.getText().toString();
         editor.putString("sp106", mc106hhno.getText().toString() + "-" + mcExt.getSelectedItem().toString());
         editor.putString("spDeviceID", Settings.Secure.getString(getApplicationContext().getContentResolver(),
                 Settings.Secure.ANDROID_ID));

@@ -666,6 +666,13 @@ public class FillFormS3Activity extends AppCompatActivity {
             return false;
         }
 
+        if (imj.getCheckedRadioButtonId() == -1) {
+            Toast.makeText(getApplicationContext(), "Please Select an answer", Toast.LENGTH_SHORT).show();
+            imj_no.setError("Please Select an answer");
+            Log.d(TAG, "Error Type: imj empty");
+            return false;
+        }
+        
         if (imjb.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) imjb.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -826,6 +833,9 @@ public class FillFormS3Activity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select an answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select Penta 3.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: P3 empty");
+            return false;
         }
         if (p_3src.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) p_3src.getSelectedView();

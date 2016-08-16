@@ -771,7 +771,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             return false;
         }
 
-        if (mc513_7.isChecked() && mc516.getSelectedItemPosition() == 0) {
+        if (!mc513_7.isChecked() && mc516.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc516.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -1126,6 +1126,7 @@ public class FillFormS5Activity extends AppCompatActivity {
                 break;
 
         }
+
 
         //Putting values for EditText
         editor.putString("sp501_88", mc501_88.getText().toString());

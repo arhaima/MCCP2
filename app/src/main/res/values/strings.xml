@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MCCP2</string>
+    <string name="app_name">MCCP2 - GADAP</string>
     <string name="splash_header">MCCP - Phase 2</string>
     <string name="fill_form">Fill Survey Form</string>
     <string name="edit_forms">Edit Stored Form</string>

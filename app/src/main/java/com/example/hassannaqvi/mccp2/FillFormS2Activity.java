@@ -14,6 +14,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -64,6 +65,9 @@ public class FillFormS2Activity extends AppCompatActivity {
     private EditText mc2073m;
     private EditText mcRem2;
     private LinearLayout mc207;
+    private TableRow tblRow02;
+    private TableRow tblRow03;
+    
 
     // Variable declarations for All Spinner Selected Values
     private String mc201typeSelected;
@@ -120,7 +124,8 @@ public class FillFormS2Activity extends AppCompatActivity {
         mc2073m = (EditText) findViewById(R.id.MC_207_3M);
         mcRem2 = (EditText) findViewById(R.id.MC_REM2);
         mc207 = (LinearLayout) findViewById(R.id.MC_207);
-
+        tblRow02 = (TableRow) findViewById(R.id.tblRow02);
+        tblRow03 = (TableRow) findViewById(R.id.tblRow03); 
 
         // Validation for age of Respondent (MIN_AGE_LIMIT = 18)
         mc201age.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -678,6 +683,21 @@ public class FillFormS2Activity extends AppCompatActivity {
             mc205mm.setError("Living duration not Given!");
             Log.d(TAG, "Error Type: 205mm && 205yy Both Empty");
             return false;
+        } else {
+            // Do not accept 0 as months
+            if (mc205mm.getText().toString().equals('0')) {
+                Toast.makeText(getApplicationContext(), "Living duration not Correct!", Toast.LENGTH_SHORT).show();
+                mc205mm.setError("Living duration not Correct!");
+                Log.d(TAG, "Error Type: 205mm not correct");
+                return false;
+            }
+            // Do not accept 0 as years
+            if (mc205mm.getText().toString().equals('0')) {
+                Toast.makeText(getApplicationContext(), "Living duration not Correct!", Toast.LENGTH_SHORT).show();
+                mc205yy.setError("Living duration not Correct!");
+                Log.d(TAG, "Error Type: 205yy not correct");
+                return false;
+            }
         }
 
         // 206 RadioGroup

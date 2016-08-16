@@ -1042,10 +1042,12 @@ public class FillFormS4Activity extends AppCompatActivity {
         }
         if (mc405a1.isChecked() || mc405a2.isChecked() || mc405a3.isChecked() || mc405a4.isChecked()
                 || mc405a99.isChecked() || mc405a88.isChecked()) {
+            // Do nothing
         } else {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc405a88.setError("Please select an answer!");
             Log.d(TAG, "Error Type: 405a not selected");
+
             return false;
         }
         if (mc406.getCheckedRadioButtonId() == -1) {

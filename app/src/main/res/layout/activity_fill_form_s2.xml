@@ -351,7 +351,7 @@
             android:stretchColumns="1"
             android:visibility="gone">
 
-        <TableRow>
+            <TableRow android:id="@+id/tblRow01">
             <TextView
                 style="@style/labels"
                 android:layout_width="match_parent"
@@ -380,7 +380,8 @@
 
 
         </TableRow>
-            <TableRow>
+
+            <TableRow android:id="@+id/tblRow02">
 
 
 
@@ -403,7 +404,8 @@
 
 
         </TableRow>
-            <TableRow>
+
+            <TableRow android:id="@+id/tblRow03">
 
             <EditText
                 android:id="@+id/MC_207_3M"
