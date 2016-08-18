@@ -295,6 +295,7 @@ public class FillFormActivity extends AppCompatActivity {
 
         if (mc105cluster.getText().toString().isEmpty() || mc105cluster.getText().toString() == null) {
             mc105cluster.setError("Cluster Number not given!");
+            Toast.makeText(getApplicationContext(), "Please enter Cluster Numner\r\n" + getString(R.string.MC_105), Toast.LENGTH_LONG).show();
 
             Log.d(TAG, "Error Type: 105");
             return false;
@@ -311,29 +312,33 @@ public class FillFormActivity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select an option");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select HouseHold Type.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select HouseHold Type.\r\n" + getString(R.string.MC_106), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 106Ext mismatch");
             return false;
         }
         if (mc106hhno.getText().toString().isEmpty() || mc106hhno.getText().toString() == null) {
             mc106hhno.setError("Household Number not given!");
+            Toast.makeText(getApplicationContext(), "Please enter HouseHold Number.\r\n" + getString(R.string.MC_106), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 106");
             return false;
         }
 
         if (mcAdd.getText().toString().isEmpty()) {
             mcAdd.setError("Address not given!");
+            Toast.makeText(getApplicationContext(), "Please enter Address.\r\n" + getString(R.string.MC_ADD), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: Address");
             return false;
         }
 
         if (mc107Selected == -1) {
             mc107epimark_unclear.setError("Please select an answer!");
+            Toast.makeText(getApplicationContext(), "Please select \r\n" + getString(R.string.MC_107), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 107");
             return false;
         }
         if (mc108Selected == -1) {
             mc108permission_close.setError("Please select an answer!");
+            Toast.makeText(getApplicationContext(), "Please select permission.\r\n" + getString(R.string.MC_108), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 108 "+ mc108Selected );
             return false;
         }

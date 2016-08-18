@@ -535,7 +535,7 @@ public class FillFormS3Activity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Validating Form Values...", Toast.LENGTH_SHORT).show();
 
         if (ima.getText().toString().isEmpty() || ima.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Name not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Name not Given!\r\n" + getString(R.string.IM_A), Toast.LENGTH_SHORT).show();
 
             ima.setError("Name not Given!");
             Log.d(TAG, "Error Type: ima Empty");
@@ -543,7 +543,7 @@ public class FillFormS3Activity extends AppCompatActivity {
         }
 
         if (imaf.getText().toString().isEmpty() || imaf.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Father's Name not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Father's Name not Given!\r\n" + getString(R.string.IM_AF), Toast.LENGTH_SHORT).show();
             imaf.setError("Father's Name not Given!");
             Log.d(TAG, "Error Type: imaf Empty");
             return false;
@@ -556,7 +556,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select a Child's Gender");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select Gender.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select Gender.\r\n" + getString(R.string.IM_B), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: imb empty");
             return false;
         }
@@ -586,13 +586,13 @@ public class FillFormS3Activity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select an Answer");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select an answer.\r\n" + getString(R.string.IM_C), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: imc empty");
             return false;
         }
 
         if (image.getCheckedRadioButtonId() == -1) {
-            Toast.makeText(getApplicationContext(), "Please Select Age Type", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please Select Age Type.", Toast.LENGTH_SHORT).show();
             imagen.setError("Please Select Age Type");
             Log.d(TAG, "Please Select Age Type");
             return false;

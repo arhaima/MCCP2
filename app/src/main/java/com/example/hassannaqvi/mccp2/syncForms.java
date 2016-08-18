@@ -93,7 +93,6 @@ public class syncForms extends AsyncTask<Void, Void, String> {
                 jsonParam.put("mc104", fc.get104());
                 jsonParam.put("mc105", fc.get105());
                 jsonParam.put("mc106", fc.get106());
-                jsonParam.put("mc106", fc.get106());
                 jsonParam.put("mcAdd", fc.getAdd());
                 jsonParam.put("mc107", fc.get107());
                 jsonParam.put("mc108", fc.get108());
@@ -123,17 +122,20 @@ public class syncForms extends AsyncTask<Void, Void, String> {
                     jsonParam.put("s5", "");
 
                 }
-                if (fc.getS6() != null) {
+
+                String Comment = "Removed SECTION 6 For Pre-Camp Survey";
+
+                /*if (fc.getS6() != null) {
                     jsonParam.put("s6", fc.getS6());
                 } else {
                     jsonParam.put("s6", "");
-                }
+                }*/
                 if (fc.getEnding() != null) {
                     jsonParam.put("ending", fc.getEnding());
                 } else {
                     jsonParam.put("ending", "");
                 }
-
+                jsonParam.put("Hassan", "Hello!");
                 jsonSync.put(jsonParam);
             }
             wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");

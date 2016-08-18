@@ -309,7 +309,7 @@ public class FillFormS2Activity extends AppCompatActivity {
     public void startFormS3(View view) {
 
         // Make changes to String according to Section.
-        Toast.makeText(getApplicationContext(), "Processing Section 2...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Processing Section 2...", Toast.LENGTH_LONG).show();
 
 
         // Initializing All Spinner Selected values from Form-Fields-Arrays _value (NOT _list). 
@@ -318,7 +318,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         mc202ocuSelected = getResources().getStringArray(R.array.MC_OCU_value)[mc202ocu.getSelectedItemPosition()];
 
         if (formValidation()) {
-            Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_LONG).show();
 
             StoreTempValues();
 
@@ -334,7 +334,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             // Start Next Section
             startActivity(s2_form_intent);
         } else {
-            Toast.makeText(getApplicationContext(), "Form Validation Failed!" + mcFrmNo, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Form Validation Failed!" + mcFrmNo, Toast.LENGTH_LONG).show();
 
 
         }
@@ -344,7 +344,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
     private void StoreTempValues() {
 
-        Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_LONG).show();
 
         SharedPreferences sharedPref = getSharedPreferences("MC_" + formId, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
@@ -446,7 +446,7 @@ public class FillFormS2Activity extends AppCompatActivity {
                 Log.d(TAG, "Updating Section 2 of the Form to DB...");
                 newFormId = db.updateForm(formContractS2);
             } catch (SQLiteException e) {
-                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
 
                 e.printStackTrace();
             }*/
@@ -460,12 +460,12 @@ public class FillFormS2Activity extends AppCompatActivity {
     }
 
     private boolean formValidation() {
-        Toast.makeText(getApplicationContext(), "Validating Form Values...", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(), "Validating Form Values...", Toast.LENGTH_LONG).show();
 
         // Field By Field Verification
         // 201name EditText
         if (mc201nm.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Name is Empty...", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Name is Empty...\r\n" + getString(R.string.MC_201NM), Toast.LENGTH_LONG).show();
             mc201nm.setError("Name not Given!");
             Log.d(TAG, "Error Type: 201nm  missing");
             return false;
@@ -477,7 +477,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select a Gender");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select Gender.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select Gender.\r\n" + getString(R.string.MC_201GNDR), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 201gndr mismatch");
             return false;
         }
@@ -487,7 +487,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select a Gender");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select Gender.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select Gender.\r\n" + getString(R.string.MC_202GNDR), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 202gndr mismatch");
             return false;
         }
@@ -495,7 +495,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         // 201Gender Spinner
         if (mc201gndr.getSelectedItem().toString().equals("Male") && mc201ocuSelected.toString().equals("1")) {
-            Toast.makeText(getApplicationContext(), "Please select correct Profession Type.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please select correct Profession Type.\r\n" + getString(R.string.MC_201NM), Toast.LENGTH_LONG).show();
             TextView errorText = (TextView) mc201ocu.getSelectedView();
             errorText.setError(" ");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -507,7 +507,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         // 202Gender Spinner
         if (mc202gndr.getSelectedItem().toString().equals("Male") && mc202ocuSelected.toString().equals("1")) {
-            Toast.makeText(getApplicationContext(), "Please select correct Profession Type.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please select correct Profession Type.\r\n" + getString(R.string.MC_202OCU), Toast.LENGTH_LONG).show();
             TextView errorText = (TextView) mc202ocu.getSelectedView();
             errorText.setError(" ");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
@@ -519,7 +519,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         // 202Occupation Spinner
         if (mc201gndr.getSelectedItem().toString().equals("Male") && mc201type.getSelectedItem().toString().equals("Mother")) {
-            Toast.makeText(getApplicationContext(), "Please select correct Relation Type.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please select correct Relation Type.\r\n" + getString(R.string.MC_201GNDR), Toast.LENGTH_LONG).show();
             mc201type_error.setVisibility(View.VISIBLE);
             TextView errorText = (TextView) mc201gndr.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -535,27 +535,27 @@ public class FillFormS2Activity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select a Relation");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select Gender.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select Gender.\r\n" + getString(R.string.MC_201TYPE), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 201gndr mismatch");
             return false;
         }
 
         if (!mc201age.getText().toString().isEmpty() && Integer.valueOf(mc201age.getText().toString()) < AGE_LIMIT) {
-            Toast.makeText(getApplicationContext(), "Too young to answer! Must be atleast " + AGE_LIMIT, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Too young to answer! Must be atleast " + AGE_LIMIT, Toast.LENGTH_LONG).show();
             mc201age.setError("Too young to answer! Must be atleast " + AGE_LIMIT);
             Log.d(TAG, "Error Type: Too young");
             return false;
         }
 
         if (mc201age.getText().toString().isEmpty() || mc201age.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Age not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Age not Given!\r\n" + getString(R.string.MC_201AGE), Toast.LENGTH_LONG).show();
             mc201age.setError("Age not Given!");
             Log.d(TAG, "Error Type: 201age Empty");
             return false;
         }
 
         if (mc201edu.getText().toString().isEmpty() || mc201edu.getText().toString() == null || Integer.valueOf(mc201edu.getText().toString()) < 1) {
-            Toast.makeText(getApplicationContext(), "Education not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Education not Given!\r\n" + getString(R.string.MC_201EDU), Toast.LENGTH_LONG).show();
             mc201edu.setError("Education not Given!");
             Log.d(TAG, "Error Type: 201edu Empty");
             return false;
@@ -565,27 +565,27 @@ public class FillFormS2Activity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select an Occupation");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select an Occupation", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select an Occupation.\r\n" + getString(R.string.MC_201OCU), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 201ocu empty");
             return false;
         }
 
         if (mc202nm.getText().toString().isEmpty() || mc202nm.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Name not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Name not Given!\r\n" + getString(R.string.MC_202NM), Toast.LENGTH_LONG).show();
             mc202nm.setError("Name not Given!");
             Log.d(TAG, "Error Type: 202nm Empty");
             return false;
         }
 
         if (mc202age.getText().toString().isEmpty() || mc202age.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Age not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Age not Given!\r\n" + getString(R.string.MC_202AGE), Toast.LENGTH_LONG).show();
             mc202age.setError("Age not Given!");
             Log.d(TAG, "Error Type: 202age Empty");
             return false;
         }
 
         if (mc202edu.getText().toString().isEmpty() || mc202edu.getText().toString() == null || Integer.valueOf(mc202edu.getText().toString()) < 1) {
-            Toast.makeText(getApplicationContext(), "Education not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Education not Given!\r\n" + getString(R.string.MC_202EDU), Toast.LENGTH_LONG).show();
             mc202edu.setError("Education not Given!");
             Log.d(TAG, "Error Type: 202edu Empty");
             return false;
@@ -595,12 +595,12 @@ public class FillFormS2Activity extends AppCompatActivity {
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select an Occupation");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select an Occupation.", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please select an Occupation.\r\n" + getString(R.string.MC_202OCU), Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: 202ocu empty");
             return false;
         }
         if (mc203tot.getText().toString().isEmpty() || mc203tot.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Total members not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Total members not Given!", Toast.LENGTH_LONG).show();
             mc203tot.setError("Total members not Given!");
             Log.d(TAG, "Error Type: 203tot Empty");
             return false;
@@ -608,7 +608,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         if (!mc203tot.getText().toString().isEmpty() && !mc203m.getText().toString().isEmpty() && !mc203f.getText().toString().isEmpty()) {
             if (Integer.valueOf(mc203m.getText().toString()) + Integer.valueOf(mc203f.getText().toString()) != Integer.valueOf(mc203tot.getText().toString())) {
-                Toast.makeText(getApplicationContext(), "Total members do not match!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Total members do not match!", Toast.LENGTH_LONG).show();
                 mc203tot.setError("Total members do not match!");
                 Log.d(TAG, "Error Type: 203tot do not match.");
                 return false;
@@ -616,7 +616,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         }
         if (!mc204t.getText().toString().isEmpty() && !mc204m.getText().toString().isEmpty() && !mc204f.getText().toString().isEmpty()) {
             if (Integer.valueOf(mc204m.getText().toString()) + Integer.valueOf(mc204f.getText().toString()) != Integer.valueOf(mc204t.getText().toString())) {
-                Toast.makeText(getApplicationContext(), "Total children do not match!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Total children do not match!", Toast.LENGTH_LONG).show();
                 mc204t.setError("Total children do not match!");
                 Log.d(TAG, "Error Type: 204t do not match");
                 return false;
@@ -624,27 +624,27 @@ public class FillFormS2Activity extends AppCompatActivity {
         }
 
         if (mc203m.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Male count not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Male count not Given!", Toast.LENGTH_LONG).show();
             mc203m.setError("Male count not Given!");
             Log.d(TAG, "Error Type: 203m Empty");
             return false;
         }
 
         if (mc203f.getText().toString().isEmpty()) {
-            Toast.makeText(getApplicationContext(), "Female count not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Female count not Given!", Toast.LENGTH_LONG).show();
             mc203f.setError("Female count not Given!");
             Log.d(TAG, "Error Type: 203f Empty");
             return false;
         }
 
         if (mc204m.getText().toString().isEmpty() || mc204m.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Boy count not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Boy count not Given!", Toast.LENGTH_LONG).show();
             mc204m.setError("Boy count not Given!");
             Log.d(TAG, "Error Type: 204m Empty");
             return false;
         }
         if (mc204f.getText().toString().isEmpty() || mc204f.getText().toString() == null) {
-            Toast.makeText(getApplicationContext(), "Girl count not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Girl count not Given!", Toast.LENGTH_LONG).show();
             mc204f.setError("Girl count not Given!");
             Log.d(TAG, "Error Type: 204f Empty");
             return false;
@@ -652,48 +652,48 @@ public class FillFormS2Activity extends AppCompatActivity {
 
 
         if (Integer.valueOf(mc204t.getText().toString()) > Integer.valueOf(mc203tot.getText().toString()) - 1) {
-            Toast.makeText(getApplicationContext(), "Total Children cannot be more than Total Members!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Total Children cannot be more than Total Members!", Toast.LENGTH_LONG).show();
             mc204t.setError("Total Children cannot be more than Total Members!");
             Log.d(TAG, "Error Type: 204t more than 203tot");
             return false;
         }
 
         if (Integer.valueOf(mc204m.getText().toString()) > Integer.valueOf(mc203m.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "Total Male U5 Children cannot be more than Total Male Members!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Total Male U5 Children cannot be more than Total Male Members!", Toast.LENGTH_LONG).show();
             mc204m.setError("Total Male U5 Children cannot be more than Total Male Members!");
             Log.d(TAG, "Error Type: 204m more than 203m");
             return false;
         }
 
         if (Integer.valueOf(mc204f.getText().toString()) > Integer.valueOf(mc203f.getText().toString())) {
-            Toast.makeText(getApplicationContext(), "Total Female U5 Children cannot be more than Total Female Members!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Total Female U5 Children cannot be more than Total Female Members!", Toast.LENGTH_LONG).show();
             mc204f.setError("Total Female U5 Children cannot be more than Total Female Members!");
             Log.d(TAG, "Error Type: 204f more than 203f");
             return false;
         }
         if (!mc204t.getText().toString().isEmpty() && Integer.valueOf(mc204t.getText().toString()) < 1) {
-            Toast.makeText(getApplicationContext(), "Number of Children not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Number of Children not Given!", Toast.LENGTH_LONG).show();
             mc204t.setError("Number of Children not Given!");
             Log.d(TAG, "Error Type: 204t Empty");
             return false;
         }
 
         if ((mc205mm.getText().toString().isEmpty()) && (mc205yy.getText().toString().isEmpty())) {
-            Toast.makeText(getApplicationContext(), "Living duration not Given!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Living duration not Given!", Toast.LENGTH_LONG).show();
             mc205mm.setError("Living duration not Given!");
             Log.d(TAG, "Error Type: 205mm && 205yy Both Empty");
             return false;
         } else {
             // Do not accept 0 as months
             if (mc205mm.getText().toString().equals('0')) {
-                Toast.makeText(getApplicationContext(), "Living duration not Correct!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Living duration not Correct!", Toast.LENGTH_LONG).show();
                 mc205mm.setError("Living duration not Correct!");
                 Log.d(TAG, "Error Type: 205mm not correct");
                 return false;
             }
             // Do not accept 0 as years
             if (mc205mm.getText().toString().equals('0')) {
-                Toast.makeText(getApplicationContext(), "Living duration not Correct!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Living duration not Correct!", Toast.LENGTH_LONG).show();
                 mc205yy.setError("Living duration not Correct!");
                 Log.d(TAG, "Error Type: 205yy not correct");
                 return false;
@@ -705,7 +705,7 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         // -- Check at least one RadioButton selected (-1 = None Selected)
         if (mc206selected == -1) {
-            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Please select an answer!\r\n" + getString(R.string.MC_206), Toast.LENGTH_LONG).show();
             mc206_no.setError("Please select an answer!");
             Log.d(TAG, "Error Type: 206 not selected");
             return false;
@@ -718,7 +718,7 @@ public class FillFormS2Activity extends AppCompatActivity {
                             && (mc2072m.toString().isEmpty() && mc2072w.toString().isEmpty())
                             && (mc2073m.toString().isEmpty() && mc2073w.toString().isEmpty())
                     ) {
-                Toast.makeText(getApplicationContext(), "Please answer!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Please answer!\r\n" + getString(R.string.MC_207), Toast.LENGTH_LONG).show();
                 mc2071m.setError("Please answer!");
                 Log.d(TAG, "Error Type: 206 not selected");
                 return false;
@@ -728,42 +728,42 @@ public class FillFormS2Activity extends AppCompatActivity {
         // 207 EditText -- Months & Weeks
         if (!mc2071w.getText().toString().isEmpty() && Integer.valueOf(mc2071w.getText().toString()) > WEEK_LIMIT) {
 
-            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_LONG).show();
             mc2071w.setError("Gestational age in weeks is over limit!");
             Log.d(TAG, "Error Type: 2071w");
             return false;
         }
         if (!mc2073w.getText().toString().isEmpty() && Integer.valueOf(mc2073w.getText().toString()) > WEEK_LIMIT) {
 
-            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_LONG).show();
             mc2073w.setError("Gestational age in weeks is over limit!");
             Log.d(TAG, "Error Type: 2073w");
             return false;
         }
         if (!mc2072w.getText().toString().isEmpty() && Integer.valueOf(mc2072w.getText().toString()) > WEEK_LIMIT) {
 
-            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_LONG).show();
             mc2072w.setError("Gestational age in weeks is over limit!");
             Log.d(TAG, "Error Type: 2072w");
             return false;
         }
         if (!mc2071m.getText().toString().isEmpty() && Integer.valueOf(mc2071m.getText().toString()) > MONTH_LIMIT) {
 
-            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_LONG).show();
             mc2071m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2071m");
             return false;
         }
         if (!mc2073m.getText().toString().isEmpty() && Integer.valueOf(mc2073m.getText().toString()) > MONTH_LIMIT) {
 
-            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_LONG).show();
             mc2073m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2073m");
             return false;
         }
         if (!mc2072m.getText().toString().isEmpty() && Integer.valueOf(mc2072m.getText().toString()) > MONTH_LIMIT) {
 
-            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), "Gestational age in weeks is over limit!", Toast.LENGTH_LONG).show();
             mc2072m.setError("Gestational age in months is over limit!");
             Log.d(TAG, "Error Type: 2072m");
             return false;

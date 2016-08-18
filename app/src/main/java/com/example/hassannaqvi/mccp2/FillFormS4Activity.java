@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 public class FillFormS4Activity extends AppCompatActivity {
 
-    private static final String TAG = "FILL_FORM_S3_ACTIVITY";
+    private static final String TAG = "FILL_FORM_S4_ACTIVITY";
     public static JSONObject S4;
     public static String FORM_ID;
     private String formId;
@@ -260,6 +260,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         mc405a2 = (CheckBox) findViewById(R.id.MC_405A2);
         mc405a3 = (CheckBox) findViewById(R.id.MC_405A3);
         mc405a4 = (CheckBox) findViewById(R.id.MC_405A4);
+        mc405a99 = (CheckBox) findViewById(R.id.MC_405A99);
         mc405a88 = (CheckBox) findViewById(R.id.MC_405A88);
         mc405ax = (EditText) findViewById(R.id.MC_405AX);
         mc406 = (RadioGroup) findViewById(R.id.MC_406);
@@ -274,7 +275,6 @@ public class FillFormS4Activity extends AppCompatActivity {
         mc407_6 = (CheckBox) findViewById(R.id.MC_407_6);
         mc407_88 = (CheckBox) findViewById(R.id.MC_407_88);
         mc407x = (EditText) findViewById(R.id.MC_407X);
-        mc405a99 = (CheckBox) findViewById(R.id.MC_405A1);
         mc408 = (RadioGroup) findViewById(R.id.MC_408);
         mc408selected = mc408.getCheckedRadioButtonId();
         mc408_no = (RadioButton) findViewById(R.id.MC_408_No);
@@ -1044,10 +1044,10 @@ public class FillFormS4Activity extends AppCompatActivity {
                 || mc405a99.isChecked() || mc405a88.isChecked()) {
             // Do nothing
         } else {
-            Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
-            mc405a88.setError("Please select an answer!");
+            Toast.makeText(getApplicationContext(), "Please select an answer! \r\n" + getString(R.string.MC_405A), Toast.LENGTH_LONG).show();
+            mc405a88.setError("Please select an answer for");
+            mc405a88.requestFocus();
             Log.d(TAG, "Error Type: 405a not selected");
-
             return false;
         }
         if (mc406.getCheckedRadioButtonId() == -1) {

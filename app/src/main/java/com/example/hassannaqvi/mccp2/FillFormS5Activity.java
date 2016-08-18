@@ -1150,6 +1150,11 @@ public class FillFormS5Activity extends AppCompatActivity {
         editor.putString("sp512x", mc512x.getText().toString());
         editor.putString("sp513x", mc513x.getText().toString());
         editor.putString("sp515", mc515.getText().toString());
+        if (mc524_99.isChecked()) {
+            editor.putString("sp524_99", "1");
+        } else {
+            editor.putString("sp524_99", "0");
+        }
         editor.putString("sp524acr", mc524ACR.getText().toString());
         editor.putString("sp524can", mc524CAN.getText().toString());
         editor.putString("sp525_1", mc525_1.getText().toString());
@@ -1314,6 +1319,7 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc520", sharedPref.getString("sp520", "00"));
             S5.put("mc521", sharedPref.getString("sp521", "00"));
             S5.put("mc523", sharedPref.getString("sp523", "00"));
+            S5.put("mc524_99", sharedPref.getString("sp524_99", "00"));
             S5.put("mc524acr", sharedPref.getString("sp524acr", "00"));
             S5.put("mc524can", sharedPref.getString("sp524can", "00"));
             S5.put("mc525_1", sharedPref.getString("sp525_1", "00"));

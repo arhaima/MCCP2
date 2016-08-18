@@ -191,7 +191,7 @@ public class EndFormActivity extends AppCompatActivity {
                 editor.putString("sp110", "88");
                 break;
             default:
-                editor.putString("sp110", "00");
+                editor.putString("sp110", "0");
                 break;
 
         }

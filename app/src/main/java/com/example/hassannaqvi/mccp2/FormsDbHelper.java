@@ -157,8 +157,10 @@ public class FormsDbHelper extends SQLiteOpenHelper {
         values.put(singleForm.ROW_MC_104, formscontract.get104());
         values.put(singleForm.ROW_MC_105, formscontract.get105());
         values.put(singleForm.ROW_MC_106, formscontract.get106());
+        values.put(singleForm.ROW_MC_ADD, formscontract.getAdd());
         values.put(singleForm.ROW_MC_107, formscontract.get107());
         values.put(singleForm.ROW_MC_108, formscontract.get108());
+        values.put(singleForm.ROW_MC_REM1, formscontract.getRem1());
         values.put(singleForm.ROW_MC_109, formscontract.get109());
         values.put(singleForm.ROW_S_2, formscontract.getS2());
         values.put(singleForm.ROW_S_4, formscontract.getS4());
@@ -248,8 +250,10 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 form.set104(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_104)));
                 form.set105(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_105)));
                 form.set106(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_106)));
+                form.setAdd(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_ADD)));
                 form.set107(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_107)));
                 form.set108(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_108)));
+                form.setRem1(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_REM1)));
                 form.set109(cursor.getString(cursor.getColumnIndex(singleForm.ROW_MC_109)));
                 form.setS2(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_2)));
                 form.setS4(cursor.getString(cursor.getColumnIndex(singleForm.ROW_S_4)));
