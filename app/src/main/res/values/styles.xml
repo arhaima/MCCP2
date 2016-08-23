@@ -63,12 +63,13 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">0dp</item>
-        <item name="android:background">#efefef</item>
+        <item name="android:background">#d6d6d6</item>
         <item name="android:gravity">center</item>
-        <item name="android:textColor">#6d6d6d</item>
+        <item name="android:textColor">#ef6d6d</item>
         <item name="android:textSize">20sp</item>
         <item name="android:visibility">invisible</item>
         <item name="android:padding">16dp</item>
+        <item name="android:textStyle">italic</item>
 
     </style>
 

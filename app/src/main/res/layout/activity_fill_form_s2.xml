@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:animateLayoutChanges="true"
     android:background="@drawable/background_grad"
+    android:layoutDirection="rtl"
     tools:context="com.example.hassannaqvi.mccp2.FillFormS2Activity">
 
 
@@ -322,6 +323,23 @@
             android:inputType="number"
             android:maxLength='2' />
 
+        <LinearLayout
+            android:id="@+id/fldGrp205yy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                style="@style/labels"
+                android:text="@string/MC_205a" />
+
+            <EditText
+                android:id="@+id/MC_205a"
+                style="@style/textInput"
+                android:hint="@string/MC_205a"
+                android:inputType="text" />
+        </LinearLayout>
         <!-- MC_206-->
 
         <TextView

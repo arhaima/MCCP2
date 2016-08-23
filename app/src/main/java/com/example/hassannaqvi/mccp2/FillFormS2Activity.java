@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -53,6 +55,7 @@ public class FillFormS2Activity extends AppCompatActivity {
     private EditText mc204f;
     private EditText mc205yy;
     private EditText mc205mm;
+    private EditText mc205a;
     private RadioGroup mc206;
     private RadioButton mc206_yes;
     private RadioButton mc206_no;
@@ -67,7 +70,8 @@ public class FillFormS2Activity extends AppCompatActivity {
     private LinearLayout mc207;
     private TableRow tblRow02;
     private TableRow tblRow03;
-    
+
+    private LinearLayout fldGrp205yy;
 
     // Variable declarations for All Spinner Selected Values
     private String mc201typeSelected;
@@ -112,6 +116,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         mc204f = (EditText) findViewById(R.id.MC_204F);
         mc205yy = (EditText) findViewById(R.id.MC_205YY);
         mc205mm = (EditText) findViewById(R.id.MC_205MM);
+        mc205a = (EditText) findViewById(R.id.MC_205a);
         mc206 = (RadioGroup) findViewById(R.id.MC_206);
         mc206_yes = (RadioButton) findViewById(R.id.MC_206_Yes);
         mc206_no = (RadioButton) findViewById(R.id.MC_206_No);
@@ -125,7 +130,9 @@ public class FillFormS2Activity extends AppCompatActivity {
         mcRem2 = (EditText) findViewById(R.id.MC_REM2);
         mc207 = (LinearLayout) findViewById(R.id.MC_207);
         tblRow02 = (TableRow) findViewById(R.id.tblRow02);
-        tblRow03 = (TableRow) findViewById(R.id.tblRow03); 
+        tblRow03 = (TableRow) findViewById(R.id.tblRow03);
+
+        fldGrp205yy = (LinearLayout) findViewById(R.id.fldGrp205yy);
 
         // Validation for age of Respondent (MIN_AGE_LIMIT = 18)
         mc201age.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -274,6 +281,29 @@ public class FillFormS2Activity extends AppCompatActivity {
 
         // SKIP PATTERNS
 
+        mc205yy.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (!mc205yy.getText().toString().isEmpty()) {
+                    fldGrp205yy.setVisibility(View.GONE);
+                    mc205a.setText(null);
+
+                } else {
+                    fldGrp205yy.setVisibility(View.VISIBLE);
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
         // For Q.206 
         mc206.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -284,7 +314,6 @@ public class FillFormS2Activity extends AppCompatActivity {
                     imm.hideSoftInputFromWindow(mc207.getWindowToken(), 0);
                 } else {
                     mc207.setVisibility(View.GONE);
-
 
                     mc2071m.setText(null);
                     mc2071w.setText(null);
@@ -377,6 +406,7 @@ public class FillFormS2Activity extends AppCompatActivity {
         editor.putString("sp204f", mc204f.getText().toString()); // EditText Girls count
         editor.putString("sp205mm", mc205mm.getText().toString()); // EditText Living Duration
         editor.putString("sp205yy", mc205yy.getText().toString()); // EditText Living Duration
+        editor.putString("sp205a", mc205a.getText().toString()); // EditText Living Duration
         editor.putString("sp2071w", mc2071w.getText().toString()); // EditText Living Duration
         editor.putString("sp2071m", mc2071m.getText().toString()); // EditText Living Duration
         editor.putString("sp2072w", mc2072w.getText().toString()); // EditText Living Duration
@@ -426,6 +456,7 @@ public class FillFormS2Activity extends AppCompatActivity {
             S2.put("mc204f", sharedPref.getString("sp204f", "00"));
             S2.put("mc205mm", sharedPref.getString("sp205mm", "00"));
             S2.put("mc205yy", sharedPref.getString("sp205yy", "00"));
+            S2.put("mc205a", sharedPref.getString("sp205a", "00"));
             S2.put("mc206", sharedPref.getString("sp206", "00"));
             S2.put("mc2071w", sharedPref.getString("sp2071w", "00"));
             S2.put("mc2071m", sharedPref.getString("sp2071m", "00"));
@@ -698,7 +729,16 @@ public class FillFormS2Activity extends AppCompatActivity {
                 Log.d(TAG, "Error Type: 205yy not correct");
                 return false;
             }
+
         }
+        if (mc205yy.getText().toString().isEmpty() && mc205a.getText().toString().isEmpty()) {
+
+            Toast.makeText(getApplicationContext(), "Please give details of previous residence!", Toast.LENGTH_LONG).show();
+            mc205yy.setError("Please give details of previous residence!");
+            Log.d(TAG, "Error Type: 205a not given");
+            return false;
+        }
+
 
         // 206 RadioGroup
         mc206selected = mc206.getCheckedRadioButtonId();
