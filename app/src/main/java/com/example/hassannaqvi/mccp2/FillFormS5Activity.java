@@ -722,6 +722,8 @@ public class FillFormS5Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 509 empty");
             return false;
         }
+
+     
         if (mc510.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc510.getSelectedView();
             errorText.setError("anything here, just to add the icon");
