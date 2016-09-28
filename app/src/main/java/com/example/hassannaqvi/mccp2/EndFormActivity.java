@@ -50,6 +50,7 @@ public class EndFormActivity extends AppCompatActivity {
     private TextView formErrorTxt;
     private Boolean formError;
     private String formId;
+    private Long TabFormId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class EndFormActivity extends AppCompatActivity {
 
         formError = false;
         formId = FillFormActivity.FORM_ID;
+
 
         mc109 = (RadioGroup) findViewById(R.id.MC_109);
         mc109_complete = (RadioButton) findViewById(R.id.MC_109_complete);
@@ -244,7 +246,7 @@ public class EndFormActivity extends AppCompatActivity {
                 Log.d(TAG, "Updating DataBase...");
                 Toast.makeText(this, "Updating DataBase...", Toast.LENGTH_SHORT).show();
                 btnEnd.setEnabled(false);
-                Long TabFormId = db.addForm(fc);
+                TabFormId = db.addForm(fc);
 
                 for (String imchid : FillFormS3Activity.chids) {
 
@@ -311,7 +313,7 @@ public class EndFormActivity extends AppCompatActivity {
                 }
                 FillFormS3Activity.chids.clear();
 
-                /*for (String cfchid : FillFormS6CFActivity.CF_chids) {
+                for (String cfchid : FillFormS6CFActivity.CF_chids) {
 
                     SharedPreferences cfPref = getSharedPreferences("CF_" + cfchid, Context.MODE_PRIVATE);
                     CfsContract cf = new CfsContract();
@@ -338,7 +340,7 @@ public class EndFormActivity extends AppCompatActivity {
 
 
                 }
-                FillFormS6CFActivity.CF_chids.clear();*/
+                FillFormS6CFActivity.CF_chids.clear();
             } catch (SQLiteException e) {
                 Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
 
