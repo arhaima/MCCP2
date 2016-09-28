@@ -599,12 +599,10 @@ public class FillFormS5Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Form Validation... Successful!", Toast.LENGTH_SHORT).show();
 
             StoreTempValues();
-            Intent end_form_intent = new Intent(getApplicationContext(), EndFormActivity.class);
-            end_form_intent.putExtra("formId", formId);
+            Intent s6_form_intent = new Intent(getApplicationContext(), FillFormS6Activity.class);
+            s6_form_intent.putExtra("formId", formId);
 
-            //s2_form_intent.putExtra("boyCount", mc204m.getText().toString());
-            //s2_form_intent.putExtra("girlCount", mc204f.getText().toString());
-            startActivity(end_form_intent);
+            startActivity(s6_form_intent);
         } else {
 
 
