@@ -25,6 +25,7 @@ public class MCCP2App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 

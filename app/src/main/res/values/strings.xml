@@ -21,19 +21,19 @@
     <string name="MC_104_Name"> نام </string>
     <string name="MC_104_Code"> کوڈ </string>
 
-    <string name="MC_105">کلسٹر</string>
+    <string name="MC_105">  کلسٹر</string>
     <string name="MC_105TVI"> TVI کلسٹر </string>
-    <string name="MC_105_Name">نام </string>
-    <string name="MC_105_Code">کوڈ</string>
+    <string name="MC_105_Name">نام  </string>
+    <string name="MC_105_Code"> کوڈ </string>
 
-    <string name="MC_106">گھرانہ نمبر  لسٹنگ شیٹ سے لکھیں</string>
-    <string name="MC_Yes">ہاں</string>
+    <string name="MC_106"> گھرانہ نمبر  لسٹنگ شیٹ سے لکھیں </string>
+    <string name="MC_Yes"> ہاں </string>
     <string name="MC_No">نہیں</string>
     <string name="MC_DontKnow">معلوم نہیں</string>
     <string name="MC_107">کیادروازے پرِای -پی-آئی کا مخصوص نشان موجود ہے؟</string>
     <string name="MC_108inst">ہدایت: اپنا تعارف کرو ائیں اور اپنے آنے کا مقصد بیان کر  یں۔ انٹر ویو شروع کر نے سے پہلے زبانی اجازت لیں۔  اگر اجازت نہ ملے تو  انٹرویو   نہ لیں  اور  ہدايات کے مطابق اگلے گھر جائیں۔</string>
     <string name="MC_108">کیا اجازت مل گئی؟</string>
-    <string name="MC_108_Close">گھر بند ہے - اجازت دینے والا موجود نہیں ہیں</string>
+    <string name="MC_108_Close">گھر بند ہے - اجازت دینے والا موجود نہیں </string>
     <string name="MC_Unclear">واضح  نہیں</string>
     <string name="end_interview">اختتام</string>
     <string name="start_interview">انٹرویو شروع کریں</string>
@@ -100,7 +100,7 @@
     <string name="IM_ED">عمر دن</string>
     <string name="IM_F">کیا  بچے کوپچھلے 6 ماہ کے دوران وٹامن اے کے قطرےپلا ئے گئے؟ </string>
     <string name="IM_G">کیا پچھلی مہم کے دوران بچے کو پولیو کے قطرے پلا ئےگئے؟</string>
-    <string name="IM_H">کیا انگلی پر  EPI کا نشان موجود ہے؟   </string>
+    <string name="IM_H">کیا انگلی پر  EPI کا نشان موجود ہے؟ </string>
     <string name="IM_I">کیا بچے نے کبھی بھی پولیو کے قطرے پیئے ہیں</string>
     <string name="IM_J">کیاپچھلے 6 مہینے کے دوران آپ کے بچے کو پولیو    کاٹیکہ لگا ہے؟ </string>
     <string name="IM_JB">پولیو  کے ٹیکے کی sourceلکھیں</string>
@@ -153,7 +153,7 @@
     <string name="MC_402_8"> گھر والوں سے </string>
     <string name="MC_402_9"> دوست/ہمسائے/رشتہ دار  </string>
     <string name="MC_402_10"> NGO ورکر  </string>
-    <string name="MC_402_88">  (دیگر(وضاحت کریں </string>
+    <string name="MC_402_88"> دیگر وضاحت کریں </string>
 
 
     <string name="MC_403">کیا آپ سمجھتے ہیں کہ حفاظتی ٹیکے بیماریوں سے بچاتے ہیں؟</string>
@@ -172,7 +172,7 @@
     <string name="MC_404_8"> حمل کے دوران تشنج  </string>
     <string name="MC_404_9"> چیچک </string>
     <string name="MC_404_99"> معلوم نہیں  </string>
-    <string name="MC_404_88"> (دیگر(وضاحت کریں   </string>
+    <string name="MC_404_88">  دیگر وضاحت کریں   </string>
 
 
 <string name="MC_405">آپ کے خیال میں  حفاظتی ٹیکے لگوانے میں عام طورپر کیا رکاوٹیں
@@ -186,7 +186,7 @@
     <string name="MC_405_4"> سہولیات کی کمی  </string>
     <string name="MC_405_5"> ٹیکوں  کے منفی اثرات کا خوف  </string>
     <string name="MC_405_99"> معلوم نہیں   </string>
-    <string name="MC_405_88"> (دیگر(وضاحت کریں  </string>
+    <string name="MC_405_88">  دیگر وضاحت کریں  </string>
 
 
     <string name="MC_405A">آپ  اپنے بچے کو  عام طور پرحفاظتی ٹیکے کہاں سے لگواتے ہیں ؟</string>
@@ -195,7 +195,7 @@
     <string name="MC_405A3"> ہیلتھ سینٹر  </string>
     <string name="MC_405A4"> ہیلتھ کیمپ  </string>
     <string name="MC_405A5"> معلوم نہیں   </string>
-    <string name="MC_405A88"> (دیگر(وضاحت کریں   </string>
+    <string name="MC_405A88">  دیگر وضاحت کریں   </string>
 
 
     <string name="MC_406">کیا آپ دوسروں کو بھی  حفاظتی ٹیکے لگوانے کا مشورہ دیں گے؟</string>
@@ -210,7 +210,7 @@
     <string name="MC_407_4"> صحت کے لیے مضر  ہے </string>
     <string name="MC_407_5"> حلال نہیں ہیں </string>
     <string name="MC_407_6"> تولیدی نظام کو متاثر کرتے ہیں </string>
-    <string name="MC_407_88"> (دیگر(وضاحت کریں </string>
+    <string name="MC_407_88">  دیگر وضاحت کریں </string>
 
     <string name="MC_408">کیا آپ نے پولیو کے قطروں کے بارے میں سنا ہے؟</string>
     <string name="MC_408_Yes">ہاں</string>
@@ -235,7 +235,7 @@
     <string name="MC_410B4"> پولیوکے قطرے فائدہ مند نہیں ہیں </string>
     <string name="MC_410B5"> مجھے پولیو ورکر کابار بار گھر آنا پسند نہیں ہیں  </string>
     <string name="MC_410B99"> معلوم نہیں  </string>
-    <string name="MC_410B88"> (دیگر(وضاحت کریں  </string>
+    <string name="MC_410B88"> دیگر(وضاحت کریں)  </string>
     <string name="MC_410BX"> وضاحت کریں </string>
 
 
@@ -257,7 +257,7 @@
     <string name="MC_413_5"> حفاظتی ٹیکے محفوظ نہیں ہیں </string>
     <string name="MC_413_6"> مقامی لیڈر منع کرتے ہیں </string>
     <string name="MC_413_7"> مذہبی عقائد کے خلاف ہے </string>
-    <string name="MC_413_88">(دیگر(وضاحت کریں </string>
+    <string name="MC_413_88"> دیگر(وضاحت کریں) </string>
 
     <string name="MC_414">کیا آپ سمجھتے /سمجھتی ہیں کہ آپ کےبچے کو پولیو کا ٹیکہ لگنے کے بعد بھی پولیو کے قطروں کی ضروت ہے ؟ </string>
     <string name="MC_414_Yes"> ہاں</string>
@@ -266,11 +266,11 @@
 
 
     <string name="MC_415"> اگر نہیں تو کیا جوہات ہیں ؟ </string>
-    <string name="MC_415_88"> (دیگر(وضاحت کریں </string>
+    <string name="MC_415_88"> دیگر(وضاحت کریں) </string>
 
     <!--MC_501-->
     <string name="MC_501"> آپ اپنے گھر میں عام طور پر کونسی زبان بولتے ہیں؟  </string>
-    <string name="MC_501_88">(دیگر (وضاحت  </string>
+    <string name="MC_501_88">(دیگر (وضاحت   </string>
 
     <!--MC_502-->
     <string name="MC_502"> کیاپچھلے ایک مہینے میں محکمہ صحت کا کوئی کارکن آپ کے گھر آیا ؟</string>
@@ -306,7 +306,7 @@
 
     <!-- MC_505-->
 
-    <string name="MC_505">[آپ کے مکان کی مالکانہ حیثیت کیا ہے؟[جوابات کو پڑھیں </string>
+    <string name="MC_505">آپ کے مکان کی مالکانہ حیثیت کیا ہے؟[جوابات کو پڑھیں] </string>
 
     <!-- MC_506 -->
 
@@ -457,8 +457,8 @@
     <string name="MC_525_ah1">تعداد </string>
     <string name="MC_525_ah2">اثاثے </string>
 
-    <string name="MC_525">-جواب دہندہ سے پوچھیں کہ وہ  ان میں سے کون کونسے اثاثے کے مالک ہیں-ان کی تعداد لکھیں-اگر ان میں سے کوئی چیز نہیں ہے تو    زیرو (۰)لکھیں</string>
-    <string name="MC_525_1">(مال مویشی (گائے اور بھینسیں</string>
+    <string name="MC_525">-جواب دہندہ سے پوچھیں کہ وہ ان میں سے کون کونسے اثاثے کے مالک ہیں-ان کی تعداد لکھیں-اگر ان میں سے کوئی چیز نہیں ہے تو زیرو (0)لکھیں</string>
+    <string name="MC_525_1">مال مویشی (گائے اور بھینسیں)</string>
     <string name="MC_525_2">بھیڑ اور بکریاں </string>
     <string name="MC_525_3">گھوڑے اور گدھے </string>
     <string name="MC_525_4">سائیکل </string>
@@ -499,7 +499,7 @@
 
     <string name="MC_604">آپ کو  TVIکیمپ کے بارے میں کہا ں سے معلوم ہوا؟</string>
     <string name="MC_604_1"> TVI ورکر </string>
-    <string name="MC_604_2">  پولیو ورکر   </string>
+    <string name="MC_604_2"> پولیو ورکر </string>
     <string name="MC_604_3"> لیڈی ہیلتھ ورکرز(LHW)</string>
     <string name="MC_604_4">لیڈی  ہیلتھ وزیٹرز(LHV)</string>
     <string name="MC_604_5">ڈاکٹر</string>

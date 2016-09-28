@@ -6,10 +6,10 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textViewStyle">@style/UrduTextViewStyle</item>
-        <item name="buttonStyle">@style/UrduButtonStyle</item>
         <item name="android:windowActionBarOverlay">true</item>
         <item name="actionBarStyle">@style/ActionBarTheme</item>
+        <item name="android:typeface">serif</item>
+
 
     </style>
 
@@ -18,7 +18,8 @@
     </style>
 
     <style name="SpinnerItemText">
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
     </style>
 
     <style name="ActionBarTheme" parent="Widget.AppCompat.Light.ActionBar">
@@ -27,14 +28,6 @@
     </style>
 
 
-    <style name="UrduTextViewStyle" parent="android:Widget.TextView">
-        <item name="android:fontFamily">fonts/Jameel Noori Nastaleeq</item>
-    </style>
-
-    <style name="UrduButtonStyle" parent="android:Widget.Holo.Button">
-        <item name="android:fontFamily">fonts/Jameel Noori Nastaleeq</item>
-    </style>
-
     <!-- Form Styles -->
     <style name="labels">
         <item name="android:layout_width">match_parent</item>
@@ -42,7 +35,8 @@
         <item name="android:layout_marginTop">24dp</item>
         <item name="android:background">@color/colorPrimary</item>
         <item name="android:textColor">#ffffff</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:padding">16dp</item>
 
     </style>
@@ -54,7 +48,8 @@
         <item name="android:background">#ffd6d6</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">#ff1e1e</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:visibility">invisible</item>
         <item name="android:padding">16dp</item>
     </style>
@@ -66,7 +61,8 @@
         <item name="android:background">#d6d6d6</item>
         <item name="android:gravity">center</item>
         <item name="android:textColor">#ef6d6d</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:visibility">invisible</item>
         <item name="android:padding">16dp</item>
         <item name="android:textStyle">italic</item>
@@ -86,7 +82,8 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginBottom">16dp</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:textColor">#ff0000</item>
         <item name="android:background">#efefef</item>
         <item name="android:padding">16dp</item>
@@ -96,13 +93,15 @@
 
     <style name="spinnerItemStyle">
         <item name="android:padding">10dp</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
     <style name="spinnerDropDownItemStyle">
         <item name="android:padding">20dp</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
@@ -114,6 +113,8 @@
         <item name="android:orientation">vertical</item>
         <item name="android:layout_marginBottom">16dp</item>
         <item name="android:background">#efefef</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:padding">16dp</item>
 
     </style>
@@ -123,14 +124,16 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
         <item name="android:drawableRight">@android:drawable/btn_radio</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:background">#efefef</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:padding">4dp</item>
     </style>
 
     <style name="buttons">
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:padding">16dp</item>
     </style>
@@ -140,10 +143,11 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:button">@null</item>
-        <item name="android:textSize">24sp</item>
+        <item name="android:textSize">36sp</item>
+        <item name="android:typeface">serif</item>
         <item name="android:drawableRight">?android:attr/listChoiceIndicatorMultiple</item>
         <item name="android:background">#efefef</item>
-        <item name="android:padding">16dp</item>
+        <item name="android:padding">4dp</item>
 
 
     </style>

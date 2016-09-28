@@ -98,7 +98,7 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
 
-            rSumText += fc.get105().substring(0, 6) + " " + fc.get106() + " " + iStatus;
+            rSumText += fc.get105() + " " + fc.get106() + " " + iStatus;
             rSumText += "\r\n";
 
         }
@@ -501,8 +501,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(back_intent);
 
     }
-
-
 
 
 }
