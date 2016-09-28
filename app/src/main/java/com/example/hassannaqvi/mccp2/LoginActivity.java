@@ -195,7 +195,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     startActivity(login_intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Invalid Username/Password", Toast.LENGTH_LONG).show();
-                    if (username.equals("@") && password.equals("dmu")) {
+                    if (username.equals("dmu@aku") && password.equals("aku?dmu")) {
                         Intent login_intent = new Intent(getApplicationContext(), MainActivity.class);
 
                         startActivity(login_intent);

@@ -336,12 +336,20 @@ public class FillFormS3Activity extends AppCompatActivity {
                 FillFormS2Activity.gndrChk = false;
                 startActivity(s3_form_intent);
             } else {
-                Intent s4_form_intent = new Intent(getApplicationContext(), FillFormS4Activity.class);
+
+                // MODIFICATIONS FOR MCCP2-CENSUS APP
+                /*Intent s4_form_intent = new Intent(getApplicationContext(), FillFormS4Activity.class);
                 s4_form_intent.putExtra("formId", formId);
                 Log.d(TAG, "All Child Ids : " + chids.toString());
                 FillFormS2Activity.gndrChk = true;
 
-                startActivity(s4_form_intent);
+                startActivity(s4_form_intent);*/
+
+                // END FORM INTENT
+                Intent end_form_intent = new Intent(getApplicationContext(), EndFormActivity.class);
+                end_form_intent.putExtra("formId", formId);
+
+                startActivity(end_form_intent);
 
             }
         } else {
