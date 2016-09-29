@@ -15,6 +15,8 @@ public class MyLocationListener implements LocationListener {
     private Context mContext;
     /*protected LocationManager locationManager;*/
     SharedPreferences sharedPref = mContext.getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+
+
     public MyLocationListener(Context context) {
         mContext = context;
     }

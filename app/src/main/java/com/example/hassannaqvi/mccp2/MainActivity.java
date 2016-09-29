@@ -80,11 +80,11 @@ public class MainActivity extends AppCompatActivity {
         rSumText += "TODAY'S RECORDS SUMMARY\r\n";
         rSumText += "=======================";
         rSumText += "\r\n\r\n";
-        rSumText += "Total Forms Today: "+todaysForms.size();
+        rSumText += "Total Forms Today: " + todaysForms.size();
         rSumText += "\r\n";
         rSumText += "    Forms List: \r\n";
         String iStatus = "";
-        for(FormsContract fc : todaysForms){
+        for (FormsContract fc : todaysForms) {
 
             switch (fc.get109()) {
                 case "1":
@@ -320,8 +320,6 @@ public class MainActivity extends AppCompatActivity {
     // getLocationButton is the name of your button.  Not the best name, I know.
 
 
-
-
     private boolean isNetworkAvailable() {
         ConnectivityManager connectivityManager
                 = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -502,5 +500,9 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void showGPSCoordinates(View v) {
+
+
+    }
 
 }
