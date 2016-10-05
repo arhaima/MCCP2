@@ -234,8 +234,8 @@ public class EndFormActivity extends AppCompatActivity {
             fc.setS5(String.valueOf(FillFormS5Activity.S5));
             FillFormS5Activity.S5 = null;
 
-            fc.setS6("S6");
-            //FillFormS6Activity.S6 = null;
+            fc.setS6(String.valueOf(FillFormS6Activity.S6));
+            FillFormS6Activity.S6 = null;
 
             fc.setEnding(String.valueOf(ending));
             ending = null;

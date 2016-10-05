@@ -400,12 +400,8 @@ public class MainActivity extends AppCompatActivity {
             ff.execute();
             syncIms im = new syncIms(this);
             im.execute();
-
-
-            //            Camps section commented out for GADAP
-
-            /*syncCfs cf = new syncCfs(this);
-            cf.execute();*/
+            syncCfs cf = new syncCfs(this);
+            cf.execute();
 
 
             SharedPreferences syncPref = getSharedPreferences("SyncInfo", Context.MODE_PRIVATE);

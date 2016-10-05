@@ -636,6 +636,15 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: img empty");
             return false;
         }
+        if (img.getSelectedItemPosition() == 1 & imi.getSelectedItemPosition() == 2) {
+            TextView errorText = (TextView) img.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select correct Answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select correct answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: img and imi do not match");
+            return false;
+        }
         
         /*if (imgselected.toString().equals("2") && girlCount < 1) {
             Toast.makeText(getApplicationContext(), "Girl Count Completed!", Toast.LENGTH_SHORT).show();
@@ -672,6 +681,7 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imj empty");
             return false;
         }
+
         
         if (imjb.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) imjb.getSelectedView();
@@ -682,13 +692,22 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: imjb empty");
             return false;
         }
-        if (imj.getCheckedRadioButtonId() == 0 && imk.getSelectedItemPosition() == 0) {
+        if (imj_yes.isChecked() && imk.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) imk.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
             errorText.setText("Please select an answer");//changes the selected item text to this
             Toast.makeText(getApplicationContext(), "Please select an answer.", Toast.LENGTH_LONG).show();
             Log.d(TAG, "Error Type: imk empty");
+            return false;
+        }
+        if (imj_no.isChecked() && imk.getSelectedItemPosition() != 0) {
+            TextView errorText = (TextView) imk.getSelectedView();
+            errorText.setError("anything here, just to add the icon");
+            errorText.setTextColor(Color.RED);//just to highlight that this is an error
+            errorText.setText("Please select corrent answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select correct answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: imj_no is selected and imk not empty");
             return false;
         }
         if (bcg.getSelectedItemPosition() == 0) {
@@ -700,13 +719,13 @@ public class FillFormS3Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: bcg empty");
             return false;
         }
-        if (bcgsrc.getSelectedItemPosition() == 0) {
-            TextView errorText = (TextView) bcgsrc.getSelectedView();
+        if (bcg.getSelectedItemPosition() == 2 && bcgscar.getSelectedItemPosition() == 1) {
+            TextView errorText = (TextView) bcgscar.getSelectedView();
             errorText.setError("anything here, just to add the icon");
             errorText.setTextColor(Color.RED);//just to highlight that this is an error
-            errorText.setText("Please select an answer");//changes the selected item text to this
-            Toast.makeText(getApplicationContext(), "Please select BCG-Source.", Toast.LENGTH_LONG).show();
-            Log.d(TAG, "Error Type: BCGscr empty");
+            errorText.setText("Please select correct answer");//changes the selected item text to this
+            Toast.makeText(getApplicationContext(), "Please select correct answer.", Toast.LENGTH_LONG).show();
+            Log.d(TAG, "Error Type: BCGscar empty");
             return false;
         }
 
