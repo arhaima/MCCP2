@@ -34,7 +34,7 @@ public class getTowns extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL("http://192.168.1.10/appdata/elp2/town_array.php");
+            URL url = new URL("http://192.168.1.10/appdata/census/town_array.php");
 
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());

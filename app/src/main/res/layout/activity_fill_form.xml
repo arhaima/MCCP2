@@ -122,9 +122,10 @@
     <EditText
         android:id="@+id/MC_105"
         style="@style/textInput"
+        android:digits="1234567890TWtw"
         android:hint="@string/MC_105"
-        android:inputType="number"
-        android:maxLength="6"
+        android:inputType="text"
+        android:maxLength="7"
         android:singleLine="true"
          />
 

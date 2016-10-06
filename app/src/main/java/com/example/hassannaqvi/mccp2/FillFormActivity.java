@@ -175,7 +175,7 @@ public class FillFormActivity extends AppCompatActivity {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
-
+                    mc105cluster.setText(mc105cluster.getText().toString().toUpperCase());
                     clusterList = db.getClustersByUC(LoginActivity.UC_ID);
                     for (ClustersContract UC : clusterList) {
                         Log.i(TAG, UC.getClusterName());
