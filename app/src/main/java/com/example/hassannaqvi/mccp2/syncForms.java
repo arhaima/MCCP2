@@ -58,7 +58,7 @@ public class syncForms extends AsyncTask<Void, Void, String> {
 
         HttpURLConnection connection = null;
         try {
-            String request = "http://192.168.1.10/appdata/census/syncdb.php";
+            String request = "http://192.168.1.10/appdata/elp2/syncdb.php";
             //String request = "http://10.1.42.86/appdata/syncdb.php";
 
             URL url = new URL(request);
@@ -122,14 +122,11 @@ public class syncForms extends AsyncTask<Void, Void, String> {
                     jsonParam.put("s5", "");
 
                 }
-
-                String Comment = "Removed SECTION 6 For Pre-Camp Survey";
-
-                /*if (fc.getS6() != null) {
+                if (fc.getS6() != null) {
                     jsonParam.put("s6", fc.getS6());
                 } else {
                     jsonParam.put("s6", "");
-                }*/
+                }
                 if (fc.getEnding() != null) {
                     jsonParam.put("ending", fc.getEnding());
                 } else {

@@ -34,7 +34,7 @@ public class getUC extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL("http://192.168.1.10/appdata/census/uc_array.php");
+            URL url = new URL("http://192.168.1.10/appdata/elp2/uc_array.php");
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 

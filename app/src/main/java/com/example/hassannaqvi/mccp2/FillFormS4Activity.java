@@ -876,6 +876,7 @@ public class FillFormS4Activity extends AppCompatActivity {
         editor.putString("sp410x", mc410x.getText().toString());
         editor.putString("sp410Bx", mc410Bx.getText().toString());
         editor.putString("sp415x", mc415x.getText().toString());
+        editor.putString("sp413x", mc413x.getText().toString());
         editor.putString("spRem4", mcRem4.getText().toString());
 
 
@@ -1012,6 +1013,11 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 402 not selected");
             return false;
         }
+        if (mc402_88.isChecked() && mc402x.getText().toString().isEmpty()) {
+            mc402x.setError("Please write others");
+            Log.d(TAG, "Error Type: 402 others not written ");
+            return false;
+        }
         if (mc403.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mc403.getSelectedView();
             errorText.setError("anything here, just to add the icon");
@@ -1031,6 +1037,12 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 404 not selected");
             return false;
         }
+        if (mc404_88.isChecked() && (mc404x_1.getText().toString().isEmpty() && mc404x_2.getText().toString().isEmpty() && mc404x_3.getText().toString().isEmpty())) {
+            mc404x_1.setError("Please write others");
+            Log.d(TAG, "Error Type: 404 others not written ");
+            return false;
+        }
+
         if (mc405_1.isChecked() || mc405_2.isChecked() || mc405_3.isChecked() || mc405_4.isChecked()
                 || mc405_5.isChecked() || mc405_99.isChecked() || mc405_88.isChecked()) {
 
@@ -1038,6 +1050,11 @@ public class FillFormS4Activity extends AppCompatActivity {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc405_88.setError("Please select an answer!");
             Log.d(TAG, "Error Type: 405 not selected");
+            return false;
+        }
+        if (mc405_88.isChecked() && mc405x.getText().toString().isEmpty()) {
+            mc405x.setError("Please write others");
+            Log.d(TAG, "Error Type: 405 others not written ");
             return false;
         }
         if (mc405a1.isChecked() || mc405a2.isChecked() || mc405a3.isChecked() || mc405a4.isChecked()
@@ -1048,6 +1065,11 @@ public class FillFormS4Activity extends AppCompatActivity {
             mc405a88.setError("Please select an answer for");
             mc405a88.requestFocus();
             Log.d(TAG, "Error Type: 405a not selected");
+            return false;
+        }
+        if (mc405a88.isChecked() && mc405ax.getText().toString().isEmpty()) {
+            mc405ax.setError("Please write others");
+            Log.d(TAG, "Error Type: 405a others not written ");
             return false;
         }
         if (mc406.getCheckedRadioButtonId() == -1) {
@@ -1070,7 +1092,11 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 401 not selected");
             return false;
         }
-
+        if (mc407_88.isChecked() && mc407x.getText().toString().isEmpty()) {
+            mc407x.setError("Please write others");
+            Log.d(TAG, "Error Type: 407 others not written ");
+            return false;
+        }
         if (mc408selected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc408_no.setError("Please select an answer!");
@@ -1135,7 +1161,11 @@ public class FillFormS4Activity extends AppCompatActivity {
             Log.d(TAG, "Error Type: 413 not selected");
             return false;
         }
-
+        if (mc413_88.isChecked() && mc413x.getText().toString().isEmpty()) {
+            mc413x.setError("Please write others");
+            Log.d(TAG, "Error Type: 413 others not written ");
+            return false;
+        }
         if (mc414selected == -1) {
             Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
             mc414_no.setError("Please select an answer!");

@@ -40,7 +40,7 @@ public class SyncFilesData extends AsyncTask<Void, Void, Boolean> {
     @Override
     protected Boolean doInBackground(Void... params) {
         try {
-            String request = "http://192.168.1.10/appdata/census/syncFiles.php";
+            String request = "http://192.168.1.10/appdata/elp2/syncFiles.php";
 
             URL url = new URL(request);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
