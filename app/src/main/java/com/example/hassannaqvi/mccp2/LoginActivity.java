@@ -2,9 +2,13 @@
 package com.example.hassannaqvi.mccp2;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.PasswordTransformationMethod;
 import android.util.Log;
@@ -15,6 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.google.android.gms.location.LocationRequest;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -41,6 +47,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     private Spinner spUC;
     private JSONObject listBKText;
     private Button showpassword;
+    private boolean location_status = false;
 
     public static void longInfo(String str) {
         if (str.length() > 4000) {
@@ -54,7 +61,50 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        boolean gps_enabled = false;
+        boolean network_enabled = false;
 
+        try {
+            gps_enabled = lm.isProviderEnabled(LocationManager.GPS_PROVIDER);
+        } catch (Exception ex) {
+        }
+
+        try {
+            network_enabled = lm.isProviderEnabled(LocationManager.NETWORK_PROVIDER);
+        } catch (Exception ex) {
+        }
+
+        if (!gps_enabled && !network_enabled) {
+            location_status = false;
+            // notify user
+            AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+            dialog.setCancelable(false);
+            dialog.setMessage(getResources().getString(R.string.gps_network_not_enabled));
+            dialog.setPositiveButton(getResources().getString(R.string.open_location_settings), new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    // TODO Auto-generated method stub
+                    Intent myIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                    startActivity(myIntent);
+                    //get gps
+                }
+            });
+            dialog.setNegativeButton(getString(R.string.Cancel), new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface paramDialogInterface, int paramInt) {
+                    // TODO Auto-generated method stub
+                    System.exit(0);
+                }
+            });
+            dialog.show();
+        } else {
+            location_status = true;
+            LocationRequest mLocationRequest = LocationRequest.create();
+            mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            Toast.makeText(this, String.valueOf(mLocationRequest.getPriority()), Toast.LENGTH_SHORT).show();
+        }
         spSP = (Spinner) findViewById(R.id.spinner1);
         txtUserName = (EditText) findViewById(R.id.email);
         txtPassword = (EditText) findViewById(R.id.password);
@@ -88,10 +138,10 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     for (Map.Entry<String, ?> entry : map.entrySet()) {
                         Log.d("SOut ", entry.getKey() + " -|- " + entry.getValue());
                         listText.put(entry.getKey(), entry.getValue());
-                    }
+                        }
                 } catch (JSONException e) {
                     e.printStackTrace();
-                }
+                    }
 
                 String str = listText.toString();
 
@@ -113,7 +163,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     }
 
                 });
-            }
+                }
 
             private void writeToFile(String data, String fileNm) {
                 try {
@@ -187,18 +237,19 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 FormsDbHelper db = new FormsDbHelper(LoginActivity.this);
 
                 appAdmin = username.contains("@");
-                if (db.Login(username, password)) {
+                if (location_status && db.Login(username, password)) {
                     Toast.makeText(LoginActivity.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
                     MC_102 = username;
                     Intent login_intent = new Intent(getApplicationContext(), MainActivity.class);
 
                     startActivity(login_intent);
                 } else {
-                    Toast.makeText(LoginActivity.this, "Invalid Username/Password", Toast.LENGTH_LONG).show();
                     if (username.equals("dmu@aku") && password.equals("aku.dmu")) {
                         Intent login_intent = new Intent(getApplicationContext(), MainActivity.class);
 
                         startActivity(login_intent);
+                    } else {
+                        Toast.makeText(LoginActivity.this, location_status ? "Invalid Username/Password" : "GPS Disabled! Restart App", Toast.LENGTH_LONG).show();
                     }
                 }
                 db.close();

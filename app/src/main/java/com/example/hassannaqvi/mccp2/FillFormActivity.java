@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -108,22 +110,21 @@ public class FillFormActivity extends AppCompatActivity {
         mcExt = (Spinner) findViewById(R.id.MC_Ext);
 
         mc107epimark = (RadioGroup) findViewById(R.id.MC_107);
-            mc107epimark_no = (RadioButton) findViewById(R.id.MC_107_No);
+        mc107epimark_no = (RadioButton) findViewById(R.id.MC_107_No);
         mc107epimark_yes = (RadioButton) findViewById(R.id.MC_107_Yes);
-            mc107epimark_unclear = (RadioButton) findViewById(R.id.MC_107_Unclear);
+        mc107epimark_unclear = (RadioButton) findViewById(R.id.MC_107_Unclear);
 
 
         mc108permission = (RadioGroup) findViewById(R.id.MC_108);
-            mc108permission_yes = (RadioButton) findViewById(R.id.MC_108_Yes);
-            mc108permission_no = (RadioButton) findViewById(R.id.MC_108_No);
-            mc108permission_close = (RadioButton) findViewById(R.id.MC_108_Close);
+        mc108permission_yes = (RadioButton) findViewById(R.id.MC_108_Yes);
+        mc108permission_no = (RadioButton) findViewById(R.id.MC_108_No);
+        mc108permission_close = (RadioButton) findViewById(R.id.MC_108_Close);
 
         formErrorTxt = (TextView) findViewById(R.id.fromError);
         mcrem1 = (EditText) findViewById(R.id.MC_REM1);
 
         mc101date.setMaxDate(new Date().getTime());
         // mc101date.setMinDate(new Date().getTime()-TimeUnit.DAYS.toMillis(1));
-
 
 
         // Cluster Number (mc105cluster) Validation onFocusChange
@@ -170,7 +171,36 @@ public class FillFormActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
+        mc105cluster.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                //    Toast.makeText(FillFormActivity.this, s+" "+start+" "+before+" "+count, Toast.LENGTH_SHORT).show();
+                //    if (s.length() == 6) {
+                clusterList = db.getClustersByUC(LoginActivity.UC_ID);
+                for (ClustersContract UC : clusterList) {
+                    if (UC.getClusterCode().equals(mc105cluster.getText().toString())) {
+                        mc105clusterNm.setText(UC.getClusterName());
+                        mc105cluster.setError(null);
+                        break;
+                    } else {
+                        mc105clusterNm.setText("Invalid Cluster Number!");
+                        mc105cluster.setError("Invalid Cluster Number!");
+                    }
+                }
+                mc105clusterNm.setVisibility(View.VISIBLE);
+            }
+            //   }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -196,20 +226,19 @@ public class FillFormActivity extends AppCompatActivity {
             }
         });
 
-        mc108permission.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        mc108permission.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 Button btnContinue = (Button) findViewById(R.id.btn_Continue);
-                Log.d(TAG, "Button Id " +checkedId);
-                if(checkedId != mc108permission_yes.getId()){
-                        btnContinue.setEnabled(false);
+                Log.d(TAG, "Button Id " + checkedId);
+                if (checkedId != mc108permission_yes.getId()) {
+                    btnContinue.setEnabled(false);
                     Toast.makeText(FillFormActivity.this, "Continue Button OFF", Toast.LENGTH_SHORT).show();
                 } else {
                     btnContinue.setEnabled(true);
                     Toast.makeText(FillFormActivity.this, "Continue Button ON", Toast.LENGTH_SHORT).show();
                 }
-             }
+            }
         });
 
 
@@ -304,7 +333,7 @@ public class FillFormActivity extends AppCompatActivity {
         {
             if (mc105cluster.getError() != null) {
                 return false;
-        }
+            }
         }
 
         if (mcExt.getSelectedItemPosition() == 0) {
@@ -339,7 +368,7 @@ public class FillFormActivity extends AppCompatActivity {
         if (mc108Selected == -1) {
             mc108permission_close.setError("Please select an answer!");
             Toast.makeText(getApplicationContext(), "Please select permission.\r\n" + getString(R.string.MC_108), Toast.LENGTH_LONG).show();
-            Log.d(TAG, "Error Type: 108 "+ mc108Selected );
+            Log.d(TAG, "Error Type: 108 " + mc108Selected);
             return false;
         }
         // Return from fromValidation()
@@ -361,7 +390,7 @@ public class FillFormActivity extends AppCompatActivity {
 
         String hhCode = "";
 
-        if (len < 3){
+        if (len < 3) {
             Integer stCode = Integer.valueOf(mc106hhno.getText().toString());
             hhCode = String.format("%03d", stCode);
         } else {
@@ -378,7 +407,7 @@ public class FillFormActivity extends AppCompatActivity {
 
     }
 
-    private void StoreTempValues(){
+    private void StoreTempValues() {
 
         Toast.makeText(getApplicationContext(), "Storing Temporary Form Values...", Toast.LENGTH_SHORT).show();
 
@@ -386,7 +415,6 @@ public class FillFormActivity extends AppCompatActivity {
         SharedPreferences GPSPref = getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
 
         SharedPreferences.Editor editor = sharedPref.edit();
-
 
 
         editor.putBoolean("formOpen", true);
