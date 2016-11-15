@@ -38,7 +38,7 @@ public class syncFormsBK extends AsyncTask<Void, Void, Void> {
     @Override
     protected Void doInBackground(Void... params) {
         try {
-            String request = "http://192.168.1.10/appdata/syncdb.php";
+            String request = MCCP2App.HOST_URL + "syncdb.php";
 
             URL url = new URL(request);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();

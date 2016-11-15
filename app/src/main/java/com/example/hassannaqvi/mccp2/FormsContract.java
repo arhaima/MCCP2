@@ -11,7 +11,7 @@ import org.json.JSONObject;
  */
 public class FormsContract {
     private static final String TAG = "FORM_CONTRACT";
-    private static final String PROJECT_NAME = "MCCP2-Phase-I-Repeat-13-SHRUCs";
+    private static final String PROJECT_NAME = "MCCP2-Baseline-Phase-III-Repeat-13-SHRUCs";
     private static final String SURVEY_TYPE = "1";
     //private static FormsContract fcInstance = null;
     private Long _ID;

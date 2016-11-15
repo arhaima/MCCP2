@@ -55,7 +55,7 @@ public class syncCfs extends AsyncTask<Void, Void, String> {
         HttpURLConnection connection = null;
         String line = "No response from Server";
         try {
-            String request = "http://192.168.1.10/appdata/synccf.php";
+            String request = MCCP2App.HOST_URL + "synccf.php";
             //String request = "http://10.1.42.86/appdata/synccf.php";
 
             URL url = new URL(request);

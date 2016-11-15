@@ -8,18 +8,17 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
 
 /**
  * Created by hassan.naqvi on 7/29/2016.
  */
 public class MCCP2App extends Application {
 
+    public static final String HOST_URL = "http://192.168.1.10/appdata/bl-p3/";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
     private static final int TWENTY_MINUTES = 1000 * 60 * 20;
-
-
+    private static final int TWO_MINUTES = 1000 * 60 * 2;
     protected LocationManager locationManager;
 
     @Override
@@ -62,27 +61,21 @@ public class MCCP2App extends Application {
     protected boolean isBetterLocation(Location location, Location currentBestLocation) {
         if (currentBestLocation == null) {
             // A new location is always better than no location
-            Toast.makeText(getApplicationContext(), "New Location -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
             return true;
         }
 
         // Check whether the new location fix is newer or older
         long timeDelta = location.getTime() - currentBestLocation.getTime();
-        boolean isSignificantlyNewer = timeDelta > TWENTY_MINUTES;
-        boolean isSignificantlyOlder = timeDelta < -TWENTY_MINUTES;
+        boolean isSignificantlyNewer = timeDelta > TWO_MINUTES;
+        boolean isSignificantlyOlder = timeDelta < -TWO_MINUTES;
         boolean isNewer = timeDelta > 0;
 
         // If it's been more than two minutes since the current location, use the new location
         // because the user has likely moved
         if (isSignificantlyNewer) {
-            Toast.makeText(getApplicationContext(), "Significantly Newer Location -- Time: " + String.valueOf(location.getTime()), Toast.LENGTH_SHORT).show();
-
             return true;
             // If the new location is more than two minutes older, it must be worse
         } else if (isSignificantlyOlder) {
-            Toast.makeText(getApplicationContext(), "Significantly Older Location -- Time: " + String.valueOf(location.getTime()), Toast.LENGTH_SHORT).show();
-
             return false;
         }
 
@@ -98,20 +91,12 @@ public class MCCP2App extends Application {
 
         // Determine location quality using a combination of timeliness and accuracy
         if (isMoreAccurate) {
-            Toast.makeText(getApplicationContext(), "More Accurate Location -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
             return true;
         } else if (isNewer && !isLessAccurate) {
-            Toast.makeText(getApplicationContext(), "New Location, Less Accurate -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
-            return false;
+            return true;
         } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-            Toast.makeText(getApplicationContext(), "New Location, Significatly Less Accurate -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
-            return false;
+            return true;
         }
-        Toast.makeText(getApplicationContext(), "Older/Worse Location -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
         return false;
     }
 
