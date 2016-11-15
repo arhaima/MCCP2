@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">MCCP2 - GADAP</string>
-    <string name="splash_header">MCCP - Phase 2</string>
+    <string name="app_name">MCCP2 - Endline - Phase III</string>
+    <string name="splash_header">MCCP - Phase 3</string>
     <string name="fill_form">Fill Survey Form</string>
     <string name="edit_forms">Edit Stored Form</string>
     <string name="sync_forms">Sync Stored Forms</string>
