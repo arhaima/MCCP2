@@ -452,7 +452,6 @@ public class FillFormS6Activity extends AppCompatActivity {
             S6.put("mc605_4", sharedPref.getString("sp605_4", "00"));
             S6.put("mc605_5", sharedPref.getString("sp605_5", "00"));
             S6.put("mc605x", sharedPref.getString("sp605x", "00"));
-
             S6.put("mc606", sharedPref.getString("sp606", "00"));
             S6.put("mc607_1", sharedPref.getString("sp607_1", "00"));
             S6.put("mc607_2", sharedPref.getString("sp607_2", "00"));
@@ -474,7 +473,6 @@ public class FillFormS6Activity extends AppCompatActivity {
             S6.put("mc609", sharedPref.getString("sp609", "00"));
             S6.put("mc610", sharedPref.getString("sp610", "00"));
             S6.put("mcRem6", sharedPref.getString("spRem6", "00"));
-
 
             Log.d(TAG, S6.toString());
 
@@ -532,8 +530,6 @@ public class FillFormS6Activity extends AppCompatActivity {
                 Log.d(TAG, "Error Type: 606 not selected");
                 return false;
             }
-
-
             if (mc607Aselected == -1) {
                 Toast.makeText(getApplicationContext(), "Please select an answer!", Toast.LENGTH_SHORT).show();
                 mc607A_no.setError("Please select an answer!");
