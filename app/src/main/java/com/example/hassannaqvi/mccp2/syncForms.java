@@ -58,7 +58,7 @@ public class syncForms extends AsyncTask<Void, Void, String> {
 
         HttpURLConnection connection = null;
         try {
-            String request = MCCP2App.HOST_URL + "appdata/syncdb.php";
+            String request = MCCP2App.HOST_URL + "syncdb.php";
             //String request = "http://10.1.42.86/appdata/syncdb.php";
 
             URL url = new URL(request);
