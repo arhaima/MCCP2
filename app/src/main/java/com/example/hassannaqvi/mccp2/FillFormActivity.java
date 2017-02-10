@@ -404,7 +404,6 @@ public class FillFormActivity extends AppCompatActivity {
         Log.d(TAG, "mcFrmNo: " + mcFrmNo);
         FORM_ID = mcFrmNo;
         return mcFrmNo;
-
     }
 
     private void StoreTempValues() {
@@ -433,7 +432,6 @@ public class FillFormActivity extends AppCompatActivity {
         editor.putString("spRem1", mcrem1.getText().toString());
 
         //To Retrieve: double latitude = Double.longBitsToDouble(prefs.getLong("Latitude", 0);
-
 
 /*
         editor.putString("sp104", mc104uc.getText().toString());

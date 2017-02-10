@@ -1219,8 +1219,8 @@ public class FillFormS5Activity extends AppCompatActivity {
             S5.put("mc512_5", sharedPref.getString("sp512_5", "00"));
             S5.put("mc512_6", sharedPref.getString("sp512_6", "00"));
             S5.put("mc512_7", sharedPref.getString("sp512_7", "00"));
-            S5.put("mc512_88", sharedPref.getString("sp512_99", "00"));
-            S5.put("mc512_99", sharedPref.getString("sp512_88", "00"));
+            S5.put("mc512_88", sharedPref.getString("sp512_88", "00"));
+            S5.put("mc512_99", sharedPref.getString("sp512_99", "00"));
             S5.put("mc512x", sharedPref.getString("sp512x", "00"));
             S5.put("mc522_1", sharedPref.getString("sp522_1", "00"));
             S5.put("mc522_2", sharedPref.getString("sp522_2", "00"));
