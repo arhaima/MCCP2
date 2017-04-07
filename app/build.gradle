@@ -7,7 +7,7 @@ android {
             keyPassword 'Shan$han110'
         }
     }
-    compileSdkVersion 24
+    compileSdkVersion 23
     buildToolsVersion '25.0.0'
     defaultConfig {
         applicationId "com.example.hassannaqvi.mccp2"
@@ -36,4 +36,7 @@ dependencies {
     compile 'com.google.android.gms:play-services:8.4.0'
     compile 'com.android.support:support-v4:23.3.0'
     compile 'com.google.maps.android:android-maps-utils:0.4'
+
+    compile 'com.jakewharton:butterknife:8.4.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 }

@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by hassan.naqvi on 5/23/2016.
  */
-public class ShareDBHelper extends SQLiteOpenHelper {
+public class shareDBHelper extends SQLiteOpenHelper {
 
     public static final int DATABASE_VERSION = 3;
     //public String todayDate = DateFormat.getDateInstance().format(Calendar.getInstance());
@@ -41,7 +41,7 @@ public class ShareDBHelper extends SQLiteOpenHelper {
             "DROP TABLE IF EXISTS cfs";
 
 
-    public ShareDBHelper(Context context){
+    public shareDBHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 

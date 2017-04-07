@@ -56,7 +56,7 @@ public class SyncFilesData extends AsyncTask<Void, Void, Boolean> {
             JSONArray jsonSync = new JSONArray();
             //connection.setConnectTimeout(60000);
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
-            ShareDBHelper db = new ShareDBHelper(mContext);
+            shareDBHelper db = new shareDBHelper(mContext);
             List<String> forms = db.getAllForms();
             for (String fc : forms) {
                 Log.d(TAG, fc);

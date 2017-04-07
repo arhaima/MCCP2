@@ -377,8 +377,6 @@
             </TableRow>
             <TableRow>
 
-
-
             <EditText
                 android:id="@+id/MC_207_1M"
                 style="@style/textInput"

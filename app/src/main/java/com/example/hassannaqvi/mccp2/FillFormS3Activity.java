@@ -257,14 +257,16 @@ public class FillFormS3Activity extends AppCompatActivity {
                     fldGrpIM_D.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpIM_D.setVisibility(View.GONE);
+                    imddoc.setChecked(false);
+
                 }
                 if (checkedId == imagey.getId()) {
                     fldGrpIM_E.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpIM_E.setVisibility(View.GONE);
-                    imed.setText("");
-                    imem.setText("");
-                    imey.setText("");
+                    imed.setText(null);
+                    imem.setText(null);
+                    imey.setText(null);
                 }
             }
         });
@@ -275,6 +277,8 @@ public class FillFormS3Activity extends AppCompatActivity {
                     fldGrpIM_JA.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpIM_JA.setVisibility(View.GONE);
+                    imj.clearCheck();
+
                 }
             }
         });

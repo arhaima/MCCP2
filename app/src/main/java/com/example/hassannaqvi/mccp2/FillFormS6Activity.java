@@ -204,10 +204,22 @@ public class FillFormS6Activity extends AppCompatActivity {
                 if (checkedId == mc602_no.getId()) {
                     fldGrp602.setVisibility(View.VISIBLE);
                     fldGrp602b.setVisibility(View.GONE);
+                    mc605_1.setChecked(false);
+                    mc605_2.setChecked(false);
+                    mc605_3.setChecked(false);
+                    mc605_4.setChecked(false);
+                    mc605_5.setChecked(false);
+                    mc605x.setText(null);
 
                 } else {
                     fldGrp602b.setVisibility(View.VISIBLE);
                     fldGrp602.setVisibility(View.GONE);
+                    mc603_1.setChecked(false);
+                    mc603_2.setChecked(false);
+                    mc603_3.setChecked(false);
+                    mc603_4.setChecked(false);
+                    mc603_5.setChecked(false);
+                    mc603_X1.setText(null);
                 }
             }
         });
@@ -217,6 +229,16 @@ public class FillFormS6Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == mc606_yes.getId()) {
                     fldGrp606.setVisibility(View.GONE);
+                    mc607_1.setChecked(false);
+                    mc607_2.setChecked(false);
+                    mc607_3.setChecked(false);
+                    mc607_4.setChecked(false);
+                    mc607_5.setChecked(false);
+                    mc607_6.setChecked(false);
+                    mc607_7.setChecked(false);
+                    mc607_88.setChecked(false);
+                    mc607x.setText(null);
+
                 } else {
                     fldGrp606.setVisibility(View.VISIBLE);
                 }
@@ -231,6 +253,7 @@ public class FillFormS6Activity extends AppCompatActivity {
                     fldGrp607a.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp607a.setVisibility(View.GONE);
+                    mc607B.setSelection(0);
                 }
             }
         });
@@ -242,6 +265,7 @@ public class FillFormS6Activity extends AppCompatActivity {
                     fldGrp609.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp609.setVisibility(View.GONE);
+                    mc610.setSelection(0);
                 }
 
             }

@@ -760,6 +760,11 @@
 
     </LinearLayout>
 
+        <!--<LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fldGrp516">-->
+
         <!--MC_516-->
         <TextView
             style="@style/labels"
@@ -774,6 +779,8 @@
             android:prompt="@string/MC_516"
             android:textSize="24sp"> <!-- Todo: Increase textSize  -->
         </Spinner>
+
+        <!--</LinearLayout>-->
 
 </LinearLayout>
 

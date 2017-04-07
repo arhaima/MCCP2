@@ -364,11 +364,11 @@ public class FillFormS4Activity extends AppCompatActivity {
                                                         mc404x_3.setVisibility(View.VISIBLE);
                                                     } else {
                                                         mc404x_1.setVisibility(View.GONE);
-                                                        mc404x_1.setText("");
+                                                        mc404x_1.setText(null);
                                                         mc404x_2.setVisibility(View.GONE);
-                                                        mc404x_2.setText("");
+                                                        mc404x_2.setText(null);
                                                         mc404x_3.setVisibility(View.GONE);
-                                                        mc404x_3.setText("");
+                                                        mc404x_3.setText(null);
 
                                                     }
                                                 }
@@ -383,7 +383,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                                                         mc405x.setVisibility(View.VISIBLE);
                                                     } else {
                                                         mc405x.setVisibility(View.GONE);
-                                                        mc405x.setText("");
+                                                        mc405x.setText(null);
 
                                                     }
                                                 }
@@ -397,7 +397,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                                                         mc405ax.setVisibility(View.VISIBLE);
                                                     } else {
                                                         mc405ax.setVisibility(View.GONE);
-                                                        mc405ax.setText("");
+                                                        mc405ax.setText(null);
 
                                                     }
                                                 }
@@ -411,7 +411,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                                                         mc407x.setVisibility(View.VISIBLE);
                                                     } else {
                                                         mc407x.setVisibility(View.GONE);
-                                                        mc407x.setText("");
+                                                        mc407x.setText(null);
 
                                                     }
                                                 }
@@ -425,7 +425,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                     mc409x.setVisibility(View.VISIBLE);
                 } else {
                     mc409x.setVisibility(View.GONE);
-                    mc409x.setText("");
+                    mc409x.setText(null);
 
                 }
             }
@@ -444,7 +444,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                     mc410x.setVisibility(View.VISIBLE);
                 } else {
                     mc410x.setVisibility(View.GONE);
-                    mc410x.setText("");
+                    mc410x.setText(null);
 
                 }
             }
@@ -462,7 +462,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                                                          mc410Bx.setVisibility(View.VISIBLE);
                                                      } else {
                                                          mc410Bx.setVisibility(View.GONE);
-                                                         mc410Bx.setText("");
+                                                         mc410Bx.setText(null);
 
                                                      }
                                                  }
@@ -476,7 +476,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                                                         mc413x.setVisibility(View.VISIBLE);
                                                     } else {
                                                         mc413x.setVisibility(View.GONE);
-                                                        mc413x.setText("");
+                                                        mc413x.setText(null);
 
                                                     }
                                                 }
@@ -512,7 +512,17 @@ public class FillFormS4Activity extends AppCompatActivity {
                 } else {
                     fldGrp408.setVisibility(View.GONE);
                     mc409.setSelection(0);
+                    mc409x.setText(null);
                     mc410.setSelection(0);
+                    mc410A.clearCheck();
+                    mc410B_1.setChecked(false);
+                    mc410B_2.setChecked(false);
+                    mc410B_3.setChecked(false);
+                    mc410B_4.setChecked(false);
+                    mc410B_5.setChecked(false);
+                    mc410B_99.setChecked(false);
+                    mc410B_88.setChecked(false);
+                    mc410Bx.setText(null);
                 }
             }
         });
@@ -564,7 +574,7 @@ public class FillFormS4Activity extends AppCompatActivity {
                     mc415x.setVisibility(View.VISIBLE);
                 } else {
                     mc415x.setVisibility(View.GONE);
-                    mc415x.setText("");
+                    mc415x.setText(null);
 
                 }
             }

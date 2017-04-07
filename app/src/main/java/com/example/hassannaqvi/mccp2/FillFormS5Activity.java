@@ -213,6 +213,7 @@ public class FillFormS5Activity extends AppCompatActivity {
     private LinearLayout fldGrp511;
     private LinearLayout fldGrp513;
     private LinearLayout fldGrp514;
+    private LinearLayout fldGrp516;
     private LinearLayout fldGrp517;
     private LinearLayout fldGrp519;
     private LinearLayout fldGrp520;
@@ -375,6 +376,7 @@ public class FillFormS5Activity extends AppCompatActivity {
         fldGrp511 = (LinearLayout) findViewById(R.id.fldGrp511);
         fldGrp513 = (LinearLayout) findViewById(R.id.fldGrp513);
         fldGrp514 = (LinearLayout) findViewById(R.id.fldGrp514);
+        //fldGrp516 = (LinearLayout) findViewById(R.id.fldGrp516);
         fldGrp517 = (LinearLayout) findViewById(R.id.fldGrp517);
         fldGrp519 = (LinearLayout) findViewById(R.id.fldGrp519);
         fldGrp520 = (LinearLayout) findViewById(R.id.fldGrp520);
@@ -389,9 +391,9 @@ public class FillFormS5Activity extends AppCompatActivity {
                     fldGrp502.setVisibility(View.VISIBLE);
                 } else {
                     fldGrp502.setVisibility(View.GONE);
-                    mc503Alhs.setChecked(false);
                     mc503Alhw.setChecked(false);
                     mc503Afcv.setChecked(false);
+                    mc503Alhs.setChecked(false);
                     mc503Ango.setChecked(false);
                     mc503Ax.setText(null);
                     mc503Blhs.setChecked(false);
@@ -472,7 +474,10 @@ public class FillFormS5Activity extends AppCompatActivity {
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 if (checkedId == mc514_yes.getId()) {
                     fldGrp514.setVisibility(View.VISIBLE);
+                    //fldGrp516.setVisibility(View.GONE);
+                    mc516.setSelection(0);
                 } else {
+                    //fldGrp516.setVisibility(View.VISIBLE);
                     fldGrp514.setVisibility(View.GONE);
                     mc515.setText(null);
 
@@ -537,8 +542,8 @@ public class FillFormS5Activity extends AppCompatActivity {
                                                         fldGrp524.setVisibility(View.VISIBLE);
                                                     } else {
                                                         fldGrp524.setVisibility(View.GONE);
-                                                        mc524ACR.setText("");
-                                                        mc524CAN.setText("");
+                                                        mc524ACR.setText(null);
+                                                        mc524CAN.setText(null);
 
                                                     }
                                                 }

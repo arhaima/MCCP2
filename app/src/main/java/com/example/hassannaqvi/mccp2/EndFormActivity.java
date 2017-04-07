@@ -87,6 +87,8 @@ public class EndFormActivity extends AppCompatActivity {
                 } else {
                     mc110_txt.setVisibility(View.GONE);
                     mc110.setVisibility(View.GONE);
+                    mc110.clearCheck();
+
                 }
             }
         });
