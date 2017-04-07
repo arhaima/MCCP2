@@ -551,8 +551,8 @@ public class FillFormS5Activity extends AppCompatActivity {
                                                         fldGrp524.setVisibility(View.VISIBLE);
                                                     } else {
                                                         fldGrp524.setVisibility(View.GONE);
-                                                        mc524ACR.setText("");
-                                                        mc524CAN.setText("");
+                                                        mc524ACR.setText(null);
+                                                        mc524CAN.setText(null);
 
                                                     }
                                                 }
