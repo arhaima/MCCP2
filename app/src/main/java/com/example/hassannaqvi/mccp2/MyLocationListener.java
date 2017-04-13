@@ -10,6 +10,7 @@ import android.os.Bundle;
  * Created by hassan.naqvi on 5/7/2016.
  */
 public class MyLocationListener implements LocationListener {
+
     SharedPreferences.Editor editor = sharedPref.edit();
     private Context mContext;
     /*protected LocationManager locationManager;*/

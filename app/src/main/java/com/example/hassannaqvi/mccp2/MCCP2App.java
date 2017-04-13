@@ -14,7 +14,11 @@ import android.view.View;
  */
 public class MCCP2App extends Application {
 
-    public static final String HOST_URL = "http://192.168.1.10/appdata/blp3/";
+    public static final String _IP = "43.245.131.159"; // Test PHP server
+    public static final Integer _PORT = 8080; // Port - with colon (:)
+    public static final String HOST_URL = "http://" + MCCP2App._IP + ":" + MCCP2App._PORT + "/mccp/";
+
+    //public static final String HOST_URL = "http://43.245.131.159/appdata/blp3/";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
     private static final int TWENTY_MINUTES = 1000 * 60 * 20;
