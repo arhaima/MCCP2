@@ -11,6 +11,7 @@ import android.os.Bundle;
  */
 public class MyLocationListener implements LocationListener {
 
+
     SharedPreferences.Editor editor = sharedPref.edit();
     private Context mContext;
     /*protected LocationManager locationManager;*/
