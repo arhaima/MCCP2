@@ -132,7 +132,7 @@ public class syncForms extends AsyncTask<Void, Void, String> {
                 } else {
                     jsonParam.put("ending", "");
                 }
-                jsonParam.put("Hassan", "Hello!");
+                //jsonParam.put("Hassan", "Hello!");
                 jsonSync.put(jsonParam);
             }
             wr.writeBytes(jsonSync.toString().replace("\uFEFF", "") + "\n");
