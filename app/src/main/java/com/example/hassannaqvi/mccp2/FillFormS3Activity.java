@@ -277,7 +277,7 @@ public class FillFormS3Activity extends AppCompatActivity {
                     fldGrpIM_JA.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpIM_JA.setVisibility(View.GONE);
-                    imj.clearCheck();
+                    imjb.setSelection(0);
 
                 }
             }
