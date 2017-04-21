@@ -59,13 +59,11 @@
 
             <Spinner
                 android:id="@+id/spUC"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="@string/MC_104_Name"
-                android:popupBackground="#3d3d3d"
-
-
-                />
+                style="@style/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="16dp"
+                android:visibility="visible" />
 
 
             <Button

@@ -59,6 +59,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         txtUserName = (EditText) findViewById(R.id.email);
         txtPassword = (EditText) findViewById(R.id.password);
         showpassword = (Button) findViewById(R.id.ShowPassword);
+        spUC = (Spinner) findViewById(R.id.spUC);
 
 
         File prefsdir = new File(getApplicationInfo().dataDir, "shared_prefs");
@@ -134,7 +135,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
 
         FormsDbHelper db = new FormsDbHelper(getApplicationContext());
-        spUC = (Spinner) findViewById(R.id.spUC);
+
         ArrayList<UCContract> ucList = new ArrayList<UCContract>();
         ucList = db.getAllUC();
 
@@ -155,14 +156,14 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         // Creating adapter for spinner
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getApplicationContext(),
-                android.R.layout.simple_spinner_item, lables);
+                android.R.layout.simple_spinner_dropdown_item, lables);
 
         // Drop down layout style - list view with radio button
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // attaching data adapter to spinner
         spUC.setAdapter(dataAdapter);
-        spUC.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        //spUC.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         spUC.setOnItemSelectedListener(this);
 
 
