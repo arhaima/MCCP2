@@ -12,10 +12,10 @@ import android.os.Bundle;
 public class MyLocationListener implements LocationListener {
 
 
-    SharedPreferences.Editor editor = sharedPref.edit();
     private Context mContext;
     /*protected LocationManager locationManager;*/
     SharedPreferences sharedPref = mContext.getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+    SharedPreferences.Editor editor = sharedPref.edit();
 
     public MyLocationListener(Context context) {
         mContext = context;

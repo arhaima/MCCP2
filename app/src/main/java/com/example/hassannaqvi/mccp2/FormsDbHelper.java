@@ -692,6 +692,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
     }
 
     public ArrayList<ClustersContract> getClustersByUC(String uc) {
+        Log.d(TAG, "getClustersByUC: ");
         SQLiteDatabase db = this.getReadableDatabase();
         String ucId = uc;
         ArrayList<ClustersContract> ClusterList = null;

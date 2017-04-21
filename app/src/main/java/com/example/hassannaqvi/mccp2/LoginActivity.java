@@ -135,7 +135,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
 
         FormsDbHelper db = new FormsDbHelper(getApplicationContext());
-
+        spUC = (Spinner) findViewById(R.id.spUC);
         ArrayList<UCContract> ucList = new ArrayList<UCContract>();
         ucList = db.getAllUC();
 
@@ -159,7 +159,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                 android.R.layout.simple_spinner_dropdown_item, lables);
 
         // Drop down layout style - list view with radio button
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(R.layout.spinner);
 
         // attaching data adapter to spinner
         spUC.setAdapter(dataAdapter);
@@ -179,7 +179,8 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
 
     public void loginUser(View view) {
-
+        final EditText txtUserName = (EditText) findViewById(R.id.email);
+        final EditText txtPassword = (EditText) findViewById(R.id.password);
 
         String username = txtUserName.getText().toString();
         String password = txtPassword.getText().toString();

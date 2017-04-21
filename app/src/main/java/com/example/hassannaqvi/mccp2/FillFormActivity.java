@@ -7,6 +7,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -170,8 +172,39 @@ public class FillFormActivity extends AppCompatActivity {
 //                }
 //            }
 //        });
+        mc105cluster.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-        mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                  // Toast.makeText(FillFormActivity.this, s+" "+start+" "+before+" "+count, Toast.LENGTH_SHORT).show();
+                 //  if (s.length() == 7) {
+                clusterList = db.getClustersByUC(LoginActivity.UC_ID);
+                Log.d(TAG, "onTextChanged: "+clusterList.size());
+                for (ClustersContract UC : clusterList) {
+                    Log.d(TAG, "onTextChanged: " +UC.getClusterCode() + UC.getClusterName());
+                    if (UC.getClusterCode().equals(mc105cluster.getText().toString())) {
+                        mc105clusterNm.setText(UC.getClusterName());
+                        mc105cluster.setError(null);
+                        break;
+                    } else {
+                        mc105clusterNm.setText("Invalid Cluster Number!");
+                        mc105cluster.setError("Invalid Cluster Number!");
+                    }
+                }
+                mc105clusterNm.setVisibility(View.VISIBLE);
+            }
+          //  }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+       /* mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -194,22 +227,21 @@ public class FillFormActivity extends AppCompatActivity {
 
                 }
             }
-        });
+        });*/
 
-        mc108permission.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
+        mc108permission.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 Button btnContinue = (Button) findViewById(R.id.btn_Continue);
-                Log.d(TAG, "Button Id " +checkedId);
-                if(checkedId != mc108permission_yes.getId()){
-                        btnContinue.setEnabled(false);
+                Log.d(TAG, "Button Id " + checkedId);
+                if (checkedId != mc108permission_yes.getId()) {
+                    btnContinue.setEnabled(false);
                     Toast.makeText(FillFormActivity.this, "Continue Button OFF", Toast.LENGTH_SHORT).show();
                 } else {
                     btnContinue.setEnabled(true);
                     Toast.makeText(FillFormActivity.this, "Continue Button ON", Toast.LENGTH_SHORT).show();
                 }
-             }
+            }
         });
 
 

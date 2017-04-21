@@ -13,7 +13,6 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.maps.android.clustering.ClusterManager;
 
 import java.util.List;
 
@@ -22,7 +21,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private boolean Todays;
     private CoordinatorLayout coordinatorLayout;
-    private ClusterManager<Markers> mClusterManager;
     private LatLng karachi;
 
 
@@ -72,12 +70,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         // Initialize the manager with the context and the map.
         // (Activity extends context, so we can pass 'this' in the constructor.)
-        mClusterManager = new ClusterManager<>(this, mMap);
 
         // Point the map's listeners at the listeners implemented by the cluster
         // manager.
-        mMap.setOnCameraChangeListener(mClusterManager);
-        mMap.setOnMarkerClickListener(mClusterManager);
+
 
         // Add cluster items (markers) to the cluster manager.
         addMarkers();
@@ -115,7 +111,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             Log.d("MAP", "Form Submission here! LAT:" + gps.getGPSLat() + " LNG: " + gps.getGPSLng());
             // Set some lat/lng coordinates to start with.
             Markers offsetItem = new Markers(karachi);
-            mClusterManager.addItem(offsetItem);
         }
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(karachi, 15));
 
