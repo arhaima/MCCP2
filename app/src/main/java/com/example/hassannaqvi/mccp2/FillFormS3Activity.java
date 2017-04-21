@@ -271,11 +271,11 @@ public class FillFormS3Activity extends AppCompatActivity {
         imj.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
-                if (checkedId == imj_yes.getId()) {
+                if (imj_yes.isChecked()) {
                     fldGrpIM_JA.setVisibility(View.VISIBLE);
                 } else {
                     fldGrpIM_JA.setVisibility(View.GONE);
-                    imj.clearCheck();
+                    imjb.setSelection(0);
                 }
             }
         });

@@ -264,6 +264,7 @@ public class FormsDbHelper extends SQLiteOpenHelper {
                 // Adding contact to list
                 formList.add(form);
             } while (cursor.moveToNext());
+            cursor.close();
         }
 
         // return contact list

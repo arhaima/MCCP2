@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final int PROGRESS = 0x1;
     private static final String TAG = "MAIN_ACTIVITY";
-    private static String ipAddress = "10.1.42.37";
+    private static String ipAddress = "43.245.13.159";
     public EditText clusterNo;
     String dtToday = new SimpleDateFormat("dd-MM-yy HH:mm").format(new Date().getTime());
     private TextView RecordSummary;

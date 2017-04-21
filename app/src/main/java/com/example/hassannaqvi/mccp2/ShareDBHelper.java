@@ -140,9 +140,12 @@ public class ShareDBHelper extends SQLiteOpenHelper {
                 // Adding contact to list
                 formList.add(form1);
             } while (cursor.moveToNext());
+            cursor.close();
         }
+
         // return contact list
         return formList;
+
     }
 
 
