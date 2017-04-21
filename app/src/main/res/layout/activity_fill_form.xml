@@ -124,7 +124,7 @@
         style="@style/textInput"
         android:hint="@string/MC_105"
         android:inputType="number"
-        android:maxLength="6"
+        android:maxLength="7"
         android:singleLine="true"
          />
 

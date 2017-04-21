@@ -34,7 +34,7 @@ public class getUC extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL(MCCP2App.HOST_URL + "uc_array.php");
+            URL url = new URL(MCCP2App.HOST_URL);
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
 
