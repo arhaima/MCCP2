@@ -163,7 +163,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         // attaching data adapter to spinner
         spUC.setAdapter(dataAdapter);
-        //spUC.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+        spUC.setBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
         spUC.setOnItemSelectedListener(this);
 
 
