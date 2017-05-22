@@ -6,8 +6,11 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -558,6 +561,211 @@ public class FillFormS5Activity extends AppCompatActivity {
                                                 }
                                             }
         );
+
+        mc501.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc501.getSelectedItemPosition() == 7) {
+                    mc501_88.setVisibility(View.VISIBLE);
+                } else {
+                    mc501_88.setVisibility(View.GONE);
+                    mc501_88.setText(null);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        mc504W.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc504W.getSelectedItemPosition() == 8) {
+                    mc504Wx.setVisibility(View.VISIBLE);
+                } else {
+                    mc504Wx.setVisibility(View.GONE);
+                    mc504Wx.setText(null);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        mc504R.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc504R.getSelectedItemPosition() == 9) {
+                    mc504Rx.setVisibility(View.VISIBLE);
+                } else {
+                    mc504Rx.setVisibility(View.GONE);
+                    mc504Rx.setText(null);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        mc504F.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc504F.getSelectedItemPosition() == 10) {
+                    mc504Fx.setVisibility(View.VISIBLE);
+                } else {
+                    mc504Fx.setVisibility(View.GONE);
+                    mc504Fx.setText(null);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        mc508.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc508.getSelectedItemPosition() == 9) {
+                    mc508x.setVisibility(View.VISIBLE);
+                } else {
+                    mc508x.setVisibility(View.GONE);
+                    mc508x.setText(null);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        mc509.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc509.getSelectedItemPosition() == 14) {
+                    mc509x.setVisibility(View.VISIBLE);
+                } else {
+                    mc509x.setVisibility(View.GONE);
+                    mc509x.setText(null);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        mc510.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                // your code here
+                if (mc510.getSelectedItemPosition() == 14) {
+                    mc510x.setVisibility(View.VISIBLE);
+                } else {
+                    mc510x.setVisibility(View.GONE);
+                    mc510x.setText(null);
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
+        });
+
+        mc512_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mc512x.setVisibility(View.VISIBLE);
+
+                } else {
+                    mc512x.setVisibility(View.GONE);
+                    mc512x.setText(null);
+                }
+            }
+        });
+
+        mc513_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mc513x.setVisibility(View.VISIBLE);
+
+                } else {
+                    mc513x.setVisibility(View.GONE);
+                    mc513x.setText(null);
+                }
+            }
+        });
+
+        mc522_88.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                    mc522X.setVisibility(View.VISIBLE);
+
+                } else {
+                    mc522X.setVisibility(View.GONE);
+                    mc522X.setText(null);
+                }
+            }
+        });
+
+        mc525_7.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (Integer.parseInt(mc525_7.getText().toString().isEmpty() ? "0" : mc525_7.getText().toString()) > 0) {
+                    mc525_7x.setVisibility(View.VISIBLE);
+                } else {
+                    mc525_7x.setVisibility(View.GONE);
+                    mc525_7x.setText(null);
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+
+
+
+
+
+
+
 
 
     }
