@@ -23,7 +23,7 @@ public class FormsList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forms_list);
 
-        String clusterno = getIntent().getStringExtra("clusterno");
+            String clusterno = getIntent().getStringExtra("clusterno");
         TextView cNo = (TextView) findViewById(R.id.clusterNo);
         TextView tf = (TextView) findViewById(R.id.totalForms);
         TextView cf = (TextView) findViewById(R.id.completeForms);

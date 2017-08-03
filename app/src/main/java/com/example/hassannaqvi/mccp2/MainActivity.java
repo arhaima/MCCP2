@@ -66,12 +66,6 @@ public class MainActivity extends AppCompatActivity {
         mProgress = (ProgressBar) findViewById(R.id.progressBar);
         RecordSummary = (TextView) findViewById(R.id.recordSummary);
 
-
-        ShareDBHelper sdb = new ShareDBHelper(this);
-        List<String> forms = sdb.getAllForms();
-        Log.d(TAG, forms.toString());
-
-
         FormsDbHelper db = new FormsDbHelper(this);
         List<FormsContract> todaysForms = new ArrayList<>();
 
