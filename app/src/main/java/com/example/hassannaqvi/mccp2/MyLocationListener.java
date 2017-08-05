@@ -11,23 +11,16 @@ import android.os.Bundle;
  */
 public class MyLocationListener implements LocationListener {
 
-<<<<<<<Updated upstream
-=======
 
-
-        >>>>>>>
-    Stashed changes
     SharedPreferences.Editor editor = sharedPref.edit();
-    Stashed changes
     private Context mContext;
-<<<<<<<Updated upstream
-=======
-
-        >>>>>>>     /*protected LocationManager locationManager;*/
+    /*protected LocationManager locationManager;*/
     SharedPreferences sharedPref = mContext.getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);
+
     public MyLocationListener(Context context) {
         mContext = context;
     }
+
 
     public void onLocationChanged(Location location) {
         sharedPref = mContext.getSharedPreferences("GPSCoordinates", Context.MODE_PRIVATE);

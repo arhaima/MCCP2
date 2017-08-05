@@ -201,7 +201,7 @@ public class FillFormActivity extends AppCompatActivity {
 
             }
         });
-        mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+      /*  mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -225,7 +225,7 @@ public class FillFormActivity extends AppCompatActivity {
                 }
             }
         });
-
+*/
         mc108permission.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
@@ -335,6 +335,22 @@ public class FillFormActivity extends AppCompatActivity {
                 return false;
             }
         }
+
+        clusterList = db.getClustersByUC(LoginActivity.UC_ID);
+        for (ClustersContract UC : clusterList) {
+            if (UC.getClusterCode().equals(mc105cluster.getText().toString())) {
+                mc105clusterNm.setText(UC.getClusterName());
+                mc105cluster.setError(null);
+                break;
+            } else {
+                mc105clusterNm.setText("Invalid Cluster Number!");
+                mc105cluster.setError("Invalid Cluster Number!");
+            }
+        }
+
+
+
+
 
         if (mcExt.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mcExt.getSelectedView();
