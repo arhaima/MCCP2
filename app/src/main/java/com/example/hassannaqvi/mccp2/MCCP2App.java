@@ -17,7 +17,7 @@ public class MCCP2App extends Application {
     public static final String _IP = "43.245.131.159"; // Test PHP server
     public static final Integer _PORT = 8080; // Port - with colon (:)
     //public static final String HOST_URL = "http://" + MCCP2App._IP + ":" + MCCP2App._PORT + "/mccp/";
-    public static final String HOST_URL = "http://" + MCCP2App._IP + ":" + MCCP2App._PORT + "/mccp3/bl/api/";
+    public static final String HOST_URL = "http://" + MCCP2App._IP + ":" + MCCP2App._PORT + "/mccp3/ml/api/";
 
     //public static final String HOST_URL = "http://43.245.131.159/appdata/blp3/";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
