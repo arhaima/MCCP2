@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         RecordSummary = (TextView) findViewById(R.id.recordSummary);
 
 
-        shareDBHelper sdb = new shareDBHelper(this);
+        ShareDBHelper sdb = new ShareDBHelper(this);
         List<String> forms = sdb.getAllForms();
         Log.d(TAG, forms.toString());
 
@@ -423,7 +423,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void GetRawData(View view) {
-        shareDBHelper db = new shareDBHelper(this);
+        ShareDBHelper db = new ShareDBHelper(this);
         File prefsBKdir = new File(getApplicationInfo().dataDir, "shared_prefs");
 
         if (prefsBKdir.exists() && prefsBKdir.isDirectory()) {

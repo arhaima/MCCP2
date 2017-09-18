@@ -201,7 +201,7 @@ public class FillFormActivity extends AppCompatActivity {
 
             }
         });
-      /*  mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+        mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -225,7 +225,7 @@ public class FillFormActivity extends AppCompatActivity {
                 }
             }
         });
-*/
+
         mc108permission.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {

@@ -8,31 +8,31 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Toast;
-
-import com.google.android.gms.location.LocationRequest;
 
 /**
  * Created by hassan.naqvi on 7/29/2016.
  */
 public class MCCP2App extends Application {
 
+    public static final String _IP = "43.245.131.159"; // Test PHP server
+    public static final Integer _PORT = 8080; // Port - with colon (:)
+    //public static final String HOST_URL = "http://" + MCCP2App._IP + ":" + MCCP2App._PORT + "/mccp/";
+    public static final String HOST_URL = "http://" + MCCP2App._IP + ":" + MCCP2App._PORT + "/mccp3/bl/api/";
+
+    //public static final String HOST_URL = "http://43.245.131.159/appdata/blp3/";
     private static final long MINIMUM_DISTANCE_CHANGE_FOR_UPDATES = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATES = 1000; // in Milliseconds
     private static final int TWENTY_MINUTES = 1000 * 60 * 20;
-
-
+    private static final int TWO_MINUTES = 1000 * 60 * 2;
     protected LocationManager locationManager;
-    Location location;
+
     @Override
     public void onCreate() {
         super.onCreate();
         TypefaceUtil.overrideFont(getApplicationContext(), "SERIF", "fonts/JameelNooriNastaleeq.ttf"); // font from assets: "assets/fonts/Roboto-Regular.ttf
 
-
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        LocationRequest locationRequest = new LocationRequest();
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
                 MINIMUM_TIME_BETWEEN_UPDATES,
@@ -42,10 +42,9 @@ public class MCCP2App extends Application {
 
     }
 
-
     protected void showCurrentLocation() {
 
-        location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 
         if (location != null) {
             String message = String.format(
@@ -67,27 +66,21 @@ public class MCCP2App extends Application {
     protected boolean isBetterLocation(Location location, Location currentBestLocation) {
         if (currentBestLocation == null) {
             // A new location is always better than no location
-            Toast.makeText(getApplicationContext(), "New Location -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
             return true;
         }
 
         // Check whether the new location fix is newer or older
         long timeDelta = location.getTime() - currentBestLocation.getTime();
-        boolean isSignificantlyNewer = timeDelta > TWENTY_MINUTES;
-        boolean isSignificantlyOlder = timeDelta < -TWENTY_MINUTES;
-        boolean isNewer = timeDelta > 2;
+        boolean isSignificantlyNewer = timeDelta > TWO_MINUTES;
+        boolean isSignificantlyOlder = timeDelta < -TWO_MINUTES;
+        boolean isNewer = timeDelta > 0;
 
         // If it's been more than two minutes since the current location, use the new location
         // because the user has likely moved
         if (isSignificantlyNewer) {
-            Toast.makeText(getApplicationContext(), "Significantly Newer Location -- Time: " + String.valueOf(location.getTime()), Toast.LENGTH_SHORT).show();
-
             return true;
             // If the new location is more than two minutes older, it must be worse
         } else if (isSignificantlyOlder) {
-            Toast.makeText(getApplicationContext(), "Significantly Older Location -- Time: " + String.valueOf(location.getTime()), Toast.LENGTH_SHORT).show();
-
             return false;
         }
 
@@ -103,20 +96,12 @@ public class MCCP2App extends Application {
 
         // Determine location quality using a combination of timeliness and accuracy
         if (isMoreAccurate) {
-            Toast.makeText(getApplicationContext(), "More Accurate Location -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
             return true;
         } else if (isNewer && !isLessAccurate) {
-            Toast.makeText(getApplicationContext(), "New Location, More Accurate -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
             return true;
         } else if (isNewer && !isSignificantlyLessAccurate && isFromSameProvider) {
-            Toast.makeText(getApplicationContext(), "New Location, Significatly More Accurate -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
             return true;
         }
-        Toast.makeText(getApplicationContext(), "Older/Worse Location -- Accuracy: " + String.valueOf(location.getAccuracy()), Toast.LENGTH_SHORT).show();
-
         return false;
     }
 

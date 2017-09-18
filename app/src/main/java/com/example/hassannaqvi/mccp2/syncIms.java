@@ -55,10 +55,8 @@ public class syncIms extends AsyncTask<Void, Void, String> {
         HttpURLConnection connection = null;
         String line = "no response";
         try {
-            String request = "http://192.168.1.10/appdata/elp1rv/syncim.php";
+            String request = MCCP2App.HOST_URL + "syncim.php";
             //String request = "http://10.1.42.86/appdata/syncim.php";
-
-            Log.d(request, "URL");
 
             URL url = new URL(request);
             connection = (HttpURLConnection) url.openConnection();
