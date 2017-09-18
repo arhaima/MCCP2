@@ -34,7 +34,7 @@ public class getTowns extends AsyncTask<String, String, String> {
         StringBuilder result = new StringBuilder();
 
         try {
-            URL url = new URL("http://192.168.1.10/appdata/elp1rv/town_array.php");
+            URL url = new URL(MCCP2App.HOST_URL + "town_array.php");
 
             urlConnection = (HttpURLConnection) url.openConnection();
             InputStream in = new BufferedInputStream(urlConnection.getInputStream());
