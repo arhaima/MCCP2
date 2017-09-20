@@ -127,6 +127,7 @@ public class FillFormActivity extends AppCompatActivity {
         // mc101date.setMinDate(new Date().getTime()-TimeUnit.DAYS.toMillis(1));
 
 
+
         // Cluster Number (mc105cluster) Validation onFocusChange
         /*mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -179,10 +180,12 @@ public class FillFormActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                //    Toast.makeText(FillFormActivity.this, s+" "+start+" "+before+" "+count, Toast.LENGTH_SHORT).show();
-                //    if (s.length() == 6) {
+                // Toast.makeText(FillFormActivity.this, s+" "+start+" "+before+" "+count, Toast.LENGTH_SHORT).show();
+                //  if (s.length() == 7) {
                 clusterList = db.getClustersByUC(LoginActivity.UC_ID);
+                Log.d(TAG, "onTextChanged: " + clusterList.size());
                 for (ClustersContract UC : clusterList) {
+                    Log.d(TAG, "onTextChanged: " + UC.getClusterCode() + UC.getClusterName());
                     if (UC.getClusterCode().equals(mc105cluster.getText().toString())) {
                         mc105clusterNm.setText(UC.getClusterName());
                         mc105cluster.setError(null);
@@ -194,14 +197,14 @@ public class FillFormActivity extends AppCompatActivity {
                 }
                 mc105clusterNm.setVisibility(View.VISIBLE);
             }
-            //   }
+            //  }
 
             @Override
             public void afterTextChanged(Editable s) {
 
             }
         });
-        mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+       /* mc105cluster.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
                 if (!hasFocus) {
@@ -224,7 +227,7 @@ public class FillFormActivity extends AppCompatActivity {
 
                 }
             }
-        });
+        });*/
 
         mc108permission.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -333,24 +336,8 @@ public class FillFormActivity extends AppCompatActivity {
         {
             if (mc105cluster.getError() != null) {
                 return false;
-            }
         }
-
-        clusterList = db.getClustersByUC(LoginActivity.UC_ID);
-        for (ClustersContract UC : clusterList) {
-            if (UC.getClusterCode().equals(mc105cluster.getText().toString())) {
-                mc105clusterNm.setText(UC.getClusterName());
-                mc105cluster.setError(null);
-                break;
-            } else {
-                mc105clusterNm.setText("Invalid Cluster Number!");
-                mc105cluster.setError("Invalid Cluster Number!");
-            }
         }
-
-
-
-
 
         if (mcExt.getSelectedItemPosition() == 0) {
             TextView errorText = (TextView) mcExt.getSelectedView();
@@ -420,6 +407,7 @@ public class FillFormActivity extends AppCompatActivity {
         Log.d(TAG, "mcFrmNo: " + mcFrmNo);
         FORM_ID = mcFrmNo;
         return mcFrmNo;
+
     }
 
     private void StoreTempValues() {
@@ -448,6 +436,7 @@ public class FillFormActivity extends AppCompatActivity {
         editor.putString("spRem1", mcrem1.getText().toString());
 
         //To Retrieve: double latitude = Double.longBitsToDouble(prefs.getLong("Latitude", 0);
+
 
 /*
         editor.putString("sp104", mc104uc.getText().toString());
